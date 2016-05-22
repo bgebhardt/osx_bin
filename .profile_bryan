@@ -7,7 +7,7 @@
 #TODO: merge this with ~/bin/.bash_profile (?)
 
 #set path to include my bin and the developer tools
-export PATH=~/bin:/usr/local/sbin:/usr/local/bin:/Xcode3/Developer/usr/bin:/Developer/Tools:$PATH:/usr/local/mysql/bin:/usr/local/graphviz-2.14/bin:/Applications/splunk/bin:/Library/Wireshark:/usr/local/share/npm/bin
+export PATH=~/bin:~/bin/git-extra-commands/bin:/usr/local/sbin:/usr/local/bin:/Xcode3/Developer/usr/bin:/Developer/Tools:$PATH:/usr/local/mysql/bin:/usr/local/graphviz-2.14/bin:/Applications/splunk/bin:/Library/Wireshark:/usr/local/share/npm/bin
 
 # ======================================================
 # set shell options
