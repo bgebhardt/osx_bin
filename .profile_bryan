@@ -1,0 +1,295 @@
+# File is based on original .tcshrc file.  Updated for bash on 11/6/04.
+
+#TODO: figure why sourcing this file doesn't work.
+
+#TODO: .profile is really for sh; move all bash specific stuff to .bash_profile
+#and source .profile.
+
+#stty eol ^@ stty eol2 ^@ stty swtch ^@ stty erase ^H
+
+#set path to include my bin and the developer tools
+export PATH=~/bin:/usr/local/sbin:/usr/local/bin:/Xcode3/Developer/usr/bin:/Developer/Tools:$PATH:/usr/local/mysql/bin:/usr/local/graphviz-2.14/bin:/Applications/splunk/bin:/Library/Wireshark:/usr/local/share/npm/bin
+
+# 3-10-08: Local install of the very cool tool splunk.
+# http://bryan-df-laptop.local:8000/
+export SPLUNK_HOME=/Applications/splunk/
+
+#### set shell options ####
+
+# fix minor spelling mistakes
+shopt -s cdspell
+# If set, Bash allows filename patterns which match no files to expand to a
+# null string, rather than themselves
+shopt -s nocaseglob
+
+
+#### set "set" options ####
+
+# set redirction to not overwrite existing files
+# same as noclobber
+set -C
+
+# Cause the status of terminated background jobs to be reported immediately,
+# rather than before printing the next primary prompt.
+# same as notify option
+set -b
+
+#set the prompt up includes: history, hostname, up to 3 directories, user name
+#PS1="[\h: \W] \u(\!)$"
+# colorized version of the prompt with host name and path in title
+PS1='\[\e]2;${HOSTNAME} - ${PWD}\a\]\[\e[0;0m\][\h: \W] \[\e[0;37m\]\u(\!) \[\e[0;0m\]$'
+#PS1="[%m:%c03] %n(%h)%#" tcshrc version
+
+# removes duplicate commands from your history (added 7/19/03)
+#HISTCONTROL='ignoredups'
+HISTIGNORE="&" #alternate more flexible bash feature
+
+# History related items added 7/1/08 -- see http://blog.macromates.com/2008/working-with-history-in-bash/
+#export HISTCONTROL=erasedups
+export HISTSIZE=10000
+shopt -s histappend
+
+# TODO: figure out HOSTFILE variable for host name completion
+
+# Controls the action of the shell on receipt of an EOF character as the sole
+# input. If set, the value denotes the number of consecutive EOF characters
+# that can be read as the first character on an input line before the shell
+# will exit. If the variable exists but does not have a numeric value (or has
+# no value) then the default is 10. If the variable does not exist, then EOF
+# signifies the end of input to the shell. This is only in effect for
+# interactive shells.
+IGNOREEOF=""
+
+# shell variable to ignore .o files and ~ files
+FIGNORE=".o:~"
+
+# TODO: To test if interactive shell.  Is this needed?
+# if [ -z "$PS1" ]; then
+#         echo This shell is not interactive
+# else
+#         echo This shell is interactive
+# fi
+
+
+#TODO: figure out how to set up .inputrc Readline file.
+# can use to do more types of completion, etc.
+
+#=========
+
+# TODO: sort through.  .tcshrc stuff with no equiv
+#correct=cmd 
+#cdpath=(~) 
+# adds color to ls and ls-F cmds
+#color 
+# auto corrects spelling
+#autocorrect = spelling-correct 
+
+# sets up file completion.  From man page:
+# If the complete shell variable is set to  `enhance',  com-
+# pletion  1) ignores case and 2) considers periods, hyphens
+# and underscores (`.', `-' and `_') to be  word  separators
+# and  hyphens and underscores to be equivalent.  If you had
+#complete=enhance 
+
+# rule to do completions for cvs
+#complete cvs 'p/1/(add admin annotate checkout commit diff \
+#edit editors export history import init log \
+#login rdiff release remove rtag \
+#status tag unedit update watch)/'
+
+# set up completion hosts
+#COMPLETION_HOSTS="wicket winkops1 chewie terrance tiberius login-01 mtvfs01 mango palpatine endor einstein" 
+
+# rule to do completions for ssh and telnet and my telnet alias
+#complete ssh "p/1/($COMPLETION_HOSTS)/"
+#complete telnet "p/1/($COMPLETION_HOSTS)/"
+#complete t "p/1/($COMPLETION_HOSTS)/"
+
+# prints the exit value of a program if it is non-zero
+#printexitvalue 
+
+#=========
+
+# enable colors in terminal -- 11/8/03
+export TERM="xterm-color" 
+export CLICOLOR="true" 
+export LSCOLORS="gxfxcxdxbxegedabagacad" 
+
+# Docs on how to set LSCOLORS
+# from http://www.macosxhints.com/article.php?story=20031025162727485
+# The colors can be set with the LSCOLORS variable. The color designators are as follows:
+# a     black 
+# b     red 
+# c     green 
+# d     brown 
+# e     blue 
+# f     magenta 
+# g     cyan 
+# h     light grey 
+# A     bold black, usually shows up as dark grey 
+# B     bold red 
+# C     bold green 
+# D     bold brown, usually shows up as yellow 
+# E     bold blue 
+# F     bold magenta 
+# G     bold cyan 
+# H     bold light grey; looks like bright white 
+# x     default foreground or background 
+
+# Note that the above are standard ANSI colors. The actual display may differ depending on the color capabilities of the terminal in use. The order of the attributes in the LSCOLORS variable is as follows:
+# directory
+# symbolic link
+# socket
+# pipe
+# executable
+# block special
+# character special
+# executable with setuid bit set
+# executable with setgid bit set
+# directory writable to others, with sticky bit
+# directory writable to others, without sticky bit
+# They are set in pairs, foreground (f) then background (b), i.e. fbfbfbfbfbfbfbfbfbfbfb for all 11 settings. The default is exfxcxdxbxegedabagacad, i.e. blue foreground and default background for regular directories, black foreground and red background for setuid executables, etc.
+
+#TODO: fix this
+if [ -r "~/bin/.alias_bash.sh" ]; then 
+    source ~/bin/.alias_bash
+fi
+# workaround
+source ~/bin/.alias_bash.sh
+
+# use the built in ls in .tcsh.  This won't work for other shells.
+#alias l="ls-F"
+
+# this env variable sets the colors for ls-F
+export LS_COLORS="di=01;33" 
+
+# set up your xdisplay
+export DISPLAY="localhost:0.0"
+
+# CVS stuff
+export CVSEDITOR="mate -w" 
+export CVS_RSH="ssh" 
+
+#local CVSROOT
+#export CVSROOT="/Users/bryan/Development/Projects/cvsroot"
+export CVSROOT=":pserver:bgebhardt@cvs:/var/cvs"
+
+# Wink CVSROOT
+#export CVSROOT=:pserver:bryan@cvs/cvs-engr 
+
+# SVN stuff
+export SVN_EDITOR="~/.subversion/svn-commit.sh"
+
+# my preferred editor
+export EDITOR="mate -w"
+
+# line to enable fink
+#source /sw/bin/init.sh
+# use this one until fink is fixed. This one flips the paths.  
+#  --Bryan 9/1/02
+# re-enabled it on 10/2/02.  Installed a development version of fink
+
+#actually all I need is the path to get some cool programs that still work.
+#set path = ( $path /sw/bin /sw/sbin /usr/X11R6/bin )
+
+# use this so I can open X apps from Terminal into Apple's X11 X server.
+export DISPLAY=":0.0" 
+
+# disabled this on 9-9-12
+# set Apple's terminal title
+#export WHOAMI="`whoami`"
+#export HOSTNAME="`hostname`"
+
+# TODO: fix this
+#if ($?TERM_PROGRAM); then
+#   if ("$TERM_PROGRAM" == "Apple_Terminal"); then
+#alias precmd='echo -n "]2;[$WHOAMI@$HOSTNAME]"'; 
+#   fi
+#fi
+
+# SSH doesn't pass TERM_PROGRAM, so use term instead.
+#if ($?TERM); then
+#   if ("$TERM" == "vt100"); then
+#alias precmd='echo -n "]2;[$WHOAMI@$HOSTNAME]"';
+#   fi
+#fi
+
+# end - setting Apple's terminal title
+
+# Source the Locomotive Ruby environemnt.
+# added 12-17-07
+# removed on 1-8-08 -- moving to Leopard and Rails 2.0
+#source ~/.profile_locomotive
+
+# Add MacPorts to man path --added 1/10/08
+# Add local man director man path --added 1/31/08
+export MANPATH=~/man/:/opt/local/man/:$MANPATH
+
+# COMMENTING OUT TO SEE IF IT SPEEDS UP SHELL START UP.  IT DOES!
+
+# auto completion rule for gemedit
+# http://gemedit.rubyforge.org/
+#complete -C "/usr/bin/gemedit --complete" gemedit
+
+# To gain quick bash access to your rdocs
+# Example usage: gemdoc <gem name>
+# From this tip: http://stephencelis.com/archive/2008/6/bashfully-yours-gem-shortcuts
+# gemdoc() {
+#   local gemdir=`gem env gemdir`
+#   open $gemdir/doc/`ls $gemdir/doc/ | grep $1 | sort | tail -1`/rdoc/index.html
+# }
+# 
+# _gemdocomplete() {
+#   COMPREPLY=($(compgen -W '$(ls `gem env gemdir`/doc)' -- ${COMP_WORDS[COMP_CWORD]}))
+#   return 0
+# }
+# 
+# complete -o default -o nospace -F _gemdocomplete gemdoc
+##
+# Your previous /Users/bgebhardt/.profile file was backed up as /Users/bgebhardt/.profile.macports-saved_2012-04-08_at_09:29:02
+##
+
+# MacPorts Installer addition on 2012-04-08_at_09:29:02: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
+export PROMPT_COMMAND="${PROMPT_COMMAND} ${PROMPT_TITLE}; "
+
+
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# set up STS (Spring Eclipse) Home
+export STS_HOME="~/springsource/sts-3.4.0.RELEASE"
+
+# TODO: update this to Eclipse directory
+# export ECLIPSE_HOME="~/springsource/sts-3.4.0.RELEASE"
+
+
+#3. Finally, add Groovy to the path by editing your ~/.profile (or ~/.bash_profile) file. You can use vi or an editor of your choice:
+# export GROOVY_HOME=/usr/share/groovy/current
+# export PATH=$GROOVY_HOME/bin:$PATH
+
+# 4. Your JAVA_HOME variable should be set as well. On OS X, the recommended way to set the variable is as follows:
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+# echo "bash completion..."
+# enable bash completion.  Added 11-24-14
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
+echo "gvm init..."
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/Users/bgebhardt/.gvm/bin/gvm-init.sh" ]] && source "/Users/bgebhardt/.gvm/bin/gvm-init.sh"
+
+# Setting PATH for Python 3.4
+# The orginal version is saved in .profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
+export PATH
+
+# source iTerm2 version 3 shell integration script
+source ~/.iterm2_shell_integration.`basename $SHELL`
+
+echo "** ready **"
