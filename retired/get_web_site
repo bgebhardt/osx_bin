@@ -1,0 +1,42 @@
+#!/bin/sh
+
+# script that uses wget to grab a website to the specified directory
+# useful for offline browsing
+
+# args
+# 1 - url to grab
+# 2 - location to put files
+
+#default dest
+dest="/Volumes/Fozzie/Downloads/web_page_downloads"
+
+# too many arguements is an error
+if  [ $# -gt 2 ]; then
+	echo "Usage: $0 [url] <destination path>"
+	echo "  destination path defaults to $dest"
+	exit 1
+# if just 1 arguement then set the winNum
+elif [ $# -eq 2 ] ; then
+	dest=$2
+fi
+
+url=$1
+
+# cd to destination directory
+cd $dest
+
+# options to use
+#  -k, --convert-links: for local browsing
+#  -K, --backup-converted
+#  -E, html extension
+#  --level=depth : to limit # of levels
+#  --recursive
+#  -p --page-requisites: get more stuff than recursive and level
+#	for just one page use -p without -r and -l
+#  -i --input-file:  a list of urls to get
+#  -H span hosts
+#wget -E -k -K -p $url
+
+# append a new url to a text file in the dest directory
+echo "file://$dest/$url"  # redirect into a file
+# TODO: also need to to a regex on the url to chop off the first part

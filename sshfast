@@ -1,0 +1,16 @@
+#!/bin/zsh
+
+# simple script to work around dns slowness when ssh'ing
+# see http://www.macosxhints.com/article.php?story=20071221101005962&query=ssh%2Bslow
+
+destuser="${1%@*}"
+desthost="${1/*@}"
+shift
+ip=${$(host "$desthost")[4]}
+if [ "$destuser" = "$desthost" ]
+then
+       dest="$ip"
+else
+       dest="$destuser"@"$ip"
+fi
+exec /usr/bin/ssh "$dest" "$@"

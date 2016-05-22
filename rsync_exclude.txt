@@ -1,0 +1,32 @@
+# rsync exclude file for /Users/bryan
+# cmd to use:
+# /usr/bin/rsync -avnEze ssh --exclude-from="/Users/bryan/rsync_exclude.txt" /Users/bryan bryan@192.168.0.5:/Users/bryan
+# E = file attributes (labels, etc)
+# a = archive
+# n = dry run
+# e = use ssh
+# v = verbose
+# --progress = progress bar
+# -u, --update                update only (don't overwrite newer files) 
+# z = compress
+# TODO: fine tune Library directory to get some of it copied
+
+# directories to exclude
+- /Music/iTunes/iTunes Music
+- /Pictures/iPhoto Library/
+- /.Trash/
+
+# don't copy the VPC image in this directory
+- /Documents/Virtual PC List/
+
+#- /Library/
+# /Library/ items to include
+#+ /Library/Calendars/
+#+ /Library/Mail/
+#+ /Library/Mail Downloads/
+#+ /Library/Preferences/com.apple.mail.plist
+#+ /Library/Safari/
+#+ /Library/Scripts/
+#+ /Library/Scripts (Disabled)/
+#+ /Library/Widgets/
+#+ /Library/iTunes/
