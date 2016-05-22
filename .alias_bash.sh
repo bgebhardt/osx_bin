@@ -28,6 +28,11 @@ alias pico=nano
 
 alias odd1="od --width=8 -t d1"
 
+# Open specified files in Markdown Pro for markdown editing
+# "s ." will open the current directory in Sublime
+alias md='open -a "Markdown Pro"'
+
+
 # dirs -l is faster than pwd in C-shell
 #alias pwd="dirs -l"
 
