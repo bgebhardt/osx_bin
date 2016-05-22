@@ -134,6 +134,7 @@ brew install gcc
 brew install gdbm
 brew install gettext
 brew install git
+brew install git-extras
 brew install glib
 brew install gmp
 brew install gnu-sed
