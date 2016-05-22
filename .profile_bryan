@@ -2,11 +2,6 @@
 
 #TODO: figure why sourcing this file doesn't work.
 
-#TODO: .profile is really for sh; move all bash specific stuff to .bash_profile
-#and source .profile.
-
-#stty eol ^@ stty eol2 ^@ stty swtch ^@ stty erase ^H
-
 #set path to include my bin and the developer tools
 export PATH=~/bin:/usr/local/sbin:/usr/local/bin:/Xcode3/Developer/usr/bin:/Developer/Tools:$PATH:/usr/local/mysql/bin:/usr/local/graphviz-2.14/bin:/Applications/splunk/bin:/Library/Wireshark:/usr/local/share/npm/bin
 
@@ -21,7 +16,6 @@ shopt -s cdspell
 # If set, Bash allows filename patterns which match no files to expand to a
 # null string, rather than themselves
 shopt -s nocaseglob
-
 
 #### set "set" options ####
 
@@ -63,14 +57,6 @@ IGNOREEOF=""
 # shell variable to ignore .o files and ~ files
 FIGNORE=".o:~"
 
-# TODO: To test if interactive shell.  Is this needed?
-# if [ -z "$PS1" ]; then
-#         echo This shell is not interactive
-# else
-#         echo This shell is interactive
-# fi
-
-
 #TODO: figure out how to set up .inputrc Readline file.
 # can use to do more types of completion, etc.
 
@@ -96,14 +82,6 @@ FIGNORE=".o:~"
 #edit editors export history import init log \
 #login rdiff release remove rtag \
 #status tag unedit update watch)/'
-
-# set up completion hosts
-#COMPLETION_HOSTS="wicket winkops1 chewie terrance tiberius login-01 mtvfs01 mango palpatine endor einstein" 
-
-# rule to do completions for ssh and telnet and my telnet alias
-#complete ssh "p/1/($COMPLETION_HOSTS)/"
-#complete telnet "p/1/($COMPLETION_HOSTS)/"
-#complete t "p/1/($COMPLETION_HOSTS)/"
 
 # prints the exit value of a program if it is non-zero
 #printexitvalue 
@@ -150,6 +128,10 @@ export LSCOLORS="gxfxcxdxbxegedabagacad"
 # directory writable to others, without sticky bit
 # They are set in pairs, foreground (f) then background (b), i.e. fbfbfbfbfbfbfbfbfbfbfb for all 11 settings. The default is exfxcxdxbxegedabagacad, i.e. blue foreground and default background for regular directories, black foreground and red background for setuid executables, etc.
 
+# 05-22-2016: overrridden by bashstrap config nowa
+#PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
+#export PROMPT_COMMAND="${PROMPT_COMMAND} ${PROMPT_TITLE}; "
+
 #TODO: fix this
 if [ -r "~/bin/.alias_bash.sh" ]; then 
     source ~/bin/.alias_bash
@@ -157,106 +139,17 @@ fi
 # workaround
 source ~/bin/.alias_bash.sh
 
-# use the built in ls in .tcsh.  This won't work for other shells.
-#alias l="ls-F"
-
 # this env variable sets the colors for ls-F
 export LS_COLORS="di=01;33" 
 
 # set up your xdisplay
 export DISPLAY="localhost:0.0"
 
-# CVS stuff
-export CVSEDITOR="mate -w" 
-export CVS_RSH="ssh" 
-
-#local CVSROOT
-#export CVSROOT="/Users/bryan/Development/Projects/cvsroot"
-export CVSROOT=":pserver:bgebhardt@cvs:/var/cvs"
-
-# Wink CVSROOT
-#export CVSROOT=:pserver:bryan@cvs/cvs-engr 
-
 # SVN stuff
-export SVN_EDITOR="~/.subversion/svn-commit.sh"
+export SVN_EDITOR="mate -w"
 
 # my preferred editor
 export EDITOR="mate -w"
-
-# line to enable fink
-#source /sw/bin/init.sh
-# use this one until fink is fixed. This one flips the paths.  
-#  --Bryan 9/1/02
-# re-enabled it on 10/2/02.  Installed a development version of fink
-
-#actually all I need is the path to get some cool programs that still work.
-#set path = ( $path /sw/bin /sw/sbin /usr/X11R6/bin )
-
-# use this so I can open X apps from Terminal into Apple's X11 X server.
-export DISPLAY=":0.0" 
-
-# disabled this on 9-9-12
-# set Apple's terminal title
-#export WHOAMI="`whoami`"
-#export HOSTNAME="`hostname`"
-
-# TODO: fix this
-#if ($?TERM_PROGRAM); then
-#   if ("$TERM_PROGRAM" == "Apple_Terminal"); then
-#alias precmd='echo -n "]2;[$WHOAMI@$HOSTNAME]"'; 
-#   fi
-#fi
-
-# SSH doesn't pass TERM_PROGRAM, so use term instead.
-#if ($?TERM); then
-#   if ("$TERM" == "vt100"); then
-#alias precmd='echo -n "]2;[$WHOAMI@$HOSTNAME]"';
-#   fi
-#fi
-
-# end - setting Apple's terminal title
-
-# Source the Locomotive Ruby environemnt.
-# added 12-17-07
-# removed on 1-8-08 -- moving to Leopard and Rails 2.0
-#source ~/.profile_locomotive
-
-# Add MacPorts to man path --added 1/10/08
-# Add local man director man path --added 1/31/08
-export MANPATH=~/man/:/opt/local/man/:$MANPATH
-
-# COMMENTING OUT TO SEE IF IT SPEEDS UP SHELL START UP.  IT DOES!
-
-# auto completion rule for gemedit
-# http://gemedit.rubyforge.org/
-#complete -C "/usr/bin/gemedit --complete" gemedit
-
-# To gain quick bash access to your rdocs
-# Example usage: gemdoc <gem name>
-# From this tip: http://stephencelis.com/archive/2008/6/bashfully-yours-gem-shortcuts
-# gemdoc() {
-#   local gemdir=`gem env gemdir`
-#   open $gemdir/doc/`ls $gemdir/doc/ | grep $1 | sort | tail -1`/rdoc/index.html
-# }
-# 
-# _gemdocomplete() {
-#   COMPREPLY=($(compgen -W '$(ls `gem env gemdir`/doc)' -- ${COMP_WORDS[COMP_CWORD]}))
-#   return 0
-# }
-# 
-# complete -o default -o nospace -F _gemdocomplete gemdoc
-##
-# Your previous /Users/bgebhardt/.profile file was backed up as /Users/bgebhardt/.profile.macports-saved_2012-04-08_at_09:29:02
-##
-
-# MacPorts Installer addition on 2012-04-08_at_09:29:02: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
-
-PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
-export PROMPT_COMMAND="${PROMPT_COMMAND} ${PROMPT_TITLE}; "
-
-
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
@@ -265,7 +158,6 @@ export STS_HOME="~/springsource/sts-3.4.0.RELEASE"
 
 # TODO: update this to Eclipse directory
 # export ECLIPSE_HOME="~/springsource/sts-3.4.0.RELEASE"
-
 
 #3. Finally, add Groovy to the path by editing your ~/.profile (or ~/.bash_profile) file. You can use vi or an editor of your choice:
 # export GROOVY_HOME=/usr/share/groovy/current
