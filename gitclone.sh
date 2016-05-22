@@ -1,4 +1,4 @@
-#!/usr/bin/env 
+#!/bin/bash
 
 # tools to clone from git into the bin directory.
 
