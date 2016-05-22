@@ -1,15 +1,17 @@
+# ======================================================
+# BASH DEVELOPMENT ENVIRONMENT and OTHER SET UP
+# ======================================================
+
 # File is based on original .tcshrc file.  Updated for bash on 11/6/04.
 
-#TODO: figure why sourcing this file doesn't work.
+#TODO: merge this with ~/bin/.bash_profile (?)
 
 #set path to include my bin and the developer tools
 export PATH=~/bin:/usr/local/sbin:/usr/local/bin:/Xcode3/Developer/usr/bin:/Developer/Tools:$PATH:/usr/local/mysql/bin:/usr/local/graphviz-2.14/bin:/Applications/splunk/bin:/Library/Wireshark:/usr/local/share/npm/bin
 
-# 3-10-08: Local install of the very cool tool splunk.
-# http://bryan-df-laptop.local:8000/
-export SPLUNK_HOME=/Applications/splunk/
-
-#### set shell options ####
+# ======================================================
+# set shell options
+# ======================================================
 
 # fix minor spelling mistakes
 shopt -s cdspell
@@ -31,7 +33,7 @@ set -b
 #set the prompt up includes: history, hostname, up to 3 directories, user name
 #PS1="[\h: \W] \u(\!)$"
 # colorized version of the prompt with host name and path in title
-PS1='\[\e]2;${HOSTNAME} - ${PWD}\a\]\[\e[0;0m\][\h: \W] \[\e[0;37m\]\u(\!) \[\e[0;0m\]$'
+# PS1='\[\e]2;${HOSTNAME} - ${PWD}\a\]\[\e[0;0m\][\h: \W] \[\e[0;37m\]\u(\!) \[\e[0;0m\]$'
 #PS1="[%m:%c03] %n(%h)%#" tcshrc version
 
 # removes duplicate commands from your history (added 7/19/03)
@@ -60,33 +62,9 @@ FIGNORE=".o:~"
 #TODO: figure out how to set up .inputrc Readline file.
 # can use to do more types of completion, etc.
 
-#=========
-
-# TODO: sort through.  .tcshrc stuff with no equiv
-#correct=cmd 
-#cdpath=(~) 
-# adds color to ls and ls-F cmds
-#color 
-# auto corrects spelling
-#autocorrect = spelling-correct 
-
-# sets up file completion.  From man page:
-# If the complete shell variable is set to  `enhance',  com-
-# pletion  1) ignores case and 2) considers periods, hyphens
-# and underscores (`.', `-' and `_') to be  word  separators
-# and  hyphens and underscores to be equivalent.  If you had
-#complete=enhance 
-
-# rule to do completions for cvs
-#complete cvs 'p/1/(add admin annotate checkout commit diff \
-#edit editors export history import init log \
-#login rdiff release remove rtag \
-#status tag unedit update watch)/'
-
-# prints the exit value of a program if it is non-zero
-#printexitvalue 
-
-#=========
+# ======================================================
+# LSCOLORS set up
+# ======================================================
 
 # enable colors in terminal -- 11/8/03
 export TERM="xterm-color" 
@@ -132,26 +110,15 @@ export LSCOLORS="gxfxcxdxbxegedabagacad"
 #PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
 #export PROMPT_COMMAND="${PROMPT_COMMAND} ${PROMPT_TITLE}; "
 
-#TODO: fix this
-if [ -r "~/bin/.alias_bash.sh" ]; then 
-    source ~/bin/.alias_bash
-fi
-# workaround
-source ~/bin/.alias_bash.sh
-
 # this env variable sets the colors for ls-F
 export LS_COLORS="di=01;33" 
 
 # set up your xdisplay
 export DISPLAY="localhost:0.0"
 
-# SVN stuff
-export SVN_EDITOR="mate -w"
-
-# my preferred editor
-export EDITOR="mate -w"
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# ======================================================
+# Set up development environment for Java and Python
+# ======================================================
 
 # set up STS (Spring Eclipse) Home
 export STS_HOME="~/springsource/sts-3.4.0.RELEASE"
@@ -180,6 +147,19 @@ echo "gvm init..."
 # The orginal version is saved in .profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
 export PATH
+
+# ======================================================
+# Other development environment set up
+# ======================================================
+
+# SVN stuff
+export SVN_EDITOR="mate -w"
+
+# my preferred editor
+export EDITOR="mate -w"
+
+# 05-22-2016: don't remember what this is
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # source iTerm2 version 3 shell integration script
 source ~/.iterm2_shell_integration.`basename $SHELL`
