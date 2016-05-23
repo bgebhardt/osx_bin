@@ -5,6 +5,20 @@ This sets up the bin directory and bash profile in the way I like it.  Special t
 * [mathiasbynens/dotfiles: .files, including ~/.osx — sensible hacker defaults for OS X]( https://github.com/mathiasbynens/dotfiles )
 * [alebcay/awesome-shell: A curated list of awesome command-line frameworks, toolkits, guides and gizmos. Inspired by awesome-php.]( https://github.com/alebcay/awesome-shell ) - great list of shell commands
 
+## Prerequisites
+**brew**
+Install brew from [Homebrew — The missing package manager for OS X]( http://brew.sh/ )
+
+```shell
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+**Java**
+Install Java from here: [Download Java for Mac OS X]( http://www.java.com/en/download/mac_download.jsp )
+
+> [How do I install Java for my Mac?]( https://www.java.com/en/download/help/mac_install.xml )
+
+
 ## Installation
 Make sure a ~/bin directory does not exist.  It will clone the repository to your home directory.
 
@@ -17,7 +31,7 @@ cp -i ~/bin/.bash_profile ~/
 cp -i ~/bin/.bashrc ~/
 ```
 
-Now clone in the tools you need. Some are refrenced by osx_bin
+Now clone in the tools you need. Some are referenced by osx_bin
 ```
 ~/bin/gitclone.sh
 chmod a+x ~/bin/bashstrap/z.sh # need to make sure this is executable
