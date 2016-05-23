@@ -106,7 +106,13 @@ brew install vbindiff
 brew install webkit2png
 brew install zopfli
 
+# install python and update pip
+brew install python
+pip install --upgrade pip
+pip install Pygments
+
 # other brew items I added 05-22-2016
+# TODO: remove dupes from this list
 brew install ansible
 brew install asciidoc
 brew install boot2docker
@@ -182,7 +188,6 @@ brew install pandoc
 brew install pcre
 brew install pixman
 brew install pkg-config
-brew install python
 brew install qt
 brew install r
 brew install r-gui
