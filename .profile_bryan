@@ -162,6 +162,6 @@ export EDITOR="mate -w"
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # source iTerm2 version 3 shell integration script
-source ~/.iterm2_shell_integration.`basename $SHELL`
+source ~/bin/.iterm2_shell_integration.`basename $SHELL`
 
 echo "** ready **"
