@@ -18,6 +18,18 @@ Install Java from here: [Download Java for Mac OS X]( http://www.java.com/en/dow
 
 > [How do I install Java for my Mac?]( https://www.java.com/en/download/help/mac_install.xml )
 
+**JDK**
+You also need the Java Development Kit (JDK) at [Java SE Development Kit 8 - Downloads]( http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html )
+
+
+**Python**
+Install Python with brew.  Also installed by brew.sh.
+
+```shell
+brew install python
+pip install --upgrade pip # upgrade pip while you're at it
+pip install Pygments
+```
 
 ## Installation
 Make sure a ~/bin directory does not exist.  It will clone the repository to your home directory.
