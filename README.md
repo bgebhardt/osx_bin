@@ -19,7 +19,7 @@ cp -i ~/bin/.bashrc ~/
 
 Now clone in the tools you need. Some are refrenced by osx_bin
 ```
-~/.bin/gitclone.sh
+~/bin/gitclone.sh
 chmod a+x ~/bin/bashstrap/z.sh # need to make sure this is executable
 ```
 
