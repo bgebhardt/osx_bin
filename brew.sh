@@ -219,6 +219,9 @@ brew install zsh-completions
 brew install zsh-history-substring-search
 brew install zsh-lovers
 brew install zsh-syntax-highlighting
+brew install tcpstat
+brew install tcptrack
+brew install ssldump
 
 # Remove outdated versions from the cellar.
 brew cleanup
