@@ -8,4 +8,7 @@ git clone https://github.com/facebook/PathPicker.git ~/bin/PathPicker
 git clone https://github.com/wickett/curl-trace.git ~/bin/curl-trace
 git clone https://github.com/unixorn/git-extra-commands.git ~/bin/git-extra-commands
 
+[joeyh/myrepos: Multiple Repository management tool]( https://github.com/joeyh/myrepos )
+git clone https://github.com/joeyh/myrepos.git ~/bin/myrepos
+
 echo "gitclone.sh: Installation complete."
