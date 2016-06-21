@@ -223,6 +223,7 @@ brew install tcpstat
 brew install tcptrack
 brew install ssldump
 brew install fetchmail
+brew install procmail
 
 # Remove outdated versions from the cellar.
 brew cleanup
