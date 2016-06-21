@@ -222,6 +222,7 @@ brew install zsh-syntax-highlighting
 brew install tcpstat
 brew install tcptrack
 brew install ssldump
+brew install fetchmail
 
 # Remove outdated versions from the cellar.
 brew cleanup
