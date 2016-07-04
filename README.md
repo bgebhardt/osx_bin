@@ -35,6 +35,8 @@ pip install --upgrade pip # upgrade pip while you're at it
 pip install Pygments
 ```
 
+You can also install Python from its downloadable installer at [Download Python at Python.org]( https://www.python.org/downloads/ )
+
 ## Installation
 Make sure a ~/bin directory does not exist.  It will clone the repository to your home directory.
 
