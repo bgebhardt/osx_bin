@@ -64,3 +64,11 @@ Install common brew tools.
 ~/.bin/brew.sh 
 ```
 > This will take quite a while.
+
+Install common python packages and tools.
+```
+~/.bin/python.sh 
+```
+> This will take quite a while.
+
+
