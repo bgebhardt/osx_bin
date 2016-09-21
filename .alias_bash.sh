@@ -163,3 +163,5 @@ alias git-pull-all=git-pull-all-func
 # recommended curl output from https://github.com/wickett/curl-trace
 alias curl-trace='curl -w "@/Users/bgebhardt/bin/curl-trace/templates/.curl-format" -o /dev/null -s'
 
+alias maven="mvn"
+
