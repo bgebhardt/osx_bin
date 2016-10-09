@@ -171,8 +171,6 @@ brew install libtool
 brew install libyaml
 brew install logstash
 brew install lynx
-brew install maven
-brew install maven-completion
 brew install memcached
 brew install mongodb
 brew install moreutils
@@ -228,6 +226,28 @@ brew install procmail
 # 09-04-2016 added to make EmptyEpsilon work
 # https://github.com/oznogon/EmptyEpsilon/issues/7
 brew install sfml
+
+# 10-09-2016 added...
+
+# Development tools
+brew install eclipse-jee       # Eclipse IDE for Java EE Developers
+brew install sts              # Spring Tool Suite
+#brew install intellij-idea-ce # IntelliJ IDEA Community Edition
+#brew install intellij-idea    # IntelliJ IDEA Enterprise Edition
+
+brew install gradle           # Build system based on the Groovy language
+brew install groovy           # Groovy: a Java-based scripting language
+brew install maven             # Java-based project management
+brew install maven-completion  # maven-bash-completion
+
+brew install jenkins            # CI Server
+brew install sonar              # Static Code Analysis Tool
+ 
+brew install docker-machine     # installs Docker, then configures the Docker client to talk to them
+brew install docker-compose     # tool for defining and running multi-container applications with Docker
+brew install docker-swarm       # Turn a pool of Docker hosts into a single, virtual host
+brew install docker-completion  # Shell completion for Docker
+brew install vagrant-completion # Shell completion for Vagrant
 
 # Remove outdated versions from the cellar.
 brew cleanup
