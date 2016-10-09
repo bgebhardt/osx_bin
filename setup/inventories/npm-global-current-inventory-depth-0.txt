@@ -1,0 +1,11 @@
+/usr/local/lib
+├── bower@1.6.5
+├── eslint@3.1.0
+├── git-open@1.0.2
+├── grunt-cli@0.1.13
+├── http-server@0.9.0
+├── jshint@2.9.2
+├── nestor@0.3.3
+├── npm@3.9.5
+└── reapp@0.8.28
+

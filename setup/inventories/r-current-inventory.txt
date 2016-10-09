@@ -1,0 +1,111 @@
+Packages in library ‘/Library/Frameworks/R.framework/Versions/3.2/Resources/library’:
+
+assertthat              Easy pre and post assertions.
+base                    The R Base Package
+BH                      Boost C++ Header Files
+bitops                  Bitwise Operations
+boot                    Bootstrap Functions (Originally by Angelo Canty
+                        for S)
+caTools                 Tools: moving window statistics, GIF, Base64,
+                        ROC AUC, etc.
+chron                   Chronological Objects which can Handle Dates
+                        and Times
+class                   Functions for Classification
+cluster                 "Finding Groups in Data": Cluster Analysis
+                        Extended Rousseeuw et al.
+codetools               Code Analysis Tools for R
+colorspace              Color Space Manipulation
+compiler                The R Compiler Package
+datasets                The R Datasets Package
+DBI                     R Database Interface
+dichromat               Color Schemes for Dichromats
+digest                  Create Cryptographic Hash Digests of R Objects
+doBy                    Groupwise statistics, LSmeans, linear
+                        contrasts, utilities
+dplyr                   A Grammar of Data Manipulation
+evaluate                Parsing and Evaluation Tools that Provide More
+                        Details than the Default
+forecast                Forecasting Functions for Time Series and
+                        Linear Models
+foreign                 Read Data Stored by Minitab, S, SAS, SPSS,
+                        Stata, Systat, Weka, dBase, ...
+formatR                 Format R Code Automatically
+fracdiff                Fractionally differenced ARIMA aka
+                        ARFIMA(p,d,q) models
+gdata                   Various R Programming Tools for Data
+                        Manipulation
+ggplot2                 An Implementation of the Grammar of Graphics
+graphics                The R Graphics Package
+grDevices               The R Graphics Devices and Support for Colours
+                        and Fonts
+grid                    The Grid Graphics Package
+gsubfn                  Utilities for strings and function arguments.
+gtable                  Arrange grobs in tables.
+gtools                  Various R Programming Tools
+highr                   Syntax Highlighting for R Source Code
+htmltools               Tools for HTML
+KernSmooth              Functions for Kernel Smoothing Supporting Wand
+                        & Jones (1995)
+knitr                   A General-Purpose Package for Dynamic Report
+                        Generation in R
+labeling                Axis Labeling
+lattice                 Trellis Graphics for R
+lazyeval                Lazy (Non-Standard) Evaluation
+lubridate               Make dealing with dates a little easier
+magrittr                A Forward-Pipe Operator for R
+markdown                'Markdown' Rendering for R
+MASS                    Support Functions and Datasets for Venables and
+                        Ripley's MASS
+Matrix                  Sparse and Dense Matrix Classes and Methods
+memoise                 Memoise functions
+methods                 Formal Methods and Classes
+mgcv                    Mixed GAM Computation Vehicle with GCV/AIC/REML
+                        Smoothness Estimation
+mime                    Map Filenames to MIME Types
+mnormt                  The Multivariate Normal and t Distributions
+munsell                 Munsell colour system
+nlme                    Linear and Nonlinear Mixed Effects Models
+nnet                    Feed-Forward Neural Networks and Multinomial
+                        Log-Linear Models
+openxlsx                Read, Write and Edit XLSX Files
+parallel                Support for Parallel computation in R
+plyr                    Tools for Splitting, Applying and Combining
+                        Data
+proto                   Prototype object-based programming
+psych                   Procedures for Psychological, Psychometric, and
+                        Personality Research
+quadprog                Functions to solve Quadratic Programming
+                        Problems.
+R6                      Classes with Reference Semantics
+RColorBrewer            ColorBrewer Palettes
+Rcpp                    Seamless R and C++ Integration
+RcppArmadillo           'Rcpp' Integration for the 'Armadillo'
+                        Templated Linear Algebra Library
+reshape2                Flexibly Reshape Data: A Reboot of the Reshape
+                        Package.
+rJava                   Low-Level R to Java Interface
+rmarkdown               Dynamic Documents for R
+rpart                   Recursive Partitioning and Regression Trees
+RSQLite                 SQLite Interface for R
+scales                  Scale Functions for Visualization
+spatial                 Functions for Kriging and Point Pattern
+                        Analysis
+splines                 Regression Spline Functions and Classes
+sqldf                   Perform SQL Selects on R Data Frames
+stats                   The R Stats Package
+stats4                  Statistical Functions using S4 Classes
+stringi                 Character String Processing Facilities
+stringr                 Simple, Consistent Wrappers for Common String
+                        Operations
+survival                Survival Analysis
+tcltk                   Tcl/Tk Interface
+timeDate                Rmetrics - Chronological and Calendar Objects
+tools                   Tools for Package Development
+tseries                 Time Series Analysis and Computational Finance
+utils                   The R Utils Package
+xlsx                    Read, write, format Excel 2007 and Excel
+                        97/2000/XP/2003 files
+xlsxjars                Package required POI jars for the xlsx package
+yaml                    Methods to convert R data to YAML and back
+zoo                     S3 Infrastructure for Regular and Irregular
+                        Time Series (Z's Ordered Observations)
