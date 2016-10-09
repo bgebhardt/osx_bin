@@ -61,14 +61,24 @@ chmod a+x ~/bin/bashstrap/z.sh # need to make sure this is executable
 ## Install other tools
 Install common brew tools.
 ```
-~/.bin/brew.sh 
+~/.bin/setup/brew.sh 
 ```
 > This will take quite a while.
 
 Install common python packages and tools.
 ```
-~/.bin/python.sh 
+~/.bin/setup/python.sh 
+```
+> This will take quite a while.
+
+Install common node npm packages and tools.
+```
+~/.bin/setup/npm.sh 
 ```
 > This will take quite a while.
 
 
+**TODO**
+
+* create a setup script for r.  Currently just have a list of all R modules I have installed.
+* create python virtualenv setups
