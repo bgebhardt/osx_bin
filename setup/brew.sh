@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# My brew.sh of all the brew tools I isntall by default. (05-22-2016)
+# My brew.sh of all the brew tools I install by default. (05-22-2016)
 # Inpsired by dotfiles at https://github.com/mathiasbynens/dotfiles.git
 
 # Install command-line tools using Homebrew.
