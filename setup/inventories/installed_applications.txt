@@ -2,133 +2,130 @@
 # created list with:
 # ls -R -1 | grep ".app$" > ~/bin/setup/installed_applications.txt
 
-1Password 6.app
+# commented out lines have confirmed brew casks
+
+#1Password 6.app
 AT&T Locker.app
-Adobe Acrobat Reader DC.app
+#Adobe Acrobat Reader DC.app
 AirRadar.app
 Alarm Clock Pro.app
 Alinof Timer.app
-Amazon Music.app
+#Amazon Music.app
 Aperture.app
 App Store.app
 AppDelete.app
 Apple Configurator.app
 Apple Directory.app
-AppleConnect.app
 Art Text 2.app
 Automator.app
 Avaya one-X Communicator.app
 Backup Guru LE.app
-Bartender 2.app
-Bartender.app
-Base.app
-Beamer.app
-Boom 2.app
-Brightness Slider.app
+#Bartender 2.app
+#Bartender.app
+#Base.app
+#Beamer.app
+#Boom 2.app
+#Brightness Slider.app
 BrowseShot.app
-BusyCal.app
-BusyContacts.app
-Caffeine.app
+#BusyCal.app
+#BusyContacts.app
+#Caffeine.app
 Calculator.app
 Calendar.app
 Chess.app
-Cobook.app
-CodeKit.app
-CodeRunner.app
-Compensation Planning.app
+Cobook.app # not supported
+#CodeKit.app
+#CodeRunner.app
 Compressor.app
 Condense.app
 Contacts.app
 Converto.app
-CrashPlan.app
+#CrashPlan.app
 CronniX.app
 CrossOver (14.1.11.28612).app
 CrossOver 15.app
 DVD Player.app
-DaisyDisk.app
-Dash.app
+#DaisyDisk.app
+#Dash.app
 Dashboard.app
-Default Folder X.app
-DeltaWalker.app
+#Default Folder X.app
+#DeltaWalker.app
 Dictionary.app
-Disk Drill.app
-Disk Sensei.app
-Divvy.app
-Dropbox.app
+#Disk Drill.app
+#Disk Sensei.app
+#Divvy.app
+#Dropbox.app
 Duplicate Cleaner For iPhoto.app
 Duplicates Expert.app
-Elmedia Player.app
+#Elmedia Player.app
 EmptyEpsilon.app
-Espresso.app
+#Espresso.app
 EtreCheck.app
-Evernote.app
+#Evernote.app
 Expresso.app
 FaceTime.app
-Fantastical.app
+#Fantastical.app
 Farensius Desktop.app
 Farensius.app
-FastScripts.app
+#FastScripts.app
 Final Cut Pro.app
-Firefox.app
+#Firefox.app
 Fireplace 3D.app
-Fluid.app
-Flux.app
+#Fluid.app
+#Flux.app
 Focus CK.app
 Font Book.app
-ForkLift.app
+#ForkLift.app
 Free Fonts - Christmas Collection.app
 Fresh.app
 Full Deck Solitaire.app
-FullContact.app
-GalaxyClient.app
+#FullContact.app
+#GalaxyClient.app
 Game Center.app
 GarageBand.app
 GoToMeeting.app
-Google Chrome.app
-Google Drive.app
+#Google Chrome.app
+#Google Drive.app
 Google Earth Pro.app
-Google Earth.app
+#Google Earth.app
 GrandPerspective.app
-GreenPine.app
 Growl.app
 Halloween Fonts.app
-Halo.app
 HipChat.app
 Hype2.app
 Icons8 App.app
 Image Capture.app
 Inpaint.app
 Install macOS Sierra.app
-Intensify Pro.app
+#Intensify Pro.app
 Intensify.app
 JSON Helper.app
-Key Codes.app
+#Key Codes.app
 Keynote.app
-Kindle.app
-Kiwi for Gmail.app
+#Kindle.app
+#Kiwi for Gmail.app
 LEGO MINDSTORMS EV3 Home Edition.app
 LMO.app
 Launchpad.app
 Lightning.app
-Little Snitch Configuration.app
+#Little Snitch Configuration.app
 Location Helper.app
 Logic Pro X.app
 Logo Pop Free.app
 MDB Explorer.app
 MacID.app
-MacPaw Gemini.app
-MacPilot.app
-MacUpdate Desktop.app
-Mactracker.app
+#MacPaw Gemini.app
+#MacPilot.app
+#MacUpdate Desktop.app
+#Mactracker.app
 Mail Plugin Manager.app
 Mail.app
-Mailplane 3.app
+#Mailplane 3.app
 Maps.app
 Markdown Pro.app
 Marko.app
-Merlin.app
 Messages.app
-Metanota.app
+#Metanota.app
 Microsoft Excel.app
 Microsoft OneNote.app
 Microsoft Outlook.app
@@ -142,19 +139,19 @@ Notes.app
 Numbers.app
 Numi.app
 OTP Manager.app
-OmniDiskSweeper.app
-OmniFocus.app
-OmniGraffle.app
+#OmniDiskSweeper.app
+#OmniFocus.app
+#OmniGraffle.app
 OmniOutliner Professional 3.app
-OmniOutliner.app
+#OmniOutliner.app
 OmniPlan.app
 OmniPopLite.app
 OneClickdigital.app
 OneDrive.app
 OnyX.app
-PDF Converter Master.app
+#PDF Converter Master.app
 PDF to JPG.app
-PDFpenPro.app
+#PDFpenPro.app
 Pages.app
 Palette.app
 Path Finder.app
@@ -167,29 +164,29 @@ PhotoSweeper X.app
 Photos.app
 Pixa.app
 Pixfeed.app
-Plex Media Server.app
+#Plex Media Server.app
 Pocket.app
 Pomodoro Time.app
-PopClip.app
+#PopClip.app
 Postbox.app
 PowerPhotos.app
 Preview.app
-PyCharm CE.app
-PyCharm.app
+#PyCharm CE.app
+#PyCharm.app
 QuickCursor.app
 QuickTime Player.app
 Quicken 2016.app
 R.app
 RSS Bot.app
 RSS Notifier.app
-RStudio.app
+#RStudio.app
 RWmultitool Lite.app
 Radar.app
 Radiant Player.app
 Rail Maze.app
 RapidWeaver 5 OLD.app
 RapidWeaver 6.app
-RapidWeaver 7.app
+#RapidWeaver 7.app
 Reeder.app
 Reminders.app
 Remote Desktop.app
@@ -201,23 +198,21 @@ Safari.app
 Scheduler.app
 ScreenShot PSD.app
 Scribe.app
-Security Inspector.app
-Self Service.app
 Server.app
 Set for iWork.app
 Shazam.app
 Shrook.app
 Sidekick.app
 Simplenote.app
-SizzlingKeys.app
-Skype.app
-Slack.app
+#SizzlingKeys.app
+#Skype.app
+#Slack.app
 SmartSVN 9.1.app
 SnapFlow.app
 SnapNDrag.app
 Snapselect.app
 Solve.app
-Soulver.app
+#Soulver.app
 Spotify.app
 Starry Night Enthusiast 7.app
 Stickies.app
@@ -226,20 +221,20 @@ StuffIt Expander.app
 Synk Pro.app
 System Preferences.app
 Talent.app
-TeamSpeak 3 Client.app
+#TeamSpeak 3 Client.app
 TeamViewer.app
 TextEdit.app
 TextExpander 4.3.5.app
 TextExpander 4.3.6.app
-TextExpander.app
-TextMate.app
+#TextExpander.app
+#TextMate.app
 TextSoapMenu-MAS.app
 Textual 5.app
 Themes for Keynote Free.app
 Things.app
 Time Machine.app
 Timeline 3D.app
-Timing.app
+#Timing.app
 Tonality.app
 TotalFinder.app
 Toy Defense. World War I.app
@@ -250,11 +245,11 @@ Typinator.app
 Unified Remote.app
 Uninstall.app
 VideoGIF.app
-VirtualBox.app
-Visual Studio Code.app
+#VirtualBox.app
+#Visual Studio Code.app
 Voila.app
 WD Sync Installer.app
-Wallpaper Wizard.app
+#Wallpaper Wizard.app
 WeatherMan Lite.app
 WebDAVNavServer.app
 WiFi Signal.app
@@ -262,14 +257,13 @@ Wine Devel.app
 Write.app
 XMind.app
 Xcode.app
-eApproval.app
 feedly.app
 gfxCardStatus.app
 iBooks.app
 iFlicks.app
-iMazing.app
+#iMazing.app
 iMovie.app
-iPhoto Library Manager.app
+#iPhoto Library Manager.app
 iPhoto.app
 iTerm beta.app
 iTerm.app
@@ -295,393 +289,6 @@ LogTransport.app
 Adobe Crash Reporter.app
 AdobeCRDaemon.app
 LogTransport.app
-AppCenter_R.aapp
-CPDF_Full.aapp
-CPDF_RHP.aapp
-Certificates_R.aapp
-Combine_R_RHP.aapp
-Comments.aapp
-EPDF_Full.aapp
-EPDF_RHP.aapp
-Edit_R_Full.aapp
-Edit_R_RHP.aapp
-FillSign.aapp
-Home.aapp
-Measure.aapp
-MoreTools.aapp
-Stamp.aapp
-Viewer.aapp
-AppCenter_R.aapp
-CPDF_Full.aapp
-CPDF_RHP.aapp
-Certificates_R.aapp
-Combine_R_RHP.aapp
-Comments.aapp
-EPDF_Full.aapp
-EPDF_RHP.aapp
-Edit_R_Full.aapp
-Edit_R_RHP.aapp
-FillSign.aapp
-Home.aapp
-Measure.aapp
-MoreTools.aapp
-Stamp.aapp
-Viewer.aapp
-AppCenter_R.aapp
-CPDF_Full.aapp
-CPDF_RHP.aapp
-Certificates_R.aapp
-Combine_R_RHP.aapp
-Comments.aapp
-EPDF_Full.aapp
-EPDF_RHP.aapp
-Edit_R_Full.aapp
-Edit_R_RHP.aapp
-FillSign.aapp
-Home.aapp
-Measure.aapp
-MoreTools.aapp
-Stamp.aapp
-Viewer.aapp
-AppCenter_R.aapp
-CPDF_Full.aapp
-CPDF_RHP.aapp
-Certificates_R.aapp
-CollectSignatures.aapp
-Combine_R_RHP.aapp
-Comments.aapp
-EPDF_Full.aapp
-EPDF_RHP.aapp
-Edit_R_Full.aapp
-Edit_R_RHP.aapp
-FillSign.aapp
-Home.aapp
-Measure.aapp
-MoreTools.aapp
-Pages_R_RHP.aapp
-Stamp.aapp
-TrackedSend.aapp
-Viewer.aapp
-AppCenter_R.aapp
-CPDF_Full.aapp
-CPDF_RHP.aapp
-Certificates_R.aapp
-CollectSignatures.aapp
-Combine_R_RHP.aapp
-Comments.aapp
-EPDF_Full.aapp
-EPDF_RHP.aapp
-Edit_R_Full.aapp
-Edit_R_RHP.aapp
-FillSign.aapp
-Home.aapp
-Measure.aapp
-MoreTools.aapp
-Pages_R_RHP.aapp
-Stamp.aapp
-TrackedSend.aapp
-Viewer.aapp
-AppCenter_R.aapp
-CPDF_Full.aapp
-CPDF_RHP.aapp
-Certificates_R.aapp
-CollectSignatures.aapp
-Combine_R_RHP.aapp
-Comments.aapp
-EPDF_Full.aapp
-EPDF_RHP.aapp
-Edit_R_Full.aapp
-Edit_R_RHP.aapp
-FillSign.aapp
-Home.aapp
-Measure.aapp
-MoreTools.aapp
-Pages_R_RHP.aapp
-Stamp.aapp
-TrackedSend.aapp
-Viewer.aapp
-AppCenter_R.aapp
-CPDF_Full.aapp
-CPDF_RHP.aapp
-Certificates_R.aapp
-CollectSignatures.aapp
-Combine_R_RHP.aapp
-Comments.aapp
-EPDF_Full.aapp
-EPDF_RHP.aapp
-Edit_R_Full.aapp
-Edit_R_RHP.aapp
-FillSign.aapp
-Home.aapp
-Measure.aapp
-MoreTools.aapp
-Pages_R_RHP.aapp
-Stamp.aapp
-TrackedSend.aapp
-Viewer.aapp
-AppCenter_R.aapp
-CPDF_Full.aapp
-CPDF_RHP.aapp
-Certificates_R.aapp
-CollectSignatures.aapp
-Combine_R_RHP.aapp
-Comments.aapp
-EPDF_Full.aapp
-EPDF_RHP.aapp
-Edit_R_Full.aapp
-Edit_R_RHP.aapp
-FillSign.aapp
-Home.aapp
-Measure.aapp
-MoreTools.aapp
-Pages_R_RHP.aapp
-Stamp.aapp
-TrackedSend.aapp
-Viewer.aapp
-AppCenter_R.aapp
-CPDF_Full.aapp
-CPDF_RHP.aapp
-Certificates_R.aapp
-Combine_R_RHP.aapp
-Comments.aapp
-EPDF_Full.aapp
-EPDF_RHP.aapp
-Edit_R_Full.aapp
-Edit_R_RHP.aapp
-FillSign.aapp
-Home.aapp
-Measure.aapp
-MoreTools.aapp
-Stamp.aapp
-Viewer.aapp
-AppCenter_R.aapp
-CPDF_Full.aapp
-CPDF_RHP.aapp
-Certificates_R.aapp
-CollectSignatures.aapp
-Combine_R_RHP.aapp
-Comments.aapp
-EPDF_Full.aapp
-EPDF_RHP.aapp
-Edit_R_Full.aapp
-Edit_R_RHP.aapp
-FillSign.aapp
-Home.aapp
-Measure.aapp
-MoreTools.aapp
-Pages_R_RHP.aapp
-Stamp.aapp
-TrackedSend.aapp
-Viewer.aapp
-AppCenter_R.aapp
-CPDF_Full.aapp
-CPDF_RHP.aapp
-Certificates_R.aapp
-CollectSignatures.aapp
-Combine_R_RHP.aapp
-Comments.aapp
-EPDF_Full.aapp
-EPDF_RHP.aapp
-Edit_R_Full.aapp
-Edit_R_RHP.aapp
-FillSign.aapp
-Home.aapp
-Measure.aapp
-MoreTools.aapp
-Pages_R_RHP.aapp
-Stamp.aapp
-TrackedSend.aapp
-Viewer.aapp
-AppCenter_R.aapp
-CPDF_Full.aapp
-CPDF_RHP.aapp
-Certificates_R.aapp
-Combine_R_RHP.aapp
-Comments.aapp
-EPDF_Full.aapp
-EPDF_RHP.aapp
-Edit_R_Full.aapp
-Edit_R_RHP.aapp
-FillSign.aapp
-Home.aapp
-Measure.aapp
-MoreTools.aapp
-Stamp.aapp
-Viewer.aapp
-AppCenter_R.aapp
-CPDF_Full.aapp
-CPDF_RHP.aapp
-Certificates_R.aapp
-CollectSignatures.aapp
-Combine_R_RHP.aapp
-Comments.aapp
-EPDF_Full.aapp
-EPDF_RHP.aapp
-Edit_R_Full.aapp
-Edit_R_RHP.aapp
-FillSign.aapp
-Home.aapp
-Measure.aapp
-MoreTools.aapp
-Pages_R_RHP.aapp
-Stamp.aapp
-TrackedSend.aapp
-Viewer.aapp
-AppCenter_R.aapp
-CPDF_Full.aapp
-CPDF_RHP.aapp
-Certificates_R.aapp
-CollectSignatures.aapp
-Combine_R_RHP.aapp
-Comments.aapp
-EPDF_Full.aapp
-EPDF_RHP.aapp
-Edit_R_Full.aapp
-Edit_R_RHP.aapp
-FillSign.aapp
-Home.aapp
-Measure.aapp
-MoreTools.aapp
-Pages_R_RHP.aapp
-Stamp.aapp
-TrackedSend.aapp
-Viewer.aapp
-AppCenter_R.aapp
-CPDF_Full.aapp
-CPDF_RHP.aapp
-Certificates_R.aapp
-Combine_R_RHP.aapp
-Comments.aapp
-EPDF_Full.aapp
-EPDF_RHP.aapp
-Edit_R_Full.aapp
-Edit_R_RHP.aapp
-FillSign.aapp
-Home.aapp
-Measure.aapp
-MoreTools.aapp
-Stamp.aapp
-Viewer.aapp
-AppCenter_R.aapp
-CPDF_Full.aapp
-CPDF_RHP.aapp
-Certificates_R.aapp
-CollectSignatures.aapp
-Combine_R_RHP.aapp
-Comments.aapp
-EPDF_Full.aapp
-EPDF_RHP.aapp
-Edit_R_Full.aapp
-Edit_R_RHP.aapp
-FillSign.aapp
-Home.aapp
-Measure.aapp
-MoreTools.aapp
-Pages_R_RHP.aapp
-Stamp.aapp
-TrackedSend.aapp
-Viewer.aapp
-AppCenter_R.aapp
-CPDF_Full.aapp
-CPDF_RHP.aapp
-Certificates_R.aapp
-Comments.aapp
-EPDF_Full.aapp
-EPDF_RHP.aapp
-Edit_R_Full.aapp
-Edit_R_RHP.aapp
-FillSign.aapp
-Home.aapp
-Measure.aapp
-MoreTools.aapp
-Stamp.aapp
-Viewer.aapp
-AppCenter_R.aapp
-CPDF_Full.aapp
-CPDF_RHP.aapp
-Certificates_R.aapp
-Combine_R_RHP.aapp
-Comments.aapp
-EPDF_Full.aapp
-EPDF_RHP.aapp
-Edit_R_Full.aapp
-Edit_R_RHP.aapp
-FillSign.aapp
-Home.aapp
-Measure.aapp
-MoreTools.aapp
-Stamp.aapp
-Viewer.aapp
-AppCenter_R.aapp
-CPDF_Full.aapp
-CPDF_RHP.aapp
-Certificates_R.aapp
-CollectSignatures.aapp
-Combine_R_RHP.aapp
-Comments.aapp
-EPDF_Full.aapp
-EPDF_RHP.aapp
-Edit_R_Full.aapp
-Edit_R_RHP.aapp
-FillSign.aapp
-Home.aapp
-Measure.aapp
-MoreTools.aapp
-Pages_R_RHP.aapp
-Stamp.aapp
-TrackedSend.aapp
-Viewer.aapp
-AppCenter_R.aapp
-CPDF_Full.aapp
-CPDF_RHP.aapp
-Certificates_R.aapp
-CollectSignatures.aapp
-Combine_R_RHP.aapp
-Comments.aapp
-EPDF_Full.aapp
-EPDF_RHP.aapp
-Edit_R_Full.aapp
-Edit_R_RHP.aapp
-FillSign.aapp
-Home.aapp
-Measure.aapp
-MoreTools.aapp
-Pages_R_RHP.aapp
-Stamp.aapp
-TrackedSend.aapp
-Viewer.aapp
-AppCenter_R.aapp
-CPDF_Full.aapp
-CPDF_RHP.aapp
-Certificates_R.aapp
-Combine_R_RHP.aapp
-Comments.aapp
-EPDF_Full.aapp
-EPDF_RHP.aapp
-Edit_R_Full.aapp
-Edit_R_RHP.aapp
-FillSign.aapp
-Home.aapp
-Measure.aapp
-MoreTools.aapp
-Stamp.aapp
-Viewer.aapp
-AppCenter_R.aapp
-CPDF_Full.aapp
-CPDF_RHP.aapp
-Certificates_R.aapp
-Combine_R_RHP.aapp
-Comments.aapp
-EPDF_Full.aapp
-EPDF_RHP.aapp
-Edit_R_Full.aapp
-Edit_R_RHP.aapp
-FillSign.aapp
-Home.aapp
-Measure.aapp
-MoreTools.aapp
-Stamp.aapp
-Viewer.aapp
 acphelper.app
 Amazon Music Helper.app
 Amazon Music Renderer.app
@@ -725,11 +332,14 @@ DFX.app
 DXPrefsConverter.app
 DefaultFolderXUpdater.app
 QuickLookPanel.app
-Atom.app
+
+## development tools
+
+#Atom.app
 CodePad.app
 DevBox.app
-DiffMerge.app
-GitHub Desktop.app
+#DiffMerge.app
+#GitHub Desktop.app
 GraphicalHttpClient.app
 RESTEasy.app
 svnX.app
@@ -766,78 +376,8 @@ XML Nanny.app
 XML-RPC Client.app
 XSLPalette.app
 XML Nanny.app
-Couchbase Server.app
-couch.app
-couch_dcp.app
-couch_index_merger.app
-couch_set_view.app
-couch_view_parser.app
-ejson.app
-oauth.app
-lhttpc.app
-mapreduce.app
-mochiweb.app
-snappy.app
-gc-couchbase.app
-vtree.app
-appmon.app
-asn1.app
-common_test.app
-compiler.app
-cosEvent.app
-cosEventDomain.app
-cosFileTransfer.app
-cosNotification.app
-cosProperty.app
-cosTime.app
-cosTransactions.app
-crypto.app
-diameter.app
-edoc.app
-eldap.app
-erl_docgen.app
-erts.app
-et.app
-eunit.app
-gs.app
-ic.app
-inets.app
-inets_app
-kernel.app
-mnesia.app
-odbc.app
-orber.app
-os_mon.app
-otp_mibs.app
-parsetools.app
-percept.app
-pman.app
-public_key.app
-reltool.app
-runtime_tools.app
-sasl.app
-snmp.app
-ssh.app
-ssl.app
-stdlib.app
-syntax_tools.app
-test_server.app
-toolbar.app
-tools.app
-tv.app
-typer.app
-webtool.app
-xmerl.app
-ale.app
-erlwsh.app
-gen_smtp.app
-mlockall.app
-ns_babysitter.app
-ns_server.app
-ns_ssl_proxy.app
-Eclipse.app
-org.eclipse.equinox.app
-STS.app
+#Couchbase Server.app
+#STS.app
 org.eclipse.equinox.app
 Autoupdate.app
 BackService.app
@@ -846,10 +386,7 @@ SmartDaemon.app
 Autoupdate.app
 TrimStart.app
 Docker Quickstart Terminal.app
-Kitematic (Beta).app
-Kitematic (Beta) Helper EH.app
-Kitematic (Beta) Helper NP.app
-Kitematic (Beta) Helper.app
+#Kitematic (Beta).app
 default_app
 Dropbox Web Helper.app
 loginhelper.app
@@ -875,45 +412,25 @@ Autoupdate.app
 ForkLet.app
 ForkLetStarter.app
 Autoupdate.app
-FullContact Launcher.app
-GalaxyClient Helper EH.app
-GalaxyClient Helper NP.app
-GalaxyClient Helper.app
 crash_report_sender.app
 Protocol Helper.app
-Battle.net.app
+
+## Games
+
+#Battle.net.app
 FTL.app
 GameAgent.app
 LOTRO Plugin Compendium.app
 Steam.app
 The Lord of the Rings Online™.app
 Battle.net Launcher.app
-Battle.net.app
+#Battle.net.app
 Blizzard Error.app
 Battle.net.app
 Battle.net.app
 Minecraft.app
 crash_report_sender.app
-GoToMeeting (5387).app
-GoToMeeting (5506).app
-GoToMeeting (5530).app
-GoToMeeting (5573).app
-GoToMeeting (5636).app
-GoToMeeting Recording Manager.app
-GoToMeeting Recording Manager.app
-GoToMeeting Recording Manager.app
-GoToMeeting Recording Manager.app
-GoToMeeting Recording Manager.app
-GoToMeeting Recording Manager.app
-Google Chrome Helper.app
-app_mode_loader.app
-Google Chrome Helper.app
-app_mode_loader.app
-Reporter.app
-Reporter.app
-GrowlLauncher.app
-finish_installation.app
-Hearthstone Beta Launcher.app
+
 Hearthstone.app
 finish_installation.app
 finish_installation.app
@@ -924,100 +441,12 @@ Autoupdate.app
 JSesh.app
 RTFCleaner.app
 SignInfo.app
-Kiwi for Gmail Helper EH.app
-Kiwi for Gmail Helper NP.app
-Kiwi for Gmail Helper.app
-crash_report_sender.app
-Autoupdate.app
-Electron Helper EH.app
-Electron Helper NP.app
-Lightning Helper.app
-default_app
-resourceful-app
-static-app
-empty-app
-sample-app
-sample-app
-empty-app
-sample-app
 Impulse Response Utility.app
-MAMP.app
-Sequel Pro.app
+#MAMP.app
+#Sequel Pro.app
 MAMP PRO Uninstaller.app
 MAMP PRO.app
-Autoupdate.app
-Problem Reporter Sandboxed.app
-Problem Reporter.app
-finish_installation.app
-Continuity Activation Tool.app
-MailPluginRelaunch.app
-MailPluginTool.app
-finish_installation.app
-MailPluginRelaunch.app
-DatabaseProcess.app
-NetworkProcess.app
-PluginProcess.app
-WebProcess.app
-DatabaseProcess.app
-NetworkProcess.app
-PluginProcess.app
-WebProcess.app
-WebKitPluginHost.app
-WebKitPluginHost.app
-Autoupdate.app
-finish_installation.app
-Metanota.app
-OsfWebHost.app
-Microsoft Activity Monitor.app
-Microsoft Error Reporting.app
-Office365ServiceV2.app
-Microsoft Error Reporting.app
-Microsoft Excel.app
-Microsoft PowerPoint.app
-Microsoft Word.app
-Microsoft Language Register.app
-Equation Editor.app
-Microsoft Alerts Daemon.app
-Microsoft Chart Converter.app
-Microsoft Clip Gallery.app
-Microsoft Database Daemon.app
-Microsoft Database Utility.app
-Microsoft Graph.app
-Microsoft Office Reminders.app
-Microsoft Office Setup Assistant.app
-Microsoft Query.app
-Microsoft Upload Center.app
-Office365Service.app
-Open XML for Excel.app
-SyncServicesAgent.app
-Solver.app
-Microsoft Activity Monitor.app
-Microsoft Error Reporting.app
-Office365ServiceV2.app
-Microsoft Error Reporting.app
-OsfWebHost.app
-Microsoft Activity Monitor.app
-Microsoft Error Reporting.app
-Office365ServiceV2.app
-Outlook Profile Manager.app
-Microsoft Error Reporting.app
-OsfWebHost.app
-Microsoft Activity Monitor.app
-Microsoft Error Reporting.app
-Office365ServiceV2.app
-Open XML for Excel.app
-Microsoft Error Reporting.app
-OsfWebHost.app
-Microsoft Activity Monitor.app
-Microsoft Error Reporting.app
-Office365ServiceV2.app
-Open XML for Excel.app
-Microsoft Error Reporting.app
-MusicManagerHelper.app
-crash_report_sender.app
-MuteMyMicHelper.app
-MyHarmony Helper EH.app
-MyHarmony Helper NP.app
+
 MyHarmony Helper.app
 MyHarmony Installation.app
 RestartPrompt.app
@@ -1025,13 +454,6 @@ Silverlight Preferences.app
 UpdatePrompt.app
 NumiHelper.app
 OTP Helper.app
-OmniGroupCrashCatcher.app
-OmniGroupCrashCatcher.app
-OmniGroupCrashCatcher.app
-OmniGroupCrashCatcher.app
-OmniGroupCrashCatcher.app
-OmniGroupCrashCatcher.app
-OmniGroupCrashCatcher.app
 Launcher Disabler.app
 OneDrive Launcher.app
 Color Picker.app
@@ -1054,10 +476,6 @@ crashreporter.app
 updater.app
 Mail PDF with Postbox.app
 Autoupdate.app
-my_app
-my_app
-my_app
-my_app
 IDLE.app
 Python Launcher.app
 Quicken 2007.app
@@ -1072,11 +490,6 @@ Quicken Installer.app
 Quicken File Exchange Utility.app
 RSSBotLoginHelper.app
 ReadabilityHelper.app
-Autoupdate.app
-Autoupdate.app
-Autoupdate.app
-Autoupdate.app
-Autoupdate.app
 Problem Reporter Sandboxed.app
 Problem Reporter.app
 Autoupdate.app
@@ -1151,7 +564,7 @@ Script Editor.app
 System Information.app
 Terminal.app
 VoiceOver Utility.app
-XQuartz.app
+#XQuartz.app
 VoiceOverUtilityCacheBuilder.app
 Autoupdate.app
 Autoupdate.app
