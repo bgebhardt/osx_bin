@@ -14,3 +14,7 @@ pip install libgraphite
 # install for python3 too  TODO: clean this duplication
 pip3 install pandas matplotlib fake-factory delorean xlwt
 pip3 install libgraphite
+
+# add azure sdk
+pip install azure
+pip3 install azure

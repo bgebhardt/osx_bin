@@ -15,3 +15,6 @@ npm -g install http-server
 npm -g install jshint
 npm -g install nestor
 npm -g install reapp
+
+# install azure command line interface
+npm install -g azure-cli
