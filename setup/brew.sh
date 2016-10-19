@@ -116,7 +116,6 @@ pip install Pygments
 brew install ansible
 brew install asciidoc
 brew install boot2docker
-brew install brew-cask
 brew install cairo
 brew install cask
 brew install chromedriver
@@ -160,7 +159,7 @@ brew install icu4c
 brew install isl
 brew install jpeg
 brew install jq
-brew install kdiff3
+brew install Caskroom/cask/kdiff3
 brew install less
 brew install libevent
 brew install libffi
@@ -218,7 +217,7 @@ brew install zsh-history-substring-search
 brew install zsh-lovers
 brew install zsh-syntax-highlighting
 brew install tcpstat
-brew install tcptrack
+brew install tcptrack # trouble downloading from tcptrace.org
 brew install ssldump
 brew install fetchmail
 brew install procmail
@@ -248,6 +247,10 @@ brew install docker-compose     # tool for defining and running multi-container 
 brew install docker-swarm       # Turn a pool of Docker hosts into a single, virtual host
 brew install docker-completion  # Shell completion for Docker
 brew install vagrant-completion # Shell completion for Vagrant
+
+# 10-19-16
+brew install mas # Install App Store command line tools https://github.com/mas-cli/mas
+brew install reattach-to-user-namespace # work around for tmux-related pastboard problems (helps mas) https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
 
 # Remove outdated versions from the cellar.
 brew cleanup
