@@ -61,6 +61,7 @@ mas install 593913958 # Expresso - text calculator
 mas install 409789998 # Twitter
 mas install 525912054 # WiFi Signal
 mas install 415492014 # Inpaint 
+mas install 503729945 # SizzlingKeys (5.1.4)
 
 # mas install 521464274 # Farensius Desktop # seems to no longer be available
 

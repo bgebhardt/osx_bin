@@ -33,7 +33,7 @@ brew cask install dropbox
 brew cask install google-drive
 brew cask install wd-my-cloud # also WD Sync Installer.app
 # Mail Plugin Manager.app - manually install this one or create cask
-brew cask install sizzlingkeys
+#brew cask install sizzlingkeys # bought this in the app store; install with mas
 brew cask install textmate
 brew cask install timing
 brew cask install divvy
