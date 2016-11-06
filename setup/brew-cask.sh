@@ -36,6 +36,7 @@ brew cask install wd-my-cloud # also WD Sync Installer.app
 #brew cask install sizzlingkeys # bought this in the app store; install with mas
 brew cask install textmate
 brew cask install timing
+brew cask install rescuetime
 brew cask install divvy
 
 ## Productivity/Office
@@ -74,11 +75,12 @@ brew cask install spotify
 brew cask install vlc
 brew cask install hype # web animation program
 # brew cask install lego-mindstorms-ev3 # not currently using
+brew cask install houdahgeo
 
 ## Utilities
 brew cask install 1clipboard
 brew cask install amazon-drive
-#brew cask install amazon-music # cask broken; app not working
+brew cask install amazon-music # need to delete folder in Applications Support and then works
 brew cask install bartender
 brew cask install beamer
 brew cask install boom
@@ -93,6 +95,7 @@ brew cask install default-folder-x
 brew cask install disk-drill
 brew cask install disk-sensei
 brew cask install appdelete
+brew cask install bluesense
 # disk-inventory-x
 # omnidisksweeper
 #dropbox-encore
