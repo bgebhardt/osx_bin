@@ -1,0 +1,29 @@
+# Various extensions, utilities, etc.
+
+
+## General
+
+Little Snitch
+
+
+## Safari Extensions
+
+1Password.safariextz
+Add To Amazon Wish List.safariextz
+Auto Refresh.safariextz
+Buffer-2.safariextz
+Extensions.plist
+Firebug Lite for Safari.safariextz
+Format Link.safariextz
+JsonView.safariextz
+Markdown Here-2.safariextz
+Push to Kindle.safariextz
+Recent Tab List-2.safariextz
+RecoverTabs.safariextz
+SafariRestore-2.safariextz
+Save to Pocket-2.safariextz
+Sessions.safariextz
+Ultimate Status Bar.safariextz
+eScrip ForgetMeNot.safariextz
+iShorten.safariextz
+
