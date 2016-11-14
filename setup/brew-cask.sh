@@ -48,7 +48,7 @@ brew cask install busycal
 brew cask install busycontacts
 brew cask install fullcontact
 brew cask install elmedia-player
-brew cask install evernote
+#brew cask install evernote # install with mas instead
 #fantastical
 brew cask install firefox
 brew cask install google-chrome
@@ -114,7 +114,7 @@ brew cask install plex-media-server
 brew cask install popclip
 brew cask install superduper
 brew cask install supersync
-brew cask install wallpaper-wizard
+# brew cask install wallpaper-wizard # install via mas instead
 brew cask install iphoto-library-manager
 brew cask install imazing
 

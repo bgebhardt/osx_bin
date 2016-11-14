@@ -39,6 +39,8 @@ brew cask install sizzlingkeys
 brew cask install textmate
 brew cask install timing
 brew cask install divvy
+brew cask install brightness
+brew cask install textexpander
 
 # clean up cached cask files
 brew cask cleanup
