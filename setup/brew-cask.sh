@@ -38,6 +38,7 @@ brew cask install textmate
 brew cask install timing
 brew cask install rescuetime
 brew cask install divvy
+brew cask install tripmode # manage data on cell connection
 
 ## Productivity/Office
 brew cask install adium
@@ -142,6 +143,7 @@ brew cask install mamp
 brew cask install navicat-for-mysql
 brew cask install pycharm
 brew cask install rstudio
+brew cask install spyder # python data science IDE (like rstudio)
 brew cask install rapidweaver
 brew cask install virtualbox                # VirtualBox is a powerful x86 and AMD64/Intel64 virtualization product
 brew cask install virtualbox-extension-pack # VirtualBox Extension Pack
