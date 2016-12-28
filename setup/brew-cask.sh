@@ -148,6 +148,7 @@ brew cask install rapidweaver
 brew cask install virtualbox                # VirtualBox is a powerful x86 and AMD64/Intel64 virtualization product
 brew cask install virtualbox-extension-pack # VirtualBox Extension Pack
 brew cask install vagrant                   # Vagrant is a tool for building and distributing development environments.
+brew cask install ngrok		# ngrok is a handy tool and service that allows you tunnel requests from the wide open Internet to your local machine when it's behind a NAT or firewall
 
 brew cask install visual-studio-code
 brew cask install sts

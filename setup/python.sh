@@ -18,3 +18,7 @@ pip3 install libgraphite
 # add azure sdk
 pip install azure
 pip3 install azure
+
+# install virtualenv
+pip install virtualenv
+pip3 install virtualenv
