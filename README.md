@@ -106,6 +106,22 @@ Install common node npm packages and tools.
 > This will take quite a while.
 
 
+## Install and Configure Development Tools
+
+### PyCharm CE
+
+1.  Install PyCharm CE edition
+1. Import settings in your Dropbox
+
+### Visual Studio Code
+
+Install [Visual Studio Code Settings Sync]( https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync ) from the Visual Studio Marketplace.  Use token and gist id from you password store.
+
+
+### Eclipse and STS
+
+TBD
+
 **TODO**
 
 * create a setup script for r.  Currently just have a list of all R modules I have installed.
