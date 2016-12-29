@@ -41,7 +41,7 @@ chmod a+x ~/bin/bashstrap/z.sh # need to make sure this is executable
 
 You can install a minimum set of my favorite apps by running:
 ``` shell
-./brew-cask-minimum.sh 
+~/bin/setup/brew-cask-minimum.sh 
 ```
 
 # Complete Install
@@ -89,19 +89,19 @@ Install common brew tools.
 
 Install Apple Store apps I use via the very cool mas CLI for App Store.  Requires mas be installed with brew (done by brew.sh)
 ```
-~/.bin/setup/mas.sh 
+~/bin/setup/mas.sh 
 ```
 > This will take quite a while.
 
 Install common python packages and tools.
 ```
-~/.bin/setup/python.sh 
+~/bin/setup/python.sh 
 ```
 > This will take quite a while.
 
 Install common node npm packages and tools.
 ```
-~/.bin/setup/npm.sh 
+~/bin/setup/npm.sh 
 ```
 > This will take quite a while.
 
