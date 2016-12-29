@@ -3,8 +3,9 @@
 # Master file for all bash configutation.  Keep it in bin directory.
 # copy ~/bin/.bash_profile to you home directory.  It sources this file.
 
-# sources other bash settings, especially dev environment-related. 
-source ~/bin/.profile_bryan
+#echo "home dir: $HOME"
+echo "sourcing .profile_bryan" && source ~/bin/.profile_bryan # sources other bash settings, especially dev environment-related. 
+[[ -s "$HOME/bin/bash_work" ]] && echo "sourcing bash_work" && source ~/bin/bash_work # source work related shell settings
 
 # Copied this from bashstrap so I can customimze. it.  Uncomment or source the next line to go back to the original bashstrap.
 #source ~/bin/bashstrap/.bash_profile
@@ -128,6 +129,12 @@ if [ -f $(brew --prefix)/etc/bash_completion.d/git-extras ]; then
 fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/Users/bgebhardt/.gvm/bin/gvm-init.sh" ]] && source "/Users/bgebhardt/.gvm/bin/gvm-init.sh"
+# disabling as I'm not using gvm for now
+#[[ -s "/Users/bgebhardt/.gvm/bin/gvm-init.sh" ]] && source "/Users/bgebhardt/.gvm/bin/gvm-init.sh"
 
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+#echo "initing sdkman"
+export SDKMAN_DIR="/Users/brgebhar/.sdkman"
+[[ -s "/Users/brgebhar/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/brgebhar/.sdkman/bin/sdkman-init.sh"
 
+echo "** ready **"
