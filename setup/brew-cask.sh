@@ -38,6 +38,7 @@ brew cask install textmate
 brew cask install timing
 brew cask install rescuetime
 brew cask install divvy
+brew cask install tripmode # manage data on cell connection
 
 ## Productivity/Office
 brew cask install adium
@@ -48,7 +49,7 @@ brew cask install busycal
 brew cask install busycontacts
 brew cask install fullcontact
 brew cask install elmedia-player
-brew cask install evernote
+#brew cask install evernote # install with mas instead
 #fantastical
 brew cask install firefox
 brew cask install google-chrome
@@ -114,7 +115,7 @@ brew cask install plex-media-server
 brew cask install popclip
 brew cask install superduper
 brew cask install supersync
-brew cask install wallpaper-wizard
+# brew cask install wallpaper-wizard # install via mas instead
 brew cask install iphoto-library-manager
 brew cask install imazing
 
@@ -142,6 +143,7 @@ brew cask install mamp
 brew cask install navicat-for-mysql
 brew cask install pycharm
 brew cask install rstudio
+brew cask install spyder # python data science IDE (like rstudio)
 brew cask install rapidweaver
 brew cask install virtualbox                # VirtualBox is a powerful x86 and AMD64/Intel64 virtualization product
 brew cask install virtualbox-extension-pack # VirtualBox Extension Pack
