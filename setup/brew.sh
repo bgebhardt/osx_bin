@@ -180,14 +180,14 @@ brew install multitail
 brew install mysql
 brew install node
 brew install nspr
-brew install openssl
+# brew install openssl # disabling as default  Mac OS ssh has keychain support
 brew install pandoc
 brew install pcre
 brew install pixman
 brew install pkg-config
 brew install qt
 brew install r
-brew install r-gui
+# brew install homebrew/science/r-gui  # no longer using this
 brew install readline
 brew install redis
 brew install rsync
@@ -196,7 +196,6 @@ brew install scala
 brew install shellcheck
 brew install spark
 brew install spidermonkey
-brew install springboot
 brew install sqlite
 brew install ssh-copy-id
 brew install sslscan
@@ -228,9 +227,9 @@ brew install sfml
 
 # 10-09-2016 added...
 
-# Development tools
-brew install eclipse-jee       # Eclipse IDE for Java EE Developers
-brew install sts              # Spring Tool Suite
+# Development tools (no longer in brew)
+#brew install eclipse-jee       # Eclipse IDE for Java EE Developers # potenitally can install as a cask now
+#brew install sts              # Spring Tool Suite
 #brew install intellij-idea-ce # IntelliJ IDEA Community Edition
 #brew install intellij-idea    # IntelliJ IDEA Enterprise Edition
 
@@ -245,8 +244,6 @@ brew install sonar              # Static Code Analysis Tool
 brew install docker-machine     # installs Docker, then configures the Docker client to talk to them
 brew install docker-compose     # tool for defining and running multi-container applications with Docker
 brew install docker-swarm       # Turn a pool of Docker hosts into a single, virtual host
-brew install docker-completion  # Shell completion for Docker
-brew install vagrant-completion # Shell completion for Vagrant
 
 # 10-19-16
 brew install mas # Install App Store command line tools https://github.com/mas-cli/mas
