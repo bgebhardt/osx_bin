@@ -18,3 +18,7 @@ pip3 install libgraphite
 # add azure sdk
 pip install azure
 pip3 install azure
+
+# install git library (used by git-extra-commands)
+pip install gitpython
+pip3 install gitpython
