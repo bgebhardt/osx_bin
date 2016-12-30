@@ -10,41 +10,7 @@ echo "sourcing .profile_bryan" && source ~/bin/.profile_bryan # sources other ba
 # Copied this from bashstrap so I can customimze. it.  Uncomment or source the next line to go back to the original bashstrap.
 #source ~/bin/bashstrap/.bash_profile
 
-### Aliases
-
-# Open specified files in Sublime Text
-# "s ." will open the current directory in Sublime
-alias s='open -a "Sublime Text"'
-
-# Color LS
-colorflag="-G"
-alias ls="command ls ${colorflag}"
-alias l="ls -lF ${colorflag}" # all files, in long format
-alias la="ls -laF ${colorflag}" # all files inc dotfiles, in long format
-alias lsd='ls -lF ${colorflag} | grep "^d"' # only directories
-
-# Quicker navigation
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-
-# Enable aliases to be sudo’ed
-alias sudo='sudo '
-
-# Colored up cat!
-# You must install Pygments first - "sudo easy_install Pygments"
-alias c='pygmentize -O style=monokai -f console256 -g'
-
-# Git
-# You must install Git first
-alias gs='git status'
-alias ga='git add .'
-alias gc='git commit -m' # requires you to type a commit message
-alias gp='git push'
-alias grm='git rm $(git ls-files --deleted)'
-
-# additional Aliases
+# load aliases
 source ~/bin/.alias_bash.sh
 
 ### Prompt Colors

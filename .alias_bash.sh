@@ -2,6 +2,22 @@
 
 # key aliases
 
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+# Color LS
+colorflag="-G"
+alias ls="command ls ${colorflag}"
+alias l="ls -lF ${colorflag}" # all files, in long format
+alias la="ls -laF ${colorflag}" # all files inc dotfiles, in long format
+alias lsd='ls -lF ${colorflag} | grep "^d"' # only directories
+
+# Quicker navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
 alias rm="rm -i"
 # the remove script will move the file to the Trash (like the finder does)
 #  (added 4/14/03)
@@ -165,3 +181,21 @@ alias curl-trace='curl -w "@/Users/bgebhardt/bin/curl-trace/templates/.curl-form
 
 alias maven="mvn"
 
+# Git aliases
+# You must install Git first
+alias gs='git status'
+alias ga='git add ' # requires passing in the file(s)
+alias gd='git diff' # requires passing in the file(s)
+alias gc='git commit'
+alias gp='git push'
+alias gf='git fetch'
+alias gi='git info'
+alias grm='git rm $(git ls-files --deleted)'
+
+# Open specified files in Sublime Text
+# "s ." will open the current directory in Sublime
+alias s='open -a "Sublime Text"'
+
+# Colored up cat!
+# You must install Pygments first - "sudo easy_install Pygments"
+alias c='pygmentize -O style=monokai -f console256 -g'
