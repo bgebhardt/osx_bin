@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# options for MDLWeb app
+# export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home
+export WEBAPP_VARIATION_ROOT="https://s3.amazonaws.com/webapp-variations/staging/"
+export MILEIQ_HOST="http://localhost:5000"
+export MILEIQ_APP_KEY=
+export MILEIQ_API_MASTER_KEY=
+export CATALINA_OPTS="-Xms256m -Xmx1024m -XX:MaxPermSize=256m"
+
+# sdkman - used to manage grails, groovy, and java
+# to install sdkman: curl -s "https://get.sdkman.io" | bash
+# see it in .bash_profile_bin
+
+#sdk install grails 2.1.5
+#sdk install groovy 1.8.7
+# make sure they are not installed with brew
+
+# REST and MDLWebApp set up
+# https://microsoft.sharepoint.com/teams/MileIQ_Specifications/SitePages/Getting%20Started%20-%20Local%20Dev%20Environment%20Setup.aspx
+
+# chose to install java 7 and 8 via brew
+# based on post: http://davidcai.github.io/blog/posts/install-multiple-jdk-on-mac/
+#brew cask install java
+#brew cask install java7
+
+# install java via sdk
+#sdk install java 7u79
+#sdk install java 8u111
+
+# sdk is faster then jenv
+
+# jenv to manage java versions
+#brew install jenv
+# most also run this to export JAVA_HOME
+# jenv enable-plugin export
+# Init jenv
+# see it in .bash_profile_bin
+#if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+
+# TODO: Jenv init takes a LONG time (0.3 sec); how to fix this?
+#echo "jenv init"
+# jet up jenv (java environment management) - see http://www.jenv.be
+# followed advice to speed up noted here: https://github.com/gcuisinier/jenv/issues/148
+#if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+#eval "$(jenv init -)"
+#eval "$(jenv init - --no-rehash)"
+#(jenv rehash &) 2> /dev/null
+
