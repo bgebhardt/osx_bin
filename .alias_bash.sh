@@ -199,3 +199,7 @@ alias s='open -a "Sublime Text"'
 # Colored up cat!
 # You must install Pygments first - "sudo easy_install Pygments"
 alias c='pygmentize -O style=monokai -f console256 -g'
+
+# pycharm alias.  More info on how to work with pycharm from the cmd line
+# https://www.jetbrains.com/help/pycharm/2016.3/working-with-pycharm-features-from-command-line.html#d473342e17
+alias pycharm='/Applications/PyCharm.app/Contents/MacOS/pycharm'
