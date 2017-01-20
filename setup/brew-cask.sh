@@ -155,6 +155,7 @@ brew cask install sts
 brew cask install kitematic
 brew cask install sequel-pro
 brew cask install java
+brew cask install pgweb # postgres web admin - see https://github.com/sosedoff/pgweb
 # brew cask install yourkit-java-profiler # cask broken
 
 brew cask install qlcolorcode         # Preview source code files with syntax highlighting
