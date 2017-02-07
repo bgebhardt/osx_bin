@@ -5,6 +5,8 @@
 # mas is a command line client to the App Store
 # see https://github.com/mas-cli/mas
 
+brew install mas # Install App Store command line tools https://github.com/mas-cli/mas
+
 mas install 567704457 # OmniPopLite (3.2)
 mas install 409183694 # Keynote (7.0)
 mas install 456362093 # MuteMyMic (1.10)
