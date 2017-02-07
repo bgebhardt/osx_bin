@@ -63,6 +63,9 @@ mas install 409789998 # Twitter
 mas install 525912054 # WiFi Signal
 mas install 415492014 # Inpaint 
 mas install 503729945 # SizzlingKeys (5.1.4)
+mas install 715768417 # Microsoft Remote Desktop (8.0.27246)
+mas install 549083868 # Display Menu (2.2.2)
+mas install 688211836 # EasyRes (1.1.1)
 
 # mas install 521464274 # Farensius Desktop # seems to no longer be available
 
