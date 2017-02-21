@@ -202,6 +202,7 @@ brew install sslscan
 brew install subversion
 brew install tig
 brew install tree
+brew install the_silver_searcher # fast source code searching with "ag"
 brew install unixodbc
 brew install vagrant-completion
 brew install vim
