@@ -47,3 +47,11 @@ export CATALINA_OPTS="-Xms256m -Xmx1024m -XX:MaxPermSize=256m"
 #eval "$(jenv init - --no-rehash)"
 #(jenv rehash &) 2> /dev/null
 
+# settings for virtualenv and [Virtualenvwrapper]( https://virtualenvwrapper.readthedocs.io/en/latest/ ).
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
+
+# add postgress.app tools to path
+# 02-23-2017: Postress.app not working.  back to brew verstion of postgres
+#export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
