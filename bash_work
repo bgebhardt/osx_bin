@@ -8,6 +8,9 @@ export MILEIQ_APP_KEY=
 export MILEIQ_API_MASTER_KEY=
 export CATALINA_OPTS="-Xms256m -Xmx1024m -XX:MaxPermSize=256m"
 
+# heroku options
+export HEROKU_ORGANIZATION="microsoft"
+
 # sdkman - used to manage grails, groovy, and java
 # to install sdkman: curl -s "https://get.sdkman.io" | bash
 # see it in .bash_profile_bin
