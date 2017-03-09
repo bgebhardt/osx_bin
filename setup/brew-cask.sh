@@ -65,7 +65,7 @@ brew cask install qlmarkdown
 # brew cask install metanota. # install cask broken
 brew cask install textexpander
 brew cask install omnigraffle
-#brew cask install omnioutliner # install cask broken - bad download url
+brew cask install omnioutliner
 brew cask install pdf-converter-master
 brew cask install pdfpen
 brew cask install slack

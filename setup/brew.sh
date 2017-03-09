@@ -154,6 +154,7 @@ brew install groovy
 brew install gzip
 brew install htop-osx
 brew install httpie
+brew install hub # github command line wrapper
 brew install icdiff
 brew install icu4c
 brew install isl
