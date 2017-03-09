@@ -207,3 +207,7 @@ alias pycharm='/Applications/PyCharm.app/Contents/MacOS/pycharm'
 # postgres convienence commands
 alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias pgstop='pg_ctl -D /usr/local/var/postgres stop'
+
+# https://github.com/github/hub
+# Wrap git automatically by adding the following to ~/.bash_profile:
+eval "$(hub alias -s)"
