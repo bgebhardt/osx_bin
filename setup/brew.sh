@@ -223,6 +223,10 @@ brew install ssldump
 brew install fetchmail
 brew install procmail
 
+# cloud tools
+brew install heroku
+brew install azure-cli
+
 # 09-04-2016 added to make EmptyEpsilon work
 # https://github.com/oznogon/EmptyEpsilon/issues/7
 brew install sfml
