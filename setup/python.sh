@@ -26,3 +26,7 @@ pip3 install gitpython
 # install virtualenv
 pip install virtualenv
 pip3 install virtualenv
+
+# * [python-diamond/Diamond: Diamond is a python daemon that collects system metrics and publishes them to Graphite (and others). It is capable of collecting cpu, memory, network, i/o, load and disk metrics. Additionally, it features an API for implementing custom collectors for gathering metrics from almost any source.]( https://github.com/python-diamond/Diamond )
+pip install diamond
+pip3 install diamond
