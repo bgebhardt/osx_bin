@@ -42,3 +42,8 @@ pip3 install ipython
 # install Jupyter notebook
 pip install jupyter
 pip3 install jupyter
+
+# ninja 2 IDE requirements
+pip install MacFSEvents
+pip3 install MacFSEvents
+pip3 install PyQt5
