@@ -46,4 +46,5 @@ pip3 install jupyter
 # ninja 2 IDE requirements
 pip install MacFSEvents
 pip3 install MacFSEvents
-pip3 install PyQt5
+# download PyQt4 from https://www.riverbankcomputing.com/software/pyqt/download
+# pip3 install PyQt5 # not used
