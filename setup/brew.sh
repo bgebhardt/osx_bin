@@ -255,5 +255,10 @@ brew install docker-swarm       # Turn a pool of Docker hosts into a single, vir
 brew install mas # Install App Store command line tools https://github.com/mas-cli/mas
 brew install reattach-to-user-namespace # work around for tmux-related pastboard problems (helps mas) https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
 
+# kafka cli, etc.
+brew install kafka
+
+brew install spark
+
 # Remove outdated versions from the cellar.
 brew cleanup
