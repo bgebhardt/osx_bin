@@ -260,5 +260,9 @@ brew install kafka
 
 brew install spark
 
+# install node
+brew install node
+brew install npm
+
 # Remove outdated versions from the cellar.
 brew cleanup
