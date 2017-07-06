@@ -264,5 +264,8 @@ brew install spark
 brew install node
 brew install npm
 
+# install pandoc to convert markdown to various formats
+brew install pandoc
+
 # Remove outdated versions from the cellar.
 brew cleanup
