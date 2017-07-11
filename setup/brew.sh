@@ -267,5 +267,9 @@ brew install npm
 # install pandoc to convert markdown to various formats
 brew install pandoc
 
+# Recall what you did on the last working day. Psst! or be nosy and find what someone else in your team did ;-)
+# https://github.com/kamranahmedse/git-standup
+brew install git-standup
+
 # Remove outdated versions from the cellar.
 brew cleanup
