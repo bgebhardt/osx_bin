@@ -17,4 +17,8 @@ npm -g install nestor
 npm -g install reapp
 
 # install azure command line interface
-npm install -g azure-cli
+npm -g install azure-cli
+
+# convert markdown to confluence markup - https://www.npmjs.com/package/markdown2confluence
+# doesn't work as well as pandoc for conversions.
+#npm -g install markdown2confluence
