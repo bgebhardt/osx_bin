@@ -49,3 +49,7 @@ pip3 install MacFSEvents
 pip3 install SIP
 # download PyQt4 from https://www.riverbankcomputing.com/software/pyqt/download
 # pip3 install PyQt5 # not used
+
+# mkdocs
+pip install mkdocs
+pip install mkdocs-material==0.2.4
