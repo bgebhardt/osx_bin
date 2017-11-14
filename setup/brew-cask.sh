@@ -135,6 +135,7 @@ brew cask install deltawalker
 brew cask install espresso
 brew cask install github-desktop
 brew cask install xquartz
+brew cask install ngrok # sign up or login here https://ngrok.com/
 #the-escapers-flux
 #quicklook-json
 brew cask install quickjson
