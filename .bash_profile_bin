@@ -4,7 +4,7 @@
 # copy ~/bin/.bash_profile to you home directory.  It sources this file.
 
 #echo "home dir: $HOME"
-echo "sourcing .profile_bryan" && source ~/bin/.profile_bryan # sources other bash settings, especially dev environment-related. 
+echo "sourcing .profile_bryan" && source ~/bin/.profile_bryan # sources other bash settings, especially dev environment-related.
 [[ -s "$HOME/bin/bash_work" ]] && echo "sourcing bash_work" && source ~/bin/bash_work # source work related shell settings
 
 # Copied this from bashstrap so I can customimze. it.  Uncomment or source the next line to go back to the original bashstrap.
@@ -73,8 +73,15 @@ export PS2="\[$ORANGE\]→ \[$RESET\]"
 
 ### Misc
 
-# Only show the current directory's name in the tab
-export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
+# Only show the current directory's name in the tab (DISABED for Timing)
+#export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
+
+# Window title that Timing can track paths.
+# https://timingapp.com/help/terminal
+# Be sure to set this in iTerm
+# iTerm -> Preferences -> Appearance -> Window & Tab titles -> check Show profile name option
+PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
+export PROMPT_COMMAND="${PROMPT_TITLE}; ${PROMPT_COMMAND}"
 
 # init z! (https://github.com/rupa/z)
 ~/bin/bashstrap/z.sh
