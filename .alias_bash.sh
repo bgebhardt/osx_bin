@@ -82,7 +82,7 @@ alias title='echo "]0;\!*"'
 
 # make an alias for setting an xterm's window title to the remote host
 #if $?remotehost then # <== this if doesn't work!
-#   if $?term then 
+#   if $?term then
 #     if ($term == "xterm") then
 #	alias setremotehost	'echo "]0;"$REMOTEHOST"\!*"'
 #     endif
@@ -94,7 +94,7 @@ alias title='echo "]0;\!*"'
 #  if $?term then
 #    if ($term == "xterm") then
 #    	alias bye	'setremotehost; exit'
-#    else	
+#    else
 #	alias bye 	exit
 #   endif
 #  endif
@@ -115,7 +115,7 @@ alias find.="find . -name \!* "
 alias finder_cd='cd "`~/bin/finder_win_path.sh \!*`"'
 alias finder_wins="'osascript ~/bin/list_finder_windows.scpt'"
 
-# dos, unix, and mac text file translation aliases.  
+# dos, unix, and mac text file translation aliases.
 # NOT TESTED.  DON'T SEEM TO WORK.
 #alias dos2mac=tr "\r\n" "\r"
 #alias mac2dos=tr "\r" "\r\n"
@@ -126,7 +126,7 @@ alias unix2mac='tr \"\\n\" \"\\r\"'
 
 # alias to fix a quicken file
 # For reference here's the output of GetFileInfo on the file.
-#% GetFileInfo stmt.qfx 
+#% GetFileInfo stmt.qfx
 #file: "stmt.qfx"
 #type: "WBCN"
 #creator: "INTU"
@@ -191,6 +191,7 @@ alias gp='git push'
 alias gf='git fetch'
 alias gi='git info'
 alias grm='git rm $(git ls-files --deleted)'
+alias git_url='git remote show origin | grep Fetch' # will get the repo's url, can pass to pbcopy
 
 # Open specified files in Sublime Text
 # "s ." will open the current directory in Sublime
