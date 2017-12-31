@@ -118,6 +118,7 @@ brew cask install supersync
 # brew cask install wallpaper-wizard # install via mas instead
 brew cask install iphoto-library-manager
 brew cask install imazing
+brew cask install handbrake # https://handbrake.fr/
 
 ## Development apps
 brew cask install atom
