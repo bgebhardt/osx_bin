@@ -154,12 +154,11 @@ export PATH
 # ======================================================
 
 # SVN stuff
-export SVN_EDITOR="mate -w"
+export SVN_EDITOR="code -w"
 
 # my preferred editor
 export EDITOR="code -w"  # I switched to visual code!
 #export EDITOR="mate -w"
-
 
 
 # 05-22-2016: don't remember what this is
