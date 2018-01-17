@@ -271,5 +271,8 @@ brew install pandoc
 # https://github.com/kamranahmedse/git-standup
 brew install git-standup
 
+# install handbrake as bin/HandBrakeCLI command line - https://handbrake.fr/
+brew install handbrake
+
 # Remove outdated versions from the cellar.
 brew cleanup
