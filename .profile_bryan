@@ -9,7 +9,7 @@
 #TODO: merge this with ~/bin/.bash_profile (?)
 
 #set path to include my bin and the developer tools
-export PATH=~/bin:/usr/local/sbin:/usr/local/bin:/Xcode3/Developer/usr/bin:/Developer/Tools:$PATH:/usr/local/mysql/bin:/usr/local/graphviz-2.14/bin:/Applications/splunk/bin:/Library/Wireshark:/usr/local/share/npm/bin
+export PATH=~/bin:/usr/local/sbin:/usr/local/bin:/Xcode3/Developer/usr/bin:/Developer/Tools:/Applications/Postgres.app/Contents/Versions/10/bin:$PATH:/usr/local/mysql/bin:/usr/local/graphviz-2.14/bin:/Applications/splunk/bin:/Library/Wireshark:/usr/local/share/npm/bin
 
 # git-extra-commands conflictes with git-extras (installed from brew.sh). Removing from path.
 # To add it back add this: ~/bin/git-extra-commands/bin:
@@ -157,7 +157,10 @@ export PATH
 export SVN_EDITOR="mate -w"
 
 # my preferred editor
-export EDITOR="mate -w"
+export EDITOR="code -w"  # I switched to visual code!
+#export EDITOR="mate -w"
+
+
 
 # 05-22-2016: don't remember what this is
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
