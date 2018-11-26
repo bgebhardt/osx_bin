@@ -43,6 +43,11 @@ pip3 install ipython
 pip install jupyter
 pip3 install jupyter
 
+# Tools for diffing and merging of Jupyter notebooks
+# https://github.com/jupyter/nbdime
+pip install nbdime
+pip3 install nbdime
+
 # ninja 2 IDE requirements
 pip install MacFSEvents
 pip3 install MacFSEvents
