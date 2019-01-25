@@ -224,7 +224,7 @@ brew install fetchmail
 brew install procmail
 
 # cloud tools
-brew install heroku
+# brew install heroku - as of 2018 we no longer use heroku
 brew install azure-cli
 
 # 09-04-2016 added to make EmptyEpsilon work
@@ -254,6 +254,12 @@ brew install docker-swarm       # Turn a pool of Docker hosts into a single, vir
 # 10-19-16
 brew install mas # Install App Store command line tools https://github.com/mas-cli/mas
 brew install reattach-to-user-namespace # work around for tmux-related pastboard problems (helps mas) https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
+
+# kubernetes tools
+brew install kubernetes-cli
+
+# [kubectx: a tool to switch between Kubernetes contexts](https://ahmet.im/blog/kubectx/)
+brew install kubectx
 
 # kafka cli, etc.
 brew install kafka
