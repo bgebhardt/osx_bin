@@ -58,3 +58,7 @@ pip3 install SIP
 # mkdocs
 pip install mkdocs
 pip install mkdocs-material==0.2.4
+
+# install [Beautiful Soup: We called him Tortoise because he taught us.](https://www.crummy.com/software/BeautifulSoup/)
+pip install beautifulsoup4
+pip3 install beautifulsoup4
