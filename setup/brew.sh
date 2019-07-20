@@ -115,12 +115,11 @@ pip install Pygments
 # TODO: remove dupes from this list
 brew install ansible
 brew install asciidoc
-brew install boot2docker
+#brew install boot2docker
 brew install cairo
 brew install cask
 brew install chromedriver
 brew install colordiff
-brew install coreutils
 brew install couchdb
 brew install csshx
 brew install dependency-check
@@ -247,9 +246,9 @@ brew install maven-completion  # maven-bash-completion
 brew install jenkins            # CI Server
 brew install sonar              # Static Code Analysis Tool
  
-brew install docker-machine     # installs Docker, then configures the Docker client to talk to them
-brew install docker-compose     # tool for defining and running multi-container applications with Docker
-brew install docker-swarm       # Turn a pool of Docker hosts into a single, virtual host
+#brew install docker-machine     # installs Docker, then configures the Docker client to talk to them
+#brew install docker-compose     # tool for defining and running multi-container applications with Docker
+#brew install docker-swarm       # Turn a pool of Docker hosts into a single, virtual host
 
 # 10-19-16
 brew install mas # Install App Store command line tools https://github.com/mas-cli/mas
@@ -282,6 +281,9 @@ brew install handbrake
 
 # switch audio allows switching sound outputs from the command line
 brew install switchaudio-osx
+
+# data science
+brew install jupyter
 
 # Remove outdated versions from the cellar.
 brew cleanup

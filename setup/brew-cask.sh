@@ -174,6 +174,8 @@ brew cask install webpquicklook       # Preview WebP images
 brew cask install gitup         # Visualization Tool for Git
 brew cask install kaleidoscope  # File and Folder comparison tool
 
+# Data science
+brew cask install anaconda
 
 # Games
 brew cask install gog-galaxy
