@@ -42,6 +42,12 @@ pip3 install ipython
 # install Jupyter notebook
 pip install jupyter
 pip3 install jupyter
+pip install jupyterthemes
+pip3 install jupyterthemes
+
+# [ideonate/nb2xls: Convert Jupyter notebook to Excel spreadsheet](https://github.com/ideonate/nb2xls)
+pip install nb2xls
+pip3 install nb2xls
 
 # Tools for diffing and merging of Jupyter notebooks
 # https://github.com/jupyter/nbdime
