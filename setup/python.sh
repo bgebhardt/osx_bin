@@ -68,3 +68,7 @@ pip install mkdocs-material==0.2.4
 # install [Beautiful Soup: We called him Tortoise because he taught us.](https://www.crummy.com/software/BeautifulSoup/)
 pip install beautifulsoup4
 pip3 install beautifulsoup4
+
+# install [dateutil - powerful extensions to datetime — dateutil 2.8.0 documentation](https://dateutil.readthedocs.io/en/stable/)
+pip install python-dateutil
+pip3 install python-dateutil
