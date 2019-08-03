@@ -72,3 +72,7 @@ pip3 install beautifulsoup4
 # install [dateutil - powerful extensions to datetime — dateutil 2.8.0 documentation](https://dateutil.readthedocs.io/en/stable/)
 pip install python-dateutil
 pip3 install python-dateutil
+
+# [akshaykmr/hogwatch: find out what's hogging your internet connection.](https://github.com/akshaykmr/hogwatch)
+# Depends on nethogs
+pip install hogwatch --upgrade

@@ -285,5 +285,10 @@ brew install switchaudio-osx
 # data science
 brew install jupyter
 
+
+# groups bandwidth by process.
+# [raboof/nethogs: Linux 'net top' tool](https://github.com/raboof/nethogs)
+brew install nethogs
+
 # Remove outdated versions from the cellar.
 brew cleanup
