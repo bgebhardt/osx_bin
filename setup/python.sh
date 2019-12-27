@@ -76,3 +76,8 @@ pip3 install python-dateutil
 # [akshaykmr/hogwatch: find out what's hogging your internet connection.](https://github.com/akshaykmr/hogwatch)
 # Depends on nethogs
 pip install hogwatch --upgrade
+
+# azure devops python API
+# [GitHub - microsoft/azure-devops-python-api: Azure DevOps Python API](https://github.com/Microsoft/azure-devops-python-api)
+pip install azure-devops
+pip3 install azure-devops
