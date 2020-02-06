@@ -284,11 +284,15 @@ brew install switchaudio-osx
 
 # data science
 brew install jupyter
+brew install nbdime # diffing and merging of Jupyter Notebooks
 
 
 # groups bandwidth by process.
 # [raboof/nethogs: Linux 'net top' tool](https://github.com/raboof/nethogs)
 brew install nethogs
+
+# [imsnif/bandwhich: Terminal bandwidth utilization tool](https://github.com/imsnif/bandwhich)
+brew install bandwhich
 
 # Remove outdated versions from the cellar.
 brew cleanup
