@@ -1,15 +1,18 @@
 #!/bin/bash
 
+## ------------------------
+## Old MileIQ configuration
+
 # options for MDLWeb app
 # export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home
-export WEBAPP_VARIATION_ROOT="https://s3.amazonaws.com/webapp-variations/staging/"
-export MILEIQ_HOST="http://localhost:5000"
-export MILEIQ_APP_KEY=
-export MILEIQ_API_MASTER_KEY=
-export CATALINA_OPTS="-Xms256m -Xmx1024m -XX:MaxPermSize=256m"
+# export WEBAPP_VARIATION_ROOT="https://s3.amazonaws.com/webapp-variations/staging/"
+# export MILEIQ_HOST="http://localhost:5000"
+# export MILEIQ_APP_KEY=
+# export MILEIQ_API_MASTER_KEY=
+# export CATALINA_OPTS="-Xms256m -Xmx1024m -XX:MaxPermSize=256m"
 
 # heroku options
-export HEROKU_ORGANIZATION="microsoft"
+#export HEROKU_ORGANIZATION="microsoft"
 
 # sdkman - used to manage grails, groovy, and java
 # to install sdkman: curl -s "https://get.sdkman.io" | bash
@@ -50,11 +53,15 @@ export HEROKU_ORGANIZATION="microsoft"
 #eval "$(jenv init - --no-rehash)"
 #(jenv rehash &) 2> /dev/null
 
+## 05-21-2020: commenting out to spend load.
+
 # settings for virtualenv and [Virtualenvwrapper]( https://virtualenvwrapper.readthedocs.io/en/latest/ ).
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
-source /usr/local/bin/virtualenvwrapper.sh
+# export WORKON_HOME=$HOME/.virtualenvs
+# export PROJECT_HOME=$HOME/Devel
+# source /usr/local/bin/virtualenvwrapper.sh
 
 # add postgress.app tools to path
 # 02-23-2017: Postress.app not working.  back to brew verstion of postgres
 #export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
+
+echo "bash_work loaded"
