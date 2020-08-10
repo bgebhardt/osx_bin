@@ -153,6 +153,8 @@ brew cask install vagrant                   # Vagrant is a tool for building and
 brew cask install ngrok		# ngrok is a handy tool and service that allows you tunnel requests from the wide open Internet to your local machine when it's behind a NAT or firewall
 
 brew cask install visual-studio-code
+brew cask install powershell # install the mac version of powershell
+brew cask install dotnet-sdk # install .NET Core SDK
 brew cask install sts
 brew cask install kitematic
 brew cask install sequel-pro
