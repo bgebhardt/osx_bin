@@ -1,0 +1,5 @@
+# crontab for my personal machine
+0	6	*	*	*	/usr/local/bin/SwitchAudioSource -s "Built-in Output" >/dev/null 2>&1; /usr/bin/osascript -e "set volume with output muted" >/dev/null 2>&1
+#*/5	*	*	*	*	/usr/bin/time /Users/bryan/code/personal/waittimes/run_disney.sh 2>|/tmp/disney_time.log
+#CronniX */5	*	*	*	*	/Users/bryan/code/personal/waittimes/run_disney.sh
+#CronniX */5	*	*	*	*	/Users/bryan/code/personal/waittimes/run_disney_dropbox.sh
