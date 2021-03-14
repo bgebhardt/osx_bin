@@ -3,7 +3,7 @@
 
 ; NOT WORKING
 ;Minimize active window
-!::WinMinimize, A ; Alt + `
+^+Down::WinMinimize, A ; Control+Shift+Down
 return
 
 ; Bing Search select text - Ctrl + Shift + C
