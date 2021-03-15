@@ -27,6 +27,8 @@ return
 
 
 ; Create Emacs Style text movement commmands
+; running my emacs_baic.ahk script to map all these to CapsLock.
+
 ; using https://github.com/justintanner/universal-emacs-keybindings/blob/master/emacs_autohotkey.ahk
 ; run emacs script in this folder
 ; other options
@@ -38,8 +40,6 @@ return
 
 ; Copy URL in a keystroke in Edge 
 ; TODO: make it just edge
-
-
 
 ; Other scripts to consider making
 ; https://autohotkey.com/board/topic/38653-see-running-autohotkey-scripts-and-end-them/
