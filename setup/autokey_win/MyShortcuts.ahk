@@ -232,14 +232,27 @@ scroll_down()
 }
 
 ; set up capslock
+
 ; make capslock always off
 SetCapsLockState, AlwaysOff
-;;CapsLock::Send {Ctrl} ; force sending a control character on release
-;;CapsLock::Ctrl
+
+; Map CapsLock to left control
+; the trick was to use ~ to fire capsLock and control AND have caps lock state always off.
+; This will make all the CapsLock based mappings below also work.
+; https://www.autohotkey.com/docs/Hotkeys.htm#Tilde
+~CapsLock::LControl
+
+; All the links I looked at to figure this out.
+
 ; Finally found this way to do this; but it doesn't work with setcapslock state always off!!!!
 ; https://autohotkey.com/board/topic/5074-map-caps-lock-to-ctrl-and-arrow-keys/
-$CapsLock::Send {LControl Down}
-$CapsLock Up::Send {LControl Up}
+; https://autohotkey.com/board/topic/104173-capslock-to-control-and-escape/
+; https://www.autohotkey.com/boards/viewtopic.php?f=76&t=64357&p=275991
+; https://www.autohotkey.com/boards/viewtopic.php?style=1&t=70079
+; https://stackoverflow.com/questions/64809036/how-to-map-capslock-to-esc-and-esc-to-capslock-in-autohotkey
+; https://www.reddit.com/r/AutoHotkey/comments/399ff2/mapping_capslock_to_control_and_escape/
+; https://autohotkey.com/board/topic/5074-map-caps-lock-to-ctrl-and-arrow-keys/
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ADD OTHER GLOBAL KEY BINDINGS
@@ -266,9 +279,6 @@ return
  #If WinActive("ahk_exe msedge.exe")
     CapsLock & [::^+Tab ;; next tab
     CapsLock & ]::^Tab ;; prev tab
-    CapsLock & t::^t ; hacking to create new tab
-    CapsLock & n::^n ; hacking to create new window
-    CapsLock & w::^w ; hacking to close window
  #If ; turns off context sensitivity
 
 
@@ -314,7 +324,12 @@ CapsLock & y::
   Else
     yank()
   Return
-  
+CapsLock & f::
+  If is_target()
+    Send %A_ThisHotkey%
+  Else
+    forward_char()
+  Return  
 CapsLock & a::
   If is_target()
     Send %A_ThisHotkey%
@@ -345,18 +360,18 @@ CapsLock & b::
   Else
     backward_char()
   Return
-CapsLock & v::
-  If is_target()
-    Send %A_ThisHotkey%
-  Else
-    scroll_down()
-  Return
-!v:: ;; Alt + V
-  If is_target()
-    Send %A_ThisHotkey%
-  Else
-    scroll_up()
-  Return
+; CapsLock & v::
+;   If is_target()
+;     Send %A_ThisHotkey%
+;   Else
+;     scroll_down()
+;   Return
+; !v:: ;; Alt + V
+;   If is_target()
+;     Send %A_ThisHotkey%
+;   Else
+;     scroll_up()
+;   Return
 
 
 
