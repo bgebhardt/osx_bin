@@ -234,8 +234,12 @@ scroll_down()
 ; set up capslock
 ; make capslock always off
 SetCapsLockState, AlwaysOff
-CapsLock::Send {Ctrl} ; force sending a control character on release
-
+;;CapsLock::Send {Ctrl} ; force sending a control character on release
+;;CapsLock::Ctrl
+; Finally found this way to do this; but it doesn't work with setcapslock state always off!!!!
+; https://autohotkey.com/board/topic/5074-map-caps-lock-to-ctrl-and-arrow-keys/
+$CapsLock::Send {LControl Down}
+$CapsLock Up::Send {LControl Up}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ADD OTHER GLOBAL KEY BINDINGS
@@ -262,6 +266,9 @@ return
  #If WinActive("ahk_exe msedge.exe")
     CapsLock & [::^+Tab ;; next tab
     CapsLock & ]::^Tab ;; prev tab
+    CapsLock & t::^t ; hacking to create new tab
+    CapsLock & n::^n ; hacking to create new window
+    CapsLock & w::^w ; hacking to close window
  #If ; turns off context sensitivity
 
 
