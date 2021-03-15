@@ -277,8 +277,8 @@ return
 
 ;; for Microsoft Edge
  #If WinActive("ahk_exe msedge.exe")
-    CapsLock & [::^+Tab ;; next tab
-    CapsLock & ]::^Tab ;; prev tab
+    ^[::^+Tab ;; next tab
+    ^]::^Tab ;; prev tab
  #If ; turns off context sensitivity
 
 
