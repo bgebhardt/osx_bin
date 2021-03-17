@@ -255,12 +255,41 @@ SetCapsLockState, AlwaysOff
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; WINDOW RELATED FUNCTIONS
+
+CenterWindow(WinTitle)
+{
+    WinGetPos,,, Width, Height, %WinTitle%
+    WinMove, %WinTitle%,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
+    return
+}
+
+RightTwoThirdsWindow(WinTitle)
+{
+    WinGetPos,,, Width, Height, %WinTitle%
+    WinMove, %WinTitle%,, 0,0, A_ScreenWidth*2/3, A_ScreenHeight     
+    return
+}
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ADD OTHER GLOBAL KEY BINDINGS
 
 ; from https://windowsloop.com/best-autohotkey-scripts/
 ; Minimize active window
-^+Down::WinMinimize, A ; Control+Shift+Down
-return
+#+Down::WinMinimize, A ; Windows+Shift+Down
+
+; Maximize active window
+#+Up::WinMaximize, A  ; Windows+Shift+Up
+
+; Restores active window
+#+Right::WinRestore, A  ; Windows+Shift+Right
+
+#+c::CenterWindow("A")  ; Windows+Shift+C
+#+d::RightTwoThirdsWindow("A")  ; Windows+Shift+D
+
+; TODO: look at hotkeys to position windows
+; post with windows resize function - https://www.damirscorner.com/blog/posts/20200522-PositioningWithAutoHotkey.html
+; look at centerwindow function in https://www.autohotkey.com/docs/commands/WinMove.htm
 
 ; Bing Search select text - Ctrl + Shift + C
  ^+c::
@@ -282,6 +311,12 @@ return
  #If ; turns off context sensitivity
 
 
+;; for Excel
+ #If WinActive("ahk_exe EXCEL.EXE")
+    ;; todo: see if there's a better way then embedding in delete_char hotkey below
+;;^d::$^d
+ #If ; turns off context sensitivity
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ADD EMACS-STYLE KEY BINDINGS
 
@@ -297,6 +332,8 @@ return
 CapsLock & d::
   If is_target()
     Send %A_ThisHotkey%
+  Else if WinActive("ahk_exe EXCEL.EXE") ; in excel ^d is fill down
+    Send ^d 
   Else
     delete_char()
   Return
@@ -321,6 +358,8 @@ CapsLock & s:: ;; changed to always be save
 CapsLock & y::
   If is_target()
     Send %A_ThisHotkey%
+  Else if WinActive("ahk_exe EXCEL.EXE") ; in excel ^y is repeat
+    Send ^y
   Else
     yank()
   Return
