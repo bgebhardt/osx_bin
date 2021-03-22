@@ -257,6 +257,8 @@ SetCapsLockState, AlwaysOff
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; WINDOW RELATED FUNCTIONS
 
+;; TODO: need to get window out of maximize mode before moving it
+
 CenterWindow(WinTitle)
 {
     WinGetPos,,, Width, Height, %WinTitle%
@@ -268,6 +270,22 @@ RightTwoThirdsWindow(WinTitle)
 {
     WinGetPos,,, Width, Height, %WinTitle%
     WinMove, %WinTitle%,, 0,0, A_ScreenWidth*2/3, A_ScreenHeight     
+    return
+}
+
+
+RightHalfWindow(WinTitle)
+{
+    WinGetPos,,, Width, Height, %WinTitle%
+    WinMove, %WinTitle%,, A_ScreenWidth/2, 0, A_ScreenWidth/2, A_ScreenHeight     
+    return
+}
+;WinMove, WinTitle, WinText, X, Y, [Width, Height, ExcludeTitle, ExcludeText]
+
+LeftHalfWindow(WinTitle)
+{
+    WinGetPos,,, Width, Height, %WinTitle%
+    WinMove, %WinTitle%,, 0,0, A_ScreenWidth/2, A_ScreenHeight     
     return
 }
 
@@ -286,6 +304,13 @@ RightTwoThirdsWindow(WinTitle)
 
 #+c::CenterWindow("A")  ; Windows+Shift+C
 #+d::RightTwoThirdsWindow("A")  ; Windows+Shift+D
+
+#+s::LeftHalfWindow("A")  ; Windows+Shift+left arrow
+#+f::RightHalfWindow("A")  ; Windows+Shift+right arrow
+
+; not working! TODO
+;#+Left::LeftHalfWindow("A")  ; Windows+Shift+left arrow
+;#+Right::RightHalfWindow("A")  ; Windows+Shift+right arrow
 
 ; TODO: look at hotkeys to position windows
 ; post with windows resize function - https://www.damirscorner.com/blog/posts/20200522-PositioningWithAutoHotkey.html
