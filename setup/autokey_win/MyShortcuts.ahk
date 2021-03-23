@@ -257,37 +257,89 @@ SetCapsLockState, AlwaysOff
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; WINDOW RELATED FUNCTIONS
 
-;; TODO: need to get window out of maximize mode before moving it
+;; TODO: 
+;   move window between monitors
+
+MonitorHeight()
+{
+  SysGet, primeMonitor, MonitorPrimary
+  SysGet, workArea, MonitorWorkArea, %primeMonitor%
+  workAreaWidth := workAreaRight - workAreaLeft
+  workAreaHeight := workAreaBottom - workAreaTop
+  return workAreaHeight
+}
+
+MonitorWidth()
+{
+  SysGet, primeMonitor, MonitorPrimary
+  SysGet, workArea, MonitorWorkArea, %primeMonitor%
+  workAreaWidth := workAreaRight - workAreaLeft
+  workAreaHeight := workAreaBottom - workAreaTop
+  ; MsgBox, %workAreaRight%, %workAreaLeft%, ; 1259, -241
+  ; MsgBox, %workAreaTop%, %workAreaBottom% ; 1440, 2500
+  ; MsgBox, %workAreaWidth%, %workAreaHeight% ; 1500,960 ; 2560, 1400
+  ; MsgBox, %A_ScreenHeight%, %A_ScreenWidth% ; 1440, 2560
+  return workAreaWidth ; return bottom
+}
 
 CenterWindow(WinTitle)
 {
+    WinRestore, %WinTitle% ; make sure it's not maximized before moving
     WinGetPos,,, Width, Height, %WinTitle%
-    WinMove, %WinTitle%,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
+    WinMove, %WinTitle%,, (MonitorWidth()/2)-(Width/2), (MonitorHeight()/2)-(Height/2)
     return
 }
 
 RightTwoThirdsWindow(WinTitle)
 {
+    WinRestore, %WinTitle% ; make sure it's not maximized before moving
     WinGetPos,,, Width, Height, %WinTitle%
-    WinMove, %WinTitle%,, 0,0, A_ScreenWidth*2/3, A_ScreenHeight     
+    WinMove, %WinTitle%,, 0,0, MonitorWidth()*2/3, MonitorHeight()
     return
 }
 
 
 RightHalfWindow(WinTitle)
 {
+    WinRestore, %WinTitle% ; make sure it's not maximized before moving
     WinGetPos,,, Width, Height, %WinTitle%
-    WinMove, %WinTitle%,, A_ScreenWidth/2, 0, A_ScreenWidth/2, A_ScreenHeight     
+    WinMove, %WinTitle%,, MonitorWidth()/2, 0, MonitorWidth()/2, MonitorHeight()     
     return
 }
 ;WinMove, WinTitle, WinText, X, Y, [Width, Height, ExcludeTitle, ExcludeText]
 
 LeftHalfWindow(WinTitle)
 {
+    WinRestore, %WinTitle% ; make sure it's not maximized before moving
     WinGetPos,,, Width, Height, %WinTitle%
-    WinMove, %WinTitle%,, 0,0, A_ScreenWidth/2, A_ScreenHeight     
+    WinMove, %WinTitle%,, 0,0, MonitorWidth()/2, MonitorHeight()     
     return
 }
+
+DisplayMonitorInfo()
+{
+  ; Displays info about each monitor.
+  ;https://www.autohotkey.com/docs/commands/SysGet.htm
+  SysGet, MonitorCount, MonitorCount
+  SysGet, MonitorPrimary, MonitorPrimary
+  MsgBox, Monitor Count:`t%MonitorCount%`nPrimary Monitor:`t%MonitorPrimary%
+  Loop, %MonitorCount%
+  {
+      SysGet, MonitorName, MonitorName, %A_Index%
+      SysGet, Monitor, Monitor, %A_Index%
+      SysGet, MonitorWorkArea, MonitorWorkArea, %A_Index%
+      MsgBox, Monitor:`t#%A_Index%`nName:`t%MonitorName%`nLeft:`t%MonitorLeft% (%MonitorWorkAreaLeft% work)`nTop:`t%MonitorTop% (%MonitorWorkAreaTop% work)`nRight:`t%MonitorRight% (%MonitorWorkAreaRight% work)`nBottom:`t%MonitorBottom% (%MonitorWorkAreaBottom% work)
+  }
+}
+
+; for diplaying and testing
+^+m::
+{
+  MonitorHeight()
+  MonitorWidth()
+  DisplayMonitorInfo()
+}
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ADD OTHER GLOBAL KEY BINDINGS
