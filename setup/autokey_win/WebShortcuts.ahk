@@ -1,0 +1,1 @@
+MsgBox, "Loaded WebShortcuts.ahk"
