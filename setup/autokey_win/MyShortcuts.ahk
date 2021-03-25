@@ -158,10 +158,33 @@ kill_emacs()
   Return
 }
 
+
+; refactor inspired by this post: https://stackoverflow.com/questions/21883696/autohotkey-my-hotkeys-dont-work-in-combination-with-other-modifier-keys
+; allows me to pass shift key for selecting text
+; TODO: not working, ugh
+
+nav(action) 
+{
+    global
+  if is_pre_spc
+    Send +{action}
+  Else if ( GetKeyState("Shift", "P") ) ; pass along the shift key
+  {
+    MsgBox, here
+    Send "{" action "}"; Send +{action}
+  }
+  Else
+    Send "{" action "}"
+  Return
+}
+
 move_beginning_of_line()
 {
+  ;nav("HOME")
   global
   if is_pre_spc
+    Send +{HOME}
+  Else if ( GetKeyState("Shift", "P") ) ; pass along the shift key
     Send +{HOME}
   Else
     Send {HOME}
@@ -169,8 +192,11 @@ move_beginning_of_line()
 }
 move_end_of_line()
 {
+  ;nav("END")
   global
   if is_pre_spc
+    Send +{END}
+  Else if ( GetKeyState("Shift", "P") ) ; pass along the shift key
     Send +{END}
   Else
     Send {END}
@@ -199,6 +225,8 @@ forward_char()
   global
   if is_pre_spc
     Send +{Right}
+  Else if ( GetKeyState("Shift", "P") ) ; pass along the shift key
+    Send +{Right}
   Else
     Send {Right}
   Return
@@ -208,6 +236,8 @@ backward_char()
   global
   if is_pre_spc
     Send +{Left} 
+  Else if ( GetKeyState("Shift", "P") ) ; pass along the shift key
+    Send +{Left}
   Else
     Send {Left}
   Return
@@ -286,7 +316,8 @@ CenterWindow(WinTitle)
 {
     WinRestore, %WinTitle% ; make sure it's not maximized before moving
     WinGetPos,,, Width, Height, %WinTitle%
-    WinMove, %WinTitle%,, (MonitorWidth()/2)-(Width/2), (MonitorHeight()/2)-(Height/2)
+    ; this one uses primary monitor full width and height as it moves the window without making it bigger
+    WinMove, %WinTitle%,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
     return
 }
 
