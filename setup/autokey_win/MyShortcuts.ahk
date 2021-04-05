@@ -16,9 +16,6 @@
 #UseHook
 
 
-#Include %A_ScriptDir% ; change to scripts directory
-;#Include WebShortcuts.ahk
-
 ; The following line is a contribution of NTEmacs wiki http://www49.atwiki.jp/ntemacs/pages/20.html
 SetKeyDelay 0
 
@@ -288,121 +285,6 @@ SetCapsLockState, AlwaysOff
 ; https://autohotkey.com/board/topic/5074-map-caps-lock-to-ctrl-and-arrow-keys/
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; WINDOW RELATED FUNCTIONS
-
-;; TODO: 
-;   move window between monitors
-
-MonitorHeight()
-{
-  SysGet, primeMonitor, MonitorPrimary
-  SysGet, workArea, MonitorWorkArea, %primeMonitor%
-  workAreaWidth := workAreaRight - workAreaLeft
-  workAreaHeight := workAreaBottom - workAreaTop
-  return workAreaHeight
-}
-
-MonitorWidth()
-{
-  SysGet, primeMonitor, MonitorPrimary
-  SysGet, workArea, MonitorWorkArea, %primeMonitor%
-  workAreaWidth := workAreaRight - workAreaLeft
-  workAreaHeight := workAreaBottom - workAreaTop
-  ; MsgBox, %workAreaRight%, %workAreaLeft%, ; 1259, -241
-  ; MsgBox, %workAreaTop%, %workAreaBottom% ; 1440, 2500
-  ; MsgBox, %workAreaWidth%, %workAreaHeight% ; 1500,960 ; 2560, 1400
-  ; MsgBox, %A_ScreenHeight%, %A_ScreenWidth% ; 1440, 2560
-  return workAreaWidth ; return bottom
-}
-
-CenterWindow(WinTitle)
-{
-    WinRestore, %WinTitle% ; make sure it's not maximized before moving
-    WinGetPos,,, Width, Height, %WinTitle%
-    ; this one uses primary monitor full width and height as it moves the window without making it bigger
-    WinMove, %WinTitle%,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
-    return
-}
-
-RightTwoThirdsWindow(WinTitle)
-{
-    WinRestore, %WinTitle% ; make sure it's not maximized before moving
-    WinGetPos,,, Width, Height, %WinTitle%
-    WinMove, %WinTitle%,, 0,0, MonitorWidth()*2/3, MonitorHeight()
-    return
-}
-
-
-RightHalfWindow(WinTitle)
-{
-    WinRestore, %WinTitle% ; make sure it's not maximized before moving
-    WinGetPos,,, Width, Height, %WinTitle%
-    WinMove, %WinTitle%,, MonitorWidth()/2, 0, MonitorWidth()/2, MonitorHeight()     
-    return
-}
-;WinMove, WinTitle, WinText, X, Y, [Width, Height, ExcludeTitle, ExcludeText]
-
-LeftHalfWindow(WinTitle)
-{
-    WinRestore, %WinTitle% ; make sure it's not maximized before moving
-    WinGetPos,,, Width, Height, %WinTitle%
-    WinMove, %WinTitle%,, 0,0, MonitorWidth()/2, MonitorHeight()     
-    return
-}
-
-DisplayMonitorInfo()
-{
-  ; Displays info about each monitor.
-  ;https://www.autohotkey.com/docs/commands/SysGet.htm
-  SysGet, MonitorCount, MonitorCount
-  SysGet, MonitorPrimary, MonitorPrimary
-  MsgBox, Monitor Count:`t%MonitorCount%`nPrimary Monitor:`t%MonitorPrimary%
-  Loop, %MonitorCount%
-  {
-      SysGet, MonitorName, MonitorName, %A_Index%
-      SysGet, Monitor, Monitor, %A_Index%
-      SysGet, MonitorWorkArea, MonitorWorkArea, %A_Index%
-      MsgBox, Monitor:`t#%A_Index%`nName:`t%MonitorName%`nLeft:`t%MonitorLeft% (%MonitorWorkAreaLeft% work)`nTop:`t%MonitorTop% (%MonitorWorkAreaTop% work)`nRight:`t%MonitorRight% (%MonitorWorkAreaRight% work)`nBottom:`t%MonitorBottom% (%MonitorWorkAreaBottom% work)
-  }
-}
-
-; for diplaying and testing
-^+m::
-{
-  MonitorHeight()
-  MonitorWidth()
-  DisplayMonitorInfo()
-}
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; ADD OTHER GLOBAL KEY BINDINGS
-
-; from https://windowsloop.com/best-autohotkey-scripts/
-; Minimize active window
-#+Down::WinMinimize, A ; Windows+Shift+Down
-
-; Maximize active window
-#+Up::WinMaximize, A  ; Windows+Shift+Up
-
-; Restores active window
-#+Right::WinRestore, A  ; Windows+Shift+Right
-
-#+c::CenterWindow("A")  ; Windows+Shift+C
-#+d::RightTwoThirdsWindow("A")  ; Windows+Shift+D
-
-#+s::LeftHalfWindow("A")  ; Windows+Shift+left arrow
-#+f::RightHalfWindow("A")  ; Windows+Shift+right arrow
-
-; not working! TODO
-;#+Left::LeftHalfWindow("A")  ; Windows+Shift+left arrow
-;#+Right::RightHalfWindow("A")  ; Windows+Shift+right arrow
-
-; TODO: look at hotkeys to position windows
-; post with windows resize function - https://www.damirscorner.com/blog/posts/20200522-PositioningWithAutoHotkey.html
-; look at centerwindow function in https://www.autohotkey.com/docs/commands/WinMove.htm
-
 ; Bing Search select text - Ctrl + Shift + C
  ^+c::
  {
@@ -545,3 +427,6 @@ CapsLock & b::
 ; https://autohotkey.com/board/topic/38653-see-running-autohotkey-scripts-and-end-them/
 
 
+#Include %A_ScriptDir% ; change to scripts directory
+#Include WindowShortcuts.ahk
+;#Include WebShortcuts.ahk
