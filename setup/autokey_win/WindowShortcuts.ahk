@@ -81,22 +81,13 @@ DisplayMonitorInfo()
   return
 }
 
-; inspred by these posts
-; https://autohotkey.com/board/topic/17885-dual-monitor-swap/
-; https://autohotkey.com/board/topic/32874-moving-the-active-window-from-one-monitor-to-the-other/
-SwapMonitor(WinTitle) 
+; returns the monitor number this window is on
+; assumes two monitors right next to each other
+GetWindowMonitor(WinTitle)
 {
-
-
-;  WinGetPos, X, Y, W, H, %WinTitle%
-;  MsgBox, the win is at %X%,%Y% and its size is %W%x%H%
-  
-  ; assumes two monitors right next to each other
   SysGet, Mon1, Monitor, 1
   SysGet, Mon2, Monitor, 2
   WinGetPos, WinX, WinY, WinWidth, WinHeight, %WinTitle%
-
-  ; 
 
   ; Determines which monitor this is on by the position of the center pixel.
   WinXCenter := WinX + (WinWidth / 2) 
@@ -111,15 +102,42 @@ SwapMonitor(WinTitle)
   ; you're on that display
   
   ; for now moving to monitor as full screen; TODO: size window when moved
-  ; TODO refactor to function to return display
   ; if on monitor 1
   if (WinXCenter > Mon1Left and WinXCenter < Mon1Right and WinYCenter > Mon1Top and WinYCenter < Mon1Bottom) {
-    ; then move to monitor 2
-    WinMove, %WinTitle%, , Mon2Left, Mon2Top, Mon2Right, Mon2Bottom
+    winOnDisplay :=1
+  } else { ; on monitor 2
+    winOnDisplay :=2
+  }
+  return winOnDisplay
+}
 
+; inspired by these posts
+; https://autohotkey.com/board/topic/17885-dual-monitor-swap/
+; https://autohotkey.com/board/topic/32874-moving-the-active-window-from-one-monitor-to-the-other/
+SwapMonitor(WinTitle) 
+{
+;  WinGetPos, X, Y, W, H, %WinTitle%
+;  MsgBox, the win is at %X%,%Y% and its size is %W%x%H%
+  
+  ; assumes two monitors right next to each other
+  SysGet, Mon1, Monitor, 1
+  SysGet, Mon2, Monitor, 2
+  WinGetPos, WinX, WinY, WinWidth, WinHeight, %WinTitle%
+  
+  ; Determines which monitor this is on by the position of the center pixel.
+  WinXCenter := WinX + (WinWidth / 2) 
+  WinYCenter := WinY + (WinHeight / 2)
+
+  ; for now moving to monitor as full screen; TODO: size window when moved
+  winOnDisplay := GetWindowMonitor(WinTitle)
+  
+  ; TODO remove -40 hack to account for task bar
+  if (winOnDisplay = 1) {
+    ; then move to monitor 2
+    WinMove, %WinTitle%, , Mon2Left, Mon2Top, Mon2Right, (Mon2Bottom - 40)
   } else { ; on monitor 2
     ; move to monitor 1
-    WinMove, %WinTitle%, , Mon1Left, Mon1Top, Mon1Right, Mon1Bottom
+    WinMove, %WinTitle%, , Mon1Left, Mon1Top, Mon1Right, (Mon1Bottom - 40)
   }
   return
 }
