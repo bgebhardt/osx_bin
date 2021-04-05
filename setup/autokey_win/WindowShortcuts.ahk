@@ -7,19 +7,19 @@
 ;; TODO: 
 ;   move window between monitors
 
-MonitorHeight()
+MonitorHeight(windowMonitor)
 {
-  SysGet, primeMonitor, MonitorPrimary
-  SysGet, workArea, MonitorWorkArea, %primeMonitor%
+  ;SysGet, primeMonitor, MonitorPrimary ; gets the primary monitor
+  SysGet, workArea, MonitorWorkArea, %windowMonitor%
   workAreaWidth := workAreaRight - workAreaLeft
   workAreaHeight := workAreaBottom - workAreaTop
   return workAreaHeight
 }
 
-MonitorWidth()
+MonitorWidth(windowMonitor)
 {
-  SysGet, primeMonitor, MonitorPrimary
-  SysGet, workArea, MonitorWorkArea, %primeMonitor%
+  ;SysGet, primeMonitor, MonitorPrimary ; gets the primary monitor
+  SysGet, workArea, MonitorWorkArea, %windowMonitor%
   workAreaWidth := workAreaRight - workAreaLeft
   workAreaHeight := workAreaBottom - workAreaTop
   ; MsgBox, %workAreaRight%, %workAreaLeft%, ; 1259, -241
@@ -38,29 +38,40 @@ CenterWindow(WinTitle)
     return
 }
 
-RightTwoThirdsWindow(WinTitle)
+LeftTwoThirdsWindow(WinTitle)
 {
+    windowMonitor := GetWindowMonitor(WinTitle)
+    SysGet, workArea, MonitorWorkArea, %windowMonitor%
+  
     WinRestore, %WinTitle% ; make sure it's not maximized before moving
-    WinGetPos,,, Width, Height, %WinTitle%
-    WinMove, %WinTitle%,, 0,0, MonitorWidth()*2/3, MonitorHeight()
+    WinGetPos, WinX, WinY, Width, Height, %WinTitle%
+    WinMove, %WinTitle%,, %workAreaLeft%, %workAreaTop%, MonitorWidth(windowMonitor)*2/3, MonitorHeight(windowMonitor)
     return
 }
 
 
 RightHalfWindow(WinTitle)
 {
+    windowMonitor := GetWindowMonitor(WinTitle)
+    SysGet, workArea, MonitorWorkArea, %windowMonitor%
+  
     WinRestore, %WinTitle% ; make sure it's not maximized before moving
-    WinGetPos,,, Width, Height, %WinTitle%
-    WinMove, %WinTitle%,, MonitorWidth()/2, 0, MonitorWidth()/2, MonitorHeight()     
+    WinGetPos, WinX, WinY, Width, Height, %WinTitle%
+
+    leftStart := (workAreaLeft + MonitorWidth(windowMonitor)/2)
+    WinMove, %WinTitle%,, %leftStart%, %workAreaTop%, MonitorWidth(windowMonitor)/2, MonitorHeight(windowMonitor)
     return
 }
 ;WinMove, WinTitle, WinText, X, Y, [Width, Height, ExcludeTitle, ExcludeText]
 
 LeftHalfWindow(WinTitle)
 {
+    windowMonitor := GetWindowMonitor(WinTitle)
+    SysGet, workArea, MonitorWorkArea, %windowMonitor%
+  
     WinRestore, %WinTitle% ; make sure it's not maximized before moving
-    WinGetPos,,, Width, Height, %WinTitle%
-    WinMove, %WinTitle%,, 0,0, MonitorWidth()/2, MonitorHeight()     
+    WinGetPos, WinX, WinY, Width, Height, %WinTitle%
+    WinMove, %WinTitle%,, %workAreaLeft%, %workAreaTop%, MonitorWidth(windowMonitor)/2, MonitorHeight(windowMonitor)
     return
 }
 
@@ -145,8 +156,8 @@ SwapMonitor(WinTitle)
 ; for diplaying and testing
 ^+m::
 {
-  MonitorHeight()
-  MonitorWidth()
+  MonitorHeight(1)
+  MonitorWidth(1)
   DisplayMonitorInfo()
 }
 
@@ -164,7 +175,7 @@ SwapMonitor(WinTitle)
 #+Right::WinRestore, A  ; Windows+Shift+Right
 
 #+c::CenterWindow("A")  ; Windows+Shift+C
-#+d::RightTwoThirdsWindow("A")  ; Windows+Shift+D
+#+d::LeftTwoThirdsWindow("A")  ; Windows+Shift+D
 
 #+s::LeftHalfWindow("A")  ; Windows+Shift+left arrow
 #+f::RightHalfWindow("A")  ; Windows+Shift+right arrow
