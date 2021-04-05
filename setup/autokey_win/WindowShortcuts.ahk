@@ -38,42 +38,74 @@ CenterWindow(WinTitle)
     return
 }
 
-LeftTwoThirdsWindow(WinTitle)
+LeftVerticalWindow(WinTitle, percentageWidth)
 {
+    if (percentageWidth > 100) {
+        return ; do nothing if more than 100%
+    }
+
     windowMonitor := GetWindowMonitor(WinTitle)
     SysGet, workArea, MonitorWorkArea, %windowMonitor%
   
     WinRestore, %WinTitle% ; make sure it's not maximized before moving
     WinGetPos, WinX, WinY, Width, Height, %WinTitle%
-    WinMove, %WinTitle%,, %workAreaLeft%, %workAreaTop%, MonitorWidth(windowMonitor)*2/3, MonitorHeight(windowMonitor)
+    WinMove, %WinTitle%,, %workAreaLeft%, %workAreaTop%, MonitorWidth(windowMonitor)*percentageWidth, MonitorHeight(windowMonitor)
     return
 }
 
-
-RightHalfWindow(WinTitle)
+RightVerticalWindow(WinTitle, percentageWidth)
 {
+    if (percentageWidth > 100) {
+        return ; do nothing if more than 100%
+    }
+    
     windowMonitor := GetWindowMonitor(WinTitle)
     SysGet, workArea, MonitorWorkArea, %windowMonitor%
   
     WinRestore, %WinTitle% ; make sure it's not maximized before moving
     WinGetPos, WinX, WinY, Width, Height, %WinTitle%
 
-    leftStart := (workAreaLeft + MonitorWidth(windowMonitor)/2)
-    WinMove, %WinTitle%,, %leftStart%, %workAreaTop%, MonitorWidth(windowMonitor)/2, MonitorHeight(windowMonitor)
+    leftStart := (workAreaLeft + MonitorWidth(windowMonitor)*(1-percentageWidth)) ; we want to start 1-the % from the left start
+    WinMove, %WinTitle%,, %leftStart%, %workAreaTop%, MonitorWidth(windowMonitor)*percentageWidth, MonitorHeight(windowMonitor)
     return
 }
-;WinMove, WinTitle, WinText, X, Y, [Width, Height, ExcludeTitle, ExcludeText]
 
-LeftHalfWindow(WinTitle)
-{
-    windowMonitor := GetWindowMonitor(WinTitle)
-    SysGet, workArea, MonitorWorkArea, %windowMonitor%
+; ; TODO: REMOVE
+; LeftTwoThirdsWindow(WinTitle)
+; {
+;     windowMonitor := GetWindowMonitor(WinTitle)
+;     SysGet, workArea, MonitorWorkArea, %windowMonitor%
   
-    WinRestore, %WinTitle% ; make sure it's not maximized before moving
-    WinGetPos, WinX, WinY, Width, Height, %WinTitle%
-    WinMove, %WinTitle%,, %workAreaLeft%, %workAreaTop%, MonitorWidth(windowMonitor)/2, MonitorHeight(windowMonitor)
-    return
-}
+;     WinRestore, %WinTitle% ; make sure it's not maximized before moving
+;     WinGetPos, WinX, WinY, Width, Height, %WinTitle%
+;     WinMove, %WinTitle%,, %workAreaLeft%, %workAreaTop%, MonitorWidth(windowMonitor)*2/3, MonitorHeight(windowMonitor)
+;     return
+; }
+
+; RightHalfWindow(WinTitle)
+; {
+;     windowMonitor := GetWindowMonitor(WinTitle)
+;     SysGet, workArea, MonitorWorkArea, %windowMonitor%
+  
+;     WinRestore, %WinTitle% ; make sure it's not maximized before moving
+;     WinGetPos, WinX, WinY, Width, Height, %WinTitle%
+
+;     leftStart := (workAreaLeft + MonitorWidth(windowMonitor)/2)
+;     WinMove, %WinTitle%,, %leftStart%, %workAreaTop%, MonitorWidth(windowMonitor)/2, MonitorHeight(windowMonitor)
+;     return
+; }
+; ;WinMove, WinTitle, WinText, X, Y, [Width, Height, ExcludeTitle, ExcludeText]
+
+; LeftHalfWindow(WinTitle)
+; {
+;     windowMonitor := GetWindowMonitor(WinTitle)
+;     SysGet, workArea, MonitorWorkArea, %windowMonitor%
+  
+;     WinRestore, %WinTitle% ; make sure it's not maximized before moving
+;     WinGetPos, WinX, WinY, Width, Height, %WinTitle%
+;     WinMove, %WinTitle%,, %workAreaLeft%, %workAreaTop%, MonitorWidth(windowMonitor)/2, MonitorHeight(windowMonitor)
+;     return
+; }
 
 DisplayMonitorInfo()
 {
@@ -175,10 +207,14 @@ SwapMonitor(WinTitle)
 #+Right::WinRestore, A  ; Windows+Shift+Right
 
 #+c::CenterWindow("A")  ; Windows+Shift+C
-#+d::LeftTwoThirdsWindow("A")  ; Windows+Shift+D
+#+d::LeftVerticalWindow("A", 2/3)  ; move window to left 2/3rd of screen; Windows+Shift+D
+#^d::RightVerticalWindow("A", 2/3)  ; move window to right 2/3rd of screen; Windows+Control+D
 
-#+s::LeftHalfWindow("A")  ; Windows+Shift+left arrow
-#+f::RightHalfWindow("A")  ; Windows+Shift+right arrow
+#+s::LeftVerticalWindow("A", 1/2)  ; move window to left half of screen; Windows+Shift+S
+#^s::LeftVerticalWindow("A", 1/3)  ; move window to left third of screen; Windows+Control+S
+
+#+f::RightVerticalWindow("A", 1/2)  ; move window to right half of screen; Windows+Shift+F
+#^f::RightVerticalWindow("A", 1/3)  ; move window to right third of screen; Windows+Control+F
 
 #+w::SwapMonitor("A") ; swap window to other monitor
 
