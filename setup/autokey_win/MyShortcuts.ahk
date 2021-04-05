@@ -17,7 +17,7 @@
 
 
 #Include %A_ScriptDir% ; change to scripts directory
-#Include WebShortcuts.ahk
+;#Include WebShortcuts.ahk
 
 ; The following line is a contribution of NTEmacs wiki http://www49.atwiki.jp/ntemacs/pages/20.html
 SetKeyDelay 0
