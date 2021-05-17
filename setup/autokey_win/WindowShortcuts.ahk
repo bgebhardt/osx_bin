@@ -201,7 +201,10 @@ SwapMonitor(WinTitle)
 #+Down::WinMinimize, A ; Windows+Shift+Down
 
 ; Maximize active window
-#+Up::WinMaximize, A  ; Windows+Shift+Up
+;#+Up::WinMaximize, A  ; Windows+Shift+Up
+
+; Make active window full screen
+#+Up::LeftVerticalWindow("A", 1)  ; Windows+Shift+Up
 
 ; Restores active window
 #+Right::WinRestore, A  ; Windows+Shift+Right
