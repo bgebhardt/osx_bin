@@ -5,6 +5,10 @@
 choco install chocolateygui
 choco install powertoys
 
+# alfred-like search tools
+choco install wox # this one is better
+#choco install listary
+
 # NiftyWindows adds to the built-in features of the window manger to increase ease of use.
 # http://www.enovatic.org/products/niftywindows/
 choco install niftywindows
