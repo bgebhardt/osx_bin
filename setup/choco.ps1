@@ -21,6 +21,7 @@ choco install googledrive
 choco install google-backup-and-sync
 #choco install icloud - didn't work - install from Microsoft Windows store
 choco install onedrive
+choco install freecommander-xe.install # alternate windows explorer
 
 # main apps
 choco install itunes
