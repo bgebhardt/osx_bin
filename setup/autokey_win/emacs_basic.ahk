@@ -229,6 +229,37 @@ SetCapsLockState, AlwaysOff
 CapsLock::Send {Ctrl} ; force sending a control character on release
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ADD OTHER GLOBAL KEY BINDINGS
+
+; from https://windowsloop.com/best-autohotkey-scripts/
+; Minimize active window
+^+Down::WinMinimize, A ; Control+Shift+Down
+return
+
+; Bing Search select text - Ctrl + Shift + C
+ ^+c::
+ {
+  Send, ^c
+  Sleep 50
+  Run, http://www.bing.com/search?q=%clipboard%
+  Return
+ }
+return
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ADD APP SPECIFIC KEY BINDINGS
+
+;; for Microsoft Edge
+ #If WinActive("ahk_exe msedge.exe")
+    CapsLock & [::^+Tab ;; next tab
+    CapsLock & ]::^Tab ;; prev tab
+ #If ; turns off context sensitivity
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ADD EMACS-STYLE KEY BINDINGS
+
 ;; my favorite bindings
 ;; d, k, h, k, s, y, a, e, b
 ;; want but they overlap. set to capslock only; currently all set to capslock only.
@@ -311,3 +342,25 @@ CapsLock & v::
   Else
     scroll_up()
   Return
+
+
+
+; Notes on creating Emacs Style text movement commmands
+; running my emacs_baic.ahk script to map all these to CapsLock.
+
+; using https://github.com/justintanner/universal-emacs-keybindings/blob/master/emacs_autohotkey.ahk
+; run emacs script in this folder
+; other options
+; https://github.com/catweazle9/emacs-everywhere
+; https://github.com/usi3/emacs.ahk/blob/master/emacs.ahk
+
+; visual basic macro-based solution for Word to consider
+; https://www.rath.ca/Misc/VBacs/
+
+; Copy URL in a keystroke in Edge 
+; TODO: make it just edge
+
+; Other scripts to consider making
+; https://autohotkey.com/board/topic/38653-see-running-autohotkey-scripts-and-end-them/
+
+
