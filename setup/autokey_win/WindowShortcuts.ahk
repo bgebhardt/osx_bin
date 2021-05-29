@@ -29,12 +29,31 @@ MonitorWidth(windowMonitor)
   return workAreaWidth ; return bottom
 }
 
-CenterWindow(WinTitle)
+; my first quick and dirty version; it doesn't account for task bar and only works on 1 monitor
+CenterWindowSimple(WinTitle)
 {
     WinRestore, %WinTitle% ; make sure it's not maximized before moving
     WinGetPos,,, Width, Height, %WinTitle%
     ; this one uses primary monitor full width and height as it moves the window without making it bigger
     WinMove, %WinTitle%,, (A_ScreenWidth/2)-(Width/2), (A_ScreenHeight/2)-(Height/2)
+    return
+}
+
+; properly centers window on any monitor
+CenterWindow(WinTitle)
+{
+    windowMonitor := GetWindowMonitor(WinTitle)
+    SysGet, workArea, MonitorWorkArea, %windowMonitor%
+  
+    WinRestore, %WinTitle% ; make sure it's not maximized before moving
+    WinGetPos, WinX, WinY, Width, Height, %WinTitle%
+    ; keep width and height but center window
+    ; point to move window to is (mon width-width)/2, (mon height-height)/2, 
+    ; need to add this point to the monitor origin point
+    xPosition := workAreaLeft + (MonitorWidth(windowMonitor)-Width)/2
+    yPosition := workAreaTop + (MonitorHeight(windowMonitor)-Height)/2
+
+    WinMove, %WinTitle%,, xPosition, yPosition, Width, Height
     return
 }
 
@@ -186,7 +205,7 @@ SwapMonitor(WinTitle)
 }
 
 ; for diplaying and testing
-^+m::
+^+m:: ; control+shift+m
 {
   MonitorHeight(1)
   MonitorWidth(1)
