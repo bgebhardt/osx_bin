@@ -9,6 +9,14 @@
 ;; simplified verion of https://github.com/usi3/emacs.ahk/blob/master/emacs.ahk
 ;; also uses Capslock key for all Emacs bindings
 
+; Reference symbols for hot key modifiers.
+; Symbol	Description
+; #	Win (Windows logo key)
+; !	Alt
+; ^	Ctrl
+; +	Shift
+; &	An ampersand may be used between any two keys or mouse buttons to combine them into a custom hotkey.
+
 ;;
 ;; An autohotkey script that provides emacs-like keybinding on Windows
 ;;
@@ -286,19 +294,20 @@ SetCapsLockState, AlwaysOff
 
 
 ; Bing Search select text - Ctrl + Shift + C
- ^+c::
- {
-  Send, ^c
-  Sleep 50
-  Run, http://www.bing.com/search?q=%clipboard%
-  Return
- }
-return
+; commenting out; use Wox for search instead.
+;  ^+c::
+;  {
+;   Send, ^c
+;   Sleep 50
+;   Run, http://www.bing.com/search?q=%clipboard%
+;   Return
+;  }
+; return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ADD APP SPECIFIC KEY BINDINGS
 
-;; for Microsoft Edge
+;; for Microsoft Edge - control + [ or ]
  #If WinActive("ahk_exe msedge.exe")
     ^[::^+Tab ;; next tab
     ^]::^Tab ;; prev tab
