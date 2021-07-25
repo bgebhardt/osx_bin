@@ -14,6 +14,8 @@ On Windows [AutoHotkey](https://www.autohotkey.com/) is a similar tool that can 
 
 * [Documentation | Karabiner-Elements](https://karabiner-elements.pqrs.org/docs/)
 
+# Keybindings Summary
+
 The keybindings I have implemented are:
 
 * "Ctrl+F to right_arrow, Ctrl+B to left arrow",
@@ -32,6 +34,17 @@ Others to consider:
 * Ctrl+Y to paste (i.e. "yank" or "command-v")
 * Option-F, Option-B - Forward and Backward a word using option-right and option-left arrow
 * Forward Kill Word using two keys: option+shift+right arrow; command+x to cut
+
+# Apps to exclude
+
+Unfortunately in each keybinding you have to add a connection to exclude apps which results in a lot of repetition.
+
+These apps I've added exclusion rules for.  I'm sure I'll find more
+
+* "^org\\.gnu\\.Emacs$",
+* "^com\\.apple\\.TextEdit$"
+
+# Example Keybinding
 
 Here's an example complex modification for an Emacs keybinding.
 
