@@ -39,6 +39,7 @@ brew cask install timing
 brew cask install rescuetime
 brew cask install divvy
 brew cask install tripmode # manage data on cell connection
+brew cask install karabiner-elements # powerful and stable keyboard customizer
 
 ## Productivity/Office
 brew cask install adium
