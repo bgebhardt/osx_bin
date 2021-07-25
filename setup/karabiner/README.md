@@ -42,7 +42,6 @@ Unfortunately in each keybinding you have to add a connection to exclude apps wh
 These apps I've added exclusion rules for.  I'm sure I'll find more
 
 * "^org\\.gnu\\.Emacs$",
-* "^com\\.apple\\.TextEdit$"
 
 # Example Keybinding
 

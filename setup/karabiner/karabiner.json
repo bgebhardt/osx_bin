@@ -195,15 +195,17 @@
                           },
                           "to": [
                             {
-                              "key_code": "home"
+                              "key_code": "left_arrow",
+                              "modifiers": [
+                                  "command"
+                              ]
                             }
                           ],
                           "conditions": [
                             {
                               "type": "frontmost_application_unless",
                               "bundle_identifiers": [
-                                "^org\\.gnu\\.Emacs$",
-                                "^com\\.apple\\.TextEdit$"
+                                "^org\\.gnu\\.Emacs$"
                               ]
                             }
                           ],
@@ -220,16 +222,18 @@
                             }
                           },
                           "to": [
-                            {
-                              "key_code": "end"
-                            }
+                              {
+                                  "key_code": "right_arrow",
+                                  "modifiers": [
+                                      "command"
+                                  ]
+                              }
                           ],
                           "conditions": [
                             {
                               "type": "frontmost_application_unless",
                               "bundle_identifiers": [
-                                "^org\\.gnu\\.Emacs$",
-                                "^com\\.apple\\.TextEdit$"
+                                "^org\\.gnu\\.Emacs$"
                               ]
                             }
                           ],
