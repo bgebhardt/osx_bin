@@ -5,6 +5,7 @@
 I use it to add Emacs-like keybindings as well as to map left control to capslock. My keybindings are in this karabiner.json are inspired by this post [Use emacs key bindings everywhere - Atif Afzal](https://atfzl.com/use-emacs-key-bindings-everywhere).
 
 Some other examples of karabiner configurations
+
 * [GitHub - drliangjin/karabiner.d: A simple keyboard configuration using Karabiner-Elements](https://github.com/drliangjin/karabiner.d)
 * [GitHub - tekezo/Karabiner: Karabiner (KeyRemap4MacBook) is a powerful utility for keyboard customization.](https://github.com/tekezo/Karabiner)
 
@@ -23,6 +24,7 @@ The keybindings I have implemented are:
 * "Ctrl+G to Escape",
 * "Ctrl+A and Ctrl+E to beginning/end of line",
 * "Ctrl+V and Option-V to page down and page up"
+* "Ctrl+D and to forward delete",
 
 Others to consider:
 

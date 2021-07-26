@@ -295,6 +295,36 @@
                           "type": "basic"
                         }
                       ]
+                    },
+                    {
+                      "description": "Ctrl+D and to forward delete",
+                      "manipulators": [
+                        {
+                          "description": "emacs like editing",
+                          "from": {
+                            "key_code": "d",
+                            "modifiers": {
+                              "mandatory": [
+                                "left_control"
+                              ]
+                            }
+                          },
+                          "to": [
+                            {
+                              "key_code": "delete_forward"
+                            }
+                          ],
+                          "conditions": [
+                            {
+                              "type": "frontmost_application_unless",
+                              "bundle_identifiers": [
+                                "^org\\.gnu\\.Emacs$"
+                              ]
+                            }
+                          ],
+                          "type": "basic"
+                        }
+                      ]
                     }
               ]
           },
