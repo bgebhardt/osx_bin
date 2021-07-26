@@ -37,6 +37,12 @@ Others to consider:
 * Option-F, Option-B - Forward and Backward a word using option-right and option-left arrow
 * Forward Kill Word using two keys: option+shift+right arrow; command+x to cut
 
+# Key binding conflicts
+
+The easiest way to fix this is to create a different shortcut for it using macOS's built in feature.  See [How to Create Custom Keyboard Shortcuts in Mac OS](https://osxdaily.com/2017/08/08/create-custom-keyboard-shortcut-mac/#:~:text=1%20From%20MacOS%2C%20go%20to%20the%20%EF%A3%BF%20Apple,available%20for%20use%20%28in%20this%20example%2C%20%E2%80%9CRename%E2%80%A6%E2%80%9D%20)
+
+* Microsoft Outlook uses Ctrl+E for archive. Set it to Cmd+shift+E instead.
+
 # Apps to exclude
 
 Unfortunately in each keybinding you have to add a connection to exclude apps which results in a lot of repetition.
