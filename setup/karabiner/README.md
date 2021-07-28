@@ -88,3 +88,35 @@ Here's an example complex modification for an Emacs keybinding.
                       }
 ```
 
+Snippet of a multi-keystroke example.
+
+```
+"description": "Emacs key bindings [M-? Keys]",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+				"from": {
+                                    "key_code": "d",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+					"modifiers": [
+					    "option",
+					    "shift"
+					]
+                                    },
+				    {
+                                        "key_code": "x",
+					"repeat": false,
+					"modifiers": [
+					    "command"
+					]
+                                    }
+                                ],
+```

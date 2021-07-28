@@ -325,6 +325,76 @@
                           "type": "basic"
                         }
                       ]
+                    },
+                    {
+                      "description": "Ctrl+K and to kill line (cut rest of line)",
+                      "manipulators": [
+                        {
+                          "description": "emacs like kill",
+                          "from": {
+                            "key_code": "k",
+                            "modifiers": {
+                              "mandatory": [
+                                "left_control"
+                              ]
+                            }
+                          },
+                          "to": [
+                            {
+                              "key_code": "right_arrow",
+                              "modifiers": [
+                                "command",
+                                "shift"
+                              ]
+                            },
+                            {
+                              "key_code":"x",
+                              "repeat": false,
+                              "modifiers": [
+                                "command"
+                              ]
+                            }
+                        ],
+                          "conditions": [
+                            {
+                              "type": "frontmost_application_unless",
+                              "bundle_identifiers": [
+                                "^org\\.gnu\\.Emacs$"
+                              ]
+                            }
+                          ],
+                          "type": "basic"
+                        },
+                        {
+                          "description": "emacs like yank",
+                          "from": {
+                            "key_code": "y",
+                            "modifiers": {
+                              "mandatory": [
+                                "left_control"
+                              ]
+                            }
+                          },
+                          "to": [
+                            {
+                              "key_code":"v",
+                              "repeat": false,
+                              "modifiers": [
+                                "command"
+                              ]
+                            }
+                        ],
+                          "conditions": [
+                            {
+                              "type": "frontmost_application_unless",
+                              "bundle_identifiers": [
+                                "^org\\.gnu\\.Emacs$"
+                              ]
+                            }
+                          ],
+                          "type": "basic"
+                        }
+                      ]
                     }
               ]
           },
