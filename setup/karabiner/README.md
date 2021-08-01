@@ -24,16 +24,15 @@ The keybindings I have implemented are:
 * "Ctrl+G to Escape",
 * "Ctrl+A and Ctrl+E to beginning/end of line",
 * "Ctrl+V and Option-V to page down and page up"
-* "Ctrl+D and to forward delete",
-
-Others to consider:
-
-* Ctrl+D to forward delete
+* "Ctrl+D to forward delete",
 * Ctrl+K to kill line which can be broken down into:
     * home, shift down, end, shift up to select line
     * command-x to cut
     * delete to delete selection (although may not be needed)
 * Ctrl+Y to paste (i.e. "yank" or "command-v")
+
+Others to consider:
+
 * Option-F, Option-B - Forward and Backward a word using option-right and option-left arrow
 * Forward Kill Word using two keys: option+shift+right arrow; command+x to cut
 
@@ -50,6 +49,13 @@ Unfortunately in each keybinding you have to add a connection to exclude apps wh
 These apps I've added exclusion rules for.  I'm sure I'll find more
 
 * "^org\\.gnu\\.Emacs$",
+* "^com\\.googlecode\\.iterm2$" - for ctrl-a and e it conflicts with moving to the next or prev tab
+
+# Other Ideas
+
+* Create a template that can generate the karabiner.json
+    * So many parts of the json are duplicated.
+    * For example it'd be nice to have a list of excluded applications that are applied to each complex modification.
 
 # Example Keybinding
 
