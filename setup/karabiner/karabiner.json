@@ -205,7 +205,8 @@
                             {
                               "type": "frontmost_application_unless",
                               "bundle_identifiers": [
-                                "^org\\.gnu\\.Emacs$"
+                                "^org\\.gnu\\.Emacs$",
+                                "^com\\.googlecode\\.iterm2$"
                               ]
                             }
                           ],
@@ -233,7 +234,8 @@
                             {
                               "type": "frontmost_application_unless",
                               "bundle_identifiers": [
-                                "^org\\.gnu\\.Emacs$"
+                                "^org\\.gnu\\.Emacs$",
+                                "^com\\.googlecode\\.iterm2$"
                               ]
                             }
                           ],
@@ -327,7 +329,7 @@
                       ]
                     },
                     {
-                      "description": "Ctrl+K and to kill line (cut rest of line)",
+                      "description": "Ctrl+K and Ctrl+Y to kill (cut rest of line) and yank line",
                       "manipulators": [
                         {
                           "description": "emacs like kill",
