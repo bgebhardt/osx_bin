@@ -23,177 +23,177 @@ brew install cask
 ## TODO: figure out which versions of apps I have licenses for and load those.
 
 ## Top Must Installs
-brew cask install 1password
-brew cask install fastscripts
-brew cask install iterm2
-brew cask install flux
-brew cask install omnifocus
-brew cask install mailplane
-brew cask install dropbox
-brew cask install google-drive
-brew cask install wd-my-cloud # also WD Sync Installer.app
+brew install 1password
+brew install fastscripts
+brew install iterm2
+brew install flux
+brew install omnifocus
+brew install mailplane
+brew install dropbox
+brew install google-drive
+brew install wd-my-cloud # also WD Sync Installer.app
 # Mail Plugin Manager.app - manually install this one or create cask
-#brew cask install sizzlingkeys # bought this in the app store; install with mas
-brew cask install textmate
-brew cask install timing
-brew cask install rescuetime
-brew cask install divvy
-brew cask install tripmode # manage data on cell connection
-brew cask install karabiner-elements # powerful and stable keyboard customizer
+#brew install sizzlingkeys # bought this in the app store; install with mas
+brew install textmate
+brew install timing
+brew install rescuetime
+brew install divvy
+brew install tripmode # manage data on cell connection
+brew install karabiner-elements # powerful and stable keyboard customizer
 
 ## Productivity/Office
-brew cask install adium
-brew cask install adobe-reader
-brew cask install amadeus-pro
-brew cask install audacity
-brew cask install busycal
-brew cask install busycontacts
-brew cask install fullcontact
-brew cask install elmedia-player
-#brew cask install evernote # install with mas instead
+brew install adium
+brew install adobe-reader
+brew install amadeus-pro
+brew install audacity
+brew install busycal
+brew install busycontacts
+brew install fullcontact
+brew install elmedia-player
+#brew install evernote # install with mas instead
 #fantastical
-brew cask install firefox
-brew cask install google-chrome
-brew cask install flash-player
-brew cask install google-earth
-brew cask install music-manager
-brew cask install intensify-pro
-brew cask install kiwi
-brew cask install kindle
-brew cask install send-to-kindle
-brew cask install markdown-service-tools
-brew cask install qlmarkdown
-# brew cask install metanota. # install cask broken
-brew cask install textexpander
-brew cask install omnigraffle
-brew cask install omnioutliner
-brew cask install pdf-converter-master
-brew cask install pdfpen
-brew cask install slack
-brew cask install skype
-brew cask install soulver
-brew cask install logitech-myharmony
-brew cask install spotify
-brew cask install vlc
-brew cask install hype # web animation program
-# brew cask install lego-mindstorms-ev3 # not currently using
-brew cask install houdahgeo
+brew install firefox
+brew install google-chrome
+brew install flash-player
+brew install google-earth
+brew install music-manager
+brew install intensify-pro
+brew install kiwi
+brew install kindle
+brew install send-to-kindle
+brew install markdown-service-tools
+brew install qlmarkdown
+# brew install metanota. # install cask broken
+brew install textexpander
+brew install omnigraffle
+brew install omnioutliner
+brew install pdf-converter-master
+brew install pdfpen
+brew install slack
+brew install skype
+brew install soulver
+brew install logitech-myharmony
+brew install spotify
+brew install vlc
+brew install hype # web animation program
+# brew install lego-mindstorms-ev3 # not currently using
+brew install houdahgeo
 
 ## Utilities
-brew cask install 1clipboard
-brew cask install amazon-drive
-brew cask install amazon-music # need to delete folder in Applications Support and then works
-brew cask install bartender
-brew cask install beamer
-brew cask install boom
-brew cask install brightness
-brew cask install caffeine
-brew cask install carbon-copy-cloner
-brew cask install crashplan
-brew cask install cronnix
-brew cask install crossover
-brew cask install daisydisk
-brew cask install default-folder-x
-brew cask install disk-drill
-brew cask install disk-sensei
-brew cask install appdelete
-brew cask install bluesense
+brew install 1clipboard
+brew install amazon-drive
+brew install amazon-music # need to delete folder in Applications Support and then works
+brew install bartender
+brew install beamer
+brew install boom
+brew install brightness
+brew install caffeine
+brew install carbon-copy-cloner
+brew install crashplan
+brew install cronnix
+brew install crossover
+brew install daisydisk
+brew install default-folder-x
+brew install disk-drill
+brew install disk-sensei
+brew install appdelete
+brew install bluesense
 # disk-inventory-x
 # omnidisksweeper
 #dropbox-encore
 #fluid
-brew cask install forklift
-brew cask install grandperspective
-brew cask install growlnotify
-# brew cask install notifyr # for some reason this prefpane not working on 10.12; claims Bluetooth 4.0 not supported
-brew cask install little-snitch
-brew cask install gemini
-brew cask install macpilot
-brew cask install macupdate-desktop
-brew cask install mactracker
-brew cask install rcdefaultapp
-brew cask install plex-media-server
-brew cask install popclip
-brew cask install superduper
-brew cask install supersync
-# brew cask install wallpaper-wizard # install via mas instead
-brew cask install iphoto-library-manager
-brew cask install imazing
-brew cask install handbrake # https://handbrake.fr/
+brew install forklift
+brew install grandperspective
+brew install growlnotify
+# brew install notifyr # for some reason this prefpane not working on 10.12; claims Bluetooth 4.0 not supported
+brew install little-snitch
+brew install gemini
+brew install macpilot
+brew install macupdate-desktop
+brew install mactracker
+brew install rcdefaultapp
+brew install plex-media-server
+brew install popclip
+brew install superduper
+brew install supersync
+# brew install wallpaper-wizard # install via mas instead
+brew install iphoto-library-manager
+brew install imazing
+brew install handbrake # https://handbrake.fr/
 
 ## Development apps
-brew cask install atom
-brew cask install diffmerge
-brew cask install aptanastudio
-brew cask install aqua-data-studio
-brew cask install aquamacs
-brew cask install base
-brew cask install codekit
-brew cask install coderunner
-brew cask install dash
-brew cask install boot2docker
-brew cask install couchbase-server-community
-brew cask install deltawalker
-brew cask install espresso
-brew cask install github-desktop
-brew cask install xquartz
-brew cask install ngrok # sign up or login here https://ngrok.com/
+brew install atom
+brew install diffmerge
+brew install aptanastudio
+brew install aqua-data-studio
+brew install aquamacs
+brew install base
+brew install codekit
+brew install coderunner
+brew install dash
+brew install boot2docker
+brew install couchbase-server-community
+brew install deltawalker
+brew install espresso
+brew install github-desktop
+brew install xquartz
+brew install ngrok # sign up or login here https://ngrok.com/
 #the-escapers-flux
 #quicklook-json
-brew cask install quickjson
-brew cask install key-codes
-brew cask install mamp
-brew cask install navicat-for-mysql
-brew cask install pycharm
-brew cask install rstudio
-brew cask install spyder # python data science IDE (like rstudio)
-brew cask install rapidweaver
-brew cask install virtualbox                # VirtualBox is a powerful x86 and AMD64/Intel64 virtualization product
-brew cask install virtualbox-extension-pack # VirtualBox Extension Pack
-brew cask install vagrant                   # Vagrant is a tool for building and distributing development environments.
-brew cask install ngrok		# ngrok is a handy tool and service that allows you tunnel requests from the wide open Internet to your local machine when it's behind a NAT or firewall
+brew install quickjson
+brew install key-codes
+brew install mamp
+brew install navicat-for-mysql
+brew install pycharm
+brew install rstudio
+brew install spyder # python data science IDE (like rstudio)
+brew install rapidweaver
+brew install virtualbox                # VirtualBox is a powerful x86 and AMD64/Intel64 virtualization product
+brew install virtualbox-extension-pack # VirtualBox Extension Pack
+brew install vagrant                   # Vagrant is a tool for building and distributing development environments.
+brew install ngrok		# ngrok is a handy tool and service that allows you tunnel requests from the wide open Internet to your local machine when it's behind a NAT or firewall
 
-brew cask install visual-studio-code
-brew cask install powershell # install the mac version of powershell
-brew cask install dotnet-sdk # install .NET Core SDK
-brew cask install sts
-brew cask install kitematic
-brew cask install sequel-pro
-brew cask install java
-brew cask install pgweb # postgres web admin - see https://github.com/sosedoff/pgweb
-# brew cask install yourkit-java-profiler # cask broken
+brew install visual-studio-code
+brew install powershell # install the mac version of powershell
+brew install dotnet-sdk # install .NET Core SDK
+brew install sts
+brew install kitematic
+brew install sequel-pro
+brew install java
+brew install pgweb # postgres web admin - see https://github.com/sosedoff/pgweb
+# brew install yourkit-java-profiler # cask broken
 
-brew cask install qlcolorcode         # Preview source code files with syntax highlighting
-brew cask install qlstephen           # Preview plain text files without a file extension. Example: README, CHANGELOG, etc.
-brew cask install qlmarkdown          # Preview Markdown files
-brew cask install quicklook-json      # Preview JSON files
-brew cask install qlprettypatch       # Preview .patch files
-brew cask install quicklook-csv       # Preview CSV files
-brew cask install betterzipql         # Preview archives
-brew cask install webpquicklook       # Preview WebP images
+brew install qlcolorcode         # Preview source code files with syntax highlighting
+brew install qlstephen           # Preview plain text files without a file extension. Example: README, CHANGELOG, etc.
+brew install qlmarkdown          # Preview Markdown files
+brew install quicklook-json      # Preview JSON files
+brew install qlprettypatch       # Preview .patch files
+brew install quicklook-csv       # Preview CSV files
+brew install betterzipql         # Preview archives
+brew install webpquicklook       # Preview WebP images
 
-#brew cask install facter        # cask broken # Facter gathers basic facts about systems. such as hardware, network settings, OS type and more.
-#brew cask install sublime-text3 # cask broken # Sublime Text is a sophisticated text editor for code, markup and prose.
-brew cask install gitup         # Visualization Tool for Git
-brew cask install kaleidoscope  # File and Folder comparison tool
+#brew install facter        # cask broken # Facter gathers basic facts about systems. such as hardware, network settings, OS type and more.
+#brew install sublime-text3 # cask broken # Sublime Text is a sophisticated text editor for code, markup and prose.
+brew install gitup         # Visualization Tool for Git
+brew install kaleidoscope  # File and Folder comparison tool
 
 # Data science
-brew cask install anaconda
+brew install anaconda
 
 # Games
-brew cask install gog-galaxy
-brew cask install steam
-brew cask install steamcmd
-brew cask install teamspeak-client
-brew cask install minecraft-server
-brew cask install minecraft
-brew cask install battle-net
+brew install gog-galaxy
+brew install steam
+brew install steamcmd
+brew install teamspeak-client
+brew install minecraft-server
+brew install minecraft
+brew install battle-net
 
 # Free Comic Book Reader
-brew cask install yacreader
+brew install yacreader
 
 # clean up cached cask files
-brew cask cleanup
+brew cleanup
 
 # Remove outdated versions from the cellar.
 brew cleanup
