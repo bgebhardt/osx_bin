@@ -189,6 +189,8 @@ brew cask install minecraft-server
 brew cask install minecraft
 brew cask install battle-net
 
+# Free Comic Book Reader
+brew cask install yacreader
 
 # clean up cached cask files
 brew cask cleanup
