@@ -130,6 +130,7 @@ brew install imazing
 brew install handbrake # https://handbrake.fr/
 
 ## Development apps
+brew install devutils # developer toolbox https://devutils.app/
 brew install atom
 brew install diffmerge
 brew install aptanastudio
