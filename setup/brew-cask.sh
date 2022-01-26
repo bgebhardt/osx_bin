@@ -40,6 +40,7 @@ brew install rescuetime
 brew install divvy
 brew install tripmode # manage data on cell connection
 brew install karabiner-elements # powerful and stable keyboard customizer
+brew install --cask raycast # replacement for spotlight (and alfred or launchbar)
 
 ## Productivity/Office
 brew install adium
