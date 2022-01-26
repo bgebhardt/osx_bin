@@ -34,16 +34,23 @@ brew install google-drive
 brew install wd-my-cloud # also WD Sync Installer.app
 # Mail Plugin Manager.app - manually install this one or create cask
 #brew install sizzlingkeys # bought this in the app store; install with mas
-brew install textmate
 brew install timing
-brew install rescuetime
-brew install divvy
 brew install tripmode # manage data on cell connection
 brew install karabiner-elements # powerful and stable keyboard customizer
 brew install --cask raycast # replacement for spotlight (and alfred or launchbar)
+brew install --cask rectangle # window manager
+brew install --cask lunar # monitor brightness manager; replaces flux
+brew install --cask fastscripts
+brew install --cask airbuddy # monitors bluetooth devices
+
+# retired top installs
+# brew install rescuetime # no longer using
+# brew install textmate # replaced by visual code
+# brew install divvy # window manager; replaced by rectangle
+
 
 ## Productivity/Office
-brew install adium
+#brew install adium
 brew install adobe-reader
 brew install amadeus-pro
 brew install audacity
@@ -92,7 +99,7 @@ brew install caffeine
 brew install carbon-copy-cloner
 brew install crashplan
 brew install cronnix
-brew install crossover
+#brew install crossover
 brew install daisydisk
 brew install default-folder-x
 brew install disk-drill
