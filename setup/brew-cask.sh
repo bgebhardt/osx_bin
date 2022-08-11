@@ -29,15 +29,15 @@ brew install iterm2
 brew install flux
 brew install omnifocus
 brew install mailplane
-brew install dropbox
+#brew install dropbox
 brew install google-drive
-brew install wd-my-cloud # also WD Sync Installer.app
+#brew install wd-my-cloud # also WD Sync Installer.app
 # Mail Plugin Manager.app - manually install this one or create cask
 #brew install sizzlingkeys # bought this in the app store; install with mas
 brew install timing
-brew install tripmode # manage data on cell connection
+#brew install tripmode # manage data on cell connection
 brew install karabiner-elements # powerful and stable keyboard customizer
-brew install --cask raycast # replacement for spotlight (and alfred or launchbar)
+#brew install --cask raycast # replacement for spotlight (and alfred or launchbar)
 brew install --cask rectangle # window manager
 brew install --cask lunar # monitor brightness manager; replaces flux
 brew install --cask fastscripts
@@ -51,24 +51,24 @@ brew install --cask airbuddy # monitors bluetooth devices
 
 ## Productivity/Office
 #brew install adium
-brew install adobe-reader
+# brew install adobe-reader -- no longer available; install manually
 brew install amadeus-pro
 brew install audacity
 brew install busycal
 brew install busycontacts
-brew install fullcontact
+# brew install fullcontact -- no longer available
 brew install elmedia-player
 #brew install evernote # install with mas instead
 #fantastical
 brew install firefox
 brew install google-chrome
-brew install flash-player
-brew install google-earth
+# brew install flash-player -- no longer available
+#brew install google-earth
 brew install music-manager
-brew install intensify-pro
-brew install kiwi
+# brew install intensify-pro -- no longer available
+# brew install kiwi  -- no longer available
 brew install kindle
-brew install send-to-kindle
+brew install send-to-kindle # Requires Rosetta 2 installed
 brew install markdown-service-tools
 brew install qlmarkdown
 # brew install metanota. # install cask broken
@@ -80,30 +80,30 @@ brew install pdfpen
 brew install slack
 brew install skype
 brew install soulver
-brew install logitech-myharmony
+# brew install logitech-myharmony #  -- no longer available
 brew install spotify
 brew install vlc
 brew install hype # web animation program
 # brew install lego-mindstorms-ev3 # not currently using
-brew install houdahgeo
+# brew install houdahgeo -- no longer available
 
 ## Utilities
 brew install 1clipboard
-brew install amazon-drive
-brew install amazon-music # need to delete folder in Applications Support and then works
+# brew install amazon-drive -- no longer available
+# brew install amazon-music # need to delete folder in Applications Support and then works -- no longer supported
 brew install bartender
 brew install beamer
 brew install boom
 brew install brightness
 brew install caffeine
 brew install carbon-copy-cloner
-brew install crashplan
+# brew install crashplan -- no longer available
 brew install cronnix
 #brew install crossover
 brew install daisydisk
 brew install default-folder-x
 brew install disk-drill
-brew install disk-sensei
+# brew install disk-sensei -- no longer available
 brew install appdelete
 brew install bluesense
 # disk-inventory-x
@@ -112,20 +112,20 @@ brew install bluesense
 #fluid
 brew install forklift
 brew install grandperspective
-brew install growlnotify
+# brew install growlnotify -- no longer used
 # brew install notifyr # for some reason this prefpane not working on 10.12; claims Bluetooth 4.0 not supported
 brew install little-snitch
 brew install gemini
 brew install macpilot
-brew install macupdate-desktop
+# brew install macupdate-desktop -- no longer available
 brew install mactracker
-brew install rcdefaultapp
+# brew install rcdefaultapp -- no longer available
 brew install plex-media-server
 brew install popclip
 brew install superduper
 brew install supersync
 # brew install wallpaper-wizard # install via mas instead
-brew install iphoto-library-manager
+brew install iphoto-library-manager # may be the wrong verion for photos app
 brew install imazing
 brew install handbrake # https://handbrake.fr/
 
@@ -144,32 +144,35 @@ brew install boot2docker
 brew install couchbase-server-community
 brew install deltawalker
 brew install espresso
-brew install github-desktop
+brew install github-release
 brew install xquartz
 brew install ngrok # sign up or login here https://ngrok.com/
 #the-escapers-flux
 #quicklook-json
 brew install quickjson
 brew install key-codes
-brew install mamp
-brew install navicat-for-mysql
-brew install pycharm
-brew install rstudio
-brew install spyder # python data science IDE (like rstudio)
 brew install rapidweaver
-brew install virtualbox                # VirtualBox is a powerful x86 and AMD64/Intel64 virtualization product
-brew install virtualbox-extension-pack # VirtualBox Extension Pack
-brew install vagrant                   # Vagrant is a tool for building and distributing development environments.
-brew install ngrok		# ngrok is a handy tool and service that allows you tunnel requests from the wide open Internet to your local machine when it's behind a NAT or firewall
+
+## Bigger or less used development tools (disabled for now)
+
+# brew install mamp
+# brew install navicat-for-mysql
+#brew install pycharm
+#brew install rstudio
+#brew install spyder # python data science IDE (like rstudio)
+#brew install virtualbox                # VirtualBox is a powerful x86 and AMD64/Intel64 virtualization product
+#brew install virtualbox-extension-pack # VirtualBox Extension Pack
+#brew install vagrant                   # Vagrant is a tool for building and distributing development environments.
+#brew install ngrok		# ngrok is a handy tool and service that allows you tunnel requests from the wide open Internet to your local machine when it's behind a NAT or firewall
 
 brew install visual-studio-code
-brew install powershell # install the mac version of powershell
-brew install dotnet-sdk # install .NET Core SDK
-brew install sts
-brew install kitematic
-brew install sequel-pro
-brew install java
-brew install pgweb # postgres web admin - see https://github.com/sosedoff/pgweb
+#brew install powershell # install the mac version of powershell
+#brew install dotnet-sdk # install .NET Core SDK
+#brew install sts
+#brew install kitematic
+#brew install sequel-pro
+#brew install java
+#brew install pgweb # postgres web admin - see https://github.com/sosedoff/pgweb
 # brew install yourkit-java-profiler # cask broken
 
 brew install qlcolorcode         # Preview source code files with syntax highlighting
@@ -187,14 +190,14 @@ brew install gitup         # Visualization Tool for Git
 brew install kaleidoscope  # File and Folder comparison tool
 
 # Data science
-brew install anaconda
+#brew install anaconda
 
 # Games
 brew install gog-galaxy
 brew install steam
 brew install steamcmd
 brew install teamspeak-client
-brew install minecraft-server
+# brew install minecraft-server -- no longer available
 brew install minecraft
 brew install battle-net
 
