@@ -77,6 +77,8 @@ TODO: how to do that without migration assistant.
 
 Install Rosetta Intel emulation via `sudo softwareupdate --install-rosetta`
 
+Enable iCloud messages in Messages app preferences
+
 ## General
 
 * Set CAPSLOCK to Control in System Preferences -> Keyboard -> Modifiers...
