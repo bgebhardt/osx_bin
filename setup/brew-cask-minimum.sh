@@ -50,6 +50,7 @@ brew install --cask rectangle
 brew install --cask typinator
 brew install --cask lunar
 brew install --cask karabiner-elements
+brew install --cask default-folder-x
 
 
 # clean up cached cask files
