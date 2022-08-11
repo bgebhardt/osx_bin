@@ -43,6 +43,11 @@ Now set up dev environment
     - run ./brew-cask-minimum.sh
     - set up the apps -- look in the file for the list to set up
 
+- Set your git user name. see https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
+
+$ git config --global user.name "Bryan Gebhardt"
+$ git config --global user.email bryan.gebhardt@gmail.com
+
 Other minimum apps to install
 - iClock
 
