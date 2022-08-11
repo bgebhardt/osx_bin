@@ -26,28 +26,37 @@ brew install mas # Install App Store command line tools https://github.com/mas-c
 ## TODO: figure out which versions of apps I have licenses for and load those.
 
 ## Top Must Installs
-brew cask install 1password
-brew cask install fastscripts
-brew cask install iterm2
-brew cask install flux
-brew cask install omnifocus
-brew cask install mailplane
-brew cask install dropbox
-brew cask install google-drive
-brew cask install wd-my-cloud # also WD Sync Installer.app
-# Mail Plugin Manager.app - manually install this one or create cask
-brew cask install sizzlingkeys
-brew cask install textmate
-brew cask install timing
-brew cask install divvy
-brew cask install brightness
-brew cask install textexpander
-brew cask install bartender
+brew install --cask 1password
+brew install --cask fastscripts
+brew install --cask iterm2
+brew install --cask omnifocus
+# brew install --cask google-drive -- add this back?
+brew install --cask timing
+brew install --cask pdf-expert
+brew install --cask microsoft-office # requires admin password to install
+brew install --cask microsoft-edge
+brew install --cask visual-studio-code
+
+brew install --cask omnioutliner
+brew install --cask soulver
+brew install --cask quicken
+
+# Login items
+brew install --cask bartender
+brew install --cask caffeine
+brew install --cask alfred
+brew install --cask popchar
+brew install --cask rectangle
+brew install --cask typinator
+brew install --cask lunar
+brew install --cask karabiner-elements
+
 
 # clean up cached cask files
 brew cask cleanup
 
 # install mas applications
+# Read more about this at https://github.com/mas-cli/mas
 mas install 823766827 # OneDrive (17.3.6518)
 mas install 456624497 # Brightness Slider
 mas install 803453959 # Slack (2.0.3)
@@ -55,3 +64,15 @@ mas install 803453959 # Slack (2.0.3)
 
 # Remove outdated versions from the cellar.
 brew cleanup
+
+# retired minimums
+#brew install --cask sizzlingkeys
+#brew install --cask textmate
+#brew install --cask mailplane
+#brew install --cask dropbox
+# brew install --cask wd-my-cloud # also WD Sync Installer.app
+# Mail Plugin Manager.app - manually install this one or create cask
+#brew install --cask divvy
+#brew install --cask brightness
+#brew install --cask textexpander
+#brew install --cask flux
