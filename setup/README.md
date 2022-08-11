@@ -87,10 +87,40 @@ Install Rosetta Intel emulation via `sudo softwareupdate --install-rosetta`
 
 ## Karabiner (for EMACS style keybindings)
 
+* In Karabiner-Elements to to Misc pane and open ~/.config/karabiner
+* Copy karabiner config from OneDrive to ~/.config/karabiner
 
-## Rectangle
-For Window movement shortcuts
+## Rectangle - For Window movement shortcuts
 
+* Open Rectangle preferences by clicking the gear tab
+* Click Import to import in shortcuts file from OneDrive
+
+
+## Login apps to set up
+
+*Done*
+caffeine 
+popchar
+Lunar -- very nice set up system
+Typinator 
+
+* configure sets folder to one on OneDrive; restart Typinator
+* pick sets My snippets, Date Stamps, Plain Clipboard Text, DOuble CAps, Inline calculation, Date Steps, Auto-Cap Sentences, Symbols, Emoji, TidBITS Auto (if not automatic after setting to onedrive folder)
+
+Default-folder-x
+
+* prefs: 
+    * general: check all
+    * folders: shortcuts for OneDrive Personal, Downloads
+    * options: check and set open in iTerm2; check for updates.
+
+*Partial*
+bartender -- configure it once all apps installed
+alfred -- configure search items
+
+
+
+---
 
 # TODO
 
