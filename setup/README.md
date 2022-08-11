@@ -49,6 +49,7 @@ $ git config --global user.email bryan.gebhardt@gmail.com
 - Set up Edge
     - Log in with Microsoft account
     - Change default browser in System Preferences -> General
+    - Enable edge extensions you want in the toolbar (edge://extensions) (currently: 1Password, Session Buddy, Pocket, TabCopy, MSFT Editor)
 - Set up Visual code (installed by brew-cask-minimum)
     - Login to sync with MSFT account
     - Install cmd line tools with command-P and search for "install code" (see [The Visual Studio Code command-line interface](https://code.visualstudio.com/docs/editor/command-line))
@@ -118,11 +119,18 @@ Default-folder-x
 bartender -- configure it once all apps installed
 alfred -- configure search items
 
+*To do*
+FastScripts
+
 
 
 ---
 
 # TODO
+
+Set up ssh-keys
+https://github.com/settings/keys
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 
 * Register BusyCal and BusyContacts
 
