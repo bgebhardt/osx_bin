@@ -139,6 +139,7 @@ brew install gdbm
 brew install gettext
 brew install git
 brew install git-extras
+brew install gh # gitbug cli - https://cli.github.com/
 brew install glib
 brew install gmp
 brew install gnu-sed
