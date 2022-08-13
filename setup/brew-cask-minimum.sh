@@ -36,6 +36,7 @@ brew install --cask pdf-expert
 brew install --cask microsoft-office # requires admin password to install
 brew install --cask microsoft-edge
 brew install --cask visual-studio-code
+brew install --cask github
 
 brew install --cask omnioutliner
 brew install --cask soulver
@@ -61,6 +62,9 @@ brew cask cleanup
 mas install 823766827 # OneDrive (17.3.6518)
 mas install 456624497 # Brightness Slider
 mas install 803453959 # Slack (2.0.3)
+mas install 540348655 # Monosnap - screenshot editor   (5.1.7)
+mas install 1499181666 #  OwlOCR - Screenshot to Text (5.0.7)
+
 
 
 # Remove outdated versions from the cellar.
