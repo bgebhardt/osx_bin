@@ -87,6 +87,10 @@ brew install hype # web animation program
 # brew install lego-mindstorms-ev3 # not currently using
 # brew install houdahgeo -- no longer available
 
+# Markdown viewers
+brew install marked
+brew install mweb-pro
+
 ## Utilities
 brew install 1clipboard
 # brew install amazon-drive -- no longer available
@@ -128,6 +132,9 @@ brew install supersync
 brew install iphoto-library-manager # may be the wrong verion for photos app
 brew install imazing
 brew install handbrake # https://handbrake.fr/
+brew install discord
+brew install downie
+brew install betterzip
 
 ## Development apps
 brew install devutils # developer toolbox https://devutils.app/
