@@ -13,6 +13,10 @@ Set up Apple iCloud and minimal settings
 - Turn on internet accounts in System Preferences -> Internet Accounts
     - Started with personal google - passkey didn’t work though
 - Set mouse speed and secondary click
+- Set trackpad right corner secondary click and tap to click
+- In system preferences items
+  - Show Bluetooth menu
+  - Show TimeMachine menu
 
 Finder settings
 
@@ -63,10 +67,21 @@ It seems to take a long time to download all teh files
 # Set up rest of apps
 
 * run ./mas.sh
-    * There may be errors as app id's may have changed
+  * There may be errors as app id's may have changed
 * run ./brew-cask.sh
 
 You can run these in the background and move on to configs. Check them periodically for errors.
+
+## Applications not installed this way
+
+The following apps you'll have to get and install via there web installer
+
+* [Marked 2 - Smarter tools for smarter writers](https://marked2app.com/) - I bought from developer instead of Mac App Store
+
+# Add all Scripts
+
+Follow installation instructions here: https://github.com/bgebhardt/osx_scripts_folder
+Configure all the FastScript shortcuts for the scripts.
 
 # Configure Critical Apps and Settings
 
@@ -105,7 +120,10 @@ Enable iCloud messages in Messages app preferences
 caffeine 
 popchar
 Lunar -- very nice set up system
+bartender -- configure it once all apps installed
 Typinator 
+FastScripts
+Google Drive
 
 * configure sets folder to one on OneDrive; restart Typinator
 * pick sets My snippets, Date Stamps, Plain Clipboard Text, DOuble CAps, Inline calculation, Date Steps, Auto-Cap Sentences, Symbols, Emoji, TidBITS Auto (if not automatic after setting to onedrive folder)
@@ -118,11 +136,9 @@ Default-folder-x
     * options: check and set open in iTerm2; check for updates.
 
 *Partial*
-bartender -- configure it once all apps installed
 alfred -- configure search items
 
 *To do*
-FastScripts
 
 
 
