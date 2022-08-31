@@ -94,6 +94,8 @@ Install Rosetta Intel emulation via `sudo softwareupdate --install-rosetta`
 
 Enable iCloud messages in Messages app preferences
 
+Install [Epson Printer Drivers](https://epson.com/Support/wa00607d)
+
 ## General
 
 * Set CAPSLOCK to Control in System Preferences -> Keyboard -> Modifiers...
@@ -149,6 +151,8 @@ alfred -- configure search items
 Set up ssh-keys
 https://github.com/settings/keys
 https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+* Setup default applications (example: all PDF's open in PDF Expert instead of Preview). Look to see if there's a tool or script that can do this quickly.
 
 * Register BusyCal and BusyContacts
 
