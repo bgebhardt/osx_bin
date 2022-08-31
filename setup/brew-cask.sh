@@ -42,6 +42,7 @@ brew install --cask rectangle # window manager
 brew install --cask lunar # monitor brightness manager; replaces flux
 brew install --cask fastscripts
 brew install --cask airbuddy # monitors bluetooth devices
+brew install --cask cloudmounter # mount different cloud services
 
 # retired top installs
 # brew install rescuetime # no longer using
@@ -207,6 +208,8 @@ brew install teamspeak-client
 # brew install minecraft-server -- no longer available
 brew install minecraft
 brew install battle-net
+brew install heroic
+brew install --cask onecast
 
 # Free Comic Book Reader
 brew install yacreader
