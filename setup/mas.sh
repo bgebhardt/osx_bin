@@ -5,6 +5,11 @@
 # mas is a command line client to the App Store
 # see https://github.com/mas-cli/mas
 
+# common commands
+# mas list - list your installed apps
+# mas search <app name> - to find an app identifier
+# in app store the id is 1607635845 from the url https://apps.apple.com/nz/app/velja/id1607635845?mt=12
+
 brew install mas # Install App Store command line tools https://github.com/mas-cli/mas
 
 #mas install 567704457 # OmniPopLite (3.2)
@@ -65,6 +70,8 @@ mas install 549083868 # Display Menu (2.2.2)
 mas install 688211836 # EasyRes (1.1.1)
 mas install 1274495053  # Microsoft To Do  ## NOT WORKING; TODO try to fix
 mas install 1295203466 # Microsoft Remote Desktop
+
+mas install 1607635845 # Velja (1.10.1) - browser picker: Open links in a specific browser or a matching native app. Easily switch between browsers
 
 # mas install 521464274 # Farensius Desktop # seems to no longer be available
 
