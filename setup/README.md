@@ -77,6 +77,7 @@ You can run these in the background and move on to configs. Check them periodica
 The following apps you'll have to get and install via there web installer
 
 * [Marked 2 - Smarter tools for smarter writers](https://marked2app.com/) - I bought from developer instead of Mac App Store
+* [alyssaxuu/later: Save all your Mac apps for later with one click 🖱️](https://github.com/alyssaxuu/later) - free app to save and restore open windows. Awesome!
 
 # Add all Scripts
 
@@ -143,6 +144,26 @@ alfred -- configure search items
 *To do*
 
 
+# Notes on other apps
+
+Great 
+[Amazing FREE Mac Apps You Aren’t Using! - YouTube](https://www.youtube.com/watch?v=FxUk8gxzHI8&list=WL&index=7&t=140s)
+
+* Orion - https://browser.kagi.com -- safari based web browser that can run chrome, firefox, and safari extensions
+* Velja - https://apps.apple.com/nz/app/velja/i... -- browser picker
+* [alyssaxuu/later: Save all your Mac apps for later with one click 🖱️](https://github.com/alyssaxuu/later) -- free app to save and restore open windows. Awesome!
+* [Dropover - Easier Drag & Drop on the Mac App Store](https://apps.apple.com/us/app/dropover-easier-drag-drop/id1355679052?mt=12) -- Use it to stash, gather or move any draggable content without having to open side-by-side windows.
+* [Shottr – Screenshot Annotation App For Mac](https://shottr.cc/) -- free great screen shot tool!
+* [Raycast](https://www.raycast.com/) -- spotlight replacement; similar to Alfred
+* [ImageOptim — better Save for Web](https://imageoptim.com/mac) -- Removes bloated metadata. Saves disk space & bandwidth by compressing images without losing quality.
+* [CopyClip - Clipboard History on the Mac App Store](https://apps.apple.com/us/app/copyclip-clipboard-history/id595191960?mt=12) -- free clipboard history app
+* [Hidden Bar on the Mac App Store](https://apps.apple.com/us/app/hidden-bar/id1452453066?mt=12) -- hide menu bar items; free app like Bartender
+* Hand Mirror - https://apps.apple.com/us/app/hand-mi... -- menubar item that will turn on your webcam to check out how you look
+* [QuickShade on the Mac App Store](https://apps.apple.com/us/app/quickshade/id931571202?mt=12) -- free brightness control like Lunar or BetterDisplay which I like better
+* [Operating system utilities for Mac - OnyX](https://www.titanium-software.fr/en/onyx.html) -- UI on a lot of system utilities
+* [One Thing on the Mac App Store](https://apps.apple.com/us/app/one-thing/id1604176982?mt=12) -- Put one task in your menu bar
+
+* [raycast vs alfred - Search](https://www.bing.com/search?q=raycast+vs+alfred&cvid=40c3758d7fc84f6d872e9566ddbe306c&aqs=edge.0.0j69i57j0.1896j0j1&pglt=171&FORM=ANNTA1&PC=U531)
 
 ---
 
