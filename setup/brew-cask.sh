@@ -87,6 +87,7 @@ brew install vlc
 brew install hype # web animation program
 # brew install lego-mindstorms-ev3 # not currently using
 # brew install houdahgeo -- no longer available
+brew install wallpaper-wizard # desktop picture app
 
 # Markdown viewers
 brew install marked
@@ -136,6 +137,7 @@ brew install handbrake # https://handbrake.fr/
 brew install discord
 brew install downie
 brew install betterzip
+brew install cask onyx # fee multifunction utility for system maintence
 
 ## Development apps
 brew install devutils # developer toolbox https://devutils.app/
