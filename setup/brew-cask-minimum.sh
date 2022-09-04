@@ -45,7 +45,8 @@ brew install --cask quicken
 # Login items
 brew install --cask bartender
 brew install --cask caffeine
-brew install --cask alfred
+brew install --cask alfred # spotlight replacement
+brew install --cask raycast # spotlight replacement, deciding between it an alfred
 brew install --cask popchar
 brew install --cask rectangle
 brew install --cask typinator
@@ -53,7 +54,7 @@ brew install --cask lunar
 brew install --cask karabiner-elements
 brew install --cask default-folder-x
 brew install --cask betterdisplay
-
+brew install --cask shottr # free screen shot tool; preferred over Monosnap
 
 # clean up cached cask files
 brew cask cleanup
@@ -65,6 +66,7 @@ mas install 456624497 # Brightness Slider
 mas install 803453959 # Slack (2.0.3)
 mas install 540348655 # Monosnap - screenshot editor   (5.1.7)
 mas install 1499181666 #  OwlOCR - Screenshot to Text (5.0.7)
+mas install 1607635845 # Velja (1.10.1) - browser picker: Open links in a specific browser or a matching native app. Easily switch between browsers
 
 
 
