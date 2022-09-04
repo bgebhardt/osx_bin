@@ -203,6 +203,7 @@ brew install kaleidoscope  # File and Folder comparison tool
 # Games
 brew install gog-galaxy
 brew install steam
+brew install epic-games
 brew install steamcmd
 brew install teamspeak-client
 # brew install minecraft-server -- no longer available
