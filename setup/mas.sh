@@ -72,6 +72,7 @@ mas install 1274495053  # Microsoft To Do  ## NOT WORKING; TODO try to fix
 mas install 1295203466 # Microsoft Remote Desktop
 
 mas install 1607635845 # Velja (1.10.1) - browser picker: Open links in a specific browser or a matching native app. Easily switch between browsers
+mas install 1377973524 # Sandkorn (1.8.2) - shows you what entitlements those apps - [Sandkorn - Peter Borg Apps](https://www.peterborgapps.com/sandkorn/)
 
 # mas install 521464274 # Farensius Desktop # seems to no longer be available
 

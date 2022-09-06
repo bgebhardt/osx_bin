@@ -162,6 +162,7 @@ brew install ngrok # sign up or login here https://ngrok.com/
 brew install quickjson
 brew install key-codes
 brew install rapidweaver
+brew install --cask expressions # regular expression app, paid
 
 ## Bigger or less used development tools (disabled for now)
 
