@@ -98,7 +98,6 @@ brew install 1clipboard
 # brew install amazon-drive -- no longer available
 # brew install amazon-music # need to delete folder in Applications Support and then works -- no longer supported
 brew install bartender
-brew install beamer
 brew install boom
 brew install brightness
 brew install caffeine
@@ -129,7 +128,7 @@ brew install mactracker
 brew install plex-media-server
 brew install popclip
 brew install superduper
-brew install supersync
+# brew install supersync
 # brew install wallpaper-wizard # install via mas instead
 brew install iphoto-library-manager # may be the wrong verion for photos app
 brew install imazing
@@ -138,6 +137,10 @@ brew install discord
 brew install downie
 brew install betterzip
 brew install cask onyx # fee multifunction utility for system maintence
+brew install --cask screens # Control any computer from your Mac from anywhere in the world
+brew install --cask reflector # wireless screen mirroring
+brew install --cask airparrot # Streaming and Mirroring for Windows and macOS
+brew install beamer # streaming from Mac
 
 ## Development apps
 brew install devutils # developer toolbox https://devutils.app/
