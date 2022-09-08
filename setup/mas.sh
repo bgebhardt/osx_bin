@@ -73,6 +73,8 @@ mas install 1295203466 # Microsoft Remote Desktop
 
 mas install 1607635845 # Velja (1.10.1) - browser picker: Open links in a specific browser or a matching native app. Easily switch between browsers
 mas install 1377973524 # Sandkorn (1.8.2) - shows you what entitlements those apps - [Sandkorn - Peter Borg Apps](https://www.peterborgapps.com/sandkorn/)
+mas install 425264550  # Blackmagic Disk Speed Test (3.4.2)
+
 
 # mas install 521464274 # Farensius Desktop # seems to no longer be available
 
