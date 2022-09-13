@@ -295,5 +295,8 @@ brew install nethogs
 # [imsnif/bandwhich: Terminal bandwidth utilization tool](https://github.com/imsnif/bandwhich)
 brew install bandwhich
 
+# network scanner
+brew install nmap
+
 # Remove outdated versions from the cellar.
 brew cleanup

@@ -24,6 +24,7 @@ brew install cask
 
 ## Top Must Installs
 brew install 1password
+brew install --cask 1password/tap/1password-cli
 brew install fastscripts
 brew install iterm2
 brew install flux
@@ -134,7 +135,8 @@ brew install iphoto-library-manager # may be the wrong verion for photos app
 brew install imazing
 brew install handbrake # https://handbrake.fr/
 brew install discord
-brew install downie
+brew install downie # [Downie - YouTube Video Downloader for macOS](https://software.charliemonroe.net/downie/)
+brew install --cask permute # [Permute - Media Converter for macOS](https://software.charliemonroe.net/permute/)
 brew install betterzip
 brew install cask onyx # fee multifunction utility for system maintence
 brew install --cask screens # Control any computer from your Mac from anywhere in the world
@@ -166,6 +168,7 @@ brew install quickjson
 brew install key-codes
 brew install rapidweaver
 brew install --cask expressions # regular expression app, paid
+brew install --cask latest # [Latest](https://max.codes/latest/) software update checker
 
 ## Bigger or less used development tools (disabled for now)
 
