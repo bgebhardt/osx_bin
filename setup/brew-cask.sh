@@ -144,6 +144,8 @@ brew install --cask reflector # wireless screen mirroring
 brew install --cask airparrot # Streaming and Mirroring for Windows and macOS
 brew install beamer # streaming from Mac
 
+brew install --cask calibre # [calibre - E-book management](https://calibre-ebook.com/)
+
 ## Development apps
 brew install devutils # developer toolbox https://devutils.app/
 brew install atom
@@ -169,6 +171,11 @@ brew install key-codes
 brew install rapidweaver
 brew install --cask expressions # regular expression app, paid
 brew install --cask latest # [Latest](https://max.codes/latest/) software update checker
+brew install --cask cisdem-document-reader # Document reader to open and view Windows-based files
+brew install --cask macpilot # Graphical user interface for the command terminal
+brew install --cask network-radar # Tool to scan and monitor the network
+brew install --cask remote-wake-up # Wake up devices with a click of a button
+brew install --cask colorwell # Color picker and color palette generator
 
 ## Bigger or less used development tools (disabled for now)
 

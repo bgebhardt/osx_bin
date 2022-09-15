@@ -79,6 +79,11 @@ The following apps you'll have to get and install via there web installer
 * [Marked 2 - Smarter tools for smarter writers](https://marked2app.com/) - I bought from developer instead of Mac App Store
 * [alyssaxuu/later: Save all your Mac apps for later with one click 🖱️](https://github.com/alyssaxuu/later) - free app to save and restore open windows. Awesome!
 * [BuhoCleaner: The Best Mac Cleaner Optimized for M1/M2 Macs](https://www.drbuho.com/)
+* [Snail](https://snail.murusfirewall.com/) traffic shaping for MacOS
+* [WiFiRadar Pro | Wireless monitoring on steroids](https://wifiradar.app/)
+* [JSON Wizard | JSON, the easy way. For Mac.](https://jsonwizard.app/)
+* [Premium Fonts for Mac and Windows | MacAppware](https://macappware.com/software/mac-fonts/)
+* [Mac Font Manager Deluxe | MacAppware](https://macappware.com/software/mac-font-manager-deluxe/)
 
 
 # Add all Scripts
