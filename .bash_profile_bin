@@ -87,7 +87,7 @@ export PROMPT_COMMAND="${PROMPT_TITLE}; ${PROMPT_COMMAND}"
 ~/bin/bashstrap/z.sh
 
 # enable iTerm2 shell integration
-source ~/bin/.iterm2_shell_integration.bash
+source ~/.iterm2_shell_integration.bash
 
 # add completions (which may or may not be installed)
 
