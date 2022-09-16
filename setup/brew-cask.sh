@@ -179,6 +179,8 @@ brew install --cask colorwell # Color picker and color palette generator
 brew install --cask fig # auto-complete for shell
 brew install --cask background-music # [kyleneideck/BackgroundMusic: Background Music, a macOS audio utility: automatically pause your music, set individual apps' volumes and record system audio.](https://github.com/kyleneideck/BackgroundMusic#download)
 
+brew install --cask mark-text # Simple and elegant markdown editor - https://github.com/marktext/marktext; on Windows too!
+
 ## Bigger or less used development tools (disabled for now)
 
 # brew install mamp

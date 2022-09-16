@@ -75,6 +75,8 @@ choco install -y git-fork
 choco install -y powershell-preview
 choco install -y sql-server-management-studio
 
+choco install marktext # Simple and elegant markdown editor - https://github.com/marktext/marktext; on Windows too!
+
 ## vscode
 choco install -y vscode
 
