@@ -176,6 +176,8 @@ brew install --cask macpilot # Graphical user interface for the command terminal
 brew install --cask network-radar # Tool to scan and monitor the network
 brew install --cask remote-wake-up # Wake up devices with a click of a button
 brew install --cask colorwell # Color picker and color palette generator
+brew install --cask fig # auto-complete for shell
+brew install --cask background-music # [kyleneideck/BackgroundMusic: Background Music, a macOS audio utility: automatically pause your music, set individual apps' volumes and record system audio.](https://github.com/kyleneideck/BackgroundMusic#download)
 
 ## Bigger or less used development tools (disabled for now)
 

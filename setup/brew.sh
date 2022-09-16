@@ -223,6 +223,9 @@ brew install ssldump
 brew install fetchmail
 brew install procmail
 
+brew install tldr # Simplified and community-driven man pages - https://tldr.sh/
+brew install starship # Cross-shell prompt for astronauts - https://starship.rs
+
 # cloud tools
 # brew install heroku - as of 2018 we no longer use heroku
 brew install azure-cli
