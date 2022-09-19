@@ -44,7 +44,6 @@ brew install --cask quicken
 
 # Login items
 brew install --cask bartender
-brew install --cask caffeine
 brew install --cask alfred # spotlight replacement
 brew install --cask raycast # spotlight replacement, deciding between it an alfred
 brew install --cask popchar
