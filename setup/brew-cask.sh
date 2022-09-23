@@ -143,8 +143,9 @@ brew install --cask screens # Control any computer from your Mac from anywhere i
 brew install --cask reflector # wireless screen mirroring
 brew install --cask airparrot # Streaming and Mirroring for Windows and macOS
 brew install beamer # streaming from Mac
-
 brew install --cask calibre # [calibre - E-book management](https://calibre-ebook.com/)
+brew install --cask timemachineeditor # Utility to change the default backup interval of Time Machine
+brew install --cask space-saver # Delete local Time Machine backups
 
 ## Development apps
 brew install devutils # developer toolbox https://devutils.app/
