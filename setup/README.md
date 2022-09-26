@@ -172,6 +172,43 @@ Great
 
 * [raycast vs alfred - Search](https://www.bing.com/search?q=raycast+vs+alfred&cvid=40c3758d7fc84f6d872e9566ddbe306c&aqs=edge.0.0j69i57j0.1896j0j1&pglt=171&FORM=ANNTA1&PC=U531)
 
+# Brew Services
+
+Run `brew services` to install the brew services which can register services with launchctl
+
+More info
+
+- [brew(1) – The Missing Package Manager for macOS (or Linux) — Homebrew Documentation](https://docs.brew.sh/Manpage#services-subcommand)
+- [Homebrew/homebrew-services: 🚀 Manage background services using the daemon manager launchctl on macOS or systemctl on Linux.](https://github.com/Homebrew/homebrew-services)
+- [Starting and Stopping Background Services with Homebrew](https://thoughtbot.com/blog/starting-and-stopping-background-services-with-homebrew)
+
+## Start service sleepwatcher
+
+I use this to mute and unmute audio when the computer goes to sleep.
+Scripts are .sleep and .wakeup
+
+`brew services start sleepwatcher`
+
+Currently I manually create .sleep and .wakeup in the home directory.
+
+⚡ cat .sleep
+# simple script to mute sound
+osascript -e "set volume with output muted"
+
+⚡ cat .wakeup
+# simple script to unmute sound
+osascript -e "set volume without output muted"
+
+More info on sleepwatcher and Applescripts to mute/unmute
+
+- [How to control OS X System Volume with AppleScript](https://coolaj86.com/articles/how-to-control-os-x-system-volume-with-applescript/#:~:text=On%20the%20keyboard%20you%20can%20hit%20the%20mute,volume%20without%20output%20muted%20output%20volume%201%20--100%25%22)
+- [swift - Unable to mute and unmute mic using applescript - Stack Overflow](https://stackoverflow.com/questions/71421883/unable-to-mute-and-unmute-mic-using-applescript) - in the comments suggests how you can use defaults to write state for your scripts.
+- [Sleepwatcher : Run Script on Sleep - tyler hoffman](http://tyhoffman.com/blog/2013/09/sleepwatcher-power-event-driven-automation/) - alternate approach to setting sleepwatcher.
+  - [sleepwatcher installation script for macOS](https://gist.github.com/eu81273/3de56ccc62729aa802ef3748bdc911c0)
+- [Mac OS X: Automating Tasks on Sleep » Kodiak's Korner - My Little Corner of the Net](https://www.kodiakskorner.com/log/258) - great summary for how to set up sleepwatcher LaunchAgent
+ - Note: the brew sleepwatcher package doesn't include the default LaunchAgent. You have to download it from the source. [bb's Homepage](https://www.bernhard-baehr.de/)
+
+
 ---
 
 # TODO
