@@ -301,5 +301,8 @@ brew install bandwhich
 # network scanner
 brew install nmap
 
+# Cmdline tool - Monitors sleep, wakeup, and idleness of a Mac - https://www.bernhard-baehr.de/
+brew install sleepwatcher
+
 # Remove outdated versions from the cellar.
 brew cleanup

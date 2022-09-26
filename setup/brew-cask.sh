@@ -146,6 +146,7 @@ brew install beamer # streaming from Mac
 brew install --cask calibre # [calibre - E-book management](https://calibre-ebook.com/)
 brew install --cask timemachineeditor # Utility to change the default backup interval of Time Machine
 brew install --cask space-saver # Delete local Time Machine backups
+brew install --cask launchcontrol # Create, manage and debug system- and user services (launchctl GUI)
 
 ## Development apps
 brew install devutils # developer toolbox https://devutils.app/
