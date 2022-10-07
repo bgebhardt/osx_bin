@@ -29,7 +29,7 @@ brew install fastscripts
 brew install iterm2
 brew install flux
 brew install omnifocus
-brew install mailplane
+#brew install mailplane # as of 2021 it is no longer being developed
 #brew install dropbox
 brew install google-drive
 #brew install wd-my-cloud # also WD Sync Installer.app

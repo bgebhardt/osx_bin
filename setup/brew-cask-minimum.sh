@@ -72,7 +72,6 @@ brew cleanup
 # retired minimums
 #brew install --cask sizzlingkeys
 #brew install --cask textmate
-#brew install --cask mailplane
 #brew install --cask dropbox
 # brew install --cask wd-my-cloud # also WD Sync Installer.app
 # Mail Plugin Manager.app - manually install this one or create cask
