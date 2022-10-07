@@ -94,6 +94,10 @@ brew install wallpaper-wizard # desktop picture app
 brew install marked
 brew install mweb-pro
 
+# Gmail desktop apps
+brew install --cask kiwi-for-gmail
+brew install --cask mimestream
+
 ## Utilities
 brew install 1clipboard
 # brew install amazon-drive -- no longer available
