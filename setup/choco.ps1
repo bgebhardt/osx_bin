@@ -2,40 +2,45 @@
 
 # base
 #choco install 1password # didn't work
-choco install chocolateygui
-choco install powertoys
+choco install -y chocolateygui
+choco install -y powertoys
+choco install -y autohotkey
 
 # alfred-like search tools
-choco install wox # this one is better
+choco install -y wox # this one is better
 #choco install listary
+
+## vscode
+choco install -y vscode
 
 # NiftyWindows adds to the built-in features of the window manger to increase ease of use.
 # http://www.enovatic.org/products/niftywindows/
-choco install niftywindows
+choco install -y niftywindows
 
-choco install netcfpowertoys
-choco install keytweak
+choco install -y netcfpowertoys
+choco install -y keytweak
 
 # file access
-choco install googledrive
-choco install google-backup-and-sync
+#choco install googledrive
+#choco install google-backup-and-sync
 #choco install icloud - didn't work - install from Microsoft Windows store
-choco install onedrive
-choco install freecommander-xe.install # alternate windows explorer
+#choco install onedrive
+choco install -y freecommander-xe.install # alternate windows explorer
 
 # main apps
-choco install itunes
-choco install zoom
-choco install discord
+choco install -y itunes
+choco install -y zoom
+choco install -y discord
 
 # browsers
 #choco install -y firefox
 choco install -y googlechrome
 
 # games
-choco install steam-client
-choco install epicgameslauncher
-choco install goggalaxy
+choco install -y steam-client
+choco install -y epicgameslauncher
+choco install -y goggalaxy
+#choco install -y battle.net # didn't work
 
 # utils
 # choco install -y 7zip.install
@@ -65,20 +70,18 @@ choco install -y wsl2
 
 # development
 ## general
-choco install -y nodejs
+#choco install -y nodejs
 choco install -y git
-choco install -y firacode 
-choco install -y cascadiacodepl
-choco install -y cascadiacode
-choco install -y postman
-choco install -y git-fork
-choco install -y powershell-preview
-choco install -y sql-server-management-studio
+#choco install -y firacode 
+#choco install -y cascadiacodepl
+#choco install -y cascadiacode
+#choco install -y postman
+#choco install -y git-fork
+#choco install -y powershell-preview
+#choco install -y sql-server-management-studio
 
-choco install marktext # Simple and elegant markdown editor - https://github.com/marktext/marktext; on Windows too!
+choco install -y marktext # Simple and elegant markdown editor - https://github.com/marktext/marktext; on Windows too!
 
-## vscode
-choco install -y vscode
 
 ## visual studio 2017 community
 # choco install -y visualstudio2017community 
