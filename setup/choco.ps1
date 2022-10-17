@@ -43,6 +43,8 @@ choco install -y goggalaxy
 #choco install -y battle.net # didn't work
 
 # utils
+choco install -y synergy # [Synergy - Share one mouse & keyboard across computers](https://symless.com/synergy)
+
 # choco install -y 7zip.install
 # choco install -y conemu
 # choco install -y ditto

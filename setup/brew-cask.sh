@@ -152,6 +152,8 @@ brew install --cask timemachineeditor # Utility to change the default backup int
 brew install --cask space-saver # Delete local Time Machine backups
 brew install --cask launchcontrol # Create, manage and debug system- and user services (launchctl GUI)
 
+brew install synergy-core # Synergy, the keyboard and mouse sharing tool
+
 ## Development apps
 brew install devutils # developer toolbox https://devutils.app/
 brew install atom
