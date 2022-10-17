@@ -3,20 +3,19 @@
 Based on 8-10-2022 setup of MacBook Pro
 Setting up from scratch without Migration assistant
 
-
 # Initial steps to get running
 
 Set up Apple iCloud and minimal settings
 
-- enter iCloud account
-- Set up 1Password
-- Turn on internet accounts in System Preferences -> Internet Accounts
-    - Started with personal google - passkey didn’t work though
-- Set mouse speed and secondary click
-- Set trackpad right corner secondary click and tap to click
-- In system preferences items
-  - Show Bluetooth menu
-  - Show TimeMachine menu
+* enter iCloud account
+* Set up 1Password
+* Turn on internet accounts in System Preferences -> Internet Accounts
+    * Started with personal google - passkey didn’t work though
+* Set mouse speed and secondary click
+* Set trackpad right corner secondary click and tap to click
+* In system preferences items
+  * Show Bluetooth menu
+  * Show TimeMachine menu
 
 Finder settings
 
@@ -25,38 +24,37 @@ Finder settings
 * View -> Show status bar
 * Change default to list view: View Options -> Set Default
 
-
 ## Now set up dev environment
 
-- Login to GitHub
-- Set your git user name. see https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
+* Login to GitHub
+* Set your git user name. see https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
 
 $ git config --global user.name "Bryan Gebhardt"
 $ git config --global user.email bryan.gebhardt@gmail.com
 
-- TODO: Set up ssh keys for new computer
+* TODO: Set up ssh keys for new computer
 
 # Install applications
 
-- Follow read me: https://github.com/bgebhardt/osx_bin
-    - install Brew
-    - Set up shell settings
-    - run ./brew-cask-minimum.sh
-    - set up the apps -- look in the file for the list to set up
+* Follow read me: https://github.com/bgebhardt/osx_bin
+    * install Brew
+    * Set up shell settings
+    * run ./brew-cask-minimum.sh
+    * set up the apps -- look in the file for the list to set up
 
 ## Install and set up Core Microsoft apps (now added to brew-cask-min install)
 
-- Download and Install Microsoft Office (if not done by scripts)
-- Set up Outlook with personal email account
-    - Turn off alert on desktop and new message sound in prefs
-- Set up OneDrive
-- Set up Edge
-    - Log in with Microsoft account
-    - Change default browser in System Preferences -> General
-    - Enable edge extensions you want in the toolbar (edge://extensions) (currently: 1Password, Session Buddy, Pocket, TabCopy, MSFT Editor)
-- Set up Visual code (installed by brew-cask-minimum)
-    - Login to sync with MSFT account
-    - Install cmd line tools with command-P and search for "install code" (see [The Visual Studio Code command-line interface](https://code.visualstudio.com/docs/editor/command-line))
+* Download and Install Microsoft Office (if not done by scripts)
+* Set up Outlook with personal email account
+    * Turn off alert on desktop and new message sound in prefs
+* Set up OneDrive
+* Set up Edge
+    * Log in with Microsoft account
+    * Change default browser in System Preferences -> General
+    * Enable edge extensions you want in the toolbar (edge://extensions) (currently: 1Password, Session Buddy, Pocket, TabCopy, MSFT Editor)
+* Set up Visual code (installed by brew-cask-minimum)
+    * Login to sync with MSFT account
+    * Install cmd line tools with command-P and search for "install code" (see [The Visual Studio Code command-line interface](https://code.visualstudio.com/docs/editor/command-line))
 
 # Download key OneDrive Files
 
@@ -84,7 +82,6 @@ The following apps you'll have to get and install via there web installer
 * [JSON Wizard | JSON, the easy way. For Mac.](https://jsonwizard.app/)
 * [Premium Fonts for Mac and Windows | MacAppware](https://macappware.com/software/mac-fonts/)
 * [Mac Font Manager Deluxe | MacAppware](https://macappware.com/software/mac-font-manager-deluxe/)
-
 
 # Add all Scripts
 
@@ -123,7 +120,6 @@ Install [Epson Printer Drivers](https://epson.com/Support/wa00607d)
 * Open Rectangle preferences by clicking the gear tab
 * Click Import to import in shortcuts file from OneDrive
 
-
 ## Login apps to set up
 
 *Done*
@@ -150,7 +146,6 @@ alfred -- configure search items
 
 *To do*
 
-
 # Notes on other apps
 
 Great 
@@ -172,19 +167,33 @@ Great
 
 * [raycast vs alfred - Search](https://www.bing.com/search?q=raycast+vs+alfred&cvid=40c3758d7fc84f6d872e9566ddbe306c&aqs=edge.0.0j69i57j0.1896j0j1&pglt=171&FORM=ANNTA1&PC=U531)
 
+# Bartender rules
+
+Add a rule to show the TripMode application when the filter status is enabled.
+
+Here's the script:
+`osascript -e 'tell application "TripMode" to filter status = enabled'`
+
 # Brew Services
 
 Run `brew services` to install the brew services which can register services with launchctl
 
 More info
 
-- [brew(1) – The Missing Package Manager for macOS (or Linux) — Homebrew Documentation](https://docs.brew.sh/Manpage#services-subcommand)
-- [Homebrew/homebrew-services: 🚀 Manage background services using the daemon manager launchctl on macOS or systemctl on Linux.](https://github.com/Homebrew/homebrew-services)
-- [Starting and Stopping Background Services with Homebrew](https://thoughtbot.com/blog/starting-and-stopping-background-services-with-homebrew)
+*  [brew(1) – The Missing Package Manager for macOS (or Linux) — Homebrew Documentation](https://docs.brew.sh/Manpage#services-subcommand)
+* [Homebrew/homebrew-services: 🚀 Manage background services using the daemon manager launchctl on macOS or systemctl on Linux.](https://github.com/Homebrew/homebrew-services)
+* [Starting and Stopping Background Services with Homebrew](https://thoughtbot.com/blog/starting-and-stopping-background-services-with-homebrew)
 
-## Start service sleepwatcher
+## Modify and start service sleepwatcher
 
 I use this to mute and unmute audio when the computer goes to sleep.
+
+For some reason the service doesn't work as a service. Still troubleshooting.
+
+In the short term run this at the command line
+
+sleepwatcher -V -s ~/.sleep -w ~/.wakeup
+
 Scripts are .sleep and .wakeup
 
 `brew services start sleepwatcher`
@@ -201,13 +210,23 @@ osascript -e "set volume without output muted"
 
 More info on sleepwatcher and Applescripts to mute/unmute
 
-- [How to control OS X System Volume with AppleScript](https://coolaj86.com/articles/how-to-control-os-x-system-volume-with-applescript/#:~:text=On%20the%20keyboard%20you%20can%20hit%20the%20mute,volume%20without%20output%20muted%20output%20volume%201%20--100%25%22)
-- [swift - Unable to mute and unmute mic using applescript - Stack Overflow](https://stackoverflow.com/questions/71421883/unable-to-mute-and-unmute-mic-using-applescript) - in the comments suggests how you can use defaults to write state for your scripts.
-- [Sleepwatcher : Run Script on Sleep - tyler hoffman](http://tyhoffman.com/blog/2013/09/sleepwatcher-power-event-driven-automation/) - alternate approach to setting sleepwatcher.
-  - [sleepwatcher installation script for macOS](https://gist.github.com/eu81273/3de56ccc62729aa802ef3748bdc911c0)
-- [Mac OS X: Automating Tasks on Sleep » Kodiak's Korner - My Little Corner of the Net](https://www.kodiakskorner.com/log/258) - great summary for how to set up sleepwatcher LaunchAgent
- - Note: the brew sleepwatcher package doesn't include the default LaunchAgent. You have to download it from the source. [bb's Homepage](https://www.bernhard-baehr.de/)
+* [How to control OS X System Volume with AppleScript](https://coolaj86.com/articles/how-to-control-os-x-system-volume-with-applescript/#:~:text=On%20the%20keyboard%20you%20can%20hit%20the%20mute,volume%20without%20output%20muted%20output%20volume%201%20--100%25%22)
+* [swift - Unable to mute and unmute mic using applescript - Stack Overflow](https://stackoverflow.com/questions/71421883/unable-to-mute-and-unmute-mic-using-applescript) - in the comments suggests how you can use defaults to write state for your scripts.
+* [Sleepwatcher : Run Script on Sleep - tyler hoffman](http://tyhoffman.com/blog/2013/09/sleepwatcher-power-event-driven-automation/) - alternate approach to setting sleepwatcher.
+  * [sleepwatcher installation script for macOS](https://gist.github.com/eu81273/3de56ccc62729aa802ef3748bdc911c0)
+* [Mac OS X: Automating Tasks on Sleep » Kodiak's Korner - My Little Corner of the Net](https://www.kodiakskorner.com/log/258) - great summary for how to set up sleepwatcher LaunchAgent
+  * Note: the brew sleepwatcher package doesn't include the default LaunchAgent. You have to download it from the source. [bb's Homepage](https://www.bernhard-baehr.de/)
 
+# Synergy Setup
+
+[Synergy - Share one mouse & keyboard across computers](https://symless.com/synergy)
+
+* Get license from Synergy account
+* Install with package or brew on Mac or chocolatey on Windows (included in both set up scripts)
+* Configure as explained on there website
+* configure modifier keys
+  * for Mac server map Super to Ctrl and Ctrl to Super
+  * see [How To Properly Map Keyboard Between Mac and PC when Share Mouses with Synergy - NEXTOFWINDOWS.COM](https://www.nextofwindows.com/how-to-properly-map-keyboard-between-mac-and-pc-when-share-mouses-with-synergy)
 
 ---
 
@@ -221,14 +240,11 @@ https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generati
 
 * Register BusyCal and BusyContacts
 
-
-
 # Other minimum apps to install
 
-- iClock
-- Adobe Reader
-- Harmony remote software: see https://support.myharmony.com/en-us/harmony-and-macos
-- iDrive
-
+* iClock
+* Adobe Reader
+* Harmony remote software: see https://support.myharmony.com/en-us/harmony-and-macos
+* iDrive
 
 Key Notifications settings to update
