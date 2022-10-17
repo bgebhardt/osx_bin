@@ -224,6 +224,8 @@ More info on sleepwatcher and Applescripts to mute/unmute
 * Get license from Synergy account
 * Install with package or brew on Mac or chocolatey on Windows (included in both set up scripts)
 * Configure as explained on there website
+* Add Synergy to login items
+  * [Synergy - Automatically run Synergy on start-up](https://symless.com/synergy-help/synergy-auto-start)
 * configure modifier keys
   * for Mac server map Super to Ctrl and Ctrl to Super
   * see [How To Properly Map Keyboard Between Mac and PC when Share Mouses with Synergy - NEXTOFWINDOWS.COM](https://www.nextofwindows.com/how-to-properly-map-keyboard-between-mac-and-pc-when-share-mouses-with-synergy)
