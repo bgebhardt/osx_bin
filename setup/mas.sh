@@ -76,6 +76,8 @@ mas install 1377973524 # Sandkorn (1.8.2) - shows you what entitlements those ap
 mas install 425264550  # Blackmagic Disk Speed Test (3.4.2)
 mas install 937984704  # Amphetamine                    (5.2.2) - keep-awake utility
 
+mas install 1136220934 # Infuse • Video Player        (7.4.6); works with Plex and NAS
+
 # mas install 521464274 # Farensius Desktop # seems to no longer be available
 
 ## Apps installed via casks now
