@@ -151,6 +151,7 @@ brew install --cask calibre # [calibre - E-book management](https://calibre-eboo
 brew install --cask timemachineeditor # Utility to change the default backup interval of Time Machine
 brew install --cask space-saver # Delete local Time Machine backups
 brew install --cask launchcontrol # Create, manage and debug system- and user services (launchctl GUI)
+brew install --cask powerphotos # powerphotos for managing photo libraries
 
 brew install synergy-core # Synergy, the keyboard and mouse sharing tool
 
@@ -166,7 +167,7 @@ brew install codekit
 brew install coderunner
 brew install dash
 brew install boot2docker
-brew install couchbase-server-community
+# brew install couchbase-server-community # commented out as it uses lots of disk space
 brew install deltawalker
 brew install espresso
 brew install github-release
@@ -242,6 +243,9 @@ brew install --cask onecast
 
 # Free Comic Book Reader
 brew install yacreader
+
+# All-in-one live streaming software
+brew install --cask streamlabs-obs
 
 # clean up cached cask files
 brew cleanup
