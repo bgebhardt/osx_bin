@@ -56,8 +56,8 @@ brew install --cask cloudmounter # mount different cloud services
 # brew install adobe-reader -- no longer available; install manually
 brew install amadeus-pro
 brew install audacity
-brew install busycal
-brew install busycontacts
+#brew install busycal # I no longer use these
+#brew install busycontacts # I no longer use these
 # brew install fullcontact -- no longer available
 brew install elmedia-player
 #brew install evernote # install with mas instead
