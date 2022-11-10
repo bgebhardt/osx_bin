@@ -65,7 +65,9 @@ It seems to take a long time to download all teh files
 # Set up rest of apps
 
 * run ./mas.sh
-  * There may be errors as app id's may have changed
+  * There may be errors as app id's may have changed or because of authorization errors
+  * After running you will have to figure out which did not install and install manually. :(
+  * TODO: use mas open <id> to open each app in the appstore and manually download them.
 * run ./brew-cask.sh
 
 You can run these in the background and move on to configs. Check them periodically for errors.
