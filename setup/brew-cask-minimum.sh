@@ -35,6 +35,7 @@ brew install --cask timing
 brew install --cask pdf-expert
 brew install --cask microsoft-office # requires admin password to install
 brew install --cask microsoft-edge
+brew install --cask microsoft-teams
 brew install --cask visual-studio-code
 brew install --cask github
 
