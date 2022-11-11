@@ -15,7 +15,7 @@ Install brew from [Homebrew — The missing package manager for OS X]( http://br
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-## Installation of base bin
+## Installation of base bin and setting up your bash shell
 Make sure a ~/bin directory does not exist.  It will clone the repository to your home directory.
 
 ``` shell
@@ -27,7 +27,7 @@ cp -i ~/bin/.bashrc ~/
 
 In Terminal set your profile to Homebrew for the colors to work.
 
-To install run the following:
+To finish setting up bash install run the following:
 
 Now clone in the tools you need. Some are referenced by osx_bin
 ```
@@ -36,6 +36,10 @@ chmod a+x ~/bin/bashstrap/z.sh # need to make sure this is executable
 ```
 
 > Add all tools cloned directly from git. (Note these are also in the .gitignore).  The proper way would be with [submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules), but I'm lazy at the moment.
+
+Run `brew install hub` to Add GitHub support to git on the command-line (https://hub.github.com/)
+
+In iTerm2 select iTerm2>Install Shell Integration  (see https://iterm2.com/documentation-shell-integration.html)
 
 **cask** for installing key mac apps
 
