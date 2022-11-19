@@ -256,10 +256,11 @@ Space Saver can help delete local Time Machine backups. No set up required.
 * Amphetamine - set it up to start at login
 * Photos
 * Music
+* PDFExpert - download installer from their website instead of brew cask version.
+
 
 * BetterZip
 * Harmony remote software: see https://support.myharmony.com/en-us/harmony-and-macos
-* PDFExpert
 * Plex
 * Disk Drill
 
