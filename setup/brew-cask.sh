@@ -45,6 +45,8 @@ brew install --cask fastscripts
 brew install --cask airbuddy # monitors bluetooth devices
 brew install --cask cloudmounter # mount different cloud services
 
+brew install --cask zoom
+
 # retired top installs
 # brew install rescuetime # no longer using
 # brew install textmate # replaced by visual code
@@ -135,7 +137,6 @@ brew install popclip
 brew install superduper
 # brew install supersync
 # brew install wallpaper-wizard # install via mas instead
-brew install iphoto-library-manager # may be the wrong verion for photos app
 brew install imazing
 brew install handbrake # https://handbrake.fr/
 brew install discord
@@ -152,8 +153,11 @@ brew install --cask timemachineeditor # Utility to change the default backup int
 brew install --cask space-saver # Delete local Time Machine backups
 brew install --cask launchcontrol # Create, manage and debug system- and user services (launchctl GUI)
 brew install --cask powerphotos # powerphotos for managing photo libraries
+# brew install iphoto-library-manager # replaced with powerphotos
 
-brew install synergy-core # Synergy, the keyboard and mouse sharing tool
+# brew install synergy-core # Synergy, the keyboard and mouse sharing tool # have to install via the websites installer for it to work well. - https://symless.com/synergy/download
+
+brew install --cask warp # Rust-based terminal app
 
 ## Development apps
 brew install devutils # developer toolbox https://devutils.app/

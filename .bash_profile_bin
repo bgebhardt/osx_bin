@@ -5,7 +5,9 @@
 
 #echo "home dir: $HOME"
 echo "sourcing .profile_bryan" && source ~/bin/.profile_bryan # sources other bash settings, especially dev environment-related.
-[[ -s "$HOME/bin/bash_work" ]] && echo "sourcing bash_work" && source ~/bin/bash_work # source work related shell settings
+
+#bash_work is now retired.
+#[[ -s "$HOME/bin/bash_work" ]] && echo "sourcing bash_work" && source ~/bin/bash_work # source work related shell settings
 
 # Copied this from bashstrap so I can customimze. it.  Uncomment or source the next line to go back to the original bashstrap.
 #source ~/bin/bashstrap/.bash_profile
@@ -107,7 +109,7 @@ fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 #echo "initing sdkman"
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+#export SDKMAN_DIR="$HOME/.sdkman"
+#[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 echo "** ready **"

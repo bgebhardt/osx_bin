@@ -42,6 +42,7 @@ brew install --cask github
 brew install --cask omnioutliner
 brew install --cask soulver
 brew install --cask quicken
+brew install --cask idrive # close backup
 
 # Login items
 brew install --cask bartender

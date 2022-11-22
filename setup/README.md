@@ -36,6 +36,8 @@ $ git config --global user.email bryan.gebhardt@gmail.com
 
 # Install applications
 
+* Install Rosetta with `/usr/sbin/softwareupdate --install-rosetta --agree-to-license`
+
 * Follow read me: https://github.com/bgebhardt/osx_bin
     * install Brew
     * Set up shell settings
@@ -68,6 +70,7 @@ It seems to take a long time to download all teh files
   * There may be errors as app id's may have changed or because of authorization errors
   * After running you will have to figure out which did not install and install manually. :(
   * TODO: use mas open <id> to open each app in the appstore and manually download them.
+  * Update: it is working now. It may require Rosetta 2 to be installed.
 * run ./brew-cask.sh
 
 You can run these in the background and move on to configs. Check them periodically for errors.
@@ -91,6 +94,7 @@ Follow installation instructions here: https://github.com/bgebhardt/osx_scripts_
 Configure all the FastScript shortcuts for the scripts.
 
 # Configure Critical Apps and Settings
+Follow the folling list of application setup instructions
 
 Spotlight might not be done indexing so you may have to run apps from Applications
 
@@ -98,22 +102,35 @@ Migrate over settings files from previous mac.
 TODO: how to do that without migration assistant.
 
 Install Rosetta Intel emulation via `sudo softwareupdate --install-rosetta`
+It may look like there was an error but as long as it ends with Install of "Rosetta 2 finished successfully" it should have worked.
 
 Enable iCloud messages in Messages app preferences
 
+Add Espson printer in Printers and Scanners
+
 Install [Epson Printer Drivers](https://epson.com/Support/wa00607d)
+* I skip this now as the software seems to cause issues.
 
 ## General
 
 * Set CAPSLOCK to Control in System Preferences -> Keyboard -> Modifiers...
 
+## RayCast (to replace spotlight)
+
+* Change Spotlight shortcut in System Preferences -> Keyboard to Control-Option-Command-Space
+* Start Raycast
+* Got to Settings -> Advanced and click Import. Import from OneDrive.
+* URL: [Raycast](https://www.raycast.com/) -- spotlight replacement; similar to Alfred
+
 ## Alfred (to replace spotlight)
 
 * Change the spotlight short cut to Control-Option-Command-Space
 * Change Alfred to command-space in General pane of Alfred settings
+* Note: I switched to RayCast
 
 ## Karabiner (for EMACS style keybindings)
 
+* Open Karabiner-Elements and allow extension in System Preferences
 * In Karabiner-Elements to to Misc pane and open ~/.config/karabiner
 * Copy karabiner config from OneDrive to ~/.config/karabiner
 
@@ -121,6 +138,142 @@ Install [Epson Printer Drivers](https://epson.com/Support/wa00607d)
 
 * Open Rectangle preferences by clicking the gear tab
 * Click Import to import in shortcuts file from OneDrive
+
+## Default Folder
+
+* Open and set it up
+* prefs: 
+    * general: check all
+    * folders: shortcuts for OneDrive Personal, Downloads
+    * options: check and set open in iTerm2; check for updates.
+
+## iTerm and Terminal
+
+* switch shell to bash. I do it by changing the shell in the profile to `\bin\bash`
+* in Terminal set default profile to Homebrew colors
+
+## Typinator
+
+* Open app
+* Give access in Privacy & Security -> Accessibility
+* Open settings; click Expansions tab; Set configuration to OneDrive
+
+## FastScripts
+In settings
+* Open on startup
+* Set editors to Visual Code
+* Automatically check for updates
+
+Set keyboard shortcuts
+* The short cuts I've used can be found at https://github.com/bgebhardt/osx_scripts_folder/blob/master/fastscripts-shortcuts.csv
+* There is a script in that repo that can export all shortcuts
+
+## Bartender
+
+* Open and set up
+* Set Start on Launch
+* Select "Show all hidden items if active screen is bigger than: 3000 px"
+* Menubar layout: Raycast and FastScripts
+* Rules: TODO
+
+### Bartender rules
+
+Set up rules based on screenshot in OneDrive folder.
+
+Add a rule to show the TripMode application when the filter status is enabled.
+
+Here's the script:
+`osascript -e 'tell application "TripMode" to filter status = enabled'`
+
+## Microsoft Outlook
+
+* Cozy setting
+* Add email accounts
+* Change time scale viewed in calendar
+* Reading:
+  * Change to mark read after 2 seconds
+  * Change swipe actions and quick actions
+* Notifications & Sounds
+  * Turn off new mail sound
+  * Turn off new mail notifications
+
+## Shottr
+
+* Open and configure as directed
+* [Shottr – Screenshot Annotation App For Mac](https://shottr.cc/) -- free great screen shot tool!
+
+## OwlOCR Pro
+
+* Open Preferences; Set to only in menu bar
+* Get application from bundle bought on 03-25-2022
+Award-Winning Mac Bundle is Live!
+https://bundlehunt.com/my-account/downloads/all
+* Links: https://owlocr.com/; https://owlocr.com/blog/posts/owlocr-5-command-line-interface
+
+## Fig - shell integrations
+
+* Open and configure as directed
+
+## Parallels
+
+* Download from site from https://my.parallels.com/desktop/downloads
+* Install
+
+## Time Machine and Time Machine Editor and Space Saver
+
+* Set up backup disk
+* Set up exclusion list
+
+Exclude from Backups
+
+~/Library/Application Support/Steam
+~/Library/CloudStorage
+~/Library/Group Containers/UBF8T346G9.Office
+~/Library/Group Containers/
+UBF8T346G9.OfficeOneDriveSynclntegration
+~/Library/Group Containers/UBF8T346G9.OfficeOsfWebHost
+~/Library/Group Containers/
+UBF8T346G9.OneDriveStandaloneSuite
+~/Library/Group Containers/
+UBF8T346G9.OneDriveSyncClientSuite
+~/Parallels/
+~/Pictures/<large photos library>
+~/Music
+
+TODO: add Google Drive
+
+* Set up Time Machine Editor (app that does scheduled TimeMachine when inactive)
+  * Set "Back up: When inactive"
+  * check "Create local snapshots every hour"
+
+Space Saver can help delete local Time Machine backups. No set up required.
+
+## Other core apps to set up
+
+* PowerPhotos
+* Velja - https://apps.apple.com/nz/app/velja/i... -- browser picker - download it from the app store and configure
+* iDrive - login and set up cloud backups; set up continuous data protection
+* Amphetamine - set it up to start at login
+* Photos
+* Music
+* PDFExpert - download installer from their website instead of brew cask version.
+
+
+* BetterZip
+* Harmony remote software: see https://support.myharmony.com/en-us/harmony-and-macos
+* Plex
+* Disk Drill
+
+* Steam
+* Epic Launcher
+* GOG
+* Parallels
+
+* Calibre - ebooks - see folder on one drive too
+* Kindle
+
+* CloudMounter
+* GoogleDrive
 
 ## Login apps to set up
 
@@ -133,19 +286,6 @@ Typinator
 FastScripts
 Google Drive
 
-* configure sets folder to one on OneDrive; restart Typinator
-* pick sets My snippets, Date Stamps, Plain Clipboard Text, DOuble CAps, Inline calculation, Date Steps, Auto-Cap Sentences, Symbols, Emoji, TidBITS Auto (if not automatic after setting to onedrive folder)
-
-Default-folder-x
-
-* prefs: 
-    * general: check all
-    * folders: shortcuts for OneDrive Personal, Downloads
-    * options: check and set open in iTerm2; check for updates.
-
-*Partial*
-alfred -- configure search items
-
 *To do*
 
 # Notes on other apps
@@ -157,8 +297,6 @@ Great
 * Velja - https://apps.apple.com/nz/app/velja/i... -- browser picker
 * [alyssaxuu/later: Save all your Mac apps for later with one click 🖱️](https://github.com/alyssaxuu/later) -- free app to save and restore open windows. Awesome!
 * [Dropover - Easier Drag & Drop on the Mac App Store](https://apps.apple.com/us/app/dropover-easier-drag-drop/id1355679052?mt=12) -- Use it to stash, gather or move any draggable content without having to open side-by-side windows.
-* [Shottr – Screenshot Annotation App For Mac](https://shottr.cc/) -- free great screen shot tool!
-* [Raycast](https://www.raycast.com/) -- spotlight replacement; similar to Alfred
 * [ImageOptim — better Save for Web](https://imageoptim.com/mac) -- Removes bloated metadata. Saves disk space & bandwidth by compressing images without losing quality.
 * [CopyClip - Clipboard History on the Mac App Store](https://apps.apple.com/us/app/copyclip-clipboard-history/id595191960?mt=12) -- free clipboard history app
 * [Hidden Bar on the Mac App Store](https://apps.apple.com/us/app/hidden-bar/id1452453066?mt=12) -- hide menu bar items; free app like Bartender
@@ -168,13 +306,6 @@ Great
 * [One Thing on the Mac App Store](https://apps.apple.com/us/app/one-thing/id1604176982?mt=12) -- Put one task in your menu bar
 
 * [raycast vs alfred - Search](https://www.bing.com/search?q=raycast+vs+alfred&cvid=40c3758d7fc84f6d872e9566ddbe306c&aqs=edge.0.0j69i57j0.1896j0j1&pglt=171&FORM=ANNTA1&PC=U531)
-
-# Bartender rules
-
-Add a rule to show the TripMode application when the filter status is enabled.
-
-Here's the script:
-`osascript -e 'tell application "TripMode" to filter status = enabled'`
 
 # Brew Services
 
