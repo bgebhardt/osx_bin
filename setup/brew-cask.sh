@@ -186,7 +186,7 @@ brew install --cask network-radar # Tool to scan and monitor the network
 brew install --cask remote-wake-up # Wake up devices with a click of a button
 brew install --cask colorwell # Color picker and color palette generator
 brew install --cask fig # auto-complete for shell
-brew install --cask background-music # [kyleneideck/BackgroundMusic: Background Music, a macOS audio utility: automatically pause your music, set individual apps' volumes and record system audio.](https://github.com/kyleneideck/BackgroundMusic#download)
+#brew install --cask background-music # [kyleneideck/BackgroundMusic: Background Music, a macOS audio utility: automatically pause your music, set individual apps' volumes and record system audio.](https://github.com/kyleneideck/BackgroundMusic#download) # doesn't work quite right.
 
 brew install --cask mark-text # Simple and elegant markdown editor - https://github.com/marktext/marktext; on Windows too!
 
