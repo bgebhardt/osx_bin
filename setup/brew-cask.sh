@@ -54,6 +54,7 @@ brew install --cask zoom
 
 
 ## Productivity/Office
+
 #brew install adium
 # brew install adobe-reader -- no longer available; install manually
 brew install amadeus-pro
@@ -74,7 +75,7 @@ brew install music-manager
 brew install kindle
 brew install send-to-kindle # Requires Rosetta 2 installed
 brew install markdown-service-tools
-brew install qlmarkdown
+brew install qlmarkdown # [sbarex/QLMarkdown: macOS Quick Look extension for Markdown files.](https://github.com/sbarex/QLMarkdown)
 # brew install metanota. # install cask broken
 brew install textexpander
 brew install omnigraffle
@@ -95,6 +96,12 @@ brew install wallpaper-wizard # desktop picture app
 # Markdown viewers
 brew install marked
 brew install mweb-pro
+
+#notetaking
+# Notion notetaking apps - cross platform
+brew install --cask notion # Notion note taking; doesn't support offline notes well
+brew install --cask simplenote # [Create a Simplenote Account](https://app.simplenote.com/signup/) supports offline notes
+
 
 # Gmail desktop apps
 brew install --cask kiwi-for-gmail
@@ -218,7 +225,6 @@ brew install visual-studio-code
 
 brew install qlcolorcode         # Preview source code files with syntax highlighting
 brew install qlstephen           # Preview plain text files without a file extension. Example: README, CHANGELOG, etc.
-brew install qlmarkdown          # Preview Markdown files
 brew install quicklook-json      # Preview JSON files
 brew install qlprettypatch       # Preview .patch files
 brew install quicklook-csv       # Preview CSV files
