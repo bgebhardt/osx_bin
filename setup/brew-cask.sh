@@ -101,6 +101,9 @@ brew install mweb-pro
 # Notion notetaking apps - cross platform
 brew install --cask notion # Notion note taking; doesn't support offline notes well
 brew install --cask simplenote # [Create a Simplenote Account](https://app.simplenote.com/signup/) supports offline notes
+brew install --cask joplin # Note taking and to-do application with synchronization capabilities https://joplinapp.org/
+brew install joplin-cli
+
 
 
 # Gmail desktop apps
