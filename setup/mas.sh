@@ -78,6 +78,8 @@ mas install 937984704  # Amphetamine                    (5.2.2) - keep-awake uti
 
 mas install 1136220934 # Infuse • Video Player        (7.4.6); works with Plex and NAS
 
+mas install 1457744893 # EmojiFinder: search emoji (2.2.5)
+
 # mas install 521464274 # Farensius Desktop # seems to no longer be available
 
 ## Apps installed via casks now
