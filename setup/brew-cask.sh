@@ -164,6 +164,7 @@ brew install --cask space-saver # Delete local Time Machine backups
 brew install --cask launchcontrol # Create, manage and debug system- and user services (launchctl GUI)
 brew install --cask powerphotos # powerphotos for managing photo libraries
 # brew install iphoto-library-manager # replaced with powerphotos
+brew install --cask photosweeper-x # Tool to eliminate similar or duplicate photos https://overmacs.com/
 
 # brew install synergy-core # Synergy, the keyboard and mouse sharing tool # have to install via the websites installer for it to work well. - https://symless.com/synergy/download
 
