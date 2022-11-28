@@ -134,6 +134,71 @@ Install [Epson Printer Drivers](https://epson.com/Support/wa00607d)
 * In Karabiner-Elements to to Misc pane and open ~/.config/karabiner
 * Copy karabiner config from OneDrive to ~/.config/karabiner
 
+## Joplin Note taking Setup 
+I use [Joplin](https://joplinapp.org/) for cross platform note taking instead of Apple Notes so I can get my notes on Windows as well. It has great plugins but requires you to write all in markdown. Synchronization is through OneDrive and is not quite as robust as Apple Notes. Overall though it's a great app.
+
+All files are in ~/.config/joplin-desktop and ~/.config/joplin.
+
+**Settings**
+* <TBD pull from settings.json?>
+
+* Change app layout to move tabs to the top - see instructions
+
+**Install the following plugins**
+
+com.andrejilderda.macOSTheme.jpl
+_com.font.size.shortcut.jpl_
+com.github.joplin.kanban.jpl
+com.hieuthi.joplin.copy-anchor-link.jpl
+com.hieuthi.joplin.slash-commands.jpl
+com.septemberhx.pluginBundle.jpl
+com.whatever.inline-tags.jpl
+com.whatever.quick-links.jpl
+cx.evermeet.tessus.menu-shortcut-toolbar.jpl
+de.habelt.CsvImport.jpl
+io.github.daeraxa.match-highlight.jpl
+joplin-insert-date.jpl
+joplin.plugin.ambrt.copyNoteLink.jpl
+_joplin.plugin.ambrt.goToItem.jpl_
+joplin.plugin.benji.favorites.jpl
+joplin.plugin.benji.quick-move.jpl
+joplin.plugin.note.tabs.jpl
+plugin.calebjohn.MathMode.jpl
+plugin.calebjohn.todo.jpl
+retr0ve.EmojiPlugin.jpl
+sadmice.TextColorize.jpl
+
+
+
+_Enabled_
+com.hieuthi.joplin.copy-anchor-link.jpl
+com.hieuthi.joplin.slash-commands.jpl
+com.septemberhx.pluginBundle.jpl
+com.whatever.inline-tags.jpl
+com.whatever.quick-links.jpl
+cx.evermeet.tessus.menu-shortcut-toolbar.jpl
+de.habelt.CsvImport.jpl
+io.github.daeraxa.match-highlight.jpl
+joplin.plugin.ambrt.copyNoteLink.jpl
+joplin.plugin.benji.persistentLayout.jpl
+joplin.plugin.benji.quick-move.jpl
+joplin.plugin.note.tabs.jpl
+net.rmusin.joplin-table-formatter.jpl
+plugin.calebjohn.MathMode.jpl
+_plugin.calebjohn.rich-markdown.jpl_
+plugin.calebjohn.todo.jpl
+sadmice.TextColorize.jpl
+
+_Disabled_
+com.andrejilderda.macOSTheme.jpl
+joplin-insert-date.jpl
+com.github.joplin.kanban.jpl
+joplin.plugin.benji.favorites.jpl
+retr0ve.EmojiPlugin.jpl
+
+_Just added_
+https://github.com/cqroot/joplin-outline
+
 ## Rectangle - For Window movement shortcuts
 
 * Open Rectangle preferences by clicking the gear tab
