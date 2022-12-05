@@ -97,6 +97,8 @@ brew install wallpaper-wizard # desktop picture app
 brew install marked
 brew install mweb-pro
 
+brew install --cask coteditor # Plain-text editor for web pages, program source codes and more https://coteditor.com/; its scriptable
+
 #notetaking
 # Notion notetaking apps - cross platform
 brew install --cask notion # Notion note taking; doesn't support offline notes well
@@ -165,6 +167,8 @@ brew install --cask launchcontrol # Create, manage and debug system- and user se
 brew install --cask powerphotos # powerphotos for managing photo libraries
 # brew install iphoto-library-manager # replaced with powerphotos
 brew install --cask photosweeper-x # Tool to eliminate similar or duplicate photos https://overmacs.com/
+brew install --cask itsycal # Menu bar calendar https://www.mowglii.com/itsycal/
+
 
 # brew install synergy-core # Synergy, the keyboard and mouse sharing tool # have to install via the websites installer for it to work well. - https://symless.com/synergy/download
 
