@@ -44,6 +44,8 @@ brew install --cask lunar # monitor brightness manager; replaces flux
 brew install --cask fastscripts
 brew install --cask airbuddy # monitors bluetooth devices
 brew install --cask cloudmounter # mount different cloud services
+#brew install --cask expandrive # Network drive and browser for cloud storage - https://www.expandrive.com/apps/expandrive/
+brew install --cask mountain-duck # Mounts servers and cloud storages as a disk on the desktop - https://mountainduck.io/
 
 brew install --cask zoom
 
