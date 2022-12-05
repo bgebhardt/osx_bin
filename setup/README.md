@@ -214,6 +214,12 @@ https://bundlehunt.com/my-account/downloads/all
 
 * Open and configure as directed
 
+## Markdown Quicklook
+
+see [sbarex/QLMarkdown: macOS Quick Look extension for Markdown files.](https://github.com/sbarex/QLMarkdown)
+`brew install qlmarkdown`
+and launch the application one time; this will register the quicklook extension.
+
 ## Parallels
 
 * Download from site from https://my.parallels.com/desktop/downloads
@@ -247,6 +253,36 @@ TODO: add Google Drive
   * check "Create local snapshots every hour"
 
 Space Saver can help delete local Time Machine backups. No set up required.
+
+## Java
+
+Install via homebrew and follow instructions here https://formulae.brew.sh/formula/openjdk@11#default
+
+`brew install openjdk`
+
+For the system Java wrappers to find this JDK, symlink it with
+`sudo ln -sfn $(brew --prefix)/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk`
+
+## Fantasy Grounds
+
+* Download from the [Fantasy Grounds Unity](https://www.fantasygrounds.com/home/FantasyGroundsUnity.php) site.
+* Exit the updater app as you need to fix permissions first.
+* Fix permissions will fail, so in System Preferences > Security and Privacy and added the FantasyGrounds App and the FGUpdaterEngine App to Full Disk Access. Note that it is installed in the Smiteworks folder.
+* Quit and restart FantasyGroundsUpdater
+* Now configure the app
+  * Make sure the Fantasy Grounds folder is downloaded through OneDrive
+  * Set up the data directory to /Users/bryan/OneDrive/Dungeons and Dragons (D&D)/Fantasy Grounds
+    * You must manually pick it with the file picker. This will trigger giving access to OneDrive.
+  * Login as gebhardt
+    * For the second instance you can use your tdeckard login
+  * Get license key from your softare serial numbers
+* Click update
+
+Reference:
+[Installing on Mac OSX - Fantasy Grounds Customer Portal - Confluence](https://fantasygroundsunity.atlassian.net/wiki/spaces/FGCP/pages/996639724/Installing+on+Mac+OSX)
+[Unable to fix permissions](https://www.fantasygrounds.com/forums/showthread.php?70206-Unable-to-fix-permissions)
+[Please explain Mac FGU permissions request](https://www.fantasygrounds.com/forums/showthread.php?52631-Please-explain-Mac-FGU-permissions-request)
+
 
 ## Other core apps to set up
 
