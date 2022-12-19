@@ -25,7 +25,6 @@ brew install cask
 ## Top Must Installs
 brew install 1password
 brew install --cask 1password/tap/1password-cli
-brew install fastscripts
 brew install iterm2
 brew install flux
 brew install omnifocus
@@ -40,7 +39,12 @@ brew install timing
 brew install karabiner-elements # powerful and stable keyboard customizer
 #brew install --cask raycast # replacement for spotlight (and alfred or launchbar)
 brew install --cask rectangle # window manager
+
+# app for monitor brightness and other control
+brew install --cask betterdisplay # Display management tool https://betterdisplay.pro/; current favorite
+brew install --cask monitorcontrol # Tool to control external monitor brightness & volume https://github.com/MonitorControl/MonitorControl
 brew install --cask lunar # monitor brightness manager; replaces flux
+
 brew install --cask fastscripts
 brew install --cask airbuddy # monitors bluetooth devices
 brew install --cask cloudmounter # mount different cloud services
@@ -86,7 +90,9 @@ brew install pdf-converter-master
 brew install pdfpen
 brew install slack
 brew install skype
-brew install soulver
+brew install soulver # Notepad with a built-in calculator https://soulver.app/
+brew install --cask numi #Calculator and converter application https://numi.app/; costs $19.99; has raycast integration
+
 # brew install logitech-myharmony #  -- no longer available
 brew install spotify
 brew install vlc
@@ -108,6 +114,7 @@ brew install --cask simplenote # [Create a Simplenote Account](https://app.simpl
 brew install --cask joplin # Note taking and to-do application with synchronization capabilities https://joplinapp.org/
 brew install joplin-cli
 
+brew install --cask tableflip # App to edit markdown files in place https://tableflipapp.com/
 
 
 # Gmail desktop apps
