@@ -38,7 +38,17 @@ brew install timing
 #brew install tripmode # manage data on cell connection
 brew install karabiner-elements # powerful and stable keyboard customizer
 #brew install --cask raycast # replacement for spotlight (and alfred or launchbar)
-brew install --cask rectangle # window manager
+
+# Window Managers
+brew install --cask rectangle # window manager - current preferred window manager
+# brew install --cask tiles # Name: Sempliva Tiles Window manager https://www.sempliva.com/tiles/
+# brew install divvy # window manager; replaced by rectangle
+# [Magnet – Window manager for Mac](https://magnet.crowdcafe.com/)
+Moom
+# [Wins - Window Manager for Mac](https://wins.cool/) - I own this one too
+# [Moom · Many Tricks](https://manytricks.com/moom/) - don't own it
+
+
 
 # app for monitor brightness and other control
 brew install --cask betterdisplay # Display management tool https://betterdisplay.pro/; current favorite
@@ -56,7 +66,7 @@ brew install --cask zoom
 # retired top installs
 # brew install rescuetime # no longer using
 # brew install textmate # replaced by visual code
-# brew install divvy # window manager; replaced by rectangle
+
 
 
 ## Productivity/Office
@@ -117,9 +127,11 @@ brew install joplin-cli
 brew install --cask tableflip # App to edit markdown files in place https://tableflipapp.com/
 
 
+brew install --cask topnotch # Utility to hide the notch - https://topnotch.app/
+
 # Gmail desktop apps
-brew install --cask kiwi-for-gmail
-brew install --cask mimestream
+# brew install --cask kiwi-for-gmail # no longer using
+brew install --cask mimestream # new preferred Gmail desktop client
 
 ## Utilities
 brew install 1clipboard
@@ -128,7 +140,16 @@ brew install 1clipboard
 brew install bartender
 brew install boom
 brew install brightness
-brew install caffeine
+
+brew install --cask stats # Name: Stats - System monitor for the menu bar https://github.com/exelban/stats
+
+# Apps to force the mac to stay awake; not go into sleep
+#brew install caffeine # retired this one for one of the 2 below
+brew install --cask keepingyouawake #Name: KeepingYouAwake - Tool to prevent the system from going into sleep mode https://keepingyouawake.app/
+# amphetimine is more feature reach but can't be installed by brew
+
+brew install --cask espanso # Name: Espanso - Cross-platform Text Expander written in Rust https://espanso.org/; replace Typinator??
+
 brew install carbon-copy-cloner
 # brew install crashplan -- no longer available
 brew install cronnix
@@ -181,7 +202,11 @@ brew install --cask itsycal # Menu bar calendar https://www.mowglii.com/itsycal/
 
 # brew install synergy-core # Synergy, the keyboard and mouse sharing tool # have to install via the websites installer for it to work well. - https://symless.com/synergy/download
 
-brew install --cask warp # Rust-based terminal app
+# terminals - other than iTerm
+brew install --cask kitty #GPU-based terminal emulator https://github.com/kovidgoyal/kitty
+# brew install --cask warp # Rust-based terminal app; couldn't get it to work though
+
+brew install --cask hammerspoon # Name: Hammerspoon - Desktop automation application - https://www.hammerspoon.org/
 
 ## Development apps
 brew install devutils # developer toolbox https://devutils.app/
