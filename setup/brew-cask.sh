@@ -169,7 +169,6 @@ brew install grandperspective
 # brew install growlnotify -- no longer used
 # brew install notifyr # for some reason this prefpane not working on 10.12; claims Bluetooth 4.0 not supported
 brew install little-snitch
-brew install gemini
 brew install macpilot
 # brew install macupdate-desktop -- no longer available
 brew install mactracker
@@ -196,14 +195,18 @@ brew install --cask space-saver # Delete local Time Machine backups
 brew install --cask launchcontrol # Create, manage and debug system- and user services (launchctl GUI)
 brew install --cask powerphotos # powerphotos for managing photo libraries
 # brew install iphoto-library-manager # replaced with powerphotos
-brew install --cask photosweeper-x # Tool to eliminate similar or duplicate photos https://overmacs.com/
 brew install --cask itsycal # Menu bar calendar https://www.mowglii.com/itsycal/
 
+# duplicate finders
+brew install --cask photosweeper-x # Tool to eliminate similar or duplicate photos https://overmacs.com/; preferred photo
+brew install gemini
+# cisdem duplicate finder - [[OFFICIAL] Cisdem Duplicate Finder | Best Duplicate File Finder to Find and Remove Duplicates](https://www.cisdem.com/duplicate-finder.html); bought in https://bundlehunt.com/my-account/downloads/all
 
 # brew install synergy-core # Synergy, the keyboard and mouse sharing tool # have to install via the websites installer for it to work well. - https://symless.com/synergy/download
 
-# terminals - other than iTerm
-brew install --cask kitty #GPU-based terminal emulator https://github.com/kovidgoyal/kitty
+# terminals - other than iTerm; I'm sticking with iTerm though.
+#brew install --cask kitty #GPU-based terminal emulator https://github.com/kovidgoyal/kitty
+#brew install --cask alacritty # Name: Alacritty GPU-accelerated terminal emulator (Mac and Windows) https://github.com/alacritty/alacritty/
 # brew install --cask warp # Rust-based terminal app; couldn't get it to work though
 
 brew install --cask hammerspoon # Name: Hammerspoon - Desktop automation application - https://www.hammerspoon.org/
