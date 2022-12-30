@@ -189,13 +189,16 @@ brew install --cask screens # Control any computer from your Mac from anywhere i
 brew install --cask reflector # wireless screen mirroring
 brew install --cask airparrot # Streaming and Mirroring for Windows and macOS
 brew install beamer # streaming from Mac
-brew install --cask calibre # [calibre - E-book management](https://calibre-ebook.com/)
 brew install --cask timemachineeditor # Utility to change the default backup interval of Time Machine
 brew install --cask space-saver # Delete local Time Machine backups
 brew install --cask launchcontrol # Create, manage and debug system- and user services (launchctl GUI)
 brew install --cask powerphotos # powerphotos for managing photo libraries
 # brew install iphoto-library-manager # replaced with powerphotos
 brew install --cask itsycal # Menu bar calendar https://www.mowglii.com/itsycal/
+
+# free ebook reader and management software
+brew install --cask calibre # [calibre - E-book management](https://calibre-ebook.com/)
+brew install --cask fbreader # Name: FBReader book reader https://fbreader.org/macos/
 
 # duplicate finders
 brew install --cask photosweeper-x # Tool to eliminate similar or duplicate photos https://overmacs.com/; preferred photo
