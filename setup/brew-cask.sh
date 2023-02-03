@@ -117,6 +117,8 @@ brew install mweb-pro
 
 brew install --cask coteditor # Plain-text editor for web pages, program source codes and more https://coteditor.com/; its scriptable
 
+brew install --cask maccy # Clipboard manager https://maccy.app/
+
 #notetaking
 # Notion notetaking apps - cross platform
 brew install --cask notion # Notion note taking; doesn't support offline notes well
