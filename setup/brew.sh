@@ -98,7 +98,7 @@ brew install pigz
 brew install pv
 brew install rename
 brew install rhino
-brew install speedtest_cli
+brew install speedtest_cli # Command-line interface for https://speedtest.net bandwidth tests https://github.com/sivel/speedtest-cli
 brew install ssh-copy-id
 brew install testssl
 brew install tree
@@ -303,6 +303,12 @@ brew install nmap
 
 # Cmdline tool - Monitors sleep, wakeup, and idleness of a Mac - https://www.bernhard-baehr.de/
 brew install sleepwatcher
+
+brew install wifi-password # Show the current WiFi network password https://github.com/rauchg/wifi-password
+brew install youtube-dl # Download YouTube videos from the command-line https://youtube-dl.org/
+brew install pwgen # Password generator https://pwgen.sourceforge.io/
+brew install mplayer # UNIX movie player https://mplayerhq.hu/
+brew install asciinema # Record and share terminal sessions https://asciinema.org
 
 # Remove outdated versions from the cellar.
 brew cleanup
