@@ -310,5 +310,14 @@ brew install pwgen # Password generator https://pwgen.sourceforge.io/
 brew install mplayer # UNIX movie player https://mplayerhq.hu/
 brew install asciinema # Record and share terminal sessions https://asciinema.org
 
+brew install diff-pdf # Visually compare two PDF files https://vslavik.github.io/diff-pdf/
+brew install pdfgrep # Search PDFs for strings matching a regular expression https://pdfgrep.org/
+brew install poppler # PDF rendering library (based on the xpdf-3.0 code base) https://poppler.freedesktop.org/
+brew install jpdfbookmarks # Create and edit bookmarks on existing PDF files https://sourceforge.net/projects/jpdfbookmarks/
+
+# brew install pdftk-java # Port of pdftk in java; pdftk provides lots of pdf cli tools. https://gitlab.com/pdftk-java/pdftk
+# looks like it requires java 11 which I don't have installed.
+# Trying the non-java original - brew install pdftk-java instead [PDFtk Server Manual](https://www.pdflabs.com/docs/pdftk-man-page/)
+
 # Remove outdated versions from the cellar.
 brew cleanup
