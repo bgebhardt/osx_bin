@@ -98,6 +98,7 @@ brew install omnigraffle
 brew install omnioutliner
 brew install pdf-converter-master
 brew install pdfpen
+brew install --cask pdfsam-basic # Extracts pages, splits, merges, mixes and rotates PDF files https://pdfsam.org/
 brew install slack
 brew install skype
 brew install soulver # Notepad with a built-in calculator https://soulver.app/
