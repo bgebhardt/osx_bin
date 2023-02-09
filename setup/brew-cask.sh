@@ -120,6 +120,8 @@ brew install --cask coteditor # Plain-text editor for web pages, program source 
 
 brew install --cask maccy # Clipboard manager https://maccy.app/
 
+brew install --cask cakebrew # GUI app for Homebrew https://github.com/brunophilipe/Cakebrew
+
 #notetaking
 # Notion notetaking apps - cross platform
 brew install --cask notion # Notion note taking; doesn't support offline notes well
@@ -251,6 +253,8 @@ brew install --cask fig # auto-complete for shell
 #brew install --cask background-music # [kyleneideck/BackgroundMusic: Background Music, a macOS audio utility: automatically pause your music, set individual apps' volumes and record system audio.](https://github.com/kyleneideck/BackgroundMusic#download) # doesn't work quite right.
 
 brew install --cask mark-text # Simple and elegant markdown editor - https://github.com/marktext/marktext; on Windows too!
+
+brew install --cask powershell # Command-line shell and scripting language https://github.com/PowerShell/PowerShell
 
 ## Bigger or less used development tools (disabled for now)
 
