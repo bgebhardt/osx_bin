@@ -45,3 +45,7 @@ npm -g install @lionello/onedrive-cli
 #[adobe/helix-onedrive-cli: Command-line tools for onedrive integration](https://github.com/adobe/helix-onedrive-cli)
 # Alertnate CLI
 npm -g install @adobe/helix-onedrive-cli
+
+#[CLI for Microsoft 365 - CLI for Microsoft 365](https://pnp.github.io/cli-microsoft365/)
+# CLI for interacting with m365 apps like SharePoint and Microsoft Graph
+npm -g install @pnp/cli-microsoft365
