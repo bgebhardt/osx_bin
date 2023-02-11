@@ -63,6 +63,10 @@ brew install --cask mountain-duck # Mounts servers and cloud storages as a disk 
 
 brew install --cask zoom
 
+brew install --cask meetingbar # Shows the next meeting in the menu bar https://github.com/leits/MeetingBar
+# alternative not in brew: [Meeter](https://www.bardeen.ai/meeter)
+
+
 # retired top installs
 # brew install rescuetime # no longer using
 # brew install textmate # replaced by visual code
@@ -129,8 +133,10 @@ brew install --cask simplenote # [Create a Simplenote Account](https://app.simpl
 brew install --cask joplin # Note taking and to-do application with synchronization capabilities https://joplinapp.org/
 brew install joplin-cli
 
-brew install --cask tableflip # App to edit markdown files in place https://tableflipapp.com/
+brew install --cask tagspaces # Offline, open-source, document manager with tagging support https://www.tagspaces.org/
+brew install --cask obsidian # Knowledge base that works on top of a local folder of plain text Markdown files https://obsidian.md/
 
+brew install --cask tableflip # App to edit markdown files in place https://tableflipapp.com/
 
 brew install --cask topnotch # Utility to hide the notch - https://topnotch.app/
 
@@ -147,6 +153,8 @@ brew install boom
 brew install brightness
 
 brew install --cask stats # Name: Stats - System monitor for the menu bar https://github.com/exelban/stats
+# alternative not as good as stats though
+# brew install --cask iglance # System monitor for the status bar - https://github.com/iglance/iGlance
 
 # Apps to force the mac to stay awake; not go into sleep
 #brew install caffeine # retired this one for one of the 2 below
@@ -218,6 +226,9 @@ brew install gemini
 # brew install --cask warp # Rust-based terminal app; couldn't get it to work though
 
 brew install --cask hammerspoon # Name: Hammerspoon - Desktop automation application - https://www.hammerspoon.org/
+brew install --cask phoenix # Window and app manager scriptable with JavaScript https://github.com/kasper/phoenix/ (alternative to hammerspoon automation)
+
+brew install --cask aldente # Menu bar tool to limit maximum charging percentage https://github.com/davidwernhart/AlDente
 
 ## Development apps
 brew install devutils # developer toolbox https://devutils.app/
