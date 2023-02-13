@@ -102,6 +102,7 @@ brew install omnigraffle
 brew install omnioutliner
 brew install pdf-converter-master
 brew install pdfpen
+brew install --cask skim # PDF reader and note-taking application https://skim-app.sourceforge.io/
 brew install --cask pdfsam-basic # Extracts pages, splits, merges, mixes and rotates PDF files https://pdfsam.org/
 brew install slack
 brew install skype
@@ -132,6 +133,7 @@ brew install --cask notion # Notion note taking; doesn't support offline notes w
 brew install --cask simplenote # [Create a Simplenote Account](https://app.simplenote.com/signup/) supports offline notes
 brew install --cask joplin # Note taking and to-do application with synchronization capabilities https://joplinapp.org/
 brew install joplin-cli
+# brew install --cask curio # Note-taking and organizing app https://zengobi.com/curio/
 
 brew install --cask tagspaces # Offline, open-source, document manager with tagging support https://www.tagspaces.org/
 brew install --cask obsidian # Knowledge base that works on top of a local folder of plain text Markdown files https://obsidian.md/
@@ -229,6 +231,9 @@ brew install --cask hammerspoon # Name: Hammerspoon - Desktop automation applica
 brew install --cask phoenix # Window and app manager scriptable with JavaScript https://github.com/kasper/phoenix/ (alternative to hammerspoon automation)
 
 brew install --cask aldente # Menu bar tool to limit maximum charging percentage https://github.com/davidwernhart/AlDente
+
+brew install --cask hookmark # Link and retrieve key information https://hookproductivity.com/
+# install the hook cli with sudo gem install hookapp Run hook clip <file> for exmpale. See [Hook CLI - BrettTerpstra.com](https://brettterpstra.com/projects/hook-cli/) for more docs.
 
 ## Development apps
 brew install devutils # developer toolbox https://devutils.app/
