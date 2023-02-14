@@ -85,6 +85,8 @@ brew install audacity
 brew install elmedia-player
 #brew install evernote # install with mas instead
 #fantastical
+brew install --cask cron # Calendar for professionals and teams https://cron.com/
+
 brew install firefox
 brew install google-chrome
 # brew install flash-player -- no longer available
@@ -116,6 +118,7 @@ brew install hype # web animation program
 # brew install lego-mindstorms-ev3 # not currently using
 # brew install houdahgeo -- no longer available
 brew install wallpaper-wizard # desktop picture app
+brew install --cask topnotch # Utility to hide the notch - https://topnotch.app/
 
 # Markdown viewers
 brew install marked
@@ -140,11 +143,13 @@ brew install --cask obsidian # Knowledge base that works on top of a local folde
 
 brew install --cask tableflip # App to edit markdown files in place https://tableflipapp.com/
 
-brew install --cask topnotch # Utility to hide the notch - https://topnotch.app/
+brew install --cask figma # Collaborative team software https://www.figma.com/
+
 
 # Gmail desktop apps
 # brew install --cask kiwi-for-gmail # no longer using
 brew install --cask mimestream # new preferred Gmail desktop client
+# consider also Mailplane
 
 ## Utilities
 brew install 1clipboard
