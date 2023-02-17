@@ -240,6 +240,11 @@ brew install --cask aldente # Menu bar tool to limit maximum charging percentage
 brew install --cask hookmark # Link and retrieve key information https://hookproductivity.com/
 # install the hook cli with sudo gem install hookapp Run hook clip <file> for exmpale. See [Hook CLI - BrettTerpstra.com](https://brettterpstra.com/projects/hook-cli/) for more docs.
 
+brew install --cask qr-journal # Allows users with an iSight (or compatible) camera to read QR codes https://www.joshjacob.com/mac-development/qrjournal.php
+
+brew install --cask tnefs-enough # Read and extract files from Microsoft TNEF files https://www.joshjacob.com/mac-development/tnef.php
+
+
 ## Development apps
 brew install devutils # developer toolbox https://devutils.app/
 brew install atom
