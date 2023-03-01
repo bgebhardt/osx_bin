@@ -115,6 +115,18 @@ Install [Epson Printer Drivers](https://epson.com/Support/wa00607d)
 
 * Set CAPSLOCK to Control in System Preferences -> Keyboard -> Modifiers...
 
+## Dock
+Set app switcher to show on all monitors. Useful if laptop is monitor to the right of main monitor.
+
+`defaults write com.apple.Dock appswitcher-all-displays -bool true`
+`killall Dock`
+
+to reverse
+`defaults write com.apple.Dock appswitcher-all-displays -bool false`
+`killall Dock`
+
+From [Show macOS app switcher across all monitors · GitHub](https://gist.github.com/jthodge/c4ba15a78fb29671dfa072fe279355f0)
+
 ## RayCast (to replace spotlight)
 
 * Change Spotlight shortcut in System Preferences -> Keyboard to Control-Option-Command-Space
