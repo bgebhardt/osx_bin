@@ -329,7 +329,11 @@ brew install teamspeak-client
 # brew install minecraft-server -- no longer available
 brew install minecraft
 brew install battle-net
+
+# [Heroic-Games-Launcher/HeroicGamesLauncher: A Native GOG and Epic Games Launcher for Linux, Windows and Mac.](https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher#macos)
 brew install heroic
+# xattr -d com.apple.quarantine /Applications/Heroic.app # run this to fix the app is damaged error.
+
 brew install --cask onecast
 
 # Free Comic Book Reader
