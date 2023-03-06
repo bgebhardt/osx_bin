@@ -144,7 +144,7 @@ brew install --cask obsidian # Knowledge base that works on top of a local folde
 brew install --cask tableflip # App to edit markdown files in place https://tableflipapp.com/
 
 brew install --cask figma # Collaborative team software https://www.figma.com/
-
+brew install --cask gimp # Free and open-source image editor https://www.gimp.org/
 
 # Gmail desktop apps
 # brew install --cask kiwi-for-gmail # no longer using
