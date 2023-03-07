@@ -244,6 +244,9 @@ brew install --cask qr-journal # Allows users with an iSight (or compatible) cam
 
 brew install --cask tnefs-enough # Read and extract files from Microsoft TNEF files https://www.joshjacob.com/mac-development/tnef.php
 
+# Reference: [5 Ways to Turn Any Website Into a Desktop Mac App](https://www.makeuseof.com/tag/website-desktop-mac-app/)
+brew install --cask fluid # Tool to turn a website into a desktop app - free app - https://fluidapp.com/
+#brew install --cask unite # Turn websites into apps https://bzgapps.com/unite # need to upgrade to version 4 if I want to use.
 
 ## Development apps
 brew install devutils # developer toolbox https://devutils.app/
