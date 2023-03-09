@@ -170,6 +170,8 @@ brew install --cask keepingyouawake #Name: KeepingYouAwake - Tool to prevent the
 
 brew install --cask espanso # Name: Espanso - Cross-platform Text Expander written in Rust https://espanso.org/; replace Typinator??
 
+brew install --cask raindropio # All-in-one bookmark manager https://raindrop.io/
+
 brew install carbon-copy-cloner
 # brew install crashplan -- no longer available
 brew install cronnix
