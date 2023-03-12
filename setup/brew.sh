@@ -226,6 +226,8 @@ brew install procmail
 brew install tldr # Simplified and community-driven man pages - https://tldr.sh/
 brew install starship # Cross-shell prompt for astronauts - https://starship.rs
 
+brew install rich-cli # Command-line toolbox for fancy output in the terminal https://github.com/textualize/rich-cli
+
 # cloud tools
 # brew install heroku - as of 2018 we no longer use heroku
 brew install azure-cli
