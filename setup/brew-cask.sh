@@ -333,7 +333,11 @@ brew install steamcmd
 brew install teamspeak-client
 # brew install minecraft-server -- no longer available
 brew install minecraft
+brew install --cask prismlauncher # Minecraft launcher https://prismlauncher.org/
 brew install battle-net
+brew install --cask playcover-community # Sideload iOS apps and games https://github.com/PlayCover/PlayCover never worked
+#brew install --cask bluestacks # Mobile gaming platform https://www.bluestacks.com/ play android games on mac/PC; doesn't work on M1 macs
+#brew install --cask android-studio # Tools for building Android applications https://developer.android.com/studio/ (can emulate games but didn't really work)
 
 # [Heroic-Games-Launcher/HeroicGamesLauncher: A Native GOG and Epic Games Launcher for Linux, Windows and Mac.](https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher#macos)
 brew install heroic
