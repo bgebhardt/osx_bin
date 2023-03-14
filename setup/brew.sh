@@ -275,6 +275,9 @@ brew install spark
 brew install node
 brew install npm
 
+# install go
+brew install go
+
 # install pandoc to convert markdown to various formats
 brew install pandoc
 
