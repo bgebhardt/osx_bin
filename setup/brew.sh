@@ -260,6 +260,8 @@ brew install sonar              # Static Code Analysis Tool
 brew install mas # Install App Store command line tools https://github.com/mas-cli/mas
 brew install reattach-to-user-namespace # work around for tmux-related pastboard problems (helps mas) https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
 
+brew install duti # Select default apps for documents and URL schemes on macOS - https://github.com/moretension/duti/
+
 # kubernetes tools
 brew install kubernetes-cli
 
