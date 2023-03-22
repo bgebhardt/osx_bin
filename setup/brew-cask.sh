@@ -177,7 +177,8 @@ brew install carbon-copy-cloner
 brew install cronnix
 #brew install crossover
 brew install daisydisk
-brew install default-folder-x
+brew install default-folder-x # Utility to enhance the Open and Save dialogs in applications - https://www.stclairsoft.com/DefaultFolderX/
+brew install --cask app-tamer # CPU management application - https://www.stclairsoft.com/AppTamer/
 brew install disk-drill
 # brew install disk-sensei -- no longer available
 brew install appdelete
