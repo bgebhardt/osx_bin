@@ -219,6 +219,11 @@ brew install --cask powerphotos # powerphotos for managing photo libraries
 # brew install iphoto-library-manager # replaced with powerphotos
 brew install --cask itsycal # Menu bar calendar https://www.mowglii.com/itsycal/
 
+brew install --cask swish # Control windows and applications right from your trackpad - https://highlyopinionated.co/swish/
+brew install --cask paletro # Command palette in any application - https://appmakes.io/paletro
+brew install --cask mission-control-plus # Manage your windows in Mission Control - https://fadel.io/MissionControlPlus
+brew install --cask batteries # Track all your devices' batteries - https://www.fadel.io/batteries/
+
 # free ebook reader and management software
 brew install --cask calibre # [calibre - E-book management](https://calibre-ebook.com/)
 brew install --cask fbreader # Name: FBReader book reader https://fbreader.org/macos/
