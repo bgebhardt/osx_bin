@@ -302,11 +302,17 @@ brew install nbdime # diffing and merging of Jupyter Notebooks
 # [raboof/nethogs: Linux 'net top' tool](https://github.com/raboof/nethogs)
 brew install nethogs
 
+# Terminal based graphical activity monitor inspired by gtop and vtop - https://github.com/xxxserxxx/gotop
+brew install gotop
+
 # [imsnif/bandwhich: Terminal bandwidth utilization tool](https://github.com/imsnif/bandwhich)
 brew install bandwhich
 
 # network scanner
 brew install nmap
+
+# Simple, fast and user-friendly alternative to find - https://github.com/sharkdp/fd
+brew install fd
 
 # Cmdline tool - Monitors sleep, wakeup, and idleness of a Mac - https://www.bernhard-baehr.de/
 brew install sleepwatcher
@@ -325,6 +331,10 @@ brew install jpdfbookmarks # Create and edit bookmarks on existing PDF files htt
 # brew install pdftk-java # Port of pdftk in java; pdftk provides lots of pdf cli tools. https://gitlab.com/pdftk-java/pdftk
 # looks like it requires java 11 which I don't have installed.
 # Trying the non-java original - brew install pdftk-java instead [PDFtk Server Manual](https://www.pdflabs.com/docs/pdftk-man-page/)
+
+# Terminal multiplexer - https://tmux.github.io/
+# [Tmux Cheat Sheet & Quick Reference](https://tmuxcheatsheet.com/)
+brew install tmux
 
 # Remove outdated versions from the cellar.
 brew cleanup
