@@ -193,10 +193,6 @@ alias gi='git info'
 alias grm='git rm $(git ls-files --deleted)'
 alias git_url='git remote show origin | grep Fetch' # will get the repo's url, can pass to pbcopy
 
-# Open specified files in Sublime Text
-# "s ." will open the current directory in Sublime
-alias s='open -a "Sublime Text"'
-
 # Colored up cat!
 # You must install Pygments first - "sudo easy_install Pygments"
 alias c='pygmentize -O style=monokai -f console256 -g'
