@@ -11,6 +11,9 @@
 #set path to include my bin and the developer tools
 export PATH=~/bin:/opt/homebrew/bin/:/usr/local/sbin:/usr/local/bin:/Xcode3/Developer/usr/bin:/Developer/Tools:/Applications/Postgres.app/Contents/Versions/10/bin:$PATH:/usr/local/mysql/bin:/usr/local/graphviz-2.14/bin:/Applications/splunk/bin:/Library/Wireshark:/usr/local/share/npm/bin
 
+# set path for dotnet root
+export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
+
 # git-extra-commands conflictes with git-extras (installed from brew.sh). Removing from path.
 # To add it back add this: ~/bin/git-extra-commands/bin:
 

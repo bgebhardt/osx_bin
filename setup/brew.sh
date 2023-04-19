@@ -232,6 +232,9 @@ brew install rich-cli # Command-line toolbox for fancy output in the terminal ht
 # brew install heroku - as of 2018 we no longer use heroku
 brew install azure-cli
 
+
+brew install dotnet # Also known as: dotnet@7 .NET Core https://dotnet.microsoft.com/
+
 # 09-04-2016 added to make EmptyEpsilon work
 # https://github.com/oznogon/EmptyEpsilon/issues/7
 brew install sfml
