@@ -357,6 +357,8 @@ brew install yacreader
 # All-in-one live streaming software
 brew install --cask streamlabs-obs
 
+brew install --cask aerial # Apple TV Aerial screensaver https://github.com/JohnCoates/Aerial
+
 # clean up cached cask files
 brew cleanup
 
