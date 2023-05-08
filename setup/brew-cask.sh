@@ -55,6 +55,8 @@ brew install --cask betterdisplay # Display management tool https://betterdispla
 brew install --cask monitorcontrol # Tool to control external monitor brightness & volume https://github.com/MonitorControl/MonitorControl
 brew install --cask lunar # monitor brightness manager; replaces flux
 
+brew install --cask displaylink # Drivers for DisplayLink docks, adapters and monitors - https://www.synaptics.com/products/displaylink-graphics
+
 brew install --cask fastscripts
 brew install --cask airbuddy # monitors bluetooth devices
 brew install --cask cloudmounter # mount different cloud services
