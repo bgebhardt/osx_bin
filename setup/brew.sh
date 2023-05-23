@@ -111,6 +111,8 @@ brew install python
 pip install --upgrade pip
 pip install Pygments
 
+brew install pyenv # Python version management https://github.com/pyenv/pyenv great for installing multiple versions of python
+
 # other brew items I added 05-22-2016
 # TODO: remove dupes from this list
 brew install ansible
