@@ -57,6 +57,8 @@ brew install --cask lunar # monitor brightness manager; replaces flux
 
 brew install --cask displaylink # Drivers for DisplayLink docks, adapters and monitors - https://www.synaptics.com/products/displaylink-graphics
 
+brew tap jakehilborn/jakehilborn && brew install displayplacer # macOS command line utility to configure multi-display resolutions and arrangements.-  https://github.com/jakehilborn/displayplacer
+
 brew install --cask fastscripts
 brew install --cask airbuddy # monitors bluetooth devices
 brew install --cask cloudmounter # mount different cloud services
