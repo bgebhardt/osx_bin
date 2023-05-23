@@ -4,10 +4,10 @@
 
 # copy this file to you home directory.
 
-echo "sourcing .bash_profile..."
+echo "sourcing bash_profile..."
 
 # moved my bash settings to my bin directory which is checked into git.
-source ~/bin/.bash_profile_bin
+source ~/bin/bash_profile_bin
 
 # set up homebrew environment
 eval "$(/opt/homebrew/bin/brew shellenv)"

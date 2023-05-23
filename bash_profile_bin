@@ -4,7 +4,7 @@
 # copy ~/bin/.bash_profile to you home directory.  It sources this file.
 
 #echo "home dir: $HOME"
-echo "sourcing .profile_bryan" && source ~/bin/.profile_bryan # sources other bash settings, especially dev environment-related.
+echo "sourcing profile_bryan" && source ~/bin/profile_bryan # sources other bash settings, especially dev environment-related.
 
 #bash_work is now retired.
 #[[ -s "$HOME/bin/bash_work" ]] && echo "sourcing bash_work" && source ~/bin/bash_work # source work related shell settings

@@ -164,5 +164,5 @@ export EDITOR="code -w"  # I switched to visual code!
 #export EDITOR="mate -w"
 
 
-# 05-22-2016: don't remember what this is
+# 05-23-2023: This is for the Ruby Version Manager, but don't remember if this is still set up to work
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

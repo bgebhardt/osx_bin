@@ -8,6 +8,7 @@ echo "sourcing .bashrc..."
 # Nothing to see here — Everything's in .bash_profile
 [ -n "$PS1" ] && source ~/.bash_profile
 
+# Print export statements. When run in a shell, this installation of Homebrew will be added to your PATH, MANPATH, and INFOPATH.
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Fig post block. Keep at the bottom of this file.
