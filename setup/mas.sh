@@ -37,6 +37,7 @@ mas install 409201541 # Pages (6.0)
 mas install 1508732804 # Soulver 3 (3.6)
 # mas install 413965349 # Soulver (2.6.0)
 mas install 408981434 # iMovie (10.1.2)
+#mas install 424389933   # Final Cut Pro
 mas install 594444151 # PDF to JPG (4.0)
 #mas install 555935825 # Themes for Keynote Free (2.2)
 mas install 929188617 # Timeline 3D (5.1.2)
@@ -83,6 +84,37 @@ mas install 1457744893 # EmojiFinder: search emoji (2.2.5)
 mas install 1289197285 # MindNode – Mind Map & Outline  (2022.4.3); nice simple mindmapping tool
 
 mas install 1510445899 # Meeter for Zoom, Teams & Co       (1.1.3) https://www.bardeen.ai/meeter; menu item for launching video calls
+
+mas install 1115567069  # Health Auto Export - export and manage your health data
+
+mas install 1545870783  # Color Picker - menu bar color picker
+mas install 413897608  # Pastel - Beautiful color palettes
+
+mas install 1499215709  # Pasteboard Viewer # view clipboard history
+mas install 1527716894  # Webp Converter - convert Webp images to PNG or JPG
+mas install 1612708557 # Scaler - Scaler is a bandwidth monitor app for your macOS device. It shows you your current network speed in the menu bar and provides detailed information about your data usage for the past 30 days. [0.0]
+
+mas install 1487406555  # Safari extension Tab Count
+mas install 1515213004  # Session Pal - Safari session manager
+
+mas install 1487937127  # Craft: Write notes, AI editing 2.5.5 [0.0]
+mas install 1660147028 # Amazing AI - Generate images from text using Stable Diffusion
+mas install 1569600264  # Pandan - Pandan is a time awareness tool, not a traditional time tracker or break reminder. It shows you how long you have been actively using your computer, to make you aware and let you decide when it's time to take a break. 
+
+mas install 381059732 # WeekCal
+mas install 512464723  # AS Timer - easy to use timer; I tend to use raycast's built in timer now
+
+mas install 6444667067  # Hyperduck - Send links from iOS to a Mac; works better than air drop, works in any app, better than handoff
+mas install 472717129  # Type2Phone - Hyperduck likely is better
+
+mas install 876529098   # StockSpy Realtime Stocks Quote
+mas install 973213640   # MSG Viewer for Outlook
+mas install 545519333  # Prime Video
+
+# mas install 540348655  # Monosnap - replaced by Shottr, but still a good app
+
+#1611378436  Pure Paste (1.0.1) - paste without formatting # tried it but PopClip is better
+#1586203406  Tabby
 
 # mas install 521464274 # Farensius Desktop # seems to no longer be available
 
