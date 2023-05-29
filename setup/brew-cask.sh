@@ -363,6 +363,8 @@ brew install --cask streamlabs-obs
 
 brew install --cask aerial # Apple TV Aerial screensaver https://github.com/JohnCoates/Aerial
 
+brew install --cask netnewswire # Free and open-source RSS reader - https://netnewswire.com/
+
 # clean up cached cask files
 brew cleanup
 
