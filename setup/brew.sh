@@ -342,5 +342,7 @@ brew install jpdfbookmarks # Create and edit bookmarks on existing PDF files htt
 # [Tmux Cheat Sheet & Quick Reference](https://tmuxcheatsheet.com/)
 brew install tmux
 
+brew install ncdu # NCurses Disk Usage https://dev.yorhel.nl/ncdu
+
 # Remove outdated versions from the cellar.
 brew cleanup
