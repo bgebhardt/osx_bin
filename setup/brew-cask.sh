@@ -65,6 +65,10 @@ brew install --cask cloudmounter # mount different cloud services
 #brew install --cask expandrive # Network drive and browser for cloud storage - https://www.expandrive.com/apps/expandrive/
 brew install --cask mountain-duck # Mounts servers and cloud storages as a disk on the desktop - https://mountainduck.io/
 
+brew install --cask forklift # Finder replacement and FTP, SFTP, WebDAV and Amazon s3 client - https://binarynights.com/
+brew install duck # Command-line interface for Cyberduck (a multi-protocol file transfer tool) - https://duck.sh/
+brew install --cask cyberduck # Server and cloud storage browser https://cyberduck.io/
+
 brew install --cask zoom
 
 brew install --cask meetingbar # Shows the next meeting in the menu bar https://github.com/leits/MeetingBar
@@ -191,7 +195,6 @@ brew install bluesense
 # omnidisksweeper
 #dropbox-encore
 #fluid
-brew install forklift
 brew install grandperspective
 # brew install growlnotify -- no longer used
 # brew install notifyr # for some reason this prefpane not working on 10.12; claims Bluetooth 4.0 not supported
