@@ -94,7 +94,7 @@ Follow installation instructions here: https://github.com/bgebhardt/osx_scripts_
 Configure all the FastScript shortcuts for the scripts.
 
 # Configure Critical Apps and Settings
-Follow the folling list of application setup instructions
+Follow the following list of application setup instructions
 
 Spotlight might not be done indexing so you may have to run apps from Applications
 
@@ -131,7 +131,7 @@ From [Show macOS app switcher across all monitors · GitHub](https://gist.github
 
 * Change Spotlight shortcut in System Preferences -> Keyboard to Control-Option-Command-Space
 * Start Raycast
-* Got to Settings -> Advanced and click Import. Import from OneDrive.
+* Go to Settings -> Advanced and click Import. Import from OneDrive.
 * URL: [Raycast](https://www.raycast.com/) -- spotlight replacement; similar to Alfred
 
 ## Alfred (to replace spotlight)
@@ -150,6 +150,10 @@ From [Show macOS app switcher across all monitors · GitHub](https://gist.github
 I use [Joplin](https://joplinapp.org/) for cross platform note taking instead of Apple Notes so I can get my notes on Windows as well. It has great plugins but requires you to write all in markdown. Synchronization is through OneDrive and is not quite as robust as Apple Notes. Overall though it's a great app.
 
 All files are in ~/.config/joplin-desktop and ~/.config/joplin.
+
+## Obsidian Note taking setup
+
+My vaults are in iDrive and OneDrive. Set up those to applications first.
 
 **Settings**
 * <TBD pull from settings.json?>
