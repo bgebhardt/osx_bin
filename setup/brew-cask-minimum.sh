@@ -29,13 +29,17 @@ brew install mas # Install App Store command line tools https://github.com/mas-c
 brew install --cask 1password
 brew install --cask fastscripts
 brew install --cask iterm2
+brew install --cask warp # Rust-based terminal app; couldn't get it to work though
 brew install --cask omnifocus
+brew install --cask obsidian # Knowledge base that works on top of a local folder of plain text Markdown files https://obsidian.md/
 # brew install --cask google-drive -- add this back?
 brew install --cask timing
 brew install --cask pdf-expert
+brew install --cask skim # PDF reader and note-taking application https://skim-app.sourceforge.io/
 brew install --cask microsoft-office # requires admin password to install
 brew install --cask microsoft-edge
 brew install --cask microsoft-teams
+brew install onedrive # Folder synchronization with OneDrive https://github.com/abraunegg/onedrive
 brew install --cask visual-studio-code
 brew install --cask github
 
@@ -59,10 +63,9 @@ brew install --cask shottr # free screen shot tool; preferred over Monosnap
 
 # install mas applications
 # Read more about this at https://github.com/mas-cli/mas
-mas install 823766827 # OneDrive (17.3.6518)
+#mas install 823766827 # OneDrive (17.3.6518)
 mas install 456624497 # Brightness Slider
 mas install 803453959 # Slack (2.0.3)
-mas install 540348655 # Monosnap - screenshot editor   (5.1.7)
 mas install 1499181666 #  OwlOCR - Screenshot to Text (5.0.7)
 mas install 1607635845 # Velja (1.10.1) - browser picker: Open links in a specific browser or a matching native app. Easily switch between browsers
 
