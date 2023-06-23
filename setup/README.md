@@ -7,7 +7,8 @@ Setting up from scratch without Migration assistant
 
 Set up Apple iCloud and minimal settings
 
-* enter iCloud account
+* follow initial set up flow from Apple
+  * enter iCloud account
 * Set up 1Password
 * Turn on internet accounts in System Preferences -> Internet Accounts
     * Started with personal google - passkey didn’t work though
@@ -57,6 +58,7 @@ $ git config --global user.email bryan.gebhardt@gmail.com
 * Set up Visual code (installed by brew-cask-minimum)
     * Login to sync with MSFT account
     * Install cmd line tools with command-P and search for "install code" (see [The Visual Studio Code command-line interface](https://code.visualstudio.com/docs/editor/command-line))
+* WORK ONLY: Download Company Portal app from app store and set up work requirements.
 
 # Download key OneDrive Files
 
@@ -146,74 +148,15 @@ From [Show macOS app switcher across all monitors · GitHub](https://gist.github
 * In Karabiner-Elements to to Misc pane and open ~/.config/karabiner
 * Copy karabiner config from OneDrive to ~/.config/karabiner
 
-## Joplin Note taking Setup 
-I use [Joplin](https://joplinapp.org/) for cross platform note taking instead of Apple Notes so I can get my notes on Windows as well. It has great plugins but requires you to write all in markdown. Synchronization is through OneDrive and is not quite as robust as Apple Notes. Overall though it's a great app.
+## iDrive
 
-All files are in ~/.config/joplin-desktop and ~/.config/joplin.
+iDrive cloud sync is needed for my Obsidian vault
 
 ## Obsidian Note taking setup
 
 My vaults are in iDrive and OneDrive. Set up those to applications first.
 
-**Settings**
-* <TBD pull from settings.json?>
 
-* Change app layout to move tabs to the top - see instructions
-
-**Install the following plugins**
-
-com.andrejilderda.macOSTheme.jpl
-_com.font.size.shortcut.jpl_
-com.github.joplin.kanban.jpl
-com.hieuthi.joplin.copy-anchor-link.jpl
-com.hieuthi.joplin.slash-commands.jpl
-com.septemberhx.pluginBundle.jpl
-com.whatever.inline-tags.jpl
-com.whatever.quick-links.jpl
-cx.evermeet.tessus.menu-shortcut-toolbar.jpl
-de.habelt.CsvImport.jpl
-io.github.daeraxa.match-highlight.jpl
-joplin-insert-date.jpl
-joplin.plugin.ambrt.copyNoteLink.jpl
-_joplin.plugin.ambrt.goToItem.jpl_
-joplin.plugin.benji.favorites.jpl
-joplin.plugin.benji.quick-move.jpl
-joplin.plugin.note.tabs.jpl
-plugin.calebjohn.MathMode.jpl
-plugin.calebjohn.todo.jpl
-retr0ve.EmojiPlugin.jpl
-sadmice.TextColorize.jpl
-
-
-
-_Enabled_
-com.hieuthi.joplin.copy-anchor-link.jpl
-com.hieuthi.joplin.slash-commands.jpl
-com.septemberhx.pluginBundle.jpl
-com.whatever.inline-tags.jpl
-com.whatever.quick-links.jpl
-cx.evermeet.tessus.menu-shortcut-toolbar.jpl
-de.habelt.CsvImport.jpl
-io.github.daeraxa.match-highlight.jpl
-joplin.plugin.ambrt.copyNoteLink.jpl
-joplin.plugin.benji.persistentLayout.jpl
-joplin.plugin.benji.quick-move.jpl
-joplin.plugin.note.tabs.jpl
-net.rmusin.joplin-table-formatter.jpl
-plugin.calebjohn.MathMode.jpl
-_plugin.calebjohn.rich-markdown.jpl_
-plugin.calebjohn.todo.jpl
-sadmice.TextColorize.jpl
-
-_Disabled_
-com.andrejilderda.macOSTheme.jpl
-joplin-insert-date.jpl
-com.github.joplin.kanban.jpl
-joplin.plugin.benji.favorites.jpl
-retr0ve.EmojiPlugin.jpl
-
-_Just added_
-https://github.com/cqroot/joplin-outline
 
 ## Rectangle - For Window movement shortcuts
 
@@ -290,6 +233,7 @@ Here's the script:
 Award-Winning Mac Bundle is Live!
 https://bundlehunt.com/my-account/downloads/all
 * Links: https://owlocr.com/; https://owlocr.com/blog/posts/owlocr-5-command-line-interface
+
 
 ## Fig - shell integrations
 
@@ -479,6 +423,73 @@ More info on sleepwatcher and Applescripts to mute/unmute
 * configure modifier keys
   * for Mac server map Super to Ctrl and Ctrl to Super
   * see [How To Properly Map Keyboard Between Mac and PC when Share Mouses with Synergy - NEXTOFWINDOWS.COM](https://www.nextofwindows.com/how-to-properly-map-keyboard-between-mac-and-pc-when-share-mouses-with-synergy)
+
+# Retired Applications
+
+## Joplin Note taking Setup 
+I use [Joplin](https://joplinapp.org/) for cross platform note taking instead of Apple Notes so I can get my notes on Windows as well. It has great plugins but requires you to write all in markdown. Synchronization is through OneDrive and is not quite as robust as Apple Notes. Overall though it's a great app.
+
+All files are in ~/.config/joplin-desktop and ~/.config/joplin.
+
+**Settings**
+* <TBD pull from settings.json?>
+
+* Change app layout to move tabs to the top - see instructions
+
+**Install the following plugins**
+
+com.andrejilderda.macOSTheme.jpl
+_com.font.size.shortcut.jpl_
+com.github.joplin.kanban.jpl
+com.hieuthi.joplin.copy-anchor-link.jpl
+com.hieuthi.joplin.slash-commands.jpl
+com.septemberhx.pluginBundle.jpl
+com.whatever.inline-tags.jpl
+com.whatever.quick-links.jpl
+cx.evermeet.tessus.menu-shortcut-toolbar.jpl
+de.habelt.CsvImport.jpl
+io.github.daeraxa.match-highlight.jpl
+joplin-insert-date.jpl
+joplin.plugin.ambrt.copyNoteLink.jpl
+_joplin.plugin.ambrt.goToItem.jpl_
+joplin.plugin.benji.favorites.jpl
+joplin.plugin.benji.quick-move.jpl
+joplin.plugin.note.tabs.jpl
+plugin.calebjohn.MathMode.jpl
+plugin.calebjohn.todo.jpl
+retr0ve.EmojiPlugin.jpl
+sadmice.TextColorize.jpl
+
+
+
+_Enabled_
+com.hieuthi.joplin.copy-anchor-link.jpl
+com.hieuthi.joplin.slash-commands.jpl
+com.septemberhx.pluginBundle.jpl
+com.whatever.inline-tags.jpl
+com.whatever.quick-links.jpl
+cx.evermeet.tessus.menu-shortcut-toolbar.jpl
+de.habelt.CsvImport.jpl
+io.github.daeraxa.match-highlight.jpl
+joplin.plugin.ambrt.copyNoteLink.jpl
+joplin.plugin.benji.persistentLayout.jpl
+joplin.plugin.benji.quick-move.jpl
+joplin.plugin.note.tabs.jpl
+net.rmusin.joplin-table-formatter.jpl
+plugin.calebjohn.MathMode.jpl
+_plugin.calebjohn.rich-markdown.jpl_
+plugin.calebjohn.todo.jpl
+sadmice.TextColorize.jpl
+
+_Disabled_
+com.andrejilderda.macOSTheme.jpl
+joplin-insert-date.jpl
+com.github.joplin.kanban.jpl
+joplin.plugin.benji.favorites.jpl
+retr0ve.EmojiPlugin.jpl
+
+_Just added_
+https://github.com/cqroot/joplin-outline
 
 ---
 
