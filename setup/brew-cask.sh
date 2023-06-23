@@ -245,7 +245,7 @@ brew install gemini
 # terminals - other than iTerm; I'm sticking with iTerm though.
 #brew install --cask kitty #GPU-based terminal emulator https://github.com/kovidgoyal/kitty
 #brew install --cask alacritty # Name: Alacritty GPU-accelerated terminal emulator (Mac and Windows) https://github.com/alacritty/alacritty/
-# brew install --cask warp # Rust-based terminal app; couldn't get it to work though
+brew install --cask warp # Rust-based terminal app; couldn't get it to work though
 
 brew install --cask hammerspoon # Name: Hammerspoon - Desktop automation application - https://www.hammerspoon.org/
 brew install --cask phoenix # Window and app manager scriptable with JavaScript https://github.com/kasper/phoenix/ (alternative to hammerspoon automation)
