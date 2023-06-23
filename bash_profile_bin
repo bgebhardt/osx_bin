@@ -69,7 +69,8 @@ function parse_git_branch() {
 symbol="⚡ "
 
 # for more docs see [Bash Prompt Escape Sequences]( http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/bash-prompt-escape-sequences.html )
-export PS1="\[\t\][\!] \[${MAGENTA}\]\u \[$RESET\]in \[$GREEN\]\w\[$RESET\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$RESET\]\n$symbol\[$RESET\]"
+#export PS1="\[\t\][\!] \[${MAGENTA}\]\u \[$RESET\]in \[$GREEN\]\w\[$RESET\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$RESET\]$symbol\[$RESET\]"
+export PS1="\[\t\][\!] \[${MAGENTA}\]\u \[$RESET\]in \[$GREEN\]\w\[$RESET\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$RESET\] "
 export PS2="\[$ORANGE\]→ \[$RESET\]"
 
 
