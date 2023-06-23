@@ -5,6 +5,12 @@ This is a list of settings and things to remember when backing up my mac. I tend
 TODO: script this checklist
 TODO: look at preferences porting tools
 
+# Useful troubleshooting tools/articles
+
+- [How to reinstall macOS - Apple Support](https://support.apple.com/en-us/HT204904)
+- [Use Disk Utility to erase an Intel-based Mac - Apple Support](https://support.apple.com/en-us/HT208496)
+- [How to repair a Mac disk with Disk Utility - Apple Support](https://support.apple.com/en-us/HT210898)
+- [Use Apple Diagnostics to test your Mac - Apple Support](https://support.apple.com/en-us/HT202731)
 
 # Main Backup
 
@@ -28,3 +34,15 @@ TODO: look at preferences porting tools
 Use the "Export Preferences & Data" command to export preferences, aliases, hotkeys, favourites, snippets, quicklinks, floating notes and other data to a "rayconfig" file. Later you can import this configuration file, using the "Import Preferences & Data" command, on the same mac or start just where you left off on a new mac.
 
 [Raycast Manual](https://manual.raycast.com/)
+
+## FastScripts
+
+Run AppleScript I wrote to export all keybindings which will be manually re-added to scripts on the new computer
+
+
+
+
+## Rectangle window management
+
+
+## Swish window management
