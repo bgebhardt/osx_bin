@@ -329,7 +329,10 @@ set appURL to "ms-word:ofe|u|" & fullURL
 * Grant profile access
 * Load rules from OneDrive Common Info folder
 
+## Itsy calendar
 
+* go through preferences
+* configure system clock to just time
 
 ## Fig - shell integrations
 
