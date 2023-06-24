@@ -4,6 +4,7 @@ This is a list of settings and things to remember when backing up my mac. I tend
 
 TODO: script this checklist
 TODO: look at preferences porting tools
+TODO: script to get default settings of interest to TODO.md
 
 # Useful troubleshooting tools/articles
 

@@ -30,13 +30,14 @@ In Terminal set your profile to Homebrew for the colors to work.
 To finish setting up bash install run the following:
 
 Now clone in the tools you need. Some are referenced by osx_bin
-```
+``` shell
 ~/bin/gitclone.sh
 chmod a+x ~/bin/bashstrap/z.sh # need to make sure this is executable
 ```
 
 > Add all tools cloned directly from git. (Note these are also in the .gitignore).  The proper way would be with [submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules), but I'm lazy at the moment.
 
+Run `brew install gh` to Add better GitHub support to git on the command-line
 Run `brew install hub` to Add GitHub support to git on the command-line (https://hub.github.com/)
 
 In iTerm2 select iTerm2>Install Shell Integration  (see https://iterm2.com/documentation-shell-integration.html)
