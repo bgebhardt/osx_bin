@@ -138,12 +138,17 @@ Install [Epson Printer Drivers](https://epson.com/Support/wa00607d)
 ## Dock
 Set app switcher to show on all monitors. Useful if laptop is monitor to the right of main monitor.
 
-`defaults write com.apple.Dock appswitcher-all-displays -bool true`
-`killall Dock`
+``` shell
+defaults write com.apple.Dock appswitcher-all-displays -bool true
+killall Dock
+```
 
 to reverse
-`defaults write com.apple.Dock appswitcher-all-displays -bool false`
-`killall Dock`
+
+``` shell
+defaults write com.apple.Dock appswitcher-all-displays -bool false
+killall Dock
+```
 
 From [Show macOS app switcher across all monitors · GitHub](https://gist.github.com/jthodge/c4ba15a78fb29671dfa072fe279355f0)
 
@@ -151,7 +156,8 @@ From [Show macOS app switcher across all monitors · GitHub](https://gist.github
 
 * Change Spotlight shortcut in System Preferences -> Keyboard to Control-Option-Command-Space
 * Start Raycast
-* Go to Settings -> Advanced and click Import. Import from OneDrive.
+* Go to Settings -> Advanced and click Import. Import from OneDrive or ~/bin/setup/configs
+* Get password from 1Password
 * URL: [Raycast](https://www.raycast.com/) -- spotlight replacement; similar to Alfred
 
 ## Alfred (to replace spotlight)
@@ -164,7 +170,7 @@ From [Show macOS app switcher across all monitors · GitHub](https://gist.github
 
 * Open Karabiner-Elements and allow extension in System Preferences
 * In Karabiner-Elements to to Misc pane and open ~/.config/karabiner
-* Copy karabiner config from OneDrive to ~/.config/karabiner
+* Copy karabiner config from OneDrive or bin/setup/configs to ~/.config/karabiner
 
 ## iDrive
 
@@ -179,7 +185,7 @@ My vaults are in iDrive and OneDrive. Set up those to applications first.
 ## Rectangle - For Window movement shortcuts
 
 * Open Rectangle preferences by clicking the gear tab
-* Click Import to import in shortcuts file from OneDrive
+* Click Import to import in shortcuts file from OneDrive or bin/setup/configs 
 
 ## Default Folder
 
@@ -198,7 +204,7 @@ My vaults are in iDrive and OneDrive. Set up those to applications first.
 
 * Open app
 * Give access in Privacy & Security -> Accessibility
-* Open settings; click Expansions tab; Set configuration to OneDrive
+* Open settings; click Expansions tab; Set configuration to iDrive Cloud Drive folder
 
 ## FastScripts
 In settings
@@ -239,6 +245,12 @@ Here's the script:
   * Turn off new mail sound
   * Turn off new mail notifications
 
+## Microsoft Edge
+
+* Login to both work and personal accounts creating a profile for each
+* Enable Extensions you want visible
+* Select Moonlight Glow from Appearance on Personal Profile
+
 ## Shottr
 
 * Open and configure as directed
@@ -250,7 +262,74 @@ Here's the script:
 * Get application from bundle bought on 03-25-2022
 Award-Winning Mac Bundle is Live!
 https://bundlehunt.com/my-account/downloads/all
-* Links: https://owlocr.com/; https://owlocr.com/blog/posts/owlocr-5-command-line-interface
+* Set up the CLI - Links: https://owlocr.com/; https://owlocr.com/blog/posts/owlocr-5-command-line-interface
+
+## Better Display
+
+* Auto launch on login
+* TODO: Figure out other settings.
+
+## Hookmark
+
+Activate with this Licence key
+
+https://hook.cogsciapps.com/activate?info=d02975c273a42a6fa031c5e10e067ac856e8e3c3aee14a7020c528550ec991a879b576eec4638cc493b36c0915fdb3abb25fbe38760bb2a40a684adfcdf39d2f5d7653002625147ccafce1ec68aa2ff8ad643fe7b96ab0012680a3c0eb8bd87b867abc06fc2029bc30bf91691addafb0452473fd0f473e66196b0c8ca38af513eb195ad1b6151f6cbced0ee45cc0ad30660e0b43196ba0ecfc016b6a07c33a1d1083629b7d3d8d3fc2cbd6932a54f4f7ae803131589219a8fd784ae64cbe826eb14341e4173e892077f16e44a8a0a3947a8d8dd8b26f4228d5c6c7e96330d86b2e9d2aa1f14d42d0d9eef2d6bfee8052dbf714e53ffc2a257deda11b120bd007
+
+* Follow set up instructions
+* Set Copy Link to Control-Command-C
+* Set Copy Markdown Link to Control-Command-S
+* Activate iCloud sync to sync links
+* Set up custom apps
+
+Update Office apps in scripts tab. Change Get Address for each app as follows.
+
+``` applescript
+tell application "Microsoft Excel"
+	set activeDoc to active workbook
+	set activeDocName to name of active workbook
+	set activeDocPath to path of active workbook
+	set fullURL to full name of active workbook
+	if fullURL does not start with "http" then
+		return "file://" & POSIX path of fullURL
+	end if
+end tell
+
+set appURL to "ms-excel:ofe|u|" & fullURL
+
+tell application "Microsoft PowerPoint"
+    set activeDoc to active presentation
+    set activeDocName to name of activeDoc
+    set activeDocPath to path of activeDoc
+    set fullURL to full name of activeDoc
+    if fullURL does not start with "http" then
+        return "file://" & POSIX path of fullURL
+    end if
+end tell
+set appURL to "ms-powerpoint:ofe|u|" & fullURL
+
+tell application "Microsoft Word"
+    set activeDoc to active document
+    set activeDocName to name of activeDoc
+    set activeDocPath to path of activeDoc
+    set fullURL to posix full name of activeDoc
+    if fullURL does not start with "http" then
+        return "file://" & POSIX path of fullURL
+    end if
+end tell
+
+set appURL to "ms-word:ofe|u|" & fullURL
+```
+
+## Velja
+
+* Start at launch
+* Set as default browser
+* Change icon to primary browser
+* Set shown browsers
+* Grant profile access
+* Load rules from OneDrive Common Info folder
+
+
 
 ## Fig - shell integrations
 
@@ -262,15 +341,15 @@ see [sbarex/QLMarkdown: macOS Quick Look extension for Markdown files.](https://
 `brew install qlmarkdown`
 and launch the application one time; this will register the quicklook extension.
 
-# Apple Music, TV, Photos
+## Apple Music, TV, Photos
 
 Configure them to point to the correct music library, media library (for TV), and photos library
 
-# Disk Drill
+## Disk Drill
 
 Set up data recovery.
 
-# Daisy Disk
+## Daisy Disk
 
 Remember to configure to measure cloud storage providers (OneDrive, Google Drive)
 
@@ -309,6 +388,8 @@ TODO: add Google Drive
 Space Saver can help delete local Time Machine backups. No set up required.
 
 ## Warp Terminal replacement
+
+TODO
 
 ## Java
 
@@ -350,7 +431,7 @@ Reference:
 * Music
 * PDFExpert - download installer from their website instead of brew cask version.
 * iMazing
-
+* Swish
 
 * BetterZip
 * Harmony remote software: see https://support.myharmony.com/en-us/harmony-and-macos
@@ -365,7 +446,7 @@ Reference:
 * Calibre - ebooks - see folder on one drive too
 * Kindle
 
-* CloudMounter
+* Mountain Duck (instead of CloudMounter)
 * GoogleDrive
 
 ## Login apps to set up
