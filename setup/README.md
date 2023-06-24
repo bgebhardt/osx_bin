@@ -432,6 +432,10 @@ Reference:
 * PDFExpert - download installer from their website instead of brew cask version.
 * iMazing
 * Swish
+* Itsycal
+* Stats
+* Rocket
+* PopClip
 
 * BetterZip
 * Harmony remote software: see https://support.myharmony.com/en-us/harmony-and-macos
