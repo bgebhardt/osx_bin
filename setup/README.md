@@ -14,20 +14,24 @@ Set up Apple iCloud and minimal settings
     * Started with personal google - passkey didn’t work though
 * Set mouse speed and secondary click
 * Set trackpad right corner secondary click and tap to click
-* In system preferences items
+* In Control Center preferences in System Preferences items
   * Show Bluetooth menu
-  * Show TimeMachine menu
+  * Show TimeMachine menu 
 
 Finder settings
 
-* Show filenames
+* Show filename extensions
 * Change default to list view
 * View -> Show status bar
 * Change default to list view: View Options -> Set Default
 
 ## Now set up dev environment
 
-* Login to GitHub
+* Change terminal default profile to Homebrew
+* Change default shell to bash: `chsh -s /bin/bash`
+* Install github cls `brew install gh` see [cli/cli: GitHub’s official command line tool](https://github.com/cli/cli#installation)
+* Login to git with `gh auth login`
+
 * Set your git user name. see https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
 
 $ git config --global user.name "Bryan Gebhardt"
@@ -40,14 +44,22 @@ $ git config --global user.email bryan.gebhardt@gmail.com
 * Install Rosetta with `/usr/sbin/softwareupdate --install-rosetta --agree-to-license`
 
 * Follow read me: https://github.com/bgebhardt/osx_bin
-    * install Brew
+    * install Brew (see https://brew.sh)
     * Set up shell settings
-    * run ./brew-cask-minimum.sh
+    * run ~/bin/setup/brew-cask-minimum.sh
     * set up the apps -- look in the file for the list to set up
 
 ## Install and set up Core Microsoft apps (now added to brew-cask-min install)
 
+* WORK ONLY: Download Company Portal app from app store and set up work requirements. http://aka.ms/mdm
+  * logout to force required password change
+  * update Defender virus & threat protection
+  * reenable linking mac keyboards and mouse in Displays preference
+  * Set up exchange in System Preferences
+  * Set up work email in Outlook
+
 * Download and Install Microsoft Office (if not done by scripts)
+* Open Outlook and login with credentials
 * Set up Outlook with personal email account
     * Turn off alert on desktop and new message sound in prefs
 * Set up OneDrive
@@ -58,15 +70,20 @@ $ git config --global user.email bryan.gebhardt@gmail.com
 * Set up Visual code (installed by brew-cask-minimum)
     * Login to sync with MSFT account
     * Install cmd line tools with command-P and search for "install code" (see [The Visual Studio Code command-line interface](https://code.visualstudio.com/docs/editor/command-line))
-* WORK ONLY: Download Company Portal app from app store and set up work requirements.
 
 # Download key OneDrive Files
 
 From OneDrive always sync the folders in your private file (not checked in)
 *Do this before setting up apps incase they need the files.*
-It seems to take a long time to download all teh files
+It seems to take a long time to download all the files
 
-# Set up rest of apps
+# Set up iDrive
+
+* Configure iDrive
+* Select a previous computer to link iDrive to or start as new device
+* Turn on cloud sync - personal Obsidian vault is there
+
+# Set up rest of apps (including cli apps)
 
 * run ./mas.sh
   * There may be errors as app id's may have changed or because of authorization errors
@@ -74,6 +91,7 @@ It seems to take a long time to download all teh files
   * TODO: use mas open <id> to open each app in the appstore and manually download them.
   * Update: it is working now. It may require Rosetta 2 to be installed.
 * run ./brew-cask.sh
+* run ./brew.sh
 
 You can run these in the background and move on to configs. Check them periodically for errors.
 
@@ -154,8 +172,8 @@ iDrive cloud sync is needed for my Obsidian vault
 
 ## Obsidian Note taking setup
 
+Enable core plugins
 My vaults are in iDrive and OneDrive. Set up those to applications first.
-
 
 
 ## Rectangle - For Window movement shortcuts
@@ -234,7 +252,6 @@ Award-Winning Mac Bundle is Live!
 https://bundlehunt.com/my-account/downloads/all
 * Links: https://owlocr.com/; https://owlocr.com/blog/posts/owlocr-5-command-line-interface
 
-
 ## Fig - shell integrations
 
 * Open and configure as directed
@@ -244,6 +261,18 @@ https://bundlehunt.com/my-account/downloads/all
 see [sbarex/QLMarkdown: macOS Quick Look extension for Markdown files.](https://github.com/sbarex/QLMarkdown)
 `brew install qlmarkdown`
 and launch the application one time; this will register the quicklook extension.
+
+# Apple Music, TV, Photos
+
+Configure them to point to the correct music library, media library (for TV), and photos library
+
+# Disk Drill
+
+Set up data recovery.
+
+# Daisy Disk
+
+Remember to configure to measure cloud storage providers (OneDrive, Google Drive)
 
 ## Parallels
 
@@ -278,6 +307,8 @@ TODO: add Google Drive
   * check "Create local snapshots every hour"
 
 Space Saver can help delete local Time Machine backups. No set up required.
+
+## Warp Terminal replacement
 
 ## Java
 
@@ -318,6 +349,7 @@ Reference:
 * Photos
 * Music
 * PDFExpert - download installer from their website instead of brew cask version.
+* iMazing
 
 
 * BetterZip

@@ -11,6 +11,7 @@ TODO: look at preferences porting tools
 - [Use Disk Utility to erase an Intel-based Mac - Apple Support](https://support.apple.com/en-us/HT208496)
 - [How to repair a Mac disk with Disk Utility - Apple Support](https://support.apple.com/en-us/HT210898)
 - [Use Apple Diagnostics to test your Mac - Apple Support](https://support.apple.com/en-us/HT202731)
+- Command-Control+Shift+Option+. or `sudo sysdiagnose` will do a complete system diagnosis and output a file in /tmp/. Note: It can take 10+ minutes.
 
 # Main Backup
 
