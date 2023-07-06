@@ -334,6 +334,11 @@ set appURL to "ms-word:ofe|u|" & fullURL
 * go through preferences
 * configure system clock to just time
 
+## Maccy
+
+* select paste automatically
+* set hot key to command-shift-V
+
 ## Fig - shell integrations
 
 * Open and configure as directed
@@ -355,6 +360,13 @@ Set up data recovery.
 ## Daisy Disk
 
 Remember to configure to measure cloud storage providers (OneDrive, Google Drive)
+
+## Calibre ebooks
+
+* Point at library on OneDrive
+* Make sure OneDrive library is set to always be kept on device
+* Copy calibre config from previous ~/Library/Preferences/calibre/
+  * a copy from 06-24-2023 is in Common Info folder on OneDrive
 
 ## Parallels
 
@@ -439,6 +451,7 @@ Reference:
 * Stats
 * Rocket
 * PopClip
+* Batteries
 
 * BetterZip
 * Harmony remote software: see https://support.myharmony.com/en-us/harmony-and-macos
