@@ -6,10 +6,17 @@
 
 echo "sourcing bash_profile..."
 
-# moved my bash settings to my bin directory which is checked into git.
 source ~/bin/bash_profile_bin
 
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+# moved my bash settings to my bin directory which is checked into git.
+# checking for warp
+if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then  #TODO: split bash_profile_bin into multiple - one for item, one for warp
+    source ~/bin/bash_profile_iterm
+else
+    source ~/bin/bash_profile_warp
+fi
+
+echo "** ready **"
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/bash_profile.post.bash" ]] && builtin source "$HOME/.fig/shell/bash_profile.post.bash"
