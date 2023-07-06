@@ -3,7 +3,7 @@
 # Master file for all bash configutation.  Keep it in bin directory.
 # copy ~/bin/.bash_profile to you home directory.  It sources this file.
 
-echo "sourcing bash_profile_bin"
+echo "sourcing bash_profile_warp"
 
 #echo "home dir: $HOME"
 echo "sourcing profile_bryan" && source ~/bin/profile_bryan # sources other bash settings, especially dev environment-related.
@@ -15,11 +15,12 @@ echo "sourcing profile_bryan" && source ~/bin/profile_bryan # sources other bash
 #source ~/bin/bashstrap/.bash_profile
 
 # load aliases
-source ~/bin/.alias_bash.sh
+#source ~/bin/.alias_bash.sh
 
 ### Prompt Colors
 # Modified version of @gf3’s Sexy Bash Prompt
 # (https://github.com/gf3/dotfiles)
+
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
 	export TERM=gnome-256color
 elif infocmp xterm-256color >/dev/null 2>&1; then
@@ -72,9 +73,8 @@ symbol="⚡ "
 
 # for more docs see [Bash Prompt Escape Sequences]( http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/bash-prompt-escape-sequences.html )
 #export PS1="\[\t\][\!] \[${MAGENTA}\]\u \[$RESET\]in \[$GREEN\]\w\[$RESET\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$RESET\]$symbol\[$RESET\]"
-export PS1="\[\t\][\!] \[${MAGENTA}\]\u \[$RESET\]in \[$GREEN\]\w\[$RESET\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$RESET\] :"
+export PS1="\[\t\][\!] \[${MAGENTA}\]\u \[$RESET\]in \[$GaREEN\]\w\[$RESET\]$symbol\[$RESET\]" # removed git branch stuff
 export PS2="\[$ORANGE\]→ \[$RESET\]"
-
 
 ### Misc
 
@@ -85,14 +85,14 @@ export PS2="\[$ORANGE\]→ \[$RESET\]"
 # https://timingapp.com/help/terminal
 # Be sure to set this in iTerm
 # iTerm -> Preferences -> Appearance -> Window & Tab titles -> check Show profile name option
-PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
-export PROMPT_COMMAND="${PROMPT_TITLE}; ${PROMPT_COMMAND}"
+#PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
+#export PROMPT_COMMAND="${PROMPT_TITLE}; ${PROMPT_COMMAND}"
 
 # init z! (https://github.com/rupa/z)
-~/bin/bashstrap/z.sh
+#~/bin/bashstrap/z.sh
 
 # enable iTerm2 shell integration
-source ~/.iterm2_shell_integration.bash
+#source ~/.iterm2_shell_integration.bash
 
 # add completions (which may or may not be installed)
 
