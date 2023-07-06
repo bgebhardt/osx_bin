@@ -63,7 +63,8 @@ alias xterm="xterm -bg black -fg yellow -sl 1000 +sb"
 ## TO DO:  more on complete for ssh and telnet to common hosts
 
 # set the title for an xterm
-alias title='echo "]0;\!*"'
+# doesn't work in warp terminal to commenting out
+#alias title='echo "]0;\!*"'
 
 # cvs-related aliases
 #alias shortstat='cvs status \!* | grep "File:"'
