@@ -16,6 +16,9 @@
     "altThirdCycle" : {
       "int" : 0
     },
+    "alwaysAccountForStage" : {
+      "int" : 0
+    },
     "applyGapsToMaximize" : {
       "int" : 0
     },
@@ -46,11 +49,17 @@
     "disabledApps" : {
 
     },
+    "dragFromStage" : {
+      "int" : 0
+    },
     "enhancedUI" : {
       "int" : 1
     },
     "footprintAlpha" : {
       "float" : 0.30000001192092896
+    },
+    "footprintAnimationDurationMultiplier" : {
+      "float" : 0
     },
     "footprintBorderWidth" : {
       "float" : 2
@@ -74,7 +83,7 @@
       "int" : 0
     },
     "landscapeSnapAreas" : {
-      "string" : "[3,{\"action\":24},8,{\"action\":14},6,{\"action\":13},2,{\"action\":2},4,{\"compound\":-2},5,{\"compound\":-3},1,{\"action\":20},7,{\"compound\":-4}]"
+      "string" : "[5,{\"compound\":-3},2,{\"action\":2},3,{\"action\":23},4,{\"compound\":-2},1,{\"action\":20},8,{\"action\":24},6,{\"action\":21},7,{\"compound\":-4}]"
     },
     "launchOnLogin" : {
       "bool" : true
@@ -87,6 +96,12 @@
     },
     "missionControlDragging" : {
       "int" : 0
+    },
+    "missionControlDraggingAllowedOffscreenDistance" : {
+      "float" : 25
+    },
+    "missionControlDraggingDisallowedDuration" : {
+      "int" : 250
     },
     "moveCursor" : {
       "int" : 0
@@ -158,10 +173,10 @@
       "float" : 1680
     },
     "stageSize" : {
-      "float" : 190
+      "float" : 60.005466461181641
     },
     "subsequentExecutionMode" : {
-      "int" : 1
+      "int" : 0
     },
     "SUEnableAutomaticChecks" : {
       "bool" : true
@@ -174,6 +189,9 @@
     },
     "todoMode" : {
       "bool" : false
+    },
+    "todoSidebarSide" : {
+      "int" : 1
     },
     "todoSidebarWidth" : {
       "float" : 400
@@ -205,6 +223,10 @@
       "keyCode" : 124,
       "modifierFlags" : 917504
     },
+    "lastTwoThirds" : {
+      "keyCode" : 2,
+      "modifierFlags" : 1703936
+    },
     "leftHalf" : {
       "keyCode" : 1,
       "modifierFlags" : 1835008
@@ -225,6 +247,10 @@
       "keyCode" : 123,
       "modifierFlags" : 1835008
     },
+    "reflowTodo" : {
+      "keyCode" : 45,
+      "modifierFlags" : 786432
+    },
     "restore" : {
       "keyCode" : 51,
       "modifierFlags" : 786432
@@ -237,10 +263,14 @@
       "keyCode" : 123,
       "modifierFlags" : 917504
     },
+    "toggleTodo" : {
+      "keyCode" : 11,
+      "modifierFlags" : 786432
+    },
     "topHalf" : {
       "keyCode" : 126,
       "modifierFlags" : 1572864
     }
   },
-  "version" : "67"
+  "version" : "75"
 }
