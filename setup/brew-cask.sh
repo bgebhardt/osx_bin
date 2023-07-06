@@ -35,7 +35,7 @@ brew install google-drive
 # Mail Plugin Manager.app - manually install this one or create cask
 #brew install sizzlingkeys # bought this in the app store; install with mas
 brew install timing
-#brew install tripmode # manage data on cell connection
+brew install tripmode # manage data on cell connection
 brew install karabiner-elements # powerful and stable keyboard customizer
 #brew install --cask raycast # replacement for spotlight (and alfred or launchbar)
 
@@ -234,6 +234,9 @@ brew install --cask batteries # Track all your devices' batteries - https://www.
 # free ebook reader and management software
 brew install --cask calibre # [calibre - E-book management](https://calibre-ebook.com/)
 brew install --cask fbreader # Name: FBReader book reader https://fbreader.org/macos/
+
+# ended up not liking adobe digital editions. FBReader is slighty better, but still lookng for best epub reader
+#brew install --cask adobe-digital-editions # Name: Adobe Digital Editions https://www.adobe.com/solutions/ebook/digital-editions.html
 
 # duplicate finders
 brew install --cask photosweeper-x # Tool to eliminate similar or duplicate photos https://overmacs.com/; preferred photo
