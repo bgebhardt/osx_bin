@@ -22,3 +22,14 @@ See Obsidian note on Computer Setup ideas for other config management ideas.
 
 How do automate setting up keybaord shortcuts in system preferences
 see https://forum.latenightsw.com/t/setting-other-applications-keyboard-shortcuts-using-nsuserdefaults-defaults-not-updating/3537/5
+
+
+# Apps to periodically pull configs from
+
+These are the top apps to make sure configs are saved periodically or every time I change them.
+
+* Calibre - ~/Library/Preferences/calibre/
+* Raycast export settings
+* Rectangle export settings
+* karabiner export settings
+* Bartender rules and settings
