@@ -119,6 +119,9 @@ brew install skype
 brew install soulver # Notepad with a built-in calculator https://soulver.app/
 brew install --cask numi #Calculator and converter application https://numi.app/; costs $19.99; has raycast integration
 
+brew install --cask rocket # Emoji picker optimized for blind people https://matthewpalmer.net/rocket/
+# [TextPal — Super-fast emoji picker for macOS](https://www.textpal.app/) is an alternate but not installable by brew
+
 # brew install logitech-myharmony #  -- no longer available
 brew install spotify
 brew install vlc
