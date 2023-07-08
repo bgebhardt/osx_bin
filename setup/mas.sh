@@ -15,7 +15,7 @@ brew install mas # Install App Store command line tools https://github.com/mas-c
 #mas install 567704457 # OmniPopLite (3.2)
 mas install 409183694 # Keynote (7.0)
 #mas install 456362093 # MuteMyMic (1.10)
-#mas install 484388250 # Numi (1.7.7)
+mas install 484388250 # Numi (1.7.7)
 mas install 784801555 # Microsoft OneNote (15.27.1)
 mas install 560846814 # PDF Converter Master (4.0.0)
 mas install 896450579 # Textual (6.0.2)
@@ -52,6 +52,7 @@ mas install 410801088 # Wallpaper Wizard
 #mas install 426397771 # SQLVue
 mas install 456624497 # Brightness Slider
 mas install 445189367 # PopClip
+mas install 1499181666  # OwlOCR - great screenshot OCR tool
 #mas install 883878097 # Server
 #mas install 576421334 # Converto
 #mas install 467939042 # Growl
@@ -95,6 +96,7 @@ mas install 1612708557 # Scaler - Scaler is a bandwidth monitor app for your mac
 
 mas install 1487406555  # Safari extension Tab Count
 mas install 1515213004  # Session Pal - Safari session manager
+mas install 1569813296  # 1Password for Safari
 
 mas install 1487937127  # Craft: Write notes, AI editing 2.5.5 [0.0]
 mas install 1660147028 # Amazing AI - Generate images from text using Stable Diffusion
