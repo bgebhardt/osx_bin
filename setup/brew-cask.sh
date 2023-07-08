@@ -74,11 +74,9 @@ brew install --cask zoom
 brew install --cask meetingbar # Shows the next meeting in the menu bar https://github.com/leits/MeetingBar
 # alternative not in brew: [Meeter](https://www.bardeen.ai/meeter)
 
-
 # retired top installs
 # brew install rescuetime # no longer using
 # brew install textmate # replaced by visual code
-
 
 
 ## Productivity/Office
@@ -99,7 +97,9 @@ brew install firefox
 brew install google-chrome
 # brew install flash-player -- no longer available
 #brew install google-earth
-brew install music-manager
+
+# brew install music-manager - no longer used
+
 # brew install intensify-pro -- no longer available
 # brew install kiwi  -- no longer available
 brew install kindle
@@ -111,6 +111,10 @@ brew install textexpander
 brew install omnigraffle
 brew install omnioutliner
 brew install pdf-converter-master
+brew install --cask cisdem-pdf-converter-ocr # PDF Converter with OCR capability https://www.cisdem.com/pdf-converter-ocr-mac.html # alternate conversion option that I don't really use.
+
+# brew install --cask curiosity # SwiftUI Reddit client https://github.com/Dimillian/RedditOS # easier to just use the web version
+
 brew install pdfpen
 brew install --cask skim # PDF reader and note-taking application https://skim-app.sourceforge.io/
 brew install --cask pdfsam-basic # Extracts pages, splits, merges, mixes and rotates PDF files https://pdfsam.org/
@@ -130,6 +134,8 @@ brew install hype # web animation program
 # brew install houdahgeo -- no longer available
 brew install wallpaper-wizard # desktop picture app
 brew install --cask topnotch # Utility to hide the notch - https://topnotch.app/
+
+brew install --cask mathpix-snipping-tool # Scanner app for math and science https://mathpix.com/ 
 
 # Markdown viewers
 brew install marked
@@ -234,12 +240,16 @@ brew install --cask paletro # Command palette in any application - https://appma
 brew install --cask mission-control-plus # Manage your windows in Mission Control - https://fadel.io/MissionControlPlus
 brew install --cask batteries # Track all your devices' batteries - https://www.fadel.io/batteries/
 
+# Bring System-level Arrange Window features to Mac - [Wins - Window Manager for Mac](https://wins.cool/) - bought but no longer using.
+
 # free ebook reader and management software
 brew install --cask calibre # [calibre - E-book management](https://calibre-ebook.com/)
 brew install --cask fbreader # Name: FBReader book reader https://fbreader.org/macos/
 
 # ended up not liking adobe digital editions. FBReader is slighty better, but still lookng for best epub reader
 #brew install --cask adobe-digital-editions # Name: Adobe Digital Editions https://www.adobe.com/solutions/ebook/digital-editions.html
+
+brew install --cask xmind # Mind mapping and brainstorming tool https://www.xmind.net/
 
 # duplicate finders
 brew install --cask photosweeper-x # Tool to eliminate similar or duplicate photos https://overmacs.com/; preferred photo
@@ -268,6 +278,19 @@ brew install --cask tnefs-enough # Read and extract files from Microsoft TNEF fi
 # Reference: [5 Ways to Turn Any Website Into a Desktop Mac App](https://www.makeuseof.com/tag/website-desktop-mac-app/)
 brew install --cask fluid # Tool to turn a website into a desktop app - free app - https://fluidapp.com/
 #brew install --cask unite # Turn websites into apps https://bzgapps.com/unite # need to upgrade to version 4 if I want to use.
+
+# brew install --cask camo-studio # Use your phone as a high-quality webcam with image tuning controls https://reincubate.com/camo/
+# don't have a need for this but saving for reference
+
+brew install --cask descript # Audio and video editor https://www.descript.com/ # innovative video editor that uses text to edit video
+
+brew install --cask netspot # WiFi site survey software and WiFi scanner https://www.netspotapp.com/
+
+# per app sound control apps that require more permissions than I'm willing to give. And are both paid apps.
+# brew install --cask sound-control # Per-app audio controls https://staticz.com/soundcontrol/ # paid app that didn't work well for me
+# brew install --cask soundsource # Sound and audio controller https://rogueamoeba.com/soundsource/
+
+
 
 ## Development apps
 brew install devutils # developer toolbox https://devutils.app/
@@ -363,6 +386,8 @@ brew install heroic
 # xattr -d com.apple.quarantine /Applications/Heroic.app # run this to fix the app is damaged error.
 
 brew install --cask onecast
+
+brew install --cask crossover # Tool to run Windows software https://www.codeweavers.com/products/crossover-mac/
 
 # Free Comic Book Reader
 brew install yacreader
