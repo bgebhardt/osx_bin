@@ -108,6 +108,8 @@ mas install 512464723  # AS Timer - easy to use timer; I tend to use raycast's b
 mas install 6444667067  # Hyperduck - Send links from iOS to a Mac; works better than air drop, works in any app, better than handoff
 mas install 472717129  # Type2Phone - Hyperduck likely is better
 
+mas install 1522267256 # Shareful - Shareful makes the system share menu even more useful by providing some commonly needed share services
+
 mas install 876529098   # StockSpy Realtime Stocks Quote
 mas install 973213640   # MSG Viewer for Outlook
 mas install 545519333  # Prime Video
