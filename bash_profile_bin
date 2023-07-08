@@ -17,6 +17,9 @@ echo "sourcing profile_bryan" && source ~/bin/profile_bryan # sources other bash
 # load aliases
 source ~/bin/.alias_bash.sh
 
+# load 1Password CLI plugins
+source /Users/bryan/.config/op/plugins.sh
+
 ### Misc
 
 # Only show the current directory's name in the tab (DISABED for Timing)
