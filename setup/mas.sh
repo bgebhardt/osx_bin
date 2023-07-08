@@ -114,6 +114,11 @@ mas install 876529098   # StockSpy Realtime Stocks Quote
 mas install 973213640   # MSG Viewer for Outlook
 mas install 545519333  # Prime Video
 
+# Brainfever image apps [BrainFeverMedia](http://www.brainfevermedia.com/index.html)
+mas install 1468834161  # BrainFever
+mas install 1557797120  # Infinite Skies  
+# mas install 1468834161  # LensFlare Studio
+
 # mas install 540348655  # Monosnap - replaced by Shottr, but still a good app
 
 #1611378436  Pure Paste (1.0.1) - paste without formatting # tried it but PopClip is better
