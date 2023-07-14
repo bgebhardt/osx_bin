@@ -295,7 +295,6 @@ brew install --cask netspot # WiFi site survey software and WiFi scanner https:/
 ## Development apps
 brew install devutils # developer toolbox https://devutils.app/
 brew install atom
-brew install diffmerge
 brew install aptanastudio
 brew install aqua-data-studio
 brew install aquamacs
@@ -305,7 +304,6 @@ brew install coderunner
 brew install dash
 brew install boot2docker
 # brew install couchbase-server-community # commented out as it uses lots of disk space
-brew install deltawalker
 brew install espresso
 brew install github-release
 brew install xquartz
@@ -322,8 +320,17 @@ brew install --cask macpilot # Graphical user interface for the command terminal
 brew install --cask network-radar # Tool to scan and monitor the network
 brew install --cask remote-wake-up # Wake up devices with a click of a button
 brew install --cask colorwell # Color picker and color palette generator
-brew install --cask fig # auto-complete for shell
+brew install --cask fig # auto-complete for shell # I now use the Warp terminal instead
 #brew install --cask background-music # [kyleneideck/BackgroundMusic: Background Music, a macOS audio utility: automatically pause your music, set individual apps' volumes and record system audio.](https://github.com/kyleneideck/BackgroundMusic#download) # doesn't work quite right.
+
+# diff tools
+# nice article comparing diff tools - [The 5 Best Mac File Comparison Tools and Diff Tools](https://www.makeuseof.com/tag/mac-file-comparison-tools/)
+# delta walker is the best for me right now and I own it
+brew install --cask deltawalker # diff tool https://www.deltawalker.com/ # paid app, find/replace with regex; cli; undo/redo; export diffs
+brew install --cask meld # Visual diff and merge tool https://yousseb.github.io/meld/ # 3-way compare, text editor, syntax highlighting, regex
+brew install --cask diffmerge # [SourceGear | DiffMerge](https://www.sourcegear.com/diffmerge/) # taks drag and drop!
+# brew install --cask beyond-compare # Compare files and folders https://www.scootersoftware.com/ paid app # compare with remote servers (OneDrive, Google, ...); Table compare; scripting
+# brew install kaleidoscope  # File and Folder comparison tool # paid app so removing
 
 brew install --cask mark-text # Simple and elegant markdown editor - https://github.com/marktext/marktext; on Windows too!
 
@@ -362,7 +369,6 @@ brew install webpquicklook       # Preview WebP images
 #brew install facter        # cask broken # Facter gathers basic facts about systems. such as hardware, network settings, OS type and more.
 #brew install sublime-text3 # cask broken # Sublime Text is a sophisticated text editor for code, markup and prose.
 brew install gitup         # Visualization Tool for Git
-brew install kaleidoscope  # File and Folder comparison tool
 
 # Data science
 #brew install anaconda
