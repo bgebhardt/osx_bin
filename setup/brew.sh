@@ -346,5 +346,7 @@ brew install tmux
 
 brew install ncdu # NCurses Disk Usage https://dev.yorhel.nl/ncdu
 
+brew install cmatrix # Console Matrix (like the movie Marix) https://github.com/abishekvashok/cmatrix/
+
 # Remove outdated versions from the cellar.
 brew cleanup
