@@ -143,7 +143,11 @@ brew install mweb-pro
 
 brew install --cask coteditor # Plain-text editor for web pages, program source codes and more https://coteditor.com/; its scriptable
 
-brew install --cask maccy # Clipboard manager https://maccy.app/
+# Clipboard managers
+brew install --cask maccy # Clipboard manager https://maccy.app/ # current favorite
+brew install --cask 1clipboard # Clipboard managing app https://1clipboard.io/
+brew install --cask pastebot # Workflow application to improve productivity https://tapbots.com/pastebot/
+
 
 brew install --cask cakebrew # GUI app for Homebrew https://github.com/brunophilipe/Cakebrew
 
@@ -169,7 +173,6 @@ brew install --cask mimestream # new preferred Gmail desktop client
 # consider also Mailplane
 
 ## Utilities
-brew install 1clipboard
 # brew install amazon-drive -- no longer available
 # brew install amazon-music # need to delete folder in Applications Support and then works -- no longer supported
 brew install bartender
@@ -212,7 +215,10 @@ brew install macpilot
 # brew install macupdate-desktop -- no longer available
 brew install mactracker
 # brew install rcdefaultapp -- no longer available
+
 brew install plex-media-server
+brew install --cask plexamp # Music player focusing on visuals https://plexamp.com/ (free version started on 07-30-2023)
+
 brew install popclip
 brew install superduper
 # brew install supersync
@@ -285,6 +291,8 @@ brew install --cask fluid # Tool to turn a website into a desktop app - free app
 brew install --cask descript # Audio and video editor https://www.descript.com/ # innovative video editor that uses text to edit video
 
 brew install --cask netspot # WiFi site survey software and WiFi scanner https://www.netspotapp.com/
+
+brew install --cask breaktimer # Tool to manage periodic breaks https://breaktimer.app/
 
 # per app sound control apps that require more permissions than I'm willing to give. And are both paid apps.
 # brew install --cask sound-control # Per-app audio controls https://staticz.com/soundcontrol/ # paid app that didn't work well for me
@@ -384,7 +392,9 @@ brew install minecraft
 brew install --cask prismlauncher # Minecraft launcher https://prismlauncher.org/
 brew install battle-net
 brew install --cask playcover-community # Sideload iOS apps and games https://github.com/PlayCover/PlayCover never worked
-#brew install --cask bluestacks # Mobile gaming platform https://www.bluestacks.com/ play android games on mac/PC; doesn't work on M1 macs
+brew install --cask bluestacks # Mobile gaming platform https://www.bluestacks.com/ play android games on mac/PC; doesn't work on M1 macs; only provdes a manual installer
+# Try also [LDPlayer - Lightweight & Fast Android Emulator for PC](https://www.ldplayer.net/); no brew install
+
 #brew install --cask android-studio # Tools for building Android applications https://developer.android.com/studio/ (can emulate games but didn't really work)
 
 # [Heroic-Games-Launcher/HeroicGamesLauncher: A Native GOG and Epic Games Launcher for Linux, Windows and Mac.](https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher#macos)

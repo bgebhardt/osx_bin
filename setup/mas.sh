@@ -119,6 +119,11 @@ mas install 1468834161  # BrainFever
 mas install 1557797120  # Infinite Skies  
 # mas install 1468834161  # LensFlare Studio
 
+ mas install 1132845904 # AppLocker • Passcode lock apps (1.6.0) Password protect secret apps
+
+mas install 1547364831  # Blink: Eye Strain Reliever     (1.1)
+mas install 1457158844  # Take a break - timer, reminder (1.7.1)
+
 # mas install 540348655  # Monosnap - replaced by Shottr, but still a good app
 
 #1611378436  Pure Paste (1.0.1) - paste without formatting # tried it but PopClip is better
