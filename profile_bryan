@@ -124,6 +124,11 @@ export LS_COLORS="di=01;33"
 # set up your xdisplay
 export DISPLAY="localhost:0.0"
 
+# set up ngrok shell completions, add this to your profile:
+if command -v ngrok &>/dev/null; then
+  eval "$(ngrok completion)"
+fi
+
 # ======================================================
 # Set up development environment for Java and Python
 # ======================================================
@@ -191,3 +196,8 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+## TO ADD to powershell set up
+# ==> powershell
+# To use Homebrew in PowerShell, set:
+#   Add-Content -Path $PROFILE.CurrentUserAllHosts -Value '$(/opt/homebrew/bin/brew shellenv) | Invoke-Expression'
