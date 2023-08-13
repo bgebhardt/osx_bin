@@ -366,6 +366,8 @@ brew install visual-studio-code
 #brew install pgweb # postgres web admin - see https://github.com/sosedoff/pgweb
 # brew install yourkit-java-profiler # cask broken
 
+# see [Quick Look plugins for software development | mixable Blog](https://mixable.blog/quick-look-plugins-for-software-development/) for more info
+# Note: some of the plugins might not work instantly after brew install ... when you are on macOS Catalina or later. In this case, it is possible to download the plugin manually and copy the .qlgenerator file to ~/Library/QuickLook. This requires to run qlmanage -r (or a system restart) to enable the plugin.
 brew install qlcolorcode         # Preview source code files with syntax highlighting
 brew install qlstephen           # Preview plain text files without a file extension. Example: README, CHANGELOG, etc.
 brew install quicklook-json      # Preview JSON files
@@ -373,6 +375,7 @@ brew install qlprettypatch       # Preview .patch files
 brew install quicklook-csv       # Preview CSV files
 brew install betterzipql         # Preview archives
 brew install webpquicklook       # Preview WebP images
+# brew install qlmarkdown # [sbarex/QLMarkdown: macOS Quick Look extension for Markdown files.](https://github.com/sbarex/QLMarkdown) duplicated line from above.
 
 #brew install facter        # cask broken # Facter gathers basic facts about systems. such as hardware, network settings, OS type and more.
 #brew install sublime-text3 # cask broken # Sublime Text is a sophisticated text editor for code, markup and prose.
