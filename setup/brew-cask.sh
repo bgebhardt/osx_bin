@@ -202,7 +202,8 @@ brew install --cask app-tamer # CPU management application - https://www.stclair
 brew install disk-drill
 # brew install disk-sensei -- no longer available
 brew install appdelete
-brew install bluesense
+brew install bluesense # Detect the presence of your Bluetooth device https://apps.inspira.io/bluesense/
+
 # disk-inventory-x
 # omnidisksweeper
 #dropbox-encore
@@ -417,6 +418,15 @@ brew install --cask streamlabs-obs
 brew install --cask aerial # Apple TV Aerial screensaver https://github.com/JohnCoates/Aerial
 
 brew install --cask netnewswire # Free and open-source RSS reader - https://netnewswire.com/
+
+# VNC viewers and servers
+# Real VNC is the easiest, but Apple Sharing doesn't support secure connections. Would require paid server for better security
+# other solutions seem to work best with their own VNC server running on the remote machine.
+brew install --cask vnc-viewer # Remote desktop application focusing on security https://www.realvnc.com/
+#brew install tiger-vnc # VNC viewer and server https://tigervnc.org/ # has a lot of dependencies so commenting out for now.
+#brew install --cask tigervnc-viewer # Multi-platform VNC client and server https://tigervnc.org/
+#brew install --cask turbovnc-viewer # Remote display system https://www.turbovnc.org/
+# brew install --cask jollysfastvnc # nice but is paid software
 
 # clean up cached cask files
 brew cleanup
