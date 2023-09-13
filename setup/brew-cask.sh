@@ -428,6 +428,9 @@ brew install --cask vnc-viewer # Remote desktop application focusing on security
 #brew install --cask turbovnc-viewer # Remote display system https://www.turbovnc.org/
 # brew install --cask jollysfastvnc # nice but is paid software
 
+
+brew install --cask keyboardcleantool # Blocks all Keyboard and TouchBar input to clean keyboard https://folivora.ai/keyboardcleantool
+
 # clean up cached cask files
 brew cleanup
 
