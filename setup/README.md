@@ -39,6 +39,18 @@ $ git config --global user.email bryan.gebhardt@gmail.com
 
 * TODO: Set up ssh keys for new computer
 
+### Optional - change brew cache location
+The brew cache can take up space so I move it to an external drive always installed in my laptop.
+Add this to the .bash_profile in the home directory. I don't check this in because this volume doesn't exist on my other computers.
+
+```
+# the default homebrew cache location
+# brew --cache
+#/Users/bryan/Library/Caches/Homebrew
+export HOMEBREW_CACHE="/Volumes/Bert/Caches/Homebrew"
+echo "setting brew cache location to $HOMEBREW_CACHE"
+```
+
 # Install applications
 
 * Install Rosetta with `/usr/sbin/softwareupdate --install-rosetta --agree-to-license`
