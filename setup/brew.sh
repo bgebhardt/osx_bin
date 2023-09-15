@@ -157,7 +157,7 @@ brew install grails
 brew install graphicsmagick
 brew install graphviz
 brew install grep
-brew install groovy
+#brew install groovy # 09-14-2023: removed as I don't use this and it wouldn't update.
 brew install gzip
 brew install htop-osx
 brew install httpie
