@@ -183,6 +183,12 @@ brew install --cask stats # Name: Stats - System monitor for the menu bar https:
 # alternative not as good as stats though
 # brew install --cask iglance # System monitor for the status bar - https://github.com/iglance/iGlance
 
+brew install --cask menubar-stats # System monitor with temperature & fans plugins https://seense.com/menubarstats/
+# clock - no cask; same software maker [seense | The Clock for macOS](https://seense.com/the_clock/)
+
+brew install --cask command-tab-plus #Keyboard-centric application and window switcher https://noteifyapp.com/command-tab-plus/
+# quick expose - no cask; same software maker [Quick Exposé: A New Way to Use Mission Control and App Exposé on macOS • MacPlus Software](https://noteifyapp.com/quick-expose/)
+
 # Apps to force the mac to stay awake; not go into sleep
 #brew install caffeine # retired this one for one of the 2 below
 brew install --cask keepingyouawake #Name: KeepingYouAwake - Tool to prevent the system from going into sleep mode https://keepingyouawake.app/
