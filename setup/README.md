@@ -119,6 +119,9 @@ The following apps you'll have to get and install via there web installer
 * [JSON Wizard | JSON, the easy way. For Mac.](https://jsonwizard.app/)
 * [Premium Fonts for Mac and Windows | MacAppware](https://macappware.com/software/mac-fonts/)
 * [Mac Font Manager Deluxe | MacAppware](https://macappware.com/software/mac-font-manager-deluxe/)
+* Clock - no cask; same software maker [seense | The Clock for macOS](https://seense.com/the_clock/)
+* Quick expose - no cask; same software maker [Quick Exposé: A New Way to Use Mission Control and App Exposé on macOS • MacPlus Software](https://oteifyapp.com/quick-expose/)
+
 
 # Add all Scripts
 
