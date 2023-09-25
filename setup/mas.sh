@@ -124,7 +124,12 @@ mas install 1557797120  # Infinite Skies
 mas install 1547364831  # Blink: Eye Strain Reliever     (1.1)
 mas install 1457158844  # Take a break - timer, reminder (1.7.1)
 
+# wifi and network analyzers and speed testers
 mas install 1526841848 # yFi WiFi Companion (1.2) [yFi - stay connected to your WiFi](https://yfi.coderose.io/) - auto reconnects wifi when transfer rate is slow.
+
+mas install 1664371307 # Ultra Wifi - Analyzer, Monitor (2.1.0) # this one is the best!
+mas install 1153157709 # Speedtest by Ookla                      (1.27)
+mas install 1455463454 # WiFi Speed Test Tools                   (1.6.4)
 
 # mas install 540348655  # Monosnap - replaced by Shottr, but still a good app
 
