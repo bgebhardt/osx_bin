@@ -102,7 +102,7 @@ brew install google-chrome
 
 # brew install intensify-pro -- no longer available
 # brew install kiwi  -- no longer available
-brew install kindle
+# brew install kindle # Kindle app retired on 10-31-2023. Install via app store instead. See mas.sh
 brew install send-to-kindle # Requires Rosetta 2 installed
 brew install markdown-service-tools
 brew install qlmarkdown # [sbarex/QLMarkdown: macOS Quick Look extension for Markdown files.](https://github.com/sbarex/QLMarkdown)

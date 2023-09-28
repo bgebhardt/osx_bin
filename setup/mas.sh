@@ -131,6 +131,8 @@ mas install 1664371307 # Ultra Wifi - Analyzer, Monitor (2.1.0) # this one is th
 mas install 1153157709 # Speedtest by Ookla                      (1.27)
 mas install 1455463454 # WiFi Speed Test Tools                   (1.6.4)
 
+mas install 302584613  # Amazon Kindle                                (6.86) replaces Kindle Classic app
+
 # mas install 540348655  # Monosnap - replaced by Shottr, but still a good app
 
 #1611378436  Pure Paste (1.0.1) - paste without formatting # tried it but PopClip is better
