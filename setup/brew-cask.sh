@@ -155,8 +155,10 @@ brew install --cask cakebrew # GUI app for Homebrew https://github.com/brunophil
 # Notion notetaking apps - cross platform
 brew install --cask notion # Notion note taking; doesn't support offline notes well
 brew install --cask simplenote # [Create a Simplenote Account](https://app.simplenote.com/signup/) supports offline notes
-brew install --cask joplin # Note taking and to-do application with synchronization capabilities https://joplinapp.org/
-brew install joplin-cli
+
+# I replaced joplin with obsidian 
+#brew install --cask joplin # Note taking and to-do application with synchronization capabilities https://joplinapp.org/
+#brew install joplin-cli
 # brew install --cask curio # Note-taking and organizing app https://zengobi.com/curio/
 
 brew install --cask tagspaces # Offline, open-source, document manager with tagging support https://www.tagspaces.org/
@@ -311,7 +313,7 @@ brew install --cask breaktimer # Tool to manage periodic breaks https://breaktim
 brew install devutils # developer toolbox https://devutils.app/
 brew install atom
 brew install aptanastudio
-brew install aqua-data-studio
+# brew install aqua-data-studio # disabled as I use it rarely and it's 1 GB of space
 brew install aquamacs
 brew install base
 brew install codekit
