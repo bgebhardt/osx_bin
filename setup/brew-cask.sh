@@ -393,6 +393,12 @@ brew install gitup         # Visualization Tool for Git
 # Data science
 #brew install anaconda
 
+# Social and Messaging
+
+brew install --cask telegram-a # Web client for Telegram messenger - https://web.telegram.org/a/get
+brew install --cask beeper # Universal chat app powered by Matrix - https://www.beeper.com/ (I'm on the waitlist)
+
+
 # Games
 brew install gog-galaxy
 brew install steam
