@@ -30,6 +30,13 @@ TODO: script to get default settings of interest to TODO.md
 
 # Per App checklists
 
+## Karabiner settings
+
+1. Open the Karbiner app
+2. Go to Misc section
+3. Click open config directory
+4. Copy config directory to back it up.
+
 ## Raycast
 
 *Export settings*
@@ -41,10 +48,8 @@ Use the "Export Preferences & Data" command to export preferences, aliases, hotk
 
 Run AppleScript I wrote to export all keybindings which will be manually re-added to scripts on the new computer
 
-
-
-
 ## Rectangle window management
 
+Export Rectangle settings in it's preferences
 
 ## Swish window management
