@@ -68,7 +68,6 @@ brew install dex2jar
 brew install dns2tcp
 brew install fcrackzip
 brew install foremost
-brew install hashpump
 brew install hydra
 brew install john
 brew install knock
@@ -212,7 +211,6 @@ brew install tig
 brew install tree
 brew install the_silver_searcher # fast source code searching with "ag"
 brew install unixodbc
-brew install vagrant-completion
 brew install vim
 brew install wdiff
 brew install wget
@@ -239,8 +237,6 @@ brew install rich-cli # Command-line toolbox for fancy output in the terminal ht
 # brew install heroku - as of 2018 we no longer use heroku
 brew install azure-cli
 
-
-brew install dotnet # Also known as: dotnet@7 .NET Core https://dotnet.microsoft.com/
 
 # 09-04-2016 added to make EmptyEpsilon work
 # https://github.com/oznogon/EmptyEpsilon/issues/7
