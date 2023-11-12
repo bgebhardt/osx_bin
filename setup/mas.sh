@@ -52,7 +52,7 @@ mas install 410801088 # Wallpaper Wizard
 #mas install 426397771 # SQLVue
 mas install 456624497 # Brightness Slider
 mas install 445189367 # PopClip
-mas install 1499181666  # OwlOCR - great screenshot OCR tool
+mas install 6462355119 # OwlOCR - Screenshot to Text (6.0.6)
 #mas install 883878097 # Server
 #mas install 576421334 # Converto
 #mas install 467939042 # Growl
