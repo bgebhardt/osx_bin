@@ -29,13 +29,18 @@ Finder settings
 
 * Change terminal default profile to Homebrew
 * Change default shell to bash: `chsh -s /bin/bash`
-* Install github cls `brew install gh` see [cli/cli: GitHub’s official command line tool](https://github.com/cli/cli#installation)
-* Login to git with `gh auth login`
+* go to brew.sh and follow instructions to install homebrew
+* Install github cls `/opt/homebrew/bin/brew install gh` see [cli/cli: GitHub’s official command line tool](https://github.com/cli/cli#installation)
+* Login to git with `/opt/homebrew/bin/gh auth login`
 
 * Set your git user name. see https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
 
 $ git config --global user.name "Bryan Gebhardt"
 $ git config --global user.email bryan.gebhardt@gmail.com
+
+## Download bin from github
+/opt/homebrew/bin/gh repo clone bgebhardt/osx_bin
+follow the rest of the instructions on this page: https://github.com/bgebhardt/osx_bin
 
 * TODO: Set up ssh keys for new computer
 
