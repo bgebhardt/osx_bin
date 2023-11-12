@@ -14,9 +14,6 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
-# install cask
-brew install cask
-
 # install apps
 
 ## TODO: need to filter out which ones are from the App Store now too
@@ -410,8 +407,8 @@ brew install minecraft
 brew install --cask prismlauncher # Minecraft launcher https://prismlauncher.org/
 brew install battle-net
 brew install --cask playcover-community # Sideload iOS apps and games https://github.com/PlayCover/PlayCover never worked
-brew install --cask bluestacks # Mobile gaming platform https://www.bluestacks.com/ play android games on mac/PC; doesn't work on M1 macs; only provdes a manual installer
-# Try also [LDPlayer - Lightweight & Fast Android Emulator for PC](https://www.ldplayer.net/); no brew install
+#brew install --cask bluestacks # Mobile gaming platform https://www.bluestacks.com/ play android games on mac/PC; doesn't work on M1 macs; only provdes a manual installer
+# Try also [LDPlayer - Lightweight & Fast Android Emulator for PC](https://www.ldplayer.net/); no brew install # 11-12-2023 does not work
 
 #brew install --cask android-studio # Tools for building Android applications https://developer.android.com/studio/ (can emulate games but didn't really work)
 
@@ -442,11 +439,7 @@ brew install --cask vnc-viewer # Remote desktop application focusing on security
 #brew install --cask turbovnc-viewer # Remote display system https://www.turbovnc.org/
 # brew install --cask jollysfastvnc # nice but is paid software
 
-
 brew install --cask keyboardcleantool # Blocks all Keyboard and TouchBar input to clean keyboard https://folivora.ai/keyboardcleantool
-
-# clean up cached cask files
-brew cleanup
 
 # Remove outdated versions from the cellar.
 brew cleanup
