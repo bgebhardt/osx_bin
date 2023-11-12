@@ -15,8 +15,6 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade --all
 
-# install cask
-brew install cask
 brew install mas # Install App Store command line tools https://github.com/mas-cli/mas
 
 # install apps
@@ -50,7 +48,7 @@ brew install --cask idrive # close backup
 
 # Login items
 brew install --cask bartender
-brew install --cask alfred # spotlight replacement
+#brew install --cask alfred # spotlight replacement # use raycast now instead
 brew install --cask raycast # spotlight replacement, deciding between it an alfred
 brew install --cask popchar
 brew install --cask rectangle
@@ -66,9 +64,9 @@ brew install --cask shottr # free screen shot tool; preferred over Monosnap
 #mas install 823766827 # OneDrive (17.3.6518)
 mas install 456624497 # Brightness Slider
 mas install 803453959 # Slack (2.0.3)
-mas install 1499181666 #  OwlOCR - Screenshot to Text (5.0.7)
+#mas install 1499181666 #  OwlOCR - Screenshot to Text (5.0.7)
+mas install 6462355119 # OwlOCR - Screenshot to Text (6.0.6)
 mas install 1607635845 # Velja (1.10.1) - browser picker: Open links in a specific browser or a matching native app. Easily switch between browsers
-
 
 
 # Remove outdated versions from the cellar.
