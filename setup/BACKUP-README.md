@@ -52,4 +52,7 @@ Run AppleScript I wrote to export all keybindings which will be manually re-adde
 
 Export Rectangle settings in it's preferences
 
+## Velja
+Export any custom rules and save them to OneDrive
+
 ## Swish window management
