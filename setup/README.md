@@ -151,6 +151,22 @@ Add Espson printer in Printers and Scanners
 Install [Epson Printer Drivers](https://epson.com/Support/wa00607d)
 * I skip this now as the software seems to cause issues.
 
+## Mackup
+A tool to backup and restore application configuration. Supports lots of applications.
+
+to backup configs run `mackup backup`
+to restore configs run `mackup restore`
+
+### Install and Config
+brew install mackup # Keep your Mac's application settings in sync https://github.com/lra/mackup
+[lra/mackup: Keep your application settings in sync (OS X/Linux)](https://github.com/lra/mackup)
+
+config docs: [mackup/doc at master · lra/mackup](https://github.com/lra/mackup/tree/master/doc#get-official-support-for-an-application)
+sample config file: [mackup/doc/.mackup.cfg at master · lra/mackup](https://github.com/lra/mackup/blob/master/doc/.mackup.cfg)
+
+My config is to sync to iDrive Cloud Drive. See mackup.template.cfg
+Supports about 20-30 of my apps
+
 ## General
 
 * Set CAPSLOCK to Control in System Preferences -> Keyboard -> Modifiers...
@@ -220,6 +236,10 @@ My vaults are in iDrive and OneDrive. Set up those to applications first.
 * switch shell to bash. I do it by changing the shell in the profile to `\bin\bash`
 * in Terminal set default profile to Homebrew colors
 
+## Warp terminal
+
+sign in and start using
+
 ## Typinator
 
 * Open app
@@ -278,11 +298,17 @@ Here's the script:
 
 ## OwlOCR Pro
 
+* use mas to install version 6.
+* in Pro preferences click restore from v5
+* set single screen capture to clipboard shortcut to cmd-shift-1
 * Open Preferences; Set to only in menu bar
+* Set up the CLI - Links: https://owlocr.com/; https://owlocr.com/blog/posts/owlocr-5-command-line-interface
+
+Old way
 * Get application from bundle bought on 03-25-2022
 Award-Winning Mac Bundle is Live!
 https://bundlehunt.com/my-account/downloads/all
-* Set up the CLI - Links: https://owlocr.com/; https://owlocr.com/blog/posts/owlocr-5-command-line-interface
+
 
 ## Better Display
 
@@ -291,7 +317,7 @@ https://bundlehunt.com/my-account/downloads/all
 
 ## Hookmark
 
-Activate with this Licence key
+Activate with this Licence key. Open link in browser.
 
 https://hook.cogsciapps.com/activate?info=d02975c273a42a6fa031c5e10e067ac856e8e3c3aee14a7020c528550ec991a879b576eec4638cc493b36c0915fdb3abb25fbe38760bb2a40a684adfcdf39d2f5d7653002625147ccafce1ec68aa2ff8ad643fe7b96ab0012680a3c0eb8bd87b867abc06fc2029bc30bf91691addafb0452473fd0f473e66196b0c8ca38af513eb195ad1b6151f6cbced0ee45cc0ad30660e0b43196ba0ecfc016b6a07c33a1d1083629b7d3d8d3fc2cbd6932a54f4f7ae803131589219a8fd784ae64cbe826eb14341e4173e892077f16e44a8a0a3947a8d8dd8b26f4228d5c6c7e96330d86b2e9d2aa1f14d42d0d9eef2d6bfee8052dbf714e53ffc2a257deda11b120bd007
 
@@ -299,6 +325,7 @@ https://hook.cogsciapps.com/activate?info=d02975c273a42a6fa031c5e10e067ac856e8e3
 * Set Copy Link to Control-Command-C
 * Set Copy Markdown Link to Control-Command-S
 * Activate iCloud sync to sync links
+* Import in link data if you have a recent backup
 * Set up custom apps
 
 Update Office apps in scripts tab. Change Get Address for each app as follows.
@@ -349,6 +376,11 @@ set appURL to "ms-word:ofe|u|" & fullURL
 * Grant profile access
 * Load rules from OneDrive Common Info folder
 
+
+## PopClip
+
+TODO: figure out list of all extensions you install.
+
 ## Itsy calendar
 
 * go through preferences
@@ -359,9 +391,15 @@ set appURL to "ms-word:ofe|u|" & fullURL
 * select paste automatically
 * set hot key to command-shift-V
 
+## MenuBar Status
+
+License - NFRTM-4BUJN-ZVE23-CGBFT-KUKDI-YZGK5-LHO53
+Restore backup from iCloud in preferences
+
 ## Fig - shell integrations
 
-* Open and configure as directed
+No longer used.
+Open and configure as directed
 
 ## Markdown Quicklook
 
@@ -372,6 +410,10 @@ and launch the application one time; this will register the quicklook extension.
 ## Apple Music, TV, Photos
 
 Configure them to point to the correct music library, media library (for TV), and photos library
+
+## Messages
+
+* enable iCloud message sync
 
 ## Disk Drill
 
@@ -421,10 +463,6 @@ TODO: add Google Drive
   * check "Create local snapshots every hour"
 
 Space Saver can help delete local Time Machine backups. No set up required.
-
-## Warp Terminal replacement
-
-TODO
 
 ## Java
 
