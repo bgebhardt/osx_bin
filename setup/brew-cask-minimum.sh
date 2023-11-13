@@ -59,6 +59,9 @@ brew install --cask default-folder-x
 brew install --cask betterdisplay
 brew install --cask shottr # free screen shot tool; preferred over Monosnap
 
+brew install mackup # Keep your Mac's application settings in sync https://github.com/lra/mackup
+# [lra/mackup: Keep your application settings in sync (OS X/Linux)](https://github.com/lra/mackup)
+
 # install mas applications
 # Read more about this at https://github.com/mas-cli/mas
 #mas install 823766827 # OneDrive (17.3.6518)

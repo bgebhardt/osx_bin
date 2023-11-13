@@ -30,6 +30,22 @@ TODO: script to get default settings of interest to TODO.md
 
 # Per App checklists
 
+## Mackup
+A tool to backup and restore application configuration. Supports lots of applications.
+
+to backup configs run `mackup backup`
+to restore configs run `mackup restore`
+
+### Install and Config
+brew install mackup # Keep your Mac's application settings in sync https://github.com/lra/mackup
+[lra/mackup: Keep your application settings in sync (OS X/Linux)](https://github.com/lra/mackup)
+
+config docs: [mackup/doc at master · lra/mackup](https://github.com/lra/mackup/tree/master/doc#get-official-support-for-an-application)
+sample config file: [mackup/doc/.mackup.cfg at master · lra/mackup](https://github.com/lra/mackup/blob/master/doc/.mackup.cfg)
+
+My config is to sync to iDrive Cloud Drive. See mackup.template.cfg
+Supports about 20-30 of my apps
+
 ## Karabiner settings
 
 1. Open the Karbiner app
