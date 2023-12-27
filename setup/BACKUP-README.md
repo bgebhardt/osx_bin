@@ -71,4 +71,8 @@ Export Rectangle settings in it's preferences
 ## Velja
 Export any custom rules and save them to OneDrive
 
-## Swish window management
+## calibre
+
+Copy ~/Library/Preferences/calibre directory to backup settings.
+This app is also supported by Mackup.
+
