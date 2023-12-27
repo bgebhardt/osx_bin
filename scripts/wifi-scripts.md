@@ -4,8 +4,8 @@ see in Obsidian vault - [wifi-scripts.md](hook://file/ZY0507MAP?p=YmluL3NjcmlwdH
 
 A set of scripts, tools, articles and notes to check wifi
 
-
 /System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport scan
+
 # Display wifi metrics script
 
 Script to display noise, signal str, last transmit, max transmit
@@ -15,6 +15,7 @@ Script to display noise, signal str, last transmit, max transmit
 This script will check for an increase in noise level.
 
 Steps
+
 - Check if wifi connected
 - Check noise level - agrCtlNoise: 0
 - Alert on noise level or disconnection
@@ -24,6 +25,7 @@ Steps
 similar to battery script created in Scripts directory
 
 # yFi app
+
 Great menubar app to detect your transmission rate. 
 In my network the rate varies brom 150-170 to 800 a lot so I can't really use it to reconnect or notify.
 
@@ -31,6 +33,7 @@ In my network the rate varies brom 150-170 to 800 a lot so I can't really use it
 [rose-m/yFi-app: yFi App is a small macOS status bar application that helps you keep a good WiFi connection.](https://github.com/rose-m/yFi-app)
 
 # Monitoring Network Strength
+
 from [Test Wireless Signal Strength from Command Line of Mac OS X](https://osxdaily.com/2010/07/07/test-wireless-signal-strength-from-the-command-line/)
 see link for even better ideas in the comments.
 
@@ -45,7 +48,6 @@ clear; while x=1; do /System/Library/PrivateFrameworks/Apple80211.framework/Vers
 
 > while true; do /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | grep CtlNoise; sleep 0.5; done
 agrCtlNoise: -89
-
 
 # Example of my networks scans
 
@@ -67,6 +69,7 @@ MCS Index: 8
 NSS: 2
 
 ## Good state
+
 Connected to Brady's room xpod.
      agrCtlRSSI: -37 to -41
     agrCtlNoise: -89
@@ -288,8 +291,6 @@ Ethernet Address: 36:f3:ca:e5:3e:c8
 
 VLAN Configurations
 ===================
-
-
 
 # Research links
 
