@@ -397,7 +397,7 @@ brew install --cask beeper # Universal chat app powered by Matrix - https://www.
 
 
 # Games
-brew install gog-galaxy
+#brew install gog-galaxy # disabling because it doesn't install well
 brew install steam
 brew install epic-games
 brew install steamcmd
