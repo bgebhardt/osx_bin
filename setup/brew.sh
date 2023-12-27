@@ -346,5 +346,7 @@ brew install ncdu # NCurses Disk Usage https://dev.yorhel.nl/ncdu
 
 brew install cmatrix # Console Matrix (like the movie Marix) https://github.com/abishekvashok/cmatrix/
 
+brew install blueutil # Get/set bluetooth power and discoverable state [toy/blueutil: CLI for bluetooth on OSX: power, discoverable state, list, inquire devices, connect, info, …](https://github.com/toy/blueutil)
+
 # Remove outdated versions from the cellar.
 brew cleanup
