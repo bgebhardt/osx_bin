@@ -6,6 +6,9 @@ A set of scripts, tools, articles and notes to check wifi
 
 
 /System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport scan
+# Display wifi metrics script
+
+Script to display noise, signal str, last transmit, max transmit
 
 # Check Gebhardt wifi connection quality
 
@@ -294,8 +297,8 @@ VLAN Configurations
 
 [Mac Terminal WiFi Commands - MattCrampton.com](https://www.mattcrampton.com/blog/managing_wifi_connections_using_the_mac_osx_terminal_command_line/) - has info on common networksetup commands for turning airport off/on, connecting to a network, etc.
 
-
 [Test Wireless Signal Strength from Command Line of Mac OS X](https://osxdaily.com/2010/07/07/test-wireless-signal-strength-from-the-command-line/)
+
 
 ## MCS
 Info on MCS index
