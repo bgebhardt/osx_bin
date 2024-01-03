@@ -296,7 +296,8 @@ brew install --cask fluid # Tool to turn a website into a desktop app - free app
 
 brew install --cask descript # Audio and video editor https://www.descript.com/ # innovative video editor that uses text to edit video
 
-brew install --cask netspot # WiFi site survey software and WiFi scanner https://www.netspotapp.com/
+brew install --cask netspot # WiFi site survey software and WiFi scanner https://www.netspotapp.com/ # never upgraded my license. But unlicensed is someone useful.
+# brew install --cask inssider # Defeat slow wifi https://www.metageek.com/products/inssider/ # doesn't work on Ventura :( 
 
 brew install --cask breaktimer # Tool to manage periodic breaks https://breaktimer.app/
 
