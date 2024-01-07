@@ -201,6 +201,7 @@ brew install rsync # Utility that provides fast incremental file transfer https:
 brew install rsync-time-backup # Time Machine-style backup for the terminal using rsync https://github.com/laurent22/rsync-time-backup
 brew install rclone # Rsync for cloud storage https://rclone.org/
 brew install --cask kapitainsky-rclone-browser # GUI for rclone https://github.com/kapitainsky/RcloneBrowser
+brew install duck # Command-line interface for Cyberduck (a multi-protocol file transfer tool) https://duck.sh/ (can be scripted)
 brew install sbt
 brew install scala
 brew install shellcheck
