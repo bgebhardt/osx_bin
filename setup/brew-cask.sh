@@ -85,10 +85,23 @@ brew install audacity
 #brew install busycal # I no longer use these
 #brew install busycontacts # I no longer use these
 # brew install fullcontact -- no longer available
-brew install elmedia-player
 #brew install evernote # install with mas instead
 #fantastical
 brew install --cask cron # Calendar for professionals and teams https://cron.com/
+
+# music and audio players and organizers
+brew install --cask aural # Audio player inspired by Winamp https://github.com/maculateConception/aural-player
+# didn't work :( brew install --cask jmc # Media organizer https://github.com/jcm93/jmc
+
+# crashes on start - brew install --cask clementine # Music player and library organizer https://www.clementine-player.org/
+# doesn't work - brew install --cask nightingale # Working tree for the community fork of Songbird https://getnightingale.com/
+
+# video players
+brew install elmedia-player # Free and open-source media player https://iina.io/
+brew install --cask movist-pro # Media player https://movistprime.com/
+brew install --cask iina # Free and open-source media player https://iina.io/
+brew install vlc # Multimedia player https://www.videolan.org/vlc/
+brew install mpv # Media player based on MPlayer and mplayer2 https://mpv.io
 
 brew install firefox
 brew install google-chrome
@@ -125,7 +138,6 @@ brew install --cask rocket # Emoji picker optimized for blind people https://mat
 
 # brew install logitech-myharmony #  -- no longer available
 brew install spotify
-brew install vlc
 brew install hype # web animation program
 # brew install lego-mindstorms-ev3 # not currently using
 # brew install houdahgeo -- no longer available
@@ -304,7 +316,6 @@ brew install --cask breaktimer # Tool to manage periodic breaks https://breaktim
 # per app sound control apps that require more permissions than I'm willing to give. And are both paid apps.
 # brew install --cask sound-control # Per-app audio controls https://staticz.com/soundcontrol/ # paid app that didn't work well for me
 # brew install --cask soundsource # Sound and audio controller https://rogueamoeba.com/soundsource/
-
 
 
 ## Development apps
