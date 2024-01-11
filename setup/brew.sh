@@ -202,6 +202,7 @@ brew install rsync-time-backup # Time Machine-style backup for the terminal usin
 brew install rclone # Rsync for cloud storage https://rclone.org/
 brew install --cask kapitainsky-rclone-browser # GUI for rclone https://github.com/kapitainsky/RcloneBrowser
 brew install duck # Command-line interface for Cyberduck (a multi-protocol file transfer tool) https://duck.sh/ (can be scripted)
+brew install fswatch # Monitor a directory for changes and run a shell command https://github.com/emcrisostomo/fswatch
 brew install sbt
 brew install scala
 brew install shellcheck
