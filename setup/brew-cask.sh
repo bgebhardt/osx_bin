@@ -173,6 +173,10 @@ brew install --cask simplenote # [Create a Simplenote Account](https://app.simpl
 brew install --cask tagspaces # Offline, open-source, document manager with tagging support https://www.tagspaces.org/
 brew install --cask obsidian # Knowledge base that works on top of a local folder of plain text Markdown files https://obsidian.md/
 
+# Zotera is good complement to obsidian. It can more easily tag and organize PDF's, images, files, etc.
+# see [Best tools for organizing PDFs in Obsidian - YouTube](https://www.youtube.com/watch?v=VqOc9OsMX_s)
+brew install --cask zotero # Collect, organize, cite, and share research sources https://www.zotero.org/ 
+
 brew install --cask tableflip # App to edit markdown files in place https://tableflipapp.com/
 
 brew install --cask figma # Collaborative team software https://www.figma.com/
