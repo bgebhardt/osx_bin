@@ -353,5 +353,7 @@ brew install cmatrix # Console Matrix (like the movie Marix) https://github.com/
 
 brew install blueutil # Get/set bluetooth power and discoverable state [toy/blueutil: CLI for bluetooth on OSX: power, discoverable state, list, inquire devices, connect, info, …](https://github.com/toy/blueutil)
 
+brew install tesseract # OCR (Optical Character Recognition) engine https://github.com/tesseract-ocr/
+
 # Remove outdated versions from the cellar.
 brew cleanup
