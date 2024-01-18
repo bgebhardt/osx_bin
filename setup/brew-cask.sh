@@ -457,5 +457,9 @@ brew install --cask vnc-viewer # Remote desktop application focusing on security
 
 brew install --cask keyboardcleantool # Blocks all Keyboard and TouchBar input to clean keyboard https://folivora.ai/keyboardcleantool
 
+brew install --cask sloth # [Sloth - Mac app that shows all open files and sockets |](https://sveinbjorn.org/sloth)
+
+brew install --cask alt-tab # [AltTab - Windows alt-tab on macOS](https://alt-tab-macos.netlify.app/)
+
 # Remove outdated versions from the cellar.
 brew cleanup
