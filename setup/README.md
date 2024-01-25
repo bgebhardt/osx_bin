@@ -367,6 +367,73 @@ end tell
 set appURL to "ms-word:ofe|u|" & fullURL
 ```
 
+For reference here are the original scripts
+```applescript
+use scripting additions
+use framework "Foundation"
+property NSURL : a reference to current application's NSURL
+
+tell application "Microsoft Excel"
+    set n to full name of active workbook
+    set fp to POSIX path of n
+    set rawUrl to NSURL's fileURLWithPath:fp
+    set f to rawUrl's absoluteString
+    return f as string
+end tell
+
+use framework "Foundation"
+property NSURL : a reference to current application's NSURL
+
+tell application "Microsoft PowerPoint"
+    set n to full name of active presentation
+    set fp to POSIX path of n
+    set rawUrl to NSURL's fileURLWithPath:fp
+    set f to rawUrl's absoluteString
+    return f as string
+end tell
+
+--Thanks to @lawyerboy https://discourse.hookproductivity.com/t/microsoft-word-and-deep-linking/3446/6
+
+use framework "Foundation"
+
+use AppleScript version "2.4" -- Yosemite (10.10) or later
+use scripting additions
+property NSURL : a reference to current application's NSURL
+
+set isFromPolling to 0
+
+try
+	if isHMLinkedStatusPolling is 1 then
+		set isFromPolling to 1
+	end if
+end try
+
+tell application "Microsoft Word"
+	set n to name of active document
+	set f to full name of active document
+	set ppf to POSIX path of f
+	set rawUrl to NSURL's fileURLWithPath:ppf
+	set urlStr to rawUrl's absoluteString
+	set selectedText to selection
+	set selStart to selection start of selectedText
+	set selEnd to selection end of selectedText
+	if isFromPolling is 0 and selStart is not equal to selEnd then
+		
+		set bkName to "AS" & (current application's NSUUID's UUID's UUIDString's stringByReplacingOccurrencesOfString:"-" withString:"")
+		make new bookmark at active document with properties {name:bkName, text object:text object of selectedText}
+		
+		
+		return "[" & n & " bkMark: " & bkName & "](" & urlStr & "#bkName=" & bkName & ")"
+	else
+		return urlStr as string
+	end if
+	
+end tell
+
+
+```
+
+
 ## Velja
 
 * Start at launch
