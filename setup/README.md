@@ -196,6 +196,13 @@ From [Show macOS app switcher across all monitors · GitHub](https://gist.github
 * Get password from 1Password
 * URL: [Raycast](https://www.raycast.com/) -- spotlight replacement; similar to Alfred
 
+### OneDrive web search links
+
+These two links will open personal and work OneDrive searches for the word passed in via Raycast.
+
+* personal: https://onedrive.live.com/?id=root&qt=search&q={Query}&scope=drive
+* work: https://microsoft-my.sharepoint-df.com/personal/{your-work-onedrive-location}/_layouts/15/onedrive.aspx?q={Query}&view=7&searchScope=all
+
 ## Alfred (to replace spotlight)
 
 * Change the spotlight short cut to Control-Option-Command-Space
