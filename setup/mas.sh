@@ -135,6 +135,8 @@ mas install 302584613  # Amazon Kindle                                (6.86) rep
 
 mas install 1516950324 # Overlap by Moleskine Studio    (2.1.1) Timezone meeting planner - [Overlap by Moleskine Studio on the App Store](https://apps.apple.com/us/app/overlap-by-moleskine-studio/id1516950324)
 
+mas install 1481005137 # Cloud Battery                   (4.41) Track battery level on all devices. Install on iOS too.
+
 # mas install 540348655  # Monosnap - replaced by Shottr, but still a good app
 
 #1611378436  Pure Paste (1.0.1) - paste without formatting # tried it but PopClip is better
