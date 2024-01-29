@@ -461,5 +461,7 @@ brew install --cask sloth # [Sloth - Mac app that shows all open files and socke
 brew install --cask alt-tab # [AltTab - Windows alt-tab on macOS](https://alt-tab-macos.netlify.app/)
 brew install --cask find-any-file # File finder https://apps.tempel.org/FindAnyFile/
 
+#brew install --cask stellarium # Tool to render realistic skies in real time on the screen https://stellarium.org/
+
 # Remove outdated versions from the cellar.
 brew cleanup
