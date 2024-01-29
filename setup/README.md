@@ -339,7 +339,7 @@ Update Office apps in scripts tab. Change Get Address for each app as follows.
 
 
 "cur doc link v2.applescript" scripts return encoded URLs which are suitable for sharing in email, etc.
-Here's one example
+Here's one example. Note Excel uses workbook instead of document.
 ```applescript
 -- gets a url to the front window of Microsoft Word.
 -- can choose a link that will download if pasted into browser or a link format that opens in the Mac office app (set gMacAppLink).
