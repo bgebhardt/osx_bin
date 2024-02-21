@@ -49,6 +49,7 @@ Moom
 
 # app for monitor brightness and other control
 brew install --cask betterdisplay # Display management tool https://betterdisplay.pro/; current favorite
+#brew install waydabber/betterdisplay/betterdisplaycli # [Integration features, CLI · waydabber/BetterDisplay Wiki](https://github.com/waydabber/BetterDisplay/wiki/Integration-features,-CLI); requires xcode
 brew install --cask monitorcontrol # Tool to control external monitor brightness & volume https://github.com/MonitorControl/MonitorControl
 brew install --cask lunar # monitor brightness manager; replaces flux
 
