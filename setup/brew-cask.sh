@@ -308,6 +308,8 @@ brew install --cask tnefs-enough # Read and extract files from Microsoft TNEF fi
 brew install --cask fluid # Tool to turn a website into a desktop app - free app - https://fluidapp.com/
 #brew install --cask unite # Turn websites into apps https://bzgapps.com/unite # need to upgrade to version 4 if I want to use.
 
+brew install --cask obs # Open-source software for live streaming and screen recording https://obsproject.com/
+
 # brew install --cask camo-studio # Use your phone as a high-quality webcam with image tuning controls https://reincubate.com/camo/
 # don't have a need for this but saving for reference
 
@@ -353,6 +355,8 @@ brew install --cask remote-wake-up # Wake up devices with a click of a button
 brew install --cask colorwell # Color picker and color palette generator
 brew install --cask fig # auto-complete for shell # I now use the Warp terminal instead
 #brew install --cask background-music # [kyleneideck/BackgroundMusic: Background Music, a macOS audio utility: automatically pause your music, set individual apps' volumes and record system audio.](https://github.com/kyleneideck/BackgroundMusic#download) # doesn't work quite right.
+
+brew install --cask anaconda # Distribution of the Python and R programming languages for scientific computing https://www.anaconda.com/
 
 # diff tools
 # nice article comparing diff tools - [The 5 Best Mac File Comparison Tools and Diff Tools](https://www.makeuseof.com/tag/mac-file-comparison-tools/)
@@ -463,6 +467,18 @@ brew install --cask alt-tab # [AltTab - Windows alt-tab on macOS](https://alt-ta
 brew install --cask find-any-file # File finder https://apps.tempel.org/FindAnyFile/
 
 #brew install --cask stellarium # Tool to render realistic skies in real time on the screen https://stellarium.org/
+
+# bundlehunt.com - 2024 Award Winning New Year Bundle purchase
+brew install --cask tg-pro # Temperature monitoring, fan control and diagnostics https://www.tunabellysoftware.com/tgpro/
+brew install --cask lingon-x # Automator software to start apps, run scripts or commands and more https://www.peterborgapps.com/lingon/
+brew install --cask time-out # Customizable timing of breaks https://www.dejal.com/timeout/
+brew install --cask blocs # Visual web design software https://blocsapp.com/
+
+
+brew install --cask transnomino # Batch rename utility https://www.transnomino.com/
+
+
+
 
 # Remove outdated versions from the cellar.
 brew cleanup

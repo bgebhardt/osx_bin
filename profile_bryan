@@ -9,7 +9,7 @@
 #TODO: merge this with ~/bin/.bash_profile (?)
 
 #set path to include my bin and the developer tools
-export PATH=~/bin:/opt/homebrew/bin/:/usr/local/sbin:/usr/local/bin:/Xcode3/Developer/usr/bin:/Developer/Tools:/Applications/Postgres.app/Contents/Versions/10/bin:$PATH:/usr/local/mysql/bin:/usr/local/graphviz-2.14/bin:/Applications/splunk/bin:/Library/Wireshark:/usr/local/share/npm/bin
+export PATH=~/bin:/opt/homebrew/bin/:/usr/local/sbin:/usr/local/bin:/usr/local/anaconda3/bin:/opt/homebrew/anaconda3/bin:/Xcode3/Developer/usr/bin:/Developer/Tools:/Applications/Postgres.app/Contents/Versions/10/bin:$PATH:/usr/local/mysql/bin:/usr/local/graphviz-2.14/bin:/Applications/splunk/bin:/Library/Wireshark:/usr/local/share/npm/bin
 
 # set path for dotnet root
 export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
