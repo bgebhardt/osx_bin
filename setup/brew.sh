@@ -307,7 +307,9 @@ brew install switchaudio-osx
 # data science
 brew install jupyter
 brew install nbdime # diffing and merging of Jupyter Notebooks
+# brew install ipykernel # kernel needed to run jupyter notebooks
 
+brew install pipx # Execute binaries from Python packages in isolated environments https://pipx.pypa.io
 
 # groups bandwidth by process.
 # [raboof/nethogs: Linux 'net top' tool](https://github.com/raboof/nethogs)
