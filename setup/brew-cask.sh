@@ -295,7 +295,11 @@ brew install --cask warp # Rust-based terminal app; couldn't get it to work thou
 brew install --cask hammerspoon # Name: Hammerspoon - Desktop automation application - https://www.hammerspoon.org/
 brew install --cask phoenix # Window and app manager scriptable with JavaScript https://github.com/kasper/phoenix/ (alternative to hammerspoon automation)
 
+# Battery monitoring software
 brew install --cask aldente # Menu bar tool to limit maximum charging percentage https://github.com/davidwernhart/AlDente
+brew install --cask coconutbattery # Tool to show live information about the batteries in various devices https://www.coconut-flavour.com/coconutbattery/
+# Battery Health 2 in mac app store
+# MenuBar stats
 
 brew install --cask hookmark # Link and retrieve key information https://hookproductivity.com/
 # install the hook cli with sudo gem install hookapp Run hook clip <file> for exmpale. See [Hook CLI - BrettTerpstra.com](https://brettterpstra.com/projects/hook-cli/) for more docs.
@@ -415,6 +419,8 @@ brew install gitup         # Visualization Tool for Git
 
 brew install --cask telegram-a # Web client for Telegram messenger - https://web.telegram.org/a/get
 brew install --cask beeper # Universal chat app powered by Matrix - https://www.beeper.com/ (I'm on the waitlist)
+
+brew install --cask whatsapp # Native desktop client for WhatsApp https://www.whatsapp.com/
 
 
 # Games
