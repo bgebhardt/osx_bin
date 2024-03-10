@@ -116,6 +116,8 @@ You can run these in the background and move on to configs. Check them periodica
 
 The following apps you'll have to get and install via there web installer
 
+* [FreeFileSync: Open Source File Synchronization & Backup Software](https://freefilesync.org/)
+  * [Download the Latest Version - FreeFileSync](https://freefilesync.org/download.php)
 * [Marked 2 - Smarter tools for smarter writers](https://marked2app.com/) - I bought from developer instead of Mac App Store
 * [alyssaxuu/later: Save all your Mac apps for later with one click 🖱️](https://github.com/alyssaxuu/later) - free app to save and restore open windows. Awesome!
 * [BuhoCleaner: The Best Mac Cleaner Optimized for M1/M2 Macs](https://www.drbuho.com/)
