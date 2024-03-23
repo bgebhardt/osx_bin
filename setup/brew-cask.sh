@@ -79,6 +79,8 @@ brew install --cask meetingbar # Shows the next meeting in the menu bar https://
 
 ## Productivity/Office
 
+brew install --cask libreoffice # Free cross-platform office suite, fresh version https://www.libreoffice.org/
+
 #brew install adium
 # brew install adobe-reader -- no longer available; install manually
 brew install amadeus-pro
