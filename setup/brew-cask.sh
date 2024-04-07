@@ -38,10 +38,19 @@ brew install karabiner-elements # powerful and stable keyboard customizer
 
 # Window Managers
 brew install --cask rectangle # window manager - current preferred window manager
+
+brew install --cask autumn # Window manager for JavaScript development https://apandhi.github.io/Autumn/
+#brew install --cask phoenix # Window and app manager scriptable with JavaScript https://github.com/kasper/phoenix/ 
+# phoenix seems not as easy to develop in as autumn; but has more examples and a few different features. See [Home · kasper/phoenix Wiki](https://github.com/kasper/phoenix/wiki#examples)
+
+# tiling windows managers
+# brew install --cask amethyst # Automatic tiling window manager similar to xmonad https://ianyh.com/amethyst/ # not ready to try this out yet.
+# good tutorial: [Boost your MacOS PRODUCTIVITY with Amethyst | Tiling Window Manager - YouTube](https://www.youtube.com/watch?v=7Z9-Ry4yGNc)
+# another tiling windows manager but requires disabling SIP: [koekeishiya/yabai: A tiling window manager for macOS based on binary space partitioning](https://github.com/koekeishiya/yabai)
+
 # brew install --cask tiles # Name: Sempliva Tiles Window manager https://www.sempliva.com/tiles/
 # brew install divvy # window manager; replaced by rectangle
 # [Magnet – Window manager for Mac](https://magnet.crowdcafe.com/)
-Moom
 # [Wins - Window Manager for Mac](https://wins.cool/) - I own this one too
 # [Moom · Many Tricks](https://manytricks.com/moom/) - don't own it
 
@@ -359,8 +368,10 @@ brew install --cask macpilot # Graphical user interface for the command terminal
 brew install --cask network-radar # Tool to scan and monitor the network
 brew install --cask remote-wake-up # Wake up devices with a click of a button
 brew install --cask colorwell # Color picker and color palette generator
-brew install --cask fig # auto-complete for shell # I now use the Warp terminal instead
+#brew install --cask fig # auto-complete for shell # I now use the Warp terminal instead # fig retired in September 2024
 #brew install --cask background-music # [kyleneideck/BackgroundMusic: Background Music, a macOS audio utility: automatically pause your music, set individual apps' volumes and record system audio.](https://github.com/kyleneideck/BackgroundMusic#download) # doesn't work quite right.
+
+#brew install --cask phoenix-code # Code editor https://phcode.io/ interesting web site development tool. Not using it but saving here just in case.
 
 brew install --cask anaconda # Distribution of the Python and R programming languages for scientific computing https://www.anaconda.com/
 
@@ -486,6 +497,7 @@ brew install --cask blocs # Visual web design software https://blocsapp.com/
 brew install --cask transnomino # Batch rename utility https://www.transnomino.com/
 
 
+brew install --cask horos # Medical image viewer https://horosproject.org/
 
 
 # Remove outdated versions from the cellar.
