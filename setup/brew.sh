@@ -83,6 +83,8 @@ brew install ucspi-tcp # `tcpserver` etc.
 brew install xpdf
 brew install xz
 
+brew install arp-scan # ARP scanning and fingerprinting tool https://github.com/royhills/arp-scan
+
 brew install dos2unix # Convert text between DOS, UNIX, and Mac formats https://waterlan.home.xs4all.nl/dos2unix.html
 
 # Install other useful binaries.
