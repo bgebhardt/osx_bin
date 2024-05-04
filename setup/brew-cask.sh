@@ -61,6 +61,7 @@ brew install --cask betterdisplay # Display management tool https://betterdispla
 #brew install waydabber/betterdisplay/betterdisplaycli # [Integration features, CLI · waydabber/BetterDisplay Wiki](https://github.com/waydabber/BetterDisplay/wiki/Integration-features,-CLI); requires xcode
 brew install --cask monitorcontrol # Tool to control external monitor brightness & volume https://github.com/MonitorControl/MonitorControl
 brew install --cask lunar # monitor brightness manager; replaces flux
+brew install deskpad # Virtual monitor for screen sharing https://github.com/Stengo/DeskPad
 
 brew install --cask displaylink # Drivers for DisplayLink docks, adapters and monitors - https://www.synaptics.com/products/displaylink-graphics
 
@@ -459,6 +460,8 @@ brew install heroic
 brew install --cask onecast
 
 brew install --cask crossover # Tool to run Windows software https://www.codeweavers.com/products/crossover-mac/
+brew install --cask whisky # Wine wrapper built with SwiftUI https://getwhisky.app/
+
 
 # Free Comic Book Reader
 brew install yacreader
