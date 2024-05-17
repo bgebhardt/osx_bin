@@ -9,65 +9,68 @@
 # script to check size of folders too
 # Consider clearing the cache for the Office apps too
 
+# Cache's folder is typically small
+
 # Important directories
 #open ~/Library/Containers/com.microsoft.Excel/Data/Library/Application\ Support/Microsoft/AppData/Microsoft/Office/16.0/OfficeFileCache 
 #open ~/Library/Containers/com.microsoft.Excel/Data/Library/Caches
 #open ~/Library/Containers/com.microsoft.Excel/Data/Library/Logs/Diagnostics/EXCEL/Upload
+ #open ~/Library/Containers/com.microsoft.Excel/Data/tmp
 
 #open ~/Library/Containers/com.microsoft.Word/Data/Library/Application\ Support/Microsoft/AppData/Microsoft/Office/16.0/OfficeFileCache
 #open ~/Library/Containers/com.microsoft.Word/Data/Library/Caches
 #open ~/Library/Containers/com.microsoft.Word/Data/Library/Logs/Diagnostics/WORD/Upload
+# open ~/Library/Containers/com.microsoft.Word/Data/tmp
 
 #open ~/Library/Containers/com.microsoft.Powerpoint/Data/Library/Application\ Support/Microsoft/AppData/Microsoft/Office/16.0/OfficeFileCache
 #open ~/Library/Containers/com.microsoft.Powerpoint/Data/Library/Caches
 #open ~/Library/Containers/com.microsoft.Powerpoint/Data/Library/Logs/Diagnostics/POWERPOINT/Upload
+#open ~/Library/Containers/com.microsoft.Powerpoint/Data/tmp
 
-# Define the number of days
-days=28
-
-# Calculate the sizes of files older than the specified number of days
-du_output_word=$(find ~/Library/Containers/com.microsoft.Word/Data/Library/Logs/Diagnostics/WORD/Upload -type f -mtime +$days -exec du -cm {} + | grep total$)
-if [ -z "$du_output_word" ]; then
-    du_output_word=0
+read -p "Do you want calculate cache sizes? (y/n): " choice
+if [[ $choice == "y" ]]; then
+    # Get the size of each OfficeFileCache directory
+    echo "Size of OfficeFileCache and tmp directories:"
+    du -sh ~/Library/Containers/com.microsoft.Excel/Data/Library/Application\ Support/Microsoft/AppData/Microsoft/Office/16.0/OfficeFileCache
+    du -sh ~/Library/Containers/com.microsoft.Excel/Data/tmp
+    du -sh ~/Library/Containers/com.microsoft.Word/Data/Library/Application\ Support/Microsoft/AppData/Microsoft/Office/16.0/OfficeFileCache
+    du -sh ~/Library/Containers/com.microsoft.Word/Data/tmp
+    du -sh ~/Library/Containers/com.microsoft.Powerpoint/Data/Library/Application\ Support/Microsoft/AppData/Microsoft/Office/16.0/OfficeFileCache
+    du -sh ~/Library/Containers/com.microsoft.Powerpoint/Data/tmp
 fi
 
-du_output_excel=$(find ~/Library/Containers/com.microsoft.Excel/Data/Library/Logs/Diagnostics/EXCEL/Upload -type f -mtime +$days -exec du -cm {} + | grep total$)
-if [ -z "$du_output_excel" ]; then
-    du_output_excel=0
+read -p "Do you want to continue and delete all cache files? (y/n): " choice
+if [[ $choice == "n" ]]; then
+    exit 0
 fi
 
-du_output_powerpoint=$(find ~/Library/Containers/com.microsoft.Powerpoint/Data/Library/Logs/Diagnostics/POWERPOINT/Upload -type f -mtime +$days -exec du -cm {} + | grep total$)
-if [ -z "$du_output_powerpoint" ]; then
-    du_output_powerpoint=0
-fi
+# Create Trash directories in Trash for the OfficeFileCache and tmp directories to be moved to.
+mkdir -p ~/.Trash/Word
+mkdir -p ~/.Trash/Excel
+mkdir -p ~/.Trash/Powerpoint
 
-# Extract the sizes from the du output
-size_word=$(echo "$du_output_word" | awk '{print $1}')
-size_excel=$(echo "$du_output_excel" | awk '{print $1}')
-size_powerpoint=$(echo "$du_output_powerpoint" | awk '{print $1}')
+# if apps aren't running then move OfficeFileCache to Trash
 
-# Convert sizes to human readable format
-size_word_human=$(find ~/Library/Containers/com.microsoft.Word/Data/Library/Logs/Diagnostics/WORD/Upload -type f -mtime +$days -exec du -ch {} + | grep total$ | awk '{print $1}')
-size_excel_human=$(find ~/Library/Containers/com.microsoft.Excel/Data/Library/Logs/Diagnostics/EXCEL/Upload -type f -mtime +$days -exec du -ch {} + | grep total$ | awk '{print $1}')
-size_powerpoint_human=$(find ~/Library/Containers/com.microsoft.Powerpoint/Data/Library/Logs/Diagnostics/POWERPOINT/Upload -type f -mtime +$days -exec du -ch {} + | grep total$ | awk '{print $1}')
-
-
-echo "Size of Word files older than $days days: $size_word ($size_word_human)"
-echo "Size of Excel files older than $days days: $size_excel ($size_excel_human)"
-echo "Size of PowerPoint files older than $days days: $size_powerpoint ($size_powerpoint_human)"
-
-# Calculate the total disk space used for the three find commands
-total_disk_space=$(($size_word + $size_excel + $size_powerpoint))
-total_disk_space_gb=$(echo "scale=2; $total_disk_space / 1024" | bc)
-
-echo "Total disk space used of office log files older than $days: $total_disk_space ($total_disk_space_gb GB)"
-
-read -p "Do you want to delete all files older than $days days? (y/n): " answer
-if [ "$answer" = "y" ]; then
-    find ~/Library/Containers/com.microsoft.Word/Data/Library/Logs/Diagnostics/WORD/Upload -type f -mtime +$days -delete
-    find ~/Library/Containers/com.microsoft.Excel/Data/Library/Logs/Diagnostics/EXCEL/Upload -type f -mtime +$days -delete
-    find ~/Library/Containers/com.microsoft.Powerpoint/Data/Library/Logs/Diagnostics/POWERPOINT/Upload -type f -mtime +$days -delete
-    echo "Files older than $days days have been deleted."
+if pgrep -x "Microsoft Excel" > /dev/null; then
+    echo "==> Excel application is running. Skipping cache move."
 else
-    echo "No files were deleted."
+    mv ~/Library/Containers/com.microsoft.Excel/Data/Library/Application\ Support/Microsoft/AppData/Microsoft/Office/16.0/OfficeFileCache ~/.Trash/Excel
+    mv ~/Library/Containers/com.microsoft.Excel/Data/tmp ~/.Trash/Excel
+    echo "=> Excel files moved to Trash. Check app and then delete trash."
+fi
+
+if pgrep -x "Microsoft Word" > /dev/null; then
+    echo "==> Word application is running. Skipping cache move."
+else
+    mv ~/Library/Containers/com.microsoft.Word/Data/Library/Application\ Support/Microsoft/AppData/Microsoft/Office/16.0/OfficeFileCache ~/.Trash/Word
+    mv ~/Library/Containers/com.microsoft.Word/Data/tmp ~/.Trash/Word
+    echo "=> Word files moved to Trash. Check app and then delete trash."
+fi
+
+if pgrep -x "Microsoft PowerPoint" > /dev/null; then
+    echo "==> PowerPoint application is running. Skipping cache move."
+else
+    mv ~/Library/Containers/com.microsoft.Powerpoint/Data/Library/Application\ Support/Microsoft/AppData/Microsoft/Office/16.0/OfficeFileCache ~/.Trash/Powerpoint
+    mv ~/Library/Containers/com.microsoft.Powerpoint/Data/tmp ~/.Trash/PowerPoint
+    echo "=> PowerPoint files moved to Trash. Check app and then delete trash."
 fi
