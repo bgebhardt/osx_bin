@@ -5,6 +5,16 @@
 # Schedule the script to run every hour with no output
 # 0 * * * * /Users/bryan/bin/scripts/check-elmo.sh > /dev/null 2>&1
 
+# TODO check for my Elmo disk container being mounted first
+# Checking if on power or battery as a quick hack to check if I'm at home or not
+# Check if the system is on power or battery
+if [[ $(pmset -g batt | grep -c "AC Power") -gt 0 ]]; then
+    echo "System is on power"
+else
+    echo "System is on battery"
+    exit 0
+fi
+
 # Check if "Elmo" disk is mounted
 if mount | grep -q "Elmo"; then
     echo "Elmo disk is connected"
@@ -24,3 +34,4 @@ if mount | grep -q "Elmo"; then
 else
     echo "Elmo disk is not connected"
 fi
+
