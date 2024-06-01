@@ -2,6 +2,7 @@
 
 # Script to check if Elmo TM and Elmo disks are connected.
 
+# Scheduled every hour via Lingon X. Similar to cron.
 # Schedule the script to run every hour with no output
 # 0 * * * * /Users/bryan/bin/scripts/check-elmo.sh > /dev/null 2>&1
 
