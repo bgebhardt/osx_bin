@@ -15,13 +15,13 @@ snapshot_count=$(tmutil listlocalsnapshots / | wc -l)
 echo "PRE: Number of Time Machine local snapshots: $snapshot_count"
 
 # Check if the snapshot path exists
-if [ -d "$snapshot_path" ]; then
+#if [ -d "$snapshot_path" ]; then
     # Remove all local snapshots
     tmutil thinlocalsnapshots / 20000000000 4
     echo "Time Machine local disk space thinned successfully."
-else
-    echo "Time Machine local snapshots path not found."
-fi
+# else
+#     echo "Time Machine local snapshots path not found."
+# fi
 
 # List the number of local snapshots
 snapshot_count=$(tmutil listlocalsnapshots / | wc -l)
