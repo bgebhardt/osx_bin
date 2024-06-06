@@ -34,5 +34,7 @@ if mount | grep -q "Elmo"; then
 
 else
     echo "Elmo disk is not connected"
+    # Add code here to display a notification
+    osascript -e 'display notification "Elmo disk is not connected. Reconnect it." with title "Disk Notification"'
 fi
 
