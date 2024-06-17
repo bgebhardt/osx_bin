@@ -203,7 +203,9 @@ brew install --cask mimestream # new preferred Gmail desktop client
 ## Utilities
 # brew install amazon-drive -- no longer available
 # brew install amazon-music # need to delete folder in Applications Support and then works -- no longer supported
-brew install bartender
+brew install bartender # paid Menu bar icon organiser https://www.macbartender.com/
+#brew install --cask jordanbaird-ice # free Menu bar manager https://github.com/jordanbaird/Ice # alternate free menu bar manager to consider
+
 brew install boom
 brew install brightness
 
