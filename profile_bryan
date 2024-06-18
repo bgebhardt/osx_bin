@@ -134,7 +134,7 @@ fi
 # ======================================================
 
 # set up STS (Spring Eclipse) Home
-export STS_HOME="~/springsource/sts-3.4.0.RELEASE"
+#export STS_HOME="~/springsource/sts-3.4.0.RELEASE"
 
 # TODO: update this to Eclipse directory
 # export ECLIPSE_HOME="~/springsource/sts-3.4.0.RELEASE"
@@ -144,7 +144,7 @@ export STS_HOME="~/springsource/sts-3.4.0.RELEASE"
 # export PATH=$GROOVY_HOME/bin:$PATH
 
 # 4. Your JAVA_HOME variable should be set as well. On OS X, the recommended way to set the variable is as follows:
-export JAVA_HOME=$(/usr/libexec/java_home)
+#export JAVA_HOME=$(/usr/libexec/java_home)
 
 # echo "bash completion..."
 # enable bash completion.  Added 11-24-14
