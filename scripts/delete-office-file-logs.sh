@@ -26,17 +26,17 @@
 days=28
 
 # Calculate the sizes of files older than the specified number of days
-du_output_word=$(find ~/Library/Containers/com.microsoft.Word/Data/Library/Logs/Diagnostics/WORD/Upload -type f -mtime +$days -exec du -cm {} + | grep total$)
+du_output_word=$(find ~/Library/Containers/com.microsoft.Word/Data/Library/Logs/Diagnostics/WORD/Upload -type f -mtime +$days -print0 | xargs -0 du -cm | grep total$)
 if [ -z "$du_output_word" ]; then
     du_output_word=0
 fi
 
-du_output_excel=$(find ~/Library/Containers/com.microsoft.Excel/Data/Library/Logs/Diagnostics/EXCEL/Upload -type f -mtime +$days -exec du -cm {} + | grep total$)
+du_output_excel=$(find ~/Library/Containers/com.microsoft.Excel/Data/Library/Logs/Diagnostics/EXCEL/Upload -type f -mtime +$days -print0 | xargs -0 du -cm | grep total$)
 if [ -z "$du_output_excel" ]; then
     du_output_excel=0
 fi
 
-du_output_powerpoint=$(find ~/Library/Containers/com.microsoft.Powerpoint/Data/Library/Logs/Diagnostics/POWERPOINT/Upload -type f -mtime +$days -exec du -cm {} + | grep total$)
+du_output_powerpoint=$(find ~/Library/Containers/com.microsoft.Powerpoint/Data/Library/Logs/Diagnostics/POWERPOINT/Upload -type f -mtime +$days -print0 | xargs -0 du -cm | grep total$)
 if [ -z "$du_output_powerpoint" ]; then
     du_output_powerpoint=0
 fi
@@ -47,10 +47,9 @@ size_excel=$(echo "$du_output_excel" | awk '{print $1}')
 size_powerpoint=$(echo "$du_output_powerpoint" | awk '{print $1}')
 
 # Convert sizes to human readable format
-size_word_human=$(find ~/Library/Containers/com.microsoft.Word/Data/Library/Logs/Diagnostics/WORD/Upload -type f -mtime +$days -exec du -ch {} + | grep total$ | awk '{print $1}')
-size_excel_human=$(find ~/Library/Containers/com.microsoft.Excel/Data/Library/Logs/Diagnostics/EXCEL/Upload -type f -mtime +$days -exec du -ch {} + | grep total$ | awk '{print $1}')
-size_powerpoint_human=$(find ~/Library/Containers/com.microsoft.Powerpoint/Data/Library/Logs/Diagnostics/POWERPOINT/Upload -type f -mtime +$days -exec du -ch {} + | grep total$ | awk '{print $1}')
-
+size_word_human=$(find ~/Library/Containers/com.microsoft.Word/Data/Library/Logs/Diagnostics/WORD/Upload -type f -mtime +$days -print0 | xargs -0 du -ch | grep total | awk '{print $1}')
+size_excel_human=$(find ~/Library/Containers/com.microsoft.Excel/Data/Library/Logs/Diagnostics/EXCEL/Upload -type f -mtime +$days -print0 | xargs -0 du -ch | grep total | awk '{print $1}')
+size_powerpoint_human=$(find /Users/bryan/Library/Containers/com.microsoft.Powerpoint/Data/Library/Logs/Diagnostics/POWERPOINT/Upload/ -type f -mtime +$days -print0 | xargs -0 du -ch | grep total | awk '{print $1}')
 
 echo "Size of Word files older than $days days: $size_word ($size_word_human)"
 echo "Size of Excel files older than $days days: $size_excel ($size_excel_human)"
