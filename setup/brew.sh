@@ -95,7 +95,7 @@ brew install git
 brew install git-lfs
 brew install bfg # Remove large files or passwords from Git history like git-filter-branch https://rtyley.github.io/bfg-repo-cleaner/
 # see docs here [Removing sensitive data from a repository - GitHub Docs](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)
-brew install imagemagick --with-webp
+brew install imagemagick
 brew install lua
 brew install lynx
 brew install p7zip
