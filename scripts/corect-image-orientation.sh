@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# script to correct the orientation of an image file to not rely on exif flags using ImageMagick
+
 # script inspired by the answer to this question on Super User:
 # https://superuser.com/questions/965233/scaling-and-rotation-of-image-without-depending-on-exif-data
 
