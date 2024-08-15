@@ -504,6 +504,11 @@ brew install --cask transnomino # Batch rename utility https://www.transnomino.c
 
 brew install --cask horos # Medical image viewer https://horosproject.org/
 
+# Recoll - full-text search tool for Unix/Linux systemsa
+# https://github.com/nailuoGG/homebrew-recoll
+# https://www.recoll.org/pages/recoll-macos.html
+brew tap nailuoGG/recoll
+brew install --cask recoll
 
 # Remove outdated versions from the cellar.
 brew cleanup
