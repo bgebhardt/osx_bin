@@ -359,5 +359,7 @@ brew install blueutil # Get/set bluetooth power and discoverable state [toy/blue
 
 brew install tesseract # OCR (Optical Character Recognition) engine https://github.com/tesseract-ocr/
 
+brew install s-search # Web search from the terminal https://github.com/zquestz/s
+
 # Remove outdated versions from the cellar.
 brew cleanup
