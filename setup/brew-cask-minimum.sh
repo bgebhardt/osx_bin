@@ -52,12 +52,15 @@ brew install --cask bartender
 brew install --cask raycast # spotlight replacement, deciding between it an alfred
 brew install --cask popchar
 brew install --cask rectangle
-brew install --cask typinator
 brew install --cask lunar
 brew install --cask karabiner-elements
 brew install --cask default-folder-x
 brew install --cask betterdisplay
 brew install --cask shottr # free screen shot tool; preferred over Monosnap
+
+# todo: decide between these two
+brew install --cask typinator # Tool to automate the insertion of frequently used text and graphics https://www.ergonis.com/products/typinator/
+brew install --cask rocket-typist # Text expander for common phrases https://witt-software.com/rockettypist/
 
 brew install mackup # Keep your Mac's application settings in sync https://github.com/lra/mackup
 # [lra/mackup: Keep your application settings in sync (OS X/Linux)](https://github.com/lra/mackup)
