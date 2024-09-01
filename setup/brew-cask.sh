@@ -510,5 +510,7 @@ brew install --cask horos # Medical image viewer https://horosproject.org/
 brew tap nailuoGG/recoll
 brew install --cask recoll
 
+brew install --cask microsoft-azure-storage-explorer # Explorer for Azure Storage https://azure.microsoft.com/en-us/features/storage-explorer/
+
 # Remove outdated versions from the cellar.
 brew cleanup
