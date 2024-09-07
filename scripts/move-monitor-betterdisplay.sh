@@ -8,8 +8,7 @@ DISPLAY2="Built-in Display"
 
 # Move DISPLAY2 to the bottom left corner of DISPLAY1
 # betterdisplaycli requires Xcode install to work so using executable in the app bundle
-/Applications/BetterDisplay.app/Contents/MacOS/BetterDisplay perform -namelike="$DISPLAY2" -moveTo=bottomLeftCorner -targetNameLike="$DISPLAY1"
-
+/Applications/BetterDisplay.app/Contents/MacOS/BetterDisplay perform -namelike="$DISPLAY2" -moveTo=left -targetNameLike="$DISPLAY1"
 
 # This script moves DISPLAY2 to the bottom left corner of DISPLAY1. You can adjust the -moveTo parameter to other positions like topLeft, topRight, bottomRight, etc., depending on your needs1.
 # - `moveTo` - Move display next to an other display in the display layout using direction specifiers. A target display (relative to which the display is moved) must be specified. Specific values must be provided. Command, no value must be specified. Device (display) specific feature. Pro feature. Available values: `topLeftCorner`, `topLeft`, `top`, `topRight`, `topRightCorner`, `leftTop`, `left`, `leftBottom`, `rightTop`, `right`, `rightBottom`, `bottomLeftCorner`, `bottomLeft`, `bottom`, `bottomRight`, `bottomRightCorner`.
