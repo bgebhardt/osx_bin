@@ -453,6 +453,8 @@ brew install --cask playcover-community # Sideload iOS apps and games https://gi
 #brew install --cask bluestacks # Mobile gaming platform https://www.bluestacks.com/ play android games on mac/PC; doesn't work on M1 macs; only provdes a manual installer
 # Try also [LDPlayer - Lightweight & Fast Android Emulator for PC](https://www.ldplayer.net/); no brew install # 11-12-2023 does not work
 
+brew install --cask porting-kit # Install games and apps compiled for Microsoft Windows https://portingkit.com/
+
 #brew install --cask android-studio # Tools for building Android applications https://developer.android.com/studio/ (can emulate games but didn't really work)
 
 # [Heroic-Games-Launcher/HeroicGamesLauncher: A Native GOG and Epic Games Launcher for Linux, Windows and Mac.](https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher#macos)
