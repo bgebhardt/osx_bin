@@ -514,5 +514,16 @@ brew install --cask recoll
 
 brew install --cask microsoft-azure-storage-explorer # Explorer for Azure Storage https://azure.microsoft.com/en-us/features/storage-explorer/
 
+# AI
+brew install ollama # local LLM - Create, run, and share large language models (LLMs) https://ollama.com/
+# To run as service: 
+# To start ollama now and restart at login:
+#   brew services start ollama
+# Or, if you don't want/need a background service you can just run:
+#   /opt/homebrew/opt/ollama/bin/ollama serve
+
+brew install --cask boltai # AI chat client https://boltai.com/
+# from app store install OllmaSpring and Enchanted ai chat apps for Ollama
+
 # Remove outdated versions from the cellar.
 brew cleanup
