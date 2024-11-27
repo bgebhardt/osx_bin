@@ -16,6 +16,33 @@ else
     exit 0
 fi
 
+# Check the location of this MacOS
+
+# Get the postal code based on the current IP address
+postal_code=$(curl -s ipinfo.io/json | jq -r '.postal')
+
+# Check if we are in postal code "94536" (where I live)
+if [[ "$postal_code" == "94536" ]]; then
+    echo "We are in postal code 94536"
+else
+    echo "We are not in postal code 94536"
+    exit 0
+fi
+
+# Example: the json response from ipinfo.io is:
+# {
+#   "ip": "173.196.200.3",
+#   "hostname": "syn-173-196-200-003.biz.spectrum.com",
+#   "city": "Arcadia",
+#   "region": "California",
+#   "country": "US",
+#   "loc": "34.1397,-118.0353",
+#   "org": "AS20001 Charter Communications Inc",
+#   "postal": "91066",
+#   "timezone": "America/Los_Angeles",
+#   "readme": "https://ipinfo.io/missingauth"
+# }
+
 # Check if "Elmo" disk is mounted
 if mount | grep -q "Elmo"; then
     echo "Elmo disk is connected"
