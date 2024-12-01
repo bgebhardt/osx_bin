@@ -24,19 +24,19 @@ ip_response=$(curl -s ipinfo.io/json)
 postal_code=$(echo "$ip_response" | jq -r '.postal')
 org=$(echo "$ip_response" | jq -r '.org')
 
-# Check if we are in postal code "94536" (where I live); but not specific enough
-if [[ "$postal_code" == "95103" ]]; then
-    echo "We are in postal code 95103"
-else
-    echo "We are not in postal code 94536, we are in postal code $postal_code"
-    #exit 0
-fi
-
 # Check if the organization is "AS7922 Comcast Cable Communications, LLC"
 if [[ "$org" == "AS7922 Comcast Cable Communications, LLC" ]]; then
     echo "The organization is AS7922 Comcast Cable Communications, LLC"
 else
     echo "The organization is $org (which is wrong so not checking)"
+    exit 0
+fi
+
+# Check if we are in postal code "94536" (where I live); but not specific enough
+if [[ "$postal_code" == "95103" ]]; then
+    echo "We are in postal code 95103"
+else
+    echo "We are not in postal code 94536, we are in postal code $postal_code"
     exit 0
 fi
 
