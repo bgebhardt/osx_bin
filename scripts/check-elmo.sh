@@ -17,15 +17,26 @@ else
 fi
 
 # Check the location of this MacOS
+# this isn't the most accurate way to check location.
 
 # Get the postal code based on the current IP address
-postal_code=$(curl -s ipinfo.io/json | jq -r '.postal')
+ip_response=$(curl -s ipinfo.io/json)
+postal_code=$(echo "$ip_response" | jq -r '.postal')
+org=$(echo "$ip_response" | jq -r '.org')
 
-# Check if we are in postal code "94536" (where I live)
-if [[ "$postal_code" == "94536" ]]; then
-    echo "We are in postal code 94536"
+# Check if we are in postal code "94536" (where I live); but not specific enough
+if [[ "$postal_code" == "95103" ]]; then
+    echo "We are in postal code 95103"
 else
-    echo "We are not in postal code 94536"
+    echo "We are not in postal code 94536, we are in postal code $postal_code"
+    #exit 0
+fi
+
+# Check if the organization is "AS7922 Comcast Cable Communications, LLC"
+if [[ "$org" == "AS7922 Comcast Cable Communications, LLC" ]]; then
+    echo "The organization is AS7922 Comcast Cable Communications, LLC"
+else
+    echo "The organization is $org (which is wrong so not checking)"
     exit 0
 fi
 
@@ -39,6 +50,20 @@ fi
 #   "loc": "34.1397,-118.0353",
 #   "org": "AS20001 Charter Communications Inc",
 #   "postal": "91066",
+#   "timezone": "America/Los_Angeles",
+#   "readme": "https://ipinfo.io/missingauth"
+# }
+
+# Correct Example: the json response from ipinfo.io is:
+# {
+#   "ip": "98.42.139.237",
+#   "hostname": "c-98-42-139-237.hsd1.ca.comcast.net",
+#   "city": "San Jose",
+#   "region": "California",
+#   "country": "US",
+#   "loc": "37.3394,-121.8950",
+#   "org": "AS7922 Comcast Cable Communications, LLC",
+#   "postal": "95103",
 #   "timezone": "America/Los_Angeles",
 #   "readme": "https://ipinfo.io/missingauth"
 # }
