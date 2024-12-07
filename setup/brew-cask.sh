@@ -525,5 +525,8 @@ brew install ollama # local LLM - Create, run, and share large language models (
 brew install --cask boltai # AI chat client https://boltai.com/
 # from app store install OllmaSpring and Enchanted ai chat apps for Ollama
 
+# AI camera control https://www.obsbot.com/ Configuration and firmware update utility for OBSBOT Tiny and Meet series
+brew install --cask obsbot-center 
+
 # Remove outdated versions from the cellar.
 brew cleanup
