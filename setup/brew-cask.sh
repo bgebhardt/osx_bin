@@ -34,7 +34,13 @@ brew install google-drive
 brew install timing
 brew install tripmode # manage data on cell connection
 brew install karabiner-elements # powerful and stable keyboard customizer
-#brew install --cask raycast # replacement for spotlight (and alfred or launchbar)
+
+# two apps that can change mouse/trackpad gestures (and more) especially adding middle click. Currently trying multitouch. 
+# Replace or complment karabiner
+brew install --cask multitouch # Add more gestures for Trackpad and Magic Mouse https://multitouch.app/
+# brew install --cask bettertouchtool # Tool to customise input devices and automate computer systems https://folivora.ai/
+
+brew install --cask raycast # replacement for spotlight (and alfred or launchbar)
 
 # Window Managers
 brew install --cask rectangle # window manager - current preferred window manager
