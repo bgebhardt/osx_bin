@@ -10,13 +10,24 @@
 # mas search <app name> - to find an app identifier
 # in app store the id is 1607635845 from the url https://apps.apple.com/nz/app/velja/id1607635845?mt=12
 
-brew install mas # Install App Store command line tools https://github.com/mas-cli/mas
+# Install mas - Mac App Store command-line interface
+masInstall() {
+    if command -v mas >/dev/null; then
+        printf "%s\n" "Already up-to-date."
+    else
+        printf "%s\n" "Getting mas-cli - a simple command line interface for the Mac App Store."
+        brew install mas
+    fi
+}
+masInstall
 
 #mas install 567704457 # OmniPopLite (3.2)
-mas install 409183694 # Keynote (7.0)
+#mas install 409183694 # Keynote (7.0)
+#mas install 409201541 # Pages (6.0)
+#mas install 409203825 # Numbers (4.0)
 #mas install 456362093 # MuteMyMic (1.10)
 mas install 484388250 # Numi (1.7.7)
-mas install 784801555 # Microsoft OneNote (15.27.1)
+#mas install 784801555 # Microsoft OneNote (15.27.1)
 mas install 560846814 # PDF Converter Master (4.0.0)
 mas install 896450579 # Textual (6.0.2)
 mas install 453114608 # JSON Helper (1.07)
@@ -27,23 +38,21 @@ mas install 883878097 # Server (5.2)
 mas install 431511738 # Timing (1.7.4)
 mas install 509148961 # SMARTReporter (3.1.11)
 mas install 465965038 # Markdown Pro (1.0.9)
-mas install 607997198 # Marko (2.1)
+#mas install 607997198 # Marko (2.1)
 mas install 586862299 # Duplicate Cleaner For iPhoto (1.13)
 #mas install 497799835 # Xcode (8.0)
-mas install 409203825 # Numbers (4.0)
 mas install 491365225 # OneClickdigital (1.12)
-mas install 409201541 # Pages (6.0)
 mas install 1508732804 # Soulver 3 (3.6)
 # mas install 413965349 # Soulver (2.6.0)
-mas install 408981434 # iMovie (10.1.2)
+mas install 408981434 # iMovie (10.1.2)  # TODO figure out why this doesn't install
 #mas install 424389933   # Final Cut Pro
 mas install 594444151 # PDF to JPG (4.0)
 #mas install 555935825 # Themes for Keynote Free (2.2)
 mas install 929188617 # Timeline 3D (5.1.2)
-mas install 715394237 # Condense (1.61)
+#mas install 715394237 # Condense (1.61)
 mas install 935700987 # Snapselect (1.3.0)
 mas install 435003921 # Fantastical (1.3.18)
-mas install 615916400 # BrowseShot (1.0)
+#mas install 615916400 # BrowseShot (1.0)
 #mas install 511648940 # Metanota
 #mas install 406056744 # Evernote
 #mas install 412980789 # Full Deck Solitaire
@@ -136,6 +145,31 @@ mas install 302584613  # Amazon Kindle                                (6.86) rep
 mas install 1516950324 # Overlap by Moleskine Studio    (2.1.1) Timezone meeting planner - [Overlap by Moleskine Studio on the App Store](https://apps.apple.com/us/app/overlap-by-moleskine-studio/id1516950324)
 
 mas install 1481005137 # Cloud Battery                   (4.41) Track battery level on all devices. Install on iOS too.
+
+mas install 1294126402 # name: HEIC
+mas install 897118787 # name: Shazam
+mas install 897446215 # name: Canva
+mas install 1477385213 # name: Save
+mas install 1498912833 # name: Highlights
+mas install 6502970995 # name: Taify
+mas install 1099568401 # name: Home
+mas install 1171820258 # name: Highland
+mas install 490192174 # name: Battery
+mas install 1112075769 # name: Pine
+mas install 1351639930 # name: Gifski
+mas install 6475956137 # name: Grab2Text
+mas install 569048352 # name: Liquid
+mas install 803453959 # name: Slack
+mas install 1284863847 # name: Unsplash
+mas install 6474268307 # name: Enchanted
+mas install 1645016851 # name: Bluebook
+mas install 1586435171 # name: Actions
+mas install 461369673 # name: VOX
+mas install 1502839586 # name: Hand
+mas install 562211012 # name: Yomu
+mas install 1179373118 # name: Reader
+mas install 6469021132 # name: PDFgear
+mas install 1611378436 # name: Pure
 
 # mas install 540348655  # Monosnap - replaced by Shottr, but still a good app
 
