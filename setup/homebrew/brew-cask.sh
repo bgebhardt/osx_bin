@@ -545,5 +545,31 @@ brew install boltai # AI chat client https://boltai.com/
 # AI camera control https://www.obsbot.com/ Configuration and firmware update utility for OBSBOT Tiny and Meet series
 brew install obsbot-center 
 
+# apps added 12-23-2024 after audit
+brew install kdiff3 # File comparison and merge tool https://kdiff3.sourceforge.io/
+brew install typinator # Text expander https://www.ergonis.com/products/typinator/
+brew install github # GitHub Desktop https://desktop.github.com/
+brew install quicken # Personal finance manager https://www.quicken.com/mac
+brew install popchar # Character map and font viewer https://www.ergonis.com/products/popcharx/
+brew install shottr # Screenshot and screen recording tool https://shottr.com/
+brew install pdf-expert # PDF editor https://pdfexpert.com/
+brew install kapitainsky-rclone-browser # Rclone browser https://martins.ninja/RcloneBrowser/
+
+# installed by brew install office?
+# microsoft-auto-update
+# microsoft-edge
+# microsoft-teams
+
+# installed at one pint but re-evaluating
+#1password-cli
+#alfred
+#bettertouchtool
+#fig
+#google-chrome
+#idrive
+
+# stellarium
+# streamlabs
+
 # Remove outdated versions from the cellar.
 brew cleanup
