@@ -460,14 +460,16 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 # defaults write com.apple.dock dashboard-in-overlay -bool true
 
 # System Preferences: Show battery percentage in menu bar
-printf "%s\n"  "System Preferences: Show battery percentage in menu bar."
-defaults write com.apple.menuextra.battery ShowPercent -string "YES"
-defaults write 'com.apple.systemuiserver' 'menuExtras' -array-add '/System/Library/CoreServices/Menu Extras/Battery.menu'
+# TODO NOTE: No longer in the Menu Extras folder
+# printf "%s\n"  "System Preferences: Show battery percentage in menu bar."
+# defaults write com.apple.menuextra.battery ShowPercent -string "YES"
+# defaults write 'com.apple.systemuiserver' 'menuExtras' -array-add '/System/Library/CoreServices/Menu Extras/Battery.menu'
 
 # System Preferences: Enable Clock menu bar item
-printf "%s\n"  "System Preferences: Enable Clock menu bar item."
-defaults write 'com.apple.systemuiserver' 'NSStatusItem Visible com.apple.menuextra.clock' -bool true
-defaults write 'com.apple.systemuiserver' 'menuExtras' -array-add '/System/Library/CoreServices/Menu Extras/Clock.menu'
+# TODO NOTE: No longer in the Menu Extras folder
+# printf "%s\n"  "System Preferences: Enable Clock menu bar item."
+# defaults write 'com.apple.systemuiserver' 'NSStatusItem Visible com.apple.menuextra.clock' -bool true
+# defaults write 'com.apple.systemuiserver' 'menuExtras' -array-add '/System/Library/CoreServices/Menu Extras/Clock.menu'
 
 # System Preferences: Enable Network menu bar item
 printf "%s\n"  "System Preferences: Enable Network menu bar item."
@@ -475,9 +477,15 @@ defaults write 'com.apple.systemuiserver' 'NSStatusItem Visible com.apple.menuex
 defaults write 'com.apple.systemuiserver' 'menuExtras' -array-add '/System/Library/CoreServices/Menu Extras/AirPort.menu'
 
 # System Preferences: Enable Volume menu bar item
-printf "%s\n"  "System Preferences: Enable Volume menu bar item."
+# TODO NOTE: No longer in the Menu Extras folder
+# printf "%s\n"  "System Preferences: Enable Volume menu bar item."
+# defaults write 'com.apple.systemuiserver' 'NSStatusItem Visible com.apple.menuextra.volume' -bool true
+# defaults write 'com.apple.systemuiserver' 'menuExtras' -array-add '/System/Library/CoreServices/Menu Extras/Volume.menu'
+
+# System Preferences: Enable Time Machine menu bar item
+printf "%s\n"  "System Preferences: Enable Time Machine menu bar item."
 defaults write 'com.apple.systemuiserver' 'NSStatusItem Visible com.apple.menuextra.volume' -bool true
-defaults write 'com.apple.systemuiserver' 'menuExtras' -array-add '/System/Library/CoreServices/Menu Extras/Volume.menu'
+defaults write 'com.apple.systemuiserver' 'menuExtras' -array-add '/System/Library/CoreServices/Menu Extras/TimeMachine.menu'
 
 # System Preferences: Use a dark menu bar / dock
 # printf "%s\n"  "System Preferences: Use a dark menu bar / dock."
