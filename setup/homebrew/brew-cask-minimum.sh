@@ -41,6 +41,7 @@ brew install onedrive # Folder synchronization with OneDrive https://github.com/
 brew install --cask visual-studio-code
 brew install --cask github
 brew install karabiner-elements # powerful and stable keyboard customizer
+brew install hookmark # Link and retrieve key information https://hookproductivity.com/
 
 #brew install --cask omnioutliner
 #brew install --cask soulver
