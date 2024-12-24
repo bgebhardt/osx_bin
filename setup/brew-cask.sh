@@ -376,7 +376,10 @@ brew install ngrok # sign up or login here https://ngrok.com/
 #quicklook-json
 brew install quickjson
 brew install key-codes
-brew install rapidweaver
+
+# need to manually download version 9.1.1 of rapidweaver
+#brew install rapidweaver # Web design software https://www.realmacsoftware.com/rapidweaver/
+
 brew install --cask expressions # regular expression app, paid
 brew install --cask latest # [Latest](https://max.codes/latest/) software update checker
 brew install --cask cisdem-document-reader # Document reader to open and view Windows-based files
