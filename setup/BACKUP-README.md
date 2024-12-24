@@ -32,7 +32,7 @@ TODO: script to get default settings of interest to TODO.md
 
 ## Karabiner settings
 
-1. Open the Karbiner app
+1. Open the Karbiner-Elements app
 2. Go to Misc section
 3. Click open config directory
 4. Copy config directory to back it up.
