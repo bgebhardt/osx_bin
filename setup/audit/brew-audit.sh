@@ -1,18 +1,25 @@
 #!/bin/bash
 
-# note that brew-cask has some non-casks in it which currently mess up the results.
+# TODO not working
+# A little hacky to get all brew packages from my main 2 install files.
+# this isn't working at all as there are a lot of dependencies installed that are not listed in files.
 
 # File paths
-BREW_SH="$HOME/bin/setup/homebrew/brew-cask.sh"
+BREW_SH="$HOME/bin/setup/homebrew/brew.sh"
+BREW_SH2="$HOME/bin/setup/homebrew/brew-cask.sh"
 INSTALLED_APPS_LIST="/tmp/installed_apps.txt"
 CURRENTLY_INSTALLED_APPS="/tmp/currently_installed_apps.txt"
 DIFFERENCES="/tmp/differences.txt"
 
-# Extract installed apps from brew.sh
+# Extract installed apps from brew.sh and brew-cask.sh
 grep -v '^#' "$BREW_SH" | grep -E "brew install [a-zA-Z0-9_-]+" | awk '{print $3}' > "$INSTALLED_APPS_LIST"
+grep -v '^#' "$BREW_SH2" | grep -E "brew install [a-zA-Z0-9_-]+" | awk '{print $3}' > "$INSTALLED_APPS_LIST2"
+
+# Combine the lists from brew.sh and brew-cask.sh into one
+cat "$INSTALLED_APPS_LIST2" >> "$INSTALLED_APPS_LIST"
 
 # Get the list of currently installed apps (casks only)
-brew list -1 --cask > "$CURRENTLY_INSTALLED_APPS"
+brew list -1 > "$CURRENTLY_INSTALLED_APPS"
 
 # Print out the line count for INSTALLED_APPS_LIST and CURRENTLY_INSTALLED_APPS
 echo "Number of apps listed in brew.sh:"
