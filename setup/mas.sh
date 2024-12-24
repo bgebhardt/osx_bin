@@ -197,3 +197,13 @@ mas install 1481005137 # Cloud Battery                   (4.41) Track battery le
 # 451424521 Rail Maze
 
 
+# # Sindre Sorhus apps I've installed
+# - [App Buddy — Sindre Sorhus](https://sindresorhus.com/app-buddy) - not an app store app; download it; for import/export settings from his apps
+# - [Apps — Sindre Sorhus](https://sindresorhus.com/apps)
+# - [AI Actions — Sindre Sorhus](https://sindresorhus.com/ai-actions)
+# - [Pure Paste — Sindre Sorhus](https://sindresorhus.com/pure-paste)
+# - [System Color Picker — Sindre Sorhus](https://sindresorhus.com/system-color-picker)
+# - [Pasteboard Viewer — Sindre Sorhus](https://sindresorhus.com/pasteboard-viewer)
+# - [Gifski — Sindre Sorhus](https://sindresorhus.com/gifski)
+# - [HEIC Converter — Sindre Sorhus](https://sindresorhus.com/heic-converter)
+# - [Actions — Sindre Sorhus](https://sindresorhus.com/actions)
