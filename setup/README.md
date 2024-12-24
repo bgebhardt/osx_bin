@@ -98,7 +98,7 @@ It seems to take a long time to download all the files
 
 * Configure iDrive
 * Select a previous computer to link iDrive to or start as new device
-* Turn on cloud sync - personal Obsidian vault is there
+* Turn on cloud sync
 
 # Set up rest of apps (including cli apps)
 
@@ -128,7 +128,7 @@ The following apps you'll have to get and install via there web installer
 * [Mac Font Manager Deluxe | MacAppware](https://macappware.com/software/mac-font-manager-deluxe/)
 * Clock - no cask; same software maker [seense | The Clock for macOS](https://seense.com/the_clock/)
 * Quick expose - no cask; same software maker [Quick Exposé: A New Way to Use Mission Control and App Exposé on macOS • MacPlus Software](https://oteifyapp.com/quick-expose/)
-
+* Rapidweaver - download 9.1.1 from [RapidWeaver Release Notes](https://www.realmacsoftware.com/rapidweaver/releasenotes/) or [direct link](https://dl.devant.io/v1/3c53887f-427a-4af7-9144-ee16178c62f4/21049/RapidWeaver.zip)
 
 # Add all Scripts
 
