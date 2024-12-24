@@ -21,9 +21,9 @@ brew upgrade
 
 ## Top Must Installs
 brew install 1password
-brew install --cask 1password/tap/1password-cli
+#brew install 1password/tap/1password-cli #TODO figure out how to get this working
 brew install iterm2
-brew install flux
+#brew install flux
 brew install omnifocus
 #brew install mailplane # as of 2021 it is no longer being developed
 #brew install dropbox
@@ -37,24 +37,24 @@ brew install karabiner-elements # powerful and stable keyboard customizer
 
 # two apps that can change mouse/trackpad gestures (and more) especially adding middle click. Currently trying multitouch. 
 # Replace or complment karabiner
-brew install --cask multitouch # Add more gestures for Trackpad and Magic Mouse https://multitouch.app/
-# brew install --cask bettertouchtool # Tool to customise input devices and automate computer systems https://folivora.ai/
+brew install multitouch # Add more gestures for Trackpad and Magic Mouse https://multitouch.app/
+# brew install bettertouchtool # Tool to customise input devices and automate computer systems https://folivora.ai/
 
-brew install --cask raycast # replacement for spotlight (and alfred or launchbar)
+brew install raycast # replacement for spotlight (and alfred or launchbar)
 
 # Window Managers
-brew install --cask rectangle # window manager - current preferred window manager
+brew install rectangle # window manager - current preferred window manager
 
-brew install --cask autumn # Window manager for JavaScript development https://apandhi.github.io/Autumn/
-#brew install --cask phoenix # Window and app manager scriptable with JavaScript https://github.com/kasper/phoenix/ 
+brew install autumn # Window manager for JavaScript development https://apandhi.github.io/Autumn/
+#brew install phoenix # Window and app manager scriptable with JavaScript https://github.com/kasper/phoenix/ 
 # phoenix seems not as easy to develop in as autumn; but has more examples and a few different features. See [Home · kasper/phoenix Wiki](https://github.com/kasper/phoenix/wiki#examples)
 
 # tiling windows managers
-# brew install --cask amethyst # Automatic tiling window manager similar to xmonad https://ianyh.com/amethyst/ # not ready to try this out yet.
+# brew install amethyst # Automatic tiling window manager similar to xmonad https://ianyh.com/amethyst/ # not ready to try this out yet.
 # good tutorial: [Boost your MacOS PRODUCTIVITY with Amethyst | Tiling Window Manager - YouTube](https://www.youtube.com/watch?v=7Z9-Ry4yGNc)
 # another tiling windows manager but requires disabling SIP: [koekeishiya/yabai: A tiling window manager for macOS based on binary space partitioning](https://github.com/koekeishiya/yabai)
 
-# brew install --cask tiles # Name: Sempliva Tiles Window manager https://www.sempliva.com/tiles/
+# brew install tiles # Name: Sempliva Tiles Window manager https://www.sempliva.com/tiles/
 # brew install divvy # window manager; replaced by rectangle
 # [Magnet – Window manager for Mac](https://magnet.crowdcafe.com/)
 # [Wins - Window Manager for Mac](https://wins.cool/) - I own this one too
@@ -63,29 +63,29 @@ brew install --cask autumn # Window manager for JavaScript development https://a
 
 
 # app for monitor brightness and other control
-brew install --cask betterdisplay # Display management tool https://betterdisplay.pro/; current favorite
+brew install betterdisplay # Display management tool https://betterdisplay.pro/; current favorite
 #brew install waydabber/betterdisplay/betterdisplaycli # [Integration features, CLI · waydabber/BetterDisplay Wiki](https://github.com/waydabber/BetterDisplay/wiki/Integration-features,-CLI); requires xcode
-brew install --cask monitorcontrol # Tool to control external monitor brightness & volume https://github.com/MonitorControl/MonitorControl
-brew install --cask lunar # monitor brightness manager; replaces flux
+brew install monitorcontrol # Tool to control external monitor brightness & volume https://github.com/MonitorControl/MonitorControl
+brew install lunar # monitor brightness manager; replaces flux
 brew install deskpad # Virtual monitor for screen sharing https://github.com/Stengo/DeskPad
 
-brew install --cask displaylink # Drivers for DisplayLink docks, adapters and monitors - https://www.synaptics.com/products/displaylink-graphics
+brew install displaylink # Drivers for DisplayLink docks, adapters and monitors - https://www.synaptics.com/products/displaylink-graphics
 
-brew tap jakehilborn/jakehilborn && brew install displayplacer # macOS command line utility to configure multi-display resolutions and arrangements.-  https://github.com/jakehilborn/displayplacer
+#brew tap jakehilborn/jakehilborn && brew install displayplacer # macOS command line utility to configure multi-display resolutions and arrangements.-  https://github.com/jakehilborn/displayplacer
 
-brew install --cask fastscripts
-brew install --cask airbuddy # monitors bluetooth devices
-brew install --cask cloudmounter # mount different cloud services
-#brew install --cask expandrive # Network drive and browser for cloud storage - https://www.expandrive.com/apps/expandrive/
-brew install --cask mountain-duck # Mounts servers and cloud storages as a disk on the desktop - https://mountainduck.io/
+brew install fastscripts
+brew install airbuddy # monitors bluetooth devices
+brew install cloudmounter # mount different cloud services
+#brew install expandrive # Network drive and browser for cloud storage - https://www.expandrive.com/apps/expandrive/
+brew install mountain-duck # Mounts servers and cloud storages as a disk on the desktop - https://mountainduck.io/
 
-brew install --cask forklift # Finder replacement and FTP, SFTP, WebDAV and Amazon s3 client - https://binarynights.com/
+brew install forklift # Finder replacement and FTP, SFTP, WebDAV and Amazon s3 client - https://binarynights.com/
 brew install duck # Command-line interface for Cyberduck (a multi-protocol file transfer tool) - https://duck.sh/
-brew install --cask cyberduck # Server and cloud storage browser https://cyberduck.io/
+brew install cyberduck # Server and cloud storage browser https://cyberduck.io/
 
-brew install --cask zoom
+brew install zoom
 
-brew install --cask meetingbar # Shows the next meeting in the menu bar https://github.com/leits/MeetingBar
+brew install meetingbar # Shows the next meeting in the menu bar https://github.com/leits/MeetingBar
 # alternative not in brew: [Meeter](https://www.bardeen.ai/meeter)
 
 # retired top installs
@@ -95,7 +95,7 @@ brew install --cask meetingbar # Shows the next meeting in the menu bar https://
 
 ## Productivity/Office
 
-brew install --cask libreoffice # Free cross-platform office suite, fresh version https://www.libreoffice.org/
+brew install libreoffice # Free cross-platform office suite, fresh version https://www.libreoffice.org/
 
 #brew install adium
 # brew install adobe-reader -- no longer available; install manually
@@ -106,24 +106,24 @@ brew install audacity
 # brew install fullcontact -- no longer available
 #brew install evernote # install with mas instead
 #fantastical
-brew install --cask cron # Calendar for professionals and teams https://cron.com/
+brew install cron # Calendar for professionals and teams https://cron.com/
 
 # music and audio players and organizers
-brew install --cask aural # Audio player inspired by Winamp https://github.com/maculateConception/aural-player
-# didn't work :( brew install --cask jmc # Media organizer https://github.com/jcm93/jmc
+brew install aural # Audio player inspired by Winamp https://github.com/maculateConception/aural-player
+# didn't work :( brew install jmc # Media organizer https://github.com/jcm93/jmc
 
-# crashes on start - brew install --cask clementine # Music player and library organizer https://www.clementine-player.org/
-# doesn't work - brew install --cask nightingale # Working tree for the community fork of Songbird https://getnightingale.com/
+# crashes on start - brew install clementine # Music player and library organizer https://www.clementine-player.org/
+# doesn't work - brew install nightingale # Working tree for the community fork of Songbird https://getnightingale.com/
 
 # video players
 brew install elmedia-player # Free and open-source media player https://iina.io/
-brew install --cask movist-pro # Media player https://movistprime.com/
-brew install --cask iina # Free and open-source media player https://iina.io/
+brew install movist-pro # Media player https://movistprime.com/
+brew install iina # Free and open-source media player https://iina.io/
 brew install vlc # Multimedia player https://www.videolan.org/vlc/
-brew install mpv # Media player based on MPlayer and mplayer2 https://mpv.io
+#brew install mpv # Media player based on MPlayer and mplayer2 https://mpv.io
 
-brew install firefox
-brew install google-chrome
+#brew install firefox
+#brew install google-chrome
 # brew install flash-player -- no longer available
 #brew install google-earth
 
@@ -140,19 +140,19 @@ brew install textexpander
 brew install omnigraffle
 brew install omnioutliner
 brew install pdf-converter-master
-brew install --cask cisdem-pdf-converter-ocr # PDF Converter with OCR capability https://www.cisdem.com/pdf-converter-ocr-mac.html # alternate conversion option that I don't really use.
+brew install cisdem-pdf-converter-ocr # PDF Converter with OCR capability https://www.cisdem.com/pdf-converter-ocr-mac.html # alternate conversion option that I don't really use.
 
-# brew install --cask curiosity # SwiftUI Reddit client https://github.com/Dimillian/RedditOS # easier to just use the web version
+# brew install curiosity # SwiftUI Reddit client https://github.com/Dimillian/RedditOS # easier to just use the web version
 
 brew install pdfpen
-brew install --cask skim # PDF reader and note-taking application https://skim-app.sourceforge.io/
-brew install --cask pdfsam-basic # Extracts pages, splits, merges, mixes and rotates PDF files https://pdfsam.org/
+brew install skim # PDF reader and note-taking application https://skim-app.sourceforge.io/
+brew install pdfsam-basic # Extracts pages, splits, merges, mixes and rotates PDF files https://pdfsam.org/
 brew install slack
 brew install skype
 brew install soulver # Notepad with a built-in calculator https://soulver.app/
-brew install --cask numi #Calculator and converter application https://numi.app/; costs $19.99; has raycast integration
+brew install numi #Calculator and converter application https://numi.app/; costs $19.99; has raycast integration
 
-brew install --cask rocket # Emoji picker optimized for blind people https://matthewpalmer.net/rocket/
+brew install rocket # Emoji picker optimized for blind people https://matthewpalmer.net/rocket/
 # [TextPal — Super-fast emoji picker for macOS](https://www.textpal.app/) is an alternate but not installable by brew
 
 # brew install logitech-myharmony #  -- no longer available
@@ -161,80 +161,80 @@ brew install hype # web animation program
 # brew install lego-mindstorms-ev3 # not currently using
 # brew install houdahgeo -- no longer available
 brew install wallpaper-wizard # desktop picture app
-brew install --cask topnotch # Utility to hide the notch - https://topnotch.app/
+brew install topnotch # Utility to hide the notch - https://topnotch.app/
 
-brew install --cask mathpix-snipping-tool # Scanner app for math and science https://mathpix.com/ 
+brew install mathpix-snipping-tool # Scanner app for math and science https://mathpix.com/ 
 
 # Markdown viewers
 brew install marked
 brew install mweb-pro
 
-brew install --cask coteditor # Plain-text editor for web pages, program source codes and more https://coteditor.com/; its scriptable
+brew install coteditor # Plain-text editor for web pages, program source codes and more https://coteditor.com/; its scriptable
 
 # Clipboard managers
-brew install --cask maccy # Clipboard manager https://maccy.app/ # current favorite
-brew install --cask 1clipboard # Clipboard managing app https://1clipboard.io/
-brew install --cask pastebot # Workflow application to improve productivity https://tapbots.com/pastebot/
+brew install maccy # Clipboard manager https://maccy.app/ # current favorite
+brew install 1clipboard # Clipboard managing app https://1clipboard.io/
+brew install pastebot # Workflow application to improve productivity https://tapbots.com/pastebot/
 
-# brew install --cask clop # Image, video and clipboard optimiser https://lowtechguys.com/clop/ will automatically optimize images and videos copied to the clipboard # TODO try this out
+# brew install clop # Image, video and clipboard optimiser https://lowtechguys.com/clop/ will automatically optimize images and videos copied to the clipboard # TODO try this out
 
 
-brew install --cask cakebrew # GUI app for Homebrew https://github.com/brunophilipe/Cakebrew
+brew install cakebrew # GUI app for Homebrew https://github.com/brunophilipe/Cakebrew
 
 #notetaking
 # Notion notetaking apps - cross platform
-brew install --cask notion # Notion note taking; doesn't support offline notes well
-brew install --cask simplenote # [Create a Simplenote Account](https://app.simplenote.com/signup/) supports offline notes
+brew install notion # Notion note taking; doesn't support offline notes well
+brew install simplenote # [Create a Simplenote Account](https://app.simplenote.com/signup/) supports offline notes
 
 # I replaced joplin with obsidian 
-#brew install --cask joplin # Note taking and to-do application with synchronization capabilities https://joplinapp.org/
+#brew install joplin # Note taking and to-do application with synchronization capabilities https://joplinapp.org/
 #brew install joplin-cli
-# brew install --cask curio # Note-taking and organizing app https://zengobi.com/curio/
+# brew install curio # Note-taking and organizing app https://zengobi.com/curio/
 
-brew install --cask tagspaces # Offline, open-source, document manager with tagging support https://www.tagspaces.org/
-brew install --cask obsidian # Knowledge base that works on top of a local folder of plain text Markdown files https://obsidian.md/
+brew install tagspaces # Offline, open-source, document manager with tagging support https://www.tagspaces.org/
+brew install obsidian # Knowledge base that works on top of a local folder of plain text Markdown files https://obsidian.md/
 
 # Zotera is good complement to obsidian. It can more easily tag and organize PDF's, images, files, etc.
 # see [Best tools for organizing PDFs in Obsidian - YouTube](https://www.youtube.com/watch?v=VqOc9OsMX_s)
-brew install --cask zotero # Collect, organize, cite, and share research sources https://www.zotero.org/ 
+brew install zotero # Collect, organize, cite, and share research sources https://www.zotero.org/ 
 
-brew install --cask tableflip # App to edit markdown files in place https://tableflipapp.com/
+brew install tableflip # App to edit markdown files in place https://tableflipapp.com/
 
-brew install --cask figma # Collaborative team software https://www.figma.com/
-brew install --cask gimp # Free and open-source image editor https://www.gimp.org/
+brew install figma # Collaborative team software https://www.figma.com/
+brew install gimp # Free and open-source image editor https://www.gimp.org/
 
 # Gmail desktop apps
-# brew install --cask kiwi-for-gmail # no longer using
-brew install --cask mimestream # new preferred Gmail desktop client
+# brew install kiwi-for-gmail # no longer using
+brew install mimestream # new preferred Gmail desktop client
 # consider also Mailplane
 
 ## Utilities
 # brew install amazon-drive -- no longer available
 # brew install amazon-music # need to delete folder in Applications Support and then works -- no longer supported
 brew install bartender # paid Menu bar icon organiser https://www.macbartender.com/
-#brew install --cask jordanbaird-ice # free Menu bar manager https://github.com/jordanbaird/Ice # alternate free menu bar manager to consider
+#brew install jordanbaird-ice # free Menu bar manager https://github.com/jordanbaird/Ice # alternate free menu bar manager to consider
 
 brew install boom
-brew install brightness
+#brew install brightness
 
-brew install --cask stats # Name: Stats - System monitor for the menu bar https://github.com/exelban/stats
+brew install stats # Name: Stats - System monitor for the menu bar https://github.com/exelban/stats
 # alternative not as good as stats though
-# brew install --cask iglance # System monitor for the status bar - https://github.com/iglance/iGlance
+# brew install iglance # System monitor for the status bar - https://github.com/iglance/iGlance
 
-brew install --cask menubar-stats # System monitor with temperature & fans plugins https://seense.com/menubarstats/
+brew install menubar-stats # System monitor with temperature & fans plugins https://seense.com/menubarstats/
 # clock - no cask; same software maker [seense | The Clock for macOS](https://seense.com/the_clock/)
 
-brew install --cask command-tab-plus #Keyboard-centric application and window switcher https://noteifyapp.com/command-tab-plus/
+brew install command-tab-plus #Keyboard-centric application and window switcher https://noteifyapp.com/command-tab-plus/
 # quick expose - no cask; same software maker [Quick Exposé: A New Way to Use Mission Control and App Exposé on macOS • MacPlus Software](https://noteifyapp.com/quick-expose/)
 
 # Apps to force the mac to stay awake; not go into sleep
 #brew install caffeine # retired this one for one of the 2 below
-brew install --cask keepingyouawake #Name: KeepingYouAwake - Tool to prevent the system from going into sleep mode https://keepingyouawake.app/
+brew install keepingyouawake #Name: KeepingYouAwake - Tool to prevent the system from going into sleep mode https://keepingyouawake.app/
 # amphetimine is more feature reach but can't be installed by brew
 
-brew install --cask espanso # Name: Espanso - Cross-platform Text Expander written in Rust https://espanso.org/; replace Typinator??
+brew install espanso # Name: Espanso - Cross-platform Text Expander written in Rust https://espanso.org/; replace Typinator??
 
-brew install --cask raindropio # All-in-one bookmark manager https://raindrop.io/
+brew install raindropio # All-in-one bookmark manager https://raindrop.io/
 
 brew install carbon-copy-cloner
 # brew install crashplan -- no longer available
@@ -242,12 +242,12 @@ brew install cronnix
 #brew install crossover
 brew install daisydisk
 brew install default-folder-x # Utility to enhance the Open and Save dialogs in applications - https://www.stclairsoft.com/DefaultFolderX/
-brew install --cask app-tamer # CPU management application - https://www.stclairsoft.com/AppTamer/
+brew install app-tamer # CPU management application - https://www.stclairsoft.com/AppTamer/
 brew install disk-drill
 
 # brew install disk-sensei -- no longer available
 # brew install appdelete # was disabled in brew for some reason
-brew install --cask appcleaner # Application uninstaller https://freemacsoft.net/appcleaner/
+brew install appcleaner # Application uninstaller https://freemacsoft.net/appcleaner/
 
 # brew install bluesense # Detect the presence of your Bluetooth device https://apps.inspira.io/bluesense/ paid app I tried but don't use.
 
@@ -261,13 +261,13 @@ brew install grandperspective
 # brew install growlnotify -- no longer used
 # brew install notifyr # for some reason this prefpane not working on 10.12; claims Bluetooth 4.0 not supported
 brew install little-snitch
-brew install macpilot
+#brew install macpilot
 # brew install macupdate-desktop -- no longer available
 brew install mactracker
 # brew install rcdefaultapp -- no longer available
 
 brew install plex-media-server
-brew install --cask plexamp # Music player focusing on visuals https://plexamp.com/ (free version started on 07-30-2023)
+brew install plexamp # Music player focusing on visuals https://plexamp.com/ (free version started on 07-30-2023)
 
 brew install popclip
 brew install superduper
@@ -277,83 +277,83 @@ brew install imazing
 brew install handbrake # https://handbrake.fr/
 brew install discord
 brew install downie # [Downie - YouTube Video Downloader for macOS](https://software.charliemonroe.net/downie/)
-brew install --cask permute # [Permute - Media Converter for macOS](https://software.charliemonroe.net/permute/)
+brew install permute # [Permute - Media Converter for macOS](https://software.charliemonroe.net/permute/)
 brew install betterzip
-brew install cask onyx # fee multifunction utility for system maintence
-brew install --cask screens # Control any computer from your Mac from anywhere in the world
-brew install --cask reflector # wireless screen mirroring
-brew install --cask airparrot # Streaming and Mirroring for Windows and macOS
+brew install onyx # free multifunction utility for system maintence
+brew install screens # Control any computer from your Mac from anywhere in the world
+brew install reflector # wireless screen mirroring
+brew install airparrot # Streaming and Mirroring for Windows and macOS
 brew install beamer # streaming from Mac
-brew install --cask timemachineeditor # Utility to change the default backup interval of Time Machine
-brew install --cask space-saver # Delete local Time Machine backups
-brew install --cask launchcontrol # Create, manage and debug system- and user services (launchctl GUI)
-brew install --cask powerphotos # powerphotos for managing photo libraries
+brew install timemachineeditor # Utility to change the default backup interval of Time Machine
+brew install space-saver # Delete local Time Machine backups
+brew install launchcontrol # Create, manage and debug system- and user services (launchctl GUI)
+brew install powerphotos # powerphotos for managing photo libraries
 # brew install iphoto-library-manager # replaced with powerphotos
-brew install --cask itsycal # Menu bar calendar https://www.mowglii.com/itsycal/
+brew install itsycal # Menu bar calendar https://www.mowglii.com/itsycal/
 
-brew install --cask swish # Control windows and applications right from your trackpad - https://highlyopinionated.co/swish/
-brew install --cask paletro # Command palette in any application - https://appmakes.io/paletro
-brew install --cask mission-control-plus # Manage your windows in Mission Control - https://fadel.io/MissionControlPlus
-brew install --cask batteries # Track all your devices' batteries - https://www.fadel.io/batteries/
+brew install swish # Control windows and applications right from your trackpad - https://highlyopinionated.co/swish/
+brew install paletro # Command palette in any application - https://appmakes.io/paletro
+brew install mission-control-plus # Manage your windows in Mission Control - https://fadel.io/MissionControlPlus
+brew install batteries # Track all your devices' batteries - https://www.fadel.io/batteries/
 
 # Bring System-level Arrange Window features to Mac - [Wins - Window Manager for Mac](https://wins.cool/) - bought but no longer using.
 
 # free ebook reader and management software
-brew install --cask calibre # [calibre - E-book management](https://calibre-ebook.com/)
-brew install --cask fbreader # Name: FBReader book reader https://fbreader.org/macos/
+brew install calibre # [calibre - E-book management](https://calibre-ebook.com/)
+brew install fbreader # Name: FBReader book reader https://fbreader.org/macos/
 
 # ended up not liking adobe digital editions. FBReader is slighty better, but still lookng for best epub reader
-#brew install --cask adobe-digital-editions # Name: Adobe Digital Editions https://www.adobe.com/solutions/ebook/digital-editions.html
+#brew install adobe-digital-editions # Name: Adobe Digital Editions https://www.adobe.com/solutions/ebook/digital-editions.html
 
-brew install --cask xmind # Mind mapping and brainstorming tool https://www.xmind.net/
+brew install xmind # Mind mapping and brainstorming tool https://www.xmind.net/
 
 # duplicate finders
-brew install --cask photosweeper-x # Tool to eliminate similar or duplicate photos https://overmacs.com/; preferred photo
+brew install photosweeper-x # Tool to eliminate similar or duplicate photos https://overmacs.com/; preferred photo
 brew install gemini
 # cisdem duplicate finder - [[OFFICIAL] Cisdem Duplicate Finder | Best Duplicate File Finder to Find and Remove Duplicates](https://www.cisdem.com/duplicate-finder.html); bought in https://bundlehunt.com/my-account/downloads/all
 
 # brew install synergy-core # Synergy, the keyboard and mouse sharing tool # have to install via the websites installer for it to work well. - https://symless.com/synergy/download
 
 # terminals - other than iTerm; I'm sticking with iTerm though.
-#brew install --cask kitty #GPU-based terminal emulator https://github.com/kovidgoyal/kitty
-#brew install --cask alacritty # Name: Alacritty GPU-accelerated terminal emulator (Mac and Windows) https://github.com/alacritty/alacritty/
-brew install --cask warp # Rust-based terminal app; couldn't get it to work though
+#brew install kitty #GPU-based terminal emulator https://github.com/kovidgoyal/kitty
+#brew install alacritty # Name: Alacritty GPU-accelerated terminal emulator (Mac and Windows) https://github.com/alacritty/alacritty/
+brew install warp # Rust-based terminal app; couldn't get it to work though
 
-brew install --cask hammerspoon # Name: Hammerspoon - Desktop automation application - https://www.hammerspoon.org/
-brew install --cask phoenix # Window and app manager scriptable with JavaScript https://github.com/kasper/phoenix/ (alternative to hammerspoon automation)
+brew install hammerspoon # Name: Hammerspoon - Desktop automation application - https://www.hammerspoon.org/
+brew install phoenix # Window and app manager scriptable with JavaScript https://github.com/kasper/phoenix/ (alternative to hammerspoon automation)
 
 # Battery monitoring software
-brew install --cask aldente # Menu bar tool to limit maximum charging percentage https://github.com/davidwernhart/AlDente
-brew install --cask coconutbattery # Tool to show live information about the batteries in various devices https://www.coconut-flavour.com/coconutbattery/
+brew install aldente # Menu bar tool to limit maximum charging percentage https://github.com/davidwernhart/AlDente
+brew install coconutbattery # Tool to show live information about the batteries in various devices https://www.coconut-flavour.com/coconutbattery/
 # Battery Health 2 in mac app store
 # MenuBar stats
 
-brew install --cask hookmark # Link and retrieve key information https://hookproductivity.com/
+brew install hookmark # Link and retrieve key information https://hookproductivity.com/
 # install the hook cli with sudo gem install hookapp Run hook clip <file> for exmpale. See [Hook CLI - BrettTerpstra.com](https://brettterpstra.com/projects/hook-cli/) for more docs.
 
-brew install --cask qr-journal # Allows users with an iSight (or compatible) camera to read QR codes https://www.joshjacob.com/mac-development/qrjournal.php
+brew install qr-journal # Allows users with an iSight (or compatible) camera to read QR codes https://www.joshjacob.com/mac-development/qrjournal.php
 
-brew install --cask tnefs-enough # Read and extract files from Microsoft TNEF files https://www.joshjacob.com/mac-development/tnef.php
+brew install tnefs-enough # Read and extract files from Microsoft TNEF files https://www.joshjacob.com/mac-development/tnef.php
 
 # Reference: [5 Ways to Turn Any Website Into a Desktop Mac App](https://www.makeuseof.com/tag/website-desktop-mac-app/)
-brew install --cask fluid # Tool to turn a website into a desktop app - free app - https://fluidapp.com/
-#brew install --cask unite # Turn websites into apps https://bzgapps.com/unite # need to upgrade to version 4 if I want to use.
+brew install fluid # Tool to turn a website into a desktop app - free app - https://fluidapp.com/
+#brew install unite # Turn websites into apps https://bzgapps.com/unite # need to upgrade to version 4 if I want to use.
 
-brew install --cask obs # Open-source software for live streaming and screen recording https://obsproject.com/
+brew install obs # Open-source software for live streaming and screen recording https://obsproject.com/
 
-# brew install --cask camo-studio # Use your phone as a high-quality webcam with image tuning controls https://reincubate.com/camo/
+# brew install camo-studio # Use your phone as a high-quality webcam with image tuning controls https://reincubate.com/camo/
 # don't have a need for this but saving for reference
 
-brew install --cask descript # Audio and video editor https://www.descript.com/ # innovative video editor that uses text to edit video
+brew install descript # Audio and video editor https://www.descript.com/ # innovative video editor that uses text to edit video
 
-brew install --cask netspot # WiFi site survey software and WiFi scanner https://www.netspotapp.com/ # never upgraded my license. But unlicensed is someone useful.
-# brew install --cask inssider # Defeat slow wifi https://www.metageek.com/products/inssider/ # doesn't work on Ventura :( 
+brew install netspot # WiFi site survey software and WiFi scanner https://www.netspotapp.com/ # never upgraded my license. But unlicensed is someone useful.
+# brew install inssider # Defeat slow wifi https://www.metageek.com/products/inssider/ # doesn't work on Ventura :( 
 
-brew install --cask breaktimer # Tool to manage periodic breaks https://breaktimer.app/
+brew install breaktimer # Tool to manage periodic breaks https://breaktimer.app/
 
 # per app sound control apps that require more permissions than I'm willing to give. And are both paid apps.
-# brew install --cask sound-control # Per-app audio controls https://staticz.com/soundcontrol/ # paid app that didn't work well for me
-# brew install --cask soundsource # Sound and audio controller https://rogueamoeba.com/soundsource/
+# brew install sound-control # Per-app audio controls https://staticz.com/soundcontrol/ # paid app that didn't work well for me
+# brew install soundsource # Sound and audio controller https://rogueamoeba.com/soundsource/
 
 
 ## Development apps
@@ -366,7 +366,7 @@ brew install base
 brew install codekit
 brew install coderunner
 brew install dash
-brew install boot2docker
+#brew install boot2docker
 # brew install couchbase-server-community # commented out as it uses lots of disk space
 brew install espresso
 brew install github-release
@@ -380,33 +380,33 @@ brew install key-codes
 # need to manually download version 9.1.1 of rapidweaver
 #brew install rapidweaver # Web design software https://www.realmacsoftware.com/rapidweaver/
 
-brew install --cask expressions # regular expression app, paid
-brew install --cask latest # [Latest](https://max.codes/latest/) software update checker
-brew install --cask cisdem-document-reader # Document reader to open and view Windows-based files
-brew install --cask macpilot # Graphical user interface for the command terminal
-brew install --cask network-radar # Tool to scan and monitor the network
-brew install --cask remote-wake-up # Wake up devices with a click of a button
-brew install --cask colorwell # Color picker and color palette generator
-#brew install --cask fig # auto-complete for shell # I now use the Warp terminal instead # fig retired in September 2024
-#brew install --cask background-music # [kyleneideck/BackgroundMusic: Background Music, a macOS audio utility: automatically pause your music, set individual apps' volumes and record system audio.](https://github.com/kyleneideck/BackgroundMusic#download) # doesn't work quite right.
-brew install --cask devtoys # Utilities designed to make common development tasks easier https://github.com/DevToys-app/DevToys
+brew install expressions # regular expression app, paid
+brew install latest # [Latest](https://max.codes/latest/) software update checker
+brew install cisdem-document-reader # Document reader to open and view Windows-based files
+brew install macpilot # Graphical user interface for the command terminal
+brew install network-radar # Tool to scan and monitor the network
+brew install remote-wake-up # Wake up devices with a click of a button
+brew install colorwell # Color picker and color palette generator
+#brew install fig # auto-complete for shell # I now use the Warp terminal instead # fig retired in September 2024
+#brew install background-music # [kyleneideck/BackgroundMusic: Background Music, a macOS audio utility: automatically pause your music, set individual apps' volumes and record system audio.](https://github.com/kyleneideck/BackgroundMusic#download) # doesn't work quite right.
+brew install devtoys # Utilities designed to make common development tasks easier https://github.com/DevToys-app/DevToys
 
-#brew install --cask phoenix-code # Code editor https://phcode.io/ interesting web site development tool. Not using it but saving here just in case.
+#brew install phoenix-code # Code editor https://phcode.io/ interesting web site development tool. Not using it but saving here just in case.
 
-brew install --cask anaconda # Distribution of the Python and R programming languages for scientific computing https://www.anaconda.com/
+#brew install anaconda # Distribution of the Python and R programming languages for scientific computing https://www.anaconda.com/
 
 # diff tools
 # nice article comparing diff tools - [The 5 Best Mac File Comparison Tools and Diff Tools](https://www.makeuseof.com/tag/mac-file-comparison-tools/)
 # delta walker is the best for me right now and I own it
-brew install --cask deltawalker # diff tool https://www.deltawalker.com/ # paid app, find/replace with regex; cli; undo/redo; export diffs
-brew install --cask meld # Visual diff and merge tool https://yousseb.github.io/meld/ # 3-way compare, text editor, syntax highlighting, regex
-brew install --cask diffmerge # [SourceGear | DiffMerge](https://www.sourcegear.com/diffmerge/) # taks drag and drop!
-# brew install --cask beyond-compare # Compare files and folders https://www.scootersoftware.com/ paid app # compare with remote servers (OneDrive, Google, ...); Table compare; scripting
+brew install deltawalker # diff tool https://www.deltawalker.com/ # paid app, find/replace with regex; cli; undo/redo; export diffs
+brew install meld # Visual diff and merge tool https://yousseb.github.io/meld/ # 3-way compare, text editor, syntax highlighting, regex
+brew install diffmerge # [SourceGear | DiffMerge](https://www.sourcegear.com/diffmerge/) # taks drag and drop!
+# brew install beyond-compare # Compare files and folders https://www.scootersoftware.com/ paid app # compare with remote servers (OneDrive, Google, ...); Table compare; scripting
 # brew install kaleidoscope  # File and Folder comparison tool # paid app so removing
 
-brew install --cask mark-text # Simple and elegant markdown editor - https://github.com/marktext/marktext; on Windows too!
+brew install mark-text # Simple and elegant markdown editor - https://github.com/marktext/marktext; on Windows too!
 
-brew install --cask powershell # Command-line shell and scripting language https://github.com/PowerShell/PowerShell
+brew install powershell # Command-line shell and scripting language https://github.com/PowerShell/PowerShell
 
 ## Bigger or less used development tools (disabled for now)
 
@@ -437,7 +437,7 @@ brew install qlstephen           # Preview plain text files without a file exten
 brew install quicklook-json      # Preview JSON files
 brew install qlprettypatch       # Preview .patch files
 brew install quicklook-csv       # Preview CSV files
-brew install betterzipql         # Preview archives
+#brew install betterzipql         # Preview archives
 brew install webpquicklook       # Preview WebP images
 # brew install qlmarkdown # [sbarex/QLMarkdown: macOS Quick Look extension for Markdown files.](https://github.com/sbarex/QLMarkdown) duplicated line from above.
 
@@ -450,10 +450,10 @@ brew install gitup         # Visualization Tool for Git
 
 # Social and Messaging
 
-brew install --cask telegram-a # Web client for Telegram messenger - https://web.telegram.org/a/get
-brew install --cask beeper # Universal chat app powered by Matrix - https://www.beeper.com/
+brew install telegram-a # Web client for Telegram messenger - https://web.telegram.org/a/get
+brew install beeper # Universal chat app powered by Matrix - https://www.beeper.com/
 
-brew install --cask whatsapp # Native desktop client for WhatsApp https://www.whatsapp.com/
+brew install whatsapp # Native desktop client for WhatsApp https://www.whatsapp.com/
 
 
 # Games
@@ -464,72 +464,72 @@ brew install steamcmd
 brew install teamspeak-client
 # brew install minecraft-server -- no longer available
 brew install minecraft
-brew install --cask prismlauncher # Minecraft launcher https://prismlauncher.org/
+brew install prismlauncher # Minecraft launcher https://prismlauncher.org/
 brew install battle-net
-brew install --cask playcover-community # Sideload iOS apps and games https://github.com/PlayCover/PlayCover never worked
-#brew install --cask bluestacks # Mobile gaming platform https://www.bluestacks.com/ play android games on mac/PC; doesn't work on M1 macs; only provdes a manual installer
+brew install playcover-community # Sideload iOS apps and games https://github.com/PlayCover/PlayCover never worked
+#brew install bluestacks # Mobile gaming platform https://www.bluestacks.com/ play android games on mac/PC; doesn't work on M1 macs; only provdes a manual installer
 # Try also [LDPlayer - Lightweight & Fast Android Emulator for PC](https://www.ldplayer.net/); no brew install # 11-12-2023 does not work
 
-brew install --cask porting-kit # Install games and apps compiled for Microsoft Windows https://portingkit.com/
+brew install porting-kit # Install games and apps compiled for Microsoft Windows https://portingkit.com/
 
-#brew install --cask android-studio # Tools for building Android applications https://developer.android.com/studio/ (can emulate games but didn't really work)
+#brew install android-studio # Tools for building Android applications https://developer.android.com/studio/ (can emulate games but didn't really work)
 
 # [Heroic-Games-Launcher/HeroicGamesLauncher: A Native GOG and Epic Games Launcher for Linux, Windows and Mac.](https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher#macos)
 brew install heroic
 # xattr -d com.apple.quarantine /Applications/Heroic.app # run this to fix the app is damaged error.
 
-brew install --cask onecast
+brew install onecast
 
-brew install --cask crossover # Tool to run Windows software https://www.codeweavers.com/products/crossover-mac/
-brew install --cask whisky # Wine wrapper built with SwiftUI https://getwhisky.app/
+brew install crossover # Tool to run Windows software https://www.codeweavers.com/products/crossover-mac/
+brew install whisky # Wine wrapper built with SwiftUI https://getwhisky.app/
 
 
 # Free Comic Book Reader
 brew install yacreader
 
 # All-in-one live streaming software
-brew install --cask streamlabs-obs
+#brew install streamlabs-obs
 
-brew install --cask aerial # Apple TV Aerial screensaver https://github.com/JohnCoates/Aerial
+brew install aerial # Apple TV Aerial screensaver https://github.com/JohnCoates/Aerial
 
-brew install --cask netnewswire # Free and open-source RSS reader - https://netnewswire.com/
+brew install netnewswire # Free and open-source RSS reader - https://netnewswire.com/
 
 # VNC viewers and servers
 # Real VNC is the easiest, but Apple Sharing doesn't support secure connections. Would require paid server for better security
 # other solutions seem to work best with their own VNC server running on the remote machine.
-brew install --cask vnc-viewer # Remote desktop application focusing on security https://www.realvnc.com/
+brew install vnc-viewer # Remote desktop application focusing on security https://www.realvnc.com/
 #brew install tiger-vnc # VNC viewer and server https://tigervnc.org/ # has a lot of dependencies so commenting out for now.
-#brew install --cask tigervnc-viewer # Multi-platform VNC client and server https://tigervnc.org/
-#brew install --cask turbovnc-viewer # Remote display system https://www.turbovnc.org/
-# brew install --cask jollysfastvnc # nice but is paid software
+#brew install tigervnc-viewer # Multi-platform VNC client and server https://tigervnc.org/
+#brew install turbovnc-viewer # Remote display system https://www.turbovnc.org/
+# brew install jollysfastvnc # nice but is paid software
 
-brew install --cask keyboardcleantool # Blocks all Keyboard and TouchBar input to clean keyboard https://folivora.ai/keyboardcleantool
+brew install keyboardcleantool # Blocks all Keyboard and TouchBar input to clean keyboard https://folivora.ai/keyboardcleantool
 
-brew install --cask sloth # [Sloth - Mac app that shows all open files and sockets |](https://sveinbjorn.org/sloth)
-brew install --cask alt-tab # [AltTab - Windows alt-tab on macOS](https://alt-tab-macos.netlify.app/)
-brew install --cask find-any-file # File finder https://apps.tempel.org/FindAnyFile/
+brew install sloth # [Sloth - Mac app that shows all open files and sockets |](https://sveinbjorn.org/sloth)
+brew install alt-tab # [AltTab - Windows alt-tab on macOS](https://alt-tab-macos.netlify.app/)
+brew install find-any-file # File finder https://apps.tempel.org/FindAnyFile/
 
-#brew install --cask stellarium # Tool to render realistic skies in real time on the screen https://stellarium.org/
+#brew install stellarium # Tool to render realistic skies in real time on the screen https://stellarium.org/
 
 # bundlehunt.com - 2024 Award Winning New Year Bundle purchase
-brew install --cask tg-pro # Temperature monitoring, fan control and diagnostics https://www.tunabellysoftware.com/tgpro/
-brew install --cask lingon-x # Automator software to start apps, run scripts or commands and more https://www.peterborgapps.com/lingon/
-brew install --cask time-out # Customizable timing of breaks https://www.dejal.com/timeout/
-brew install --cask blocs # Visual web design software https://blocsapp.com/
+brew install tg-pro # Temperature monitoring, fan control and diagnostics https://www.tunabellysoftware.com/tgpro/
+brew install lingon-x # Automator software to start apps, run scripts or commands and more https://www.peterborgapps.com/lingon/
+brew install time-out # Customizable timing of breaks https://www.dejal.com/timeout/
+brew install blocs # Visual web design software https://blocsapp.com/
 
 
-brew install --cask transnomino # Batch rename utility https://www.transnomino.com/
+brew install transnomino # Batch rename utility https://www.transnomino.com/
 
 
-brew install --cask horos # Medical image viewer https://horosproject.org/
+brew install horos # Medical image viewer https://horosproject.org/
 
 # Recoll - full-text search tool for Unix/Linux systemsa
 # https://github.com/nailuoGG/homebrew-recoll
 # https://www.recoll.org/pages/recoll-macos.html
 brew tap nailuoGG/recoll
-brew install --cask recoll
+brew install recoll
 
-brew install --cask microsoft-azure-storage-explorer # Explorer for Azure Storage https://azure.microsoft.com/en-us/features/storage-explorer/
+#brew install microsoft-azure-storage-explorer # Explorer for Azure Storage https://azure.microsoft.com/en-us/features/storage-explorer/
 
 # AI
 brew install ollama # local LLM - Create, run, and share large language models (LLMs) https://ollama.com/
@@ -539,11 +539,11 @@ brew install ollama # local LLM - Create, run, and share large language models (
 # Or, if you don't want/need a background service you can just run:
 #   /opt/homebrew/opt/ollama/bin/ollama serve
 
-brew install --cask boltai # AI chat client https://boltai.com/
+brew install boltai # AI chat client https://boltai.com/
 # from app store install OllmaSpring and Enchanted ai chat apps for Ollama
 
 # AI camera control https://www.obsbot.com/ Configuration and firmware update utility for OBSBOT Tiny and Meet series
-brew install --cask obsbot-center 
+brew install obsbot-center 
 
 # Remove outdated versions from the cellar.
 brew cleanup
