@@ -176,6 +176,8 @@ brew install --cask maccy # Clipboard manager https://maccy.app/ # current favor
 brew install --cask 1clipboard # Clipboard managing app https://1clipboard.io/
 brew install --cask pastebot # Workflow application to improve productivity https://tapbots.com/pastebot/
 
+# brew install --cask clop # Image, video and clipboard optimiser https://lowtechguys.com/clop/ will automatically optimize images and videos copied to the clipboard # TODO try this out
+
 
 brew install --cask cakebrew # GUI app for Homebrew https://github.com/brunophilipe/Cakebrew
 
@@ -242,9 +244,14 @@ brew install daisydisk
 brew install default-folder-x # Utility to enhance the Open and Save dialogs in applications - https://www.stclairsoft.com/DefaultFolderX/
 brew install --cask app-tamer # CPU management application - https://www.stclairsoft.com/AppTamer/
 brew install disk-drill
+
 # brew install disk-sensei -- no longer available
-brew install appdelete
-brew install bluesense # Detect the presence of your Bluetooth device https://apps.inspira.io/bluesense/
+# brew install appdelete # was disabled in brew for some reason
+brew install --cask appcleaner # Application uninstaller https://freemacsoft.net/appcleaner/
+
+# brew install bluesense # Detect the presence of your Bluetooth device https://apps.inspira.io/bluesense/ paid app I tried but don't use.
+
+
 
 # disk-inventory-x
 # omnidisksweeper
@@ -379,6 +386,7 @@ brew install --cask remote-wake-up # Wake up devices with a click of a button
 brew install --cask colorwell # Color picker and color palette generator
 #brew install --cask fig # auto-complete for shell # I now use the Warp terminal instead # fig retired in September 2024
 #brew install --cask background-music # [kyleneideck/BackgroundMusic: Background Music, a macOS audio utility: automatically pause your music, set individual apps' volumes and record system audio.](https://github.com/kyleneideck/BackgroundMusic#download) # doesn't work quite right.
+brew install --cask devtoys # Utilities designed to make common development tasks easier https://github.com/DevToys-app/DevToys
 
 #brew install --cask phoenix-code # Code editor https://phcode.io/ interesting web site development tool. Not using it but saving here just in case.
 
