@@ -6,7 +6,6 @@
 BREW_SH="$HOME/bin/setup/homebrew/brew-cask.sh"
 INSTALLED_APPS_LIST="/tmp/installed_apps.txt"
 CURRENTLY_INSTALLED_APPS="/tmp/currently_installed_apps.txt"
-DIFFERENCES="/tmp/differences.txt"
 
 # Extract installed apps from brew.sh
 grep -v '^#' "$BREW_SH" | grep -E "brew install [a-zA-Z0-9_-]+" | awk '{print $3}' > "$INSTALLED_APPS_LIST"
