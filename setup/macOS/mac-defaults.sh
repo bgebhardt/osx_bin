@@ -268,6 +268,19 @@ defaults write com.apple.ActivityMonitor ShowCategory -int 0
 # Dock                                                                        #
 ###############################################################################
 
+# Dock: Position dock on the right. 
+# options are "left," "right," or "bottom" 
+# printf "%s\n" "Dock: Position dock on the right."
+defaults write com.apple.Dock orientation -string "right"
+
+# todo pick my perference for this one; pin at start?
+# Dock: Determine where the dock is pinned
+# options are "start," "end," or "middle" (default)
+# printf "%s\n" "Dock: Pin dock in the middle."
+#defaults write com.apple.Dock pinning -string "middle"
+
+# see [How to customize the Dock position in OS X - CNET](https://www.cnet.com/tech/computing/how-to-customize-the-dock-position-in-os-x/)
+
 # Dock: Automatically hide and show
 # printf "%s\n" "Dock: Automatically hide and show."
 # defaults write com.apple.dock autohide -bool false
@@ -459,6 +472,8 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 # printf "%s\n"  "System Preferences: Hiding Dashboard as a Space."
 # defaults write com.apple.dock dashboard-in-overlay -bool true
 
+# none of these Menu Extras work as of Mac os 15.2 - 12-24-2024
+
 # System Preferences: Show battery percentage in menu bar
 # TODO NOTE: No longer in the Menu Extras folder
 # printf "%s\n"  "System Preferences: Show battery percentage in menu bar."
@@ -472,9 +487,9 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 # defaults write 'com.apple.systemuiserver' 'menuExtras' -array-add '/System/Library/CoreServices/Menu Extras/Clock.menu'
 
 # System Preferences: Enable Network menu bar item
-printf "%s\n"  "System Preferences: Enable Network menu bar item."
-defaults write 'com.apple.systemuiserver' 'NSStatusItem Visible com.apple.menuextra.airport' -bool true
-defaults write 'com.apple.systemuiserver' 'menuExtras' -array-add '/System/Library/CoreServices/Menu Extras/AirPort.menu'
+# printf "%s\n"  "System Preferences: Enable Network menu bar item."
+# defaults write 'com.apple.systemuiserver' 'NSStatusItem Visible com.apple.menuextra.airport' -bool true
+# defaults write 'com.apple.systemuiserver' 'menuExtras' -array-add '/System/Library/CoreServices/Menu Extras/AirPort.menu'
 
 # System Preferences: Enable Volume menu bar item
 # TODO NOTE: No longer in the Menu Extras folder
@@ -483,9 +498,9 @@ defaults write 'com.apple.systemuiserver' 'menuExtras' -array-add '/System/Libra
 # defaults write 'com.apple.systemuiserver' 'menuExtras' -array-add '/System/Library/CoreServices/Menu Extras/Volume.menu'
 
 # System Preferences: Enable Time Machine menu bar item
-printf "%s\n"  "System Preferences: Enable Time Machine menu bar item."
-defaults write 'com.apple.systemuiserver' 'NSStatusItem Visible com.apple.menuextra.volume' -bool true
-defaults write 'com.apple.systemuiserver' 'menuExtras' -array-add '/System/Library/CoreServices/Menu Extras/TimeMachine.menu'
+# printf "%s\n"  "System Preferences: Enable Time Machine menu bar item."
+# defaults write 'com.apple.systemuiserver' 'NSStatusItem Visible com.apple.menuextra.volume' -bool true
+# defaults write 'com.apple.systemuiserver' 'menuExtras' -array-add '/System/Library/CoreServices/Menu Extras/TimeMachine.menu'
 
 # System Preferences: Use a dark menu bar / dock
 # printf "%s\n"  "System Preferences: Use a dark menu bar / dock."
