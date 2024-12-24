@@ -30,22 +30,6 @@ TODO: script to get default settings of interest to TODO.md
 
 # Per App checklists
 
-## Mackup
-A tool to backup and restore application configuration. Supports lots of applications.
-
-to backup configs run `mackup backup`
-to restore configs run `mackup restore`
-
-### Install and Config
-brew install mackup # Keep your Mac's application settings in sync https://github.com/lra/mackup
-[lra/mackup: Keep your application settings in sync (OS X/Linux)](https://github.com/lra/mackup)
-
-config docs: [mackup/doc at master · lra/mackup](https://github.com/lra/mackup/tree/master/doc#get-official-support-for-an-application)
-sample config file: [mackup/doc/.mackup.cfg at master · lra/mackup](https://github.com/lra/mackup/blob/master/doc/.mackup.cfg)
-
-My config is to sync to iDrive Cloud Drive. See mackup.template.cfg
-Supports about 20-30 of my apps
-
 ## Karabiner settings
 
 1. Open the Karbiner app
@@ -62,7 +46,9 @@ Use the "Export Preferences & Data" command to export preferences, aliases, hotk
 
 ## FastScripts
 
-Run AppleScript I wrote to export all keybindings which will be manually re-added to scripts on the new computer
+Run AppleScript "export fastscripts shortcuts" I wrote to export all keybindings which will be manually re-added to scripts on the new computer. It will put them all on the clipboard in csv format 
+
+TODO: no longer seems to export all shortcuts
 
 ## Rectangle window management
 
@@ -74,5 +60,23 @@ Export any custom rules and save them to OneDrive
 ## calibre
 
 Copy ~/Library/Preferences/calibre directory to backup settings.
-This app is also supported by Mackup.
 
+# Disabled and Retired
+
+## Mackup
+WARNING: this tool no longer works and I no longer use it.
+
+A tool to backup and restore application configuration. Supports lots of applications.
+
+to backup configs run `mackup backup`
+to restore configs run `mackup restore`
+
+### Install and Config
+brew install mackup # Keep your Mac's application settings in sync https://github.com/lra/mackup
+[lra/mackup: Keep your application settings in sync (OS X/Linux)](https://github.com/lra/mackup)
+
+config docs: [mackup/doc at master · lra/mackup](https://github.com/lra/mackup/tree/master/doc#get-official-support-for-an-application)
+sample config file: [mackup/doc/.mackup.cfg at master · lra/mackup](https://github.com/lra/mackup/blob/master/doc/.mackup.cfg)
+
+My config is to sync to iDrive Cloud Drive. See mackup.template.cfg
+Supports about 20-30 of my apps
