@@ -72,19 +72,29 @@ export HOMEBREW_CACHE="/Volumes/Bert/Caches/Homebrew"
 echo "setting brew cache location to $HOMEBREW_CACHE"
 ```
 
-# Set Mac Defaults
-
-run ```shell ./macOS/mac-defaults.sh```
-
 # Install applications
 
-* Install Rosetta with ```shell /usr/sbin/softwareupdate --install-rosetta --agree-to-license```
+Follow read me: https://github.com/bgebhardt/osx_bin
+  * install Brew (see https://brew.sh)
+  * Set up shell settings
 
-* Follow read me: https://github.com/bgebhardt/osx_bin
-    * install Brew (see https://brew.sh)
-    * Set up shell settings
-    * run ~/bin/setup/brew-cask-minimum.sh
-    * set up the apps -- look in the file for the list to set up
+Set mac defaults
+
+```shell
+~/bin/setup/macOS/mac-defaults.sh
+```
+
+Install Rosetta with:
+
+```shell
+/usr/sbin/softwareupdate --install-rosetta --agree-to-license
+```
+
+Install minimum apps
+```shell
+~/bin/setup/homebrew/brew-cask-minimum.sh
+```
+
 
 ## Install and set up Core Microsoft apps (now added to brew-cask-min install)
 
