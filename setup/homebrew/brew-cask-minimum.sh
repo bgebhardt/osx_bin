@@ -40,6 +40,7 @@ brew install --cask skim # PDF reader and note-taking application https://skim-a
 brew install onedrive # Folder synchronization with OneDrive https://github.com/abraunegg/onedrive
 brew install --cask visual-studio-code
 brew install --cask github
+brew install karabiner-elements # powerful and stable keyboard customizer
 
 #brew install --cask omnioutliner
 #brew install --cask soulver
