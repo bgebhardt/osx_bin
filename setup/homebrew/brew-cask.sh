@@ -28,6 +28,7 @@ brew install omnifocus
 #brew install mailplane # as of 2021 it is no longer being developed
 #brew install dropbox
 brew install google-drive
+brew install --cask onedrive # Folder synchronization with OneDrive
 #brew install wd-my-cloud # also WD Sync Installer.app
 # Mail Plugin Manager.app - manually install this one or create cask
 #brew install sizzlingkeys # bought this in the app store; install with mas
