@@ -9,16 +9,21 @@ Set up Apple iCloud and minimal settings
 
 * follow initial set up flow from Apple
   * enter iCloud account
-* Set up 1Password
+  * in system settings turn on all iCloud services (click name ->iCloud -> see all)
 * Turn on internet accounts in System Preferences -> Internet Accounts
     * Started with personal google - passkey didn’t work though
+    * Re-add accounts
+    * Work Exchange - Contacts and Calendars
+    * Google bryan.gebhardt@gmail.com - Mail, Contacts, and Calendars
+    * Google 2 - bryangeb@gmail.com - inactive
 * Set mouse speed and secondary click
 * Set trackpad right corner secondary click and tap to click
-* In Control Center preferences in System Preferences items
+* Set up 1Password
+* In Control Center preferences in System Preferences items (new script might do this?)
   * Show Bluetooth menu
   * Show TimeMachine menu 
 
-Finder settings
+Finder settings (set by mac-defaults.sh now)
 
 * Show filename extensions
 * Change default to list view
@@ -27,19 +32,30 @@ Finder settings
 
 ## Now set up dev environment
 
+* go to docs at https://github.com/bgebhardt/osx_bin/blob/master/setup/README.md
 * Change terminal default profile to Homebrew
 * Change default shell to bash: `chsh -s /bin/bash`
-* go to brew.sh and follow instructions to install homebrew
+* go to [brew.sh](https://brew.sh/) and follow instructions to install homebrew
+
+```shell
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
 * Install github cls `/opt/homebrew/bin/brew install gh` see [cli/cli: GitHub’s official command line tool](https://github.com/cli/cli#installation)
 * Login to git with `/opt/homebrew/bin/gh auth login`
 
 * Set your git user name. see https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
 
+``` shell
 $ git config --global user.name "Bryan Gebhardt"
 $ git config --global user.email bryan.gebhardt@gmail.com
+```
 
 ## Download bin from github
+```shell 
 /opt/homebrew/bin/gh repo clone bgebhardt/osx_bin
+```
+
 follow the rest of the instructions on this page: https://github.com/bgebhardt/osx_bin
 
 * TODO: Set up ssh keys for new computer
@@ -56,9 +72,13 @@ export HOMEBREW_CACHE="/Volumes/Bert/Caches/Homebrew"
 echo "setting brew cache location to $HOMEBREW_CACHE"
 ```
 
+# Set Mac Defaults
+
+run ```shell ./macOS/mac-defaults.sh```
+
 # Install applications
 
-* Install Rosetta with `/usr/sbin/softwareupdate --install-rosetta --agree-to-license`
+* Install Rosetta with ```shell /usr/sbin/softwareupdate --install-rosetta --agree-to-license```
 
 * Follow read me: https://github.com/bgebhardt/osx_bin
     * install Brew (see https://brew.sh)
