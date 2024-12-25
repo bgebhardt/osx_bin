@@ -357,7 +357,7 @@ chflags nohidden "$HOME"/Library
 # printf "%s\n"  "Finder: Hiding desktop icons."
 # defaults write com.apple.finder CreateDesktop false
 
-# TODO
+# TODO didn't work
 # Finder: Use column view in all Finder windows by default
 # Four-letter codes for all view modes: `icnv`, `clmv`, `Flwv`, `Nlsv`
 # printf "%s\n"  "Finder: Use column view in all Finder windows by default."
