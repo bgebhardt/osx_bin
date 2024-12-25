@@ -34,10 +34,11 @@ brew install --cask obsidian # Knowledge base that works on top of a local folde
 #brew install --cask timing
 #brew install --cask pdf-expert
 brew install --cask skim # PDF reader and note-taking application https://skim-app.sourceforge.io/
-# brew install --cask microsoft-office # requires admin password to install
-# brew install --cask microsoft-edge
-# brew install --cask microsoft-teams
-brew install onedrive # Folder synchronization with OneDrive https://github.com/abraunegg/onedrive
+brew install --cask microsoft-office # requires admin password to install
+brew install --cask microsoft-edge
+brew install --cask microsoft-teams
+# Onedrive cask conflicts with office
+# brew install --cask onedrive # Folder synchronization with OneDrive https://github.com/abraunegg/onedrive
 brew install --cask visual-studio-code
 brew install --cask github
 brew install karabiner-elements # powerful and stable keyboard customizer
@@ -63,6 +64,8 @@ brew install --cask shottr # free screen shot tool; preferred over Monosnap
 # todo: decide between these two
 brew install --cask typinator # Tool to automate the insertion of frequently used text and graphics https://www.ergonis.com/products/typinator/
 brew install --cask rocket-typist # Text expander for common phrases https://witt-software.com/rockettypist/
+
+brew install --cask onedrive # Folder synchronization with OneDrive; required you pass cask
 
 # to hard/dangerous to use
 #brew install mackup # Keep your Mac's application settings in sync https://github.com/lra/mackup
