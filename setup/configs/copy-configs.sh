@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Script in progress to copy config directories via rsync
+# Not working in current setup though as rsync not working.
+
 # Check if the source Mac hostname and username are provided
 if [ -z "$1" ] || [ -z "$2" ]; then
     echo "Usage: $0 <source_mac_hostname> <username>"
