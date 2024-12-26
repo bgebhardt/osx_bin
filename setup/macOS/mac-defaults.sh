@@ -407,10 +407,9 @@ defaults write com.apple.finder ShowPathbar -bool true
 printf "%s\n" "Finder: Show status bar."
 defaults write com.apple.finder ShowStatusBar -bool true
 
-#todo
 # Finder: display full POSIX path as window title
-printf "%s\n" "Finder: Display full POSIX path as window title."
-defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+#printf "%s\n" "Finder: Display full POSIX path as window title."
+#defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
 # todo
 # Finder: Keep folders on top when sorting by name
