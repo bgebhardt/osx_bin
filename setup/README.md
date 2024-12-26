@@ -101,6 +101,8 @@ Install minimum apps
 * WORK ONLY: Download Company Portal app from app store and set up work requirements. http://aka.ms/mdm
   * logout to force required password change
   * update Defender virus & threat protection
+  * turn on file vault (if needed)
+  * update operating system (if needed)
   * reenable linking mac keyboards and mouse in Displays preference
   * Set up exchange in System Preferences
   * Set up work email in Outlook
@@ -124,6 +126,42 @@ From OneDrive always sync the folders in your private file (not checked in)
 *Do this before setting up apps incase they need the files.*
 It seems to take a long time to download all the files
 
+# Copy over configs from another Mac
+
+Copy key config directories via rsync. You'll merge these in as makes sense.
+
+## Airdrop approach
+
+Not working for Preferences directory. Try a zipped version.
+TODO: Write a script that zips folders to prepare for airdrop
+then manually airdrop them
+
+## Macos sharing approach
+
+Not working; I think blocked by work
+
+## rsync approach
+
+Not working
+
+## set up rsync and ssh
+
+Enable remote login on both macs in System Settings
+
+Generate SSH keys on both Macs:
+
+```bash
+ssh-keygen -t rsa
+```
+
+Copy the public key from one Mac to the other:
+
+```bash
+ssh-copy-id -i ~/.ssh/id_rsa.pub username@remote_mac_ip
+```
+
+Replace username with the username on the remote Mac and remote_mac_ip with the IP address of the remote Mac.
+
 # Set up iDrive
 
 * Configure iDrive
@@ -140,9 +178,17 @@ It seems to take a long time to download all the files
 * run ./brew-cask.sh
 * run ./brew.sh
 
+```shell
+~/bin/setup/appstore/mas.sh
+~/bin/setup/homebrew/brew-cask.sh
+~/bin/setup/homebrew/brew.sh
+```
+
 You can run these in the background and move on to configs. Check them periodically for errors.
 
 ## Applications not installed this way
+
+Use the script `\appstore\install-other-apps.sh` to install the following apps that aren't mas or brew compatible.
 
 The following apps you'll have to get and install via there web installer
 
@@ -183,27 +229,13 @@ Add Espson printer in Printers and Scanners
 Install [Epson Printer Drivers](https://epson.com/Support/wa00607d)
 * I skip this now as the software seems to cause issues.
 
-## Mackup
-A tool to backup and restore application configuration. Supports lots of applications.
-
-to backup configs run `mackup backup`
-to restore configs run `mackup restore`
-
-### Install and Config
-brew install mackup # Keep your Mac's application settings in sync https://github.com/lra/mackup
-[lra/mackup: Keep your application settings in sync (OS X/Linux)](https://github.com/lra/mackup)
-
-config docs: [mackup/doc at master · lra/mackup](https://github.com/lra/mackup/tree/master/doc#get-official-support-for-an-application)
-sample config file: [mackup/doc/.mackup.cfg at master · lra/mackup](https://github.com/lra/mackup/blob/master/doc/.mackup.cfg)
-
-My config is to sync to iDrive Cloud Drive. See mackup.template.cfg
-Supports about 20-30 of my apps
-
 ## General
 
 * Set CAPSLOCK to Control in System Preferences -> Keyboard -> Modifiers...
+* NOTE: I now use karabiner to accomplish this better. Load Karabiner config instead
 
 ## Dock
+Note: Now part of mac-defaults.sh
 Set app switcher to show on all monitors. Useful if laptop is monitor to the right of main monitor.
 
 ``` shell
@@ -224,7 +256,7 @@ From [Show macOS app switcher across all monitors · GitHub](https://gist.github
 
 * Change Spotlight shortcut in System Preferences -> Keyboard to Control-Option-Command-Space
 * Start Raycast
-* Go to Settings -> Advanced and click Import. Import from OneDrive or ~/bin/setup/configs
+* Go to Settings -> Advanced and click Import. Import from OneDrive/1 Common Info or ~/bin/setup/configs
 * Get password from 1Password
 * URL: [Raycast](https://www.raycast.com/) -- spotlight replacement; similar to Alfred
 
@@ -235,7 +267,7 @@ These two links will open personal and work OneDrive searches for the word passe
 * personal: https://onedrive.live.com/?id=root&qt=search&q={Query}&scope=drive
 * work: https://microsoft-my.sharepoint-df.com/personal/{your-work-onedrive-location}/_layouts/15/onedrive.aspx?q={Query}&view=7&searchScope=all
 
-## Alfred (to replace spotlight)
+## Alfred (to replace spotlight) RETIRED
 
 * Change the spotlight short cut to Control-Option-Command-Space
 * Change Alfred to command-space in General pane of Alfred settings
@@ -254,8 +286,7 @@ iDrive cloud sync is needed for my Obsidian vault
 ## Obsidian Note taking setup
 
 Enable core plugins
-My vaults are in iDrive and OneDrive. Set up those to applications first.
-
+My vaults are in OneDrive. Set up those to applications first.
 
 ## Rectangle - For Window movement shortcuts
 
@@ -291,6 +322,9 @@ In settings
 * Set editors to Visual Code
 * Automatically check for updates
 
+Run script in this repo's README to download my scripts
+[https://github.com/bgebhardt/osx_scripts_folder](https://github.com/bgebhardt/osx_scripts_folder)
+
 Set keyboard shortcuts
 * The short cuts I've used can be found at https://github.com/bgebhardt/osx_scripts_folder/blob/master/fastscripts-shortcuts.csv
 * There is a script in that repo that can export all shortcuts
@@ -299,6 +333,7 @@ Set keyboard shortcuts
 
 * Open and set up
 * Set Start on Launch
+* Set "Show menu bar items in bar below the menu bar"
 * Select "Show all hidden items if active screen is bigger than: 3000 px"
 * Menubar layout: Raycast and FastScripts
 * Rules: TODO
@@ -676,7 +711,7 @@ Reference:
 * Amphetamine - set it up to start at login
 * Photos
 * Music
-* PDFExpert - download installer from their website instead of brew cask version.
+* PDFExpert
 * iMazing
 * Swish
 * Itsycal
@@ -790,6 +825,22 @@ More info on sleepwatcher and Applescripts to mute/unmute
   * see [How To Properly Map Keyboard Between Mac and PC when Share Mouses with Synergy - NEXTOFWINDOWS.COM](https://www.nextofwindows.com/how-to-properly-map-keyboard-between-mac-and-pc-when-share-mouses-with-synergy)
 
 # Retired Applications
+
+## Mackup
+A tool to backup and restore application configuration. Supports lots of applications.
+
+to backup configs run `mackup backup`
+to restore configs run `mackup restore`
+
+### Install and Config
+brew install mackup # Keep your Mac's application settings in sync https://github.com/lra/mackup
+[lra/mackup: Keep your application settings in sync (OS X/Linux)](https://github.com/lra/mackup)
+
+config docs: [mackup/doc at master · lra/mackup](https://github.com/lra/mackup/tree/master/doc#get-official-support-for-an-application)
+sample config file: [mackup/doc/.mackup.cfg at master · lra/mackup](https://github.com/lra/mackup/blob/master/doc/.mackup.cfg)
+
+My config is to sync to iDrive Cloud Drive. See mackup.template.cfg
+Supports about 20-30 of my apps
 
 ## Joplin Note taking Setup 
 I use [Joplin](https://joplinapp.org/) for cross platform note taking instead of Apple Notes so I can get my notes on Windows as well. It has great plugins but requires you to write all in markdown. Synchronization is through OneDrive and is not quite as robust as Apple Notes. Overall though it's a great app.
