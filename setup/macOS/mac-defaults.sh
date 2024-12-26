@@ -392,8 +392,8 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 # defaults write com.apple.finder AppleShowAllFiles -bool true
 
 # Finder: show all filename extensions
-printf "%s\n" "Finder: Show filename extensions."
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+#printf "%s\n" "Finder: Show filename extensions."
+#defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 # Finder: Disable the warning when changing a file extension
 # printf "%s\n" "Finder: Disable the warning when changing a file extension."
