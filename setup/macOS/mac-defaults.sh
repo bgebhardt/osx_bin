@@ -281,6 +281,13 @@ defaults write com.apple.Dock orientation -string "right"
 
 # see [How to customize the Dock position in OS X - CNET](https://www.cnet.com/tech/computing/how-to-customize-the-dock-position-in-os-x/)
 
+# Dock: Set app switcher to show on all monitors
+# Set app switcher to show on all monitors. Useful if laptop is monitor to the right of main monitor.
+printf "%s\n"  "Dock: Set app switcher to show on all monitors."
+defaults write com.apple.Dock appswitcher-all-displays -bool true
+#to reverse: defaults write com.apple.Dock appswitcher-all-displays -bool false
+# From [Show macOS app switcher across all monitors · GitHub](https://gist.github.com/jthodge/c4ba15a78fb29671dfa072fe279355f0)
+
 # Dock: Automatically hide and show
 # printf "%s\n" "Dock: Automatically hide and show."
 # defaults write com.apple.dock autohide -bool false
