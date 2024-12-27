@@ -4,19 +4,24 @@
 
 # copy this file to you home directory.
 
-echo "sourcing bash_profile..."
-
 source ~/bin/bash_profile_bin
 
-# moved my bash settings to my bin directory which is checked into git.
-# checking for warp
-if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then  #TODO: split bash_profile_bin into multiple - one for item, one for warp
-    source ~/bin/bash_profile_iterm
-else
-    source ~/bin/bash_profile_warp
+# Check if the shell is interactive
+if [[ $- == *i* ]]; then
+    echo "This is an interactive shell"
+
+    # moved my bash settings to my bin directory which is checked into git.
+    # checking for warp
+    if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then  #TODO: split bash_profile_bin into multiple - one for item, one for warp
+        source ~/bin/bash_profile_iterm
+    else
+        source ~/bin/bash_profile_warp
+    fi
+
+    echo "** ready **"
+
 fi
 
-echo "** ready **"
-
+# RETIRED - I no longer use fig
 # Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/bash_profile.post.bash" ]] && builtin source "$HOME/.fig/shell/bash_profile.post.bash"
+#[[ -f "$HOME/.fig/shell/bash_profile.post.bash" ]] && builtin source "$HOME/.fig/shell/bash_profile.post.bash"
