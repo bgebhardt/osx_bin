@@ -3,10 +3,27 @@
 # Master file for all bash configutation.  Keep it in bin directory.
 # copy ~/bin/.bash_profile to you home directory.  It sources this file.
 
-echo "sourcing bash_profile_bin"
+# utility function
+is_interactive_shell() {
+    # Check if the shell is interactive
+    if [[ $- == *i* ]]; then
+        echo "This is an interactive shell"
+    fi
+}
+#is_interactive_shell
+
+iecho() {
+    if [[ $- == *i* ]]; then
+        echo "$@"
+    fi
+}
+
+#iecho "This is an interactive shell"
+
+iecho "sourcing bash_profile_bin"
 
 #echo "home dir: $HOME"
-echo "sourcing profile_bryan" && source ~/bin/profile_bryan # sources other bash settings, especially dev environment-related.
+iecho "sourcing profile_bryan" && source ~/bin/profile_bryan # sources other bash settings, especially dev environment-related.
 
 #bash_work is now retired.
 #[[ -s "$HOME/bin/bash_work" ]] && echo "sourcing bash_work" && source ~/bin/bash_work # source work related shell settings
@@ -18,7 +35,10 @@ echo "sourcing profile_bryan" && source ~/bin/profile_bryan # sources other bash
 source ~/bin/.alias_bash.sh
 
 # load 1Password CLI plugins
-source /Users/bryan/.config/op/plugins.sh
+# TODO: fix 1Password CLI to work
+if [ -f /Users/bryan/.config/op/plugins.sh ]; then
+    source /Users/bryan/.config/op/plugins.sh
+fi
 
 ### Misc
 
