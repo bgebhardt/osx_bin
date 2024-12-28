@@ -584,7 +584,9 @@ end tell
 * Set shown browsers
 * Grant profile access
 * Load rules from OneDrive Common Info folder
+* Install Edge extension - [Velja - Chrome Web Store](https://chromewebstore.google.com/detail/velja/gpipdgcamiclkcomcnogmlfpalggmcmk?pli=1)
 
+see also [Velja — Sindre Sorhus](https://sindresorhus.com/velja)
 
 ## PopClip
 
