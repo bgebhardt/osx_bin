@@ -18,9 +18,12 @@ fi
 # Initialize variables
 plist_path=""
 app_name=""
+app_id=""
+app_pref1=""
+app_pref2=""
 
-# Function to find the preference file for a given app name
-find_app_plist() {
+# Function to find the preference file name for a given app name
+find_app_id() {
     app_name="$1"
     app_id=$(/usr/bin/osascript -e "id of app \"$app_name\"")
 
@@ -31,8 +34,8 @@ find_app_plist() {
     
     #plist_path=$(find ~/Library/Preferences -name "*${app_name}*.plist" 2>/dev/null | head -n 1)
     #echo "App $app_name has and id of $app_id" # for debugging
-    local result="$HOME/Library/Preferences/${app_id}.plist"
-    echo "$result"    
+    #local result="$HOME/Library/Preferences/${app_id}.plist"
+    echo "$app_id"
 }
 
 # Parse options
@@ -50,13 +53,31 @@ done
 
 shift $((OPTIND -1))
 
-plist_path=$(find_app_plist "$app_name")
-
 # set the plist path to the last remaining argument
 for arg in "$@"; do 
     #echo "Remaining argument: $arg"
     plist_path="$arg"
 done
+
+if [ -n "$app_name" ]; then
+    app_id=$(find_app_id "$app_name")
+
+    # check these 2 locations for app preference files
+    app_pref1="$HOME/Library/Preferences/$app_id.plist"
+    app_pref2="$HOME/Library/Containers/$app_id/Data/Library/Preferences/$app_id.plist"
+
+    echo "Looking for preference file: $app_id in $app_pref1 and $app_pref2"
+
+    # Check if the app preference file exists in the two locations
+    if [ -f "$app_pref1" ]; then
+        plist_path="$app_pref1"
+    elif [ -f "$app_pref2" ]; then
+        plist_path="$app_pref2"
+    else
+        echo "Error: Preference file for $app_name not found in expected locations."
+        exit 1
+    fi
+fi
 
 echo "Processing file: $plist_path"
 
