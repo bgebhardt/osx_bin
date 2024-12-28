@@ -124,6 +124,8 @@ brew install iina # Free and open-source media player https://iina.io/
 brew install vlc # Multimedia player https://www.videolan.org/vlc/
 #brew install mpv # Media player based on MPlayer and mplayer2 https://mpv.io
 
+brew install brave-browser # Web browser focusing on privacy https://brave.com/
+
 #brew install firefox
 #brew install google-chrome
 # brew install flash-player -- no longer available
