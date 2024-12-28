@@ -26,23 +26,21 @@ masInstall
 #mas install 409201541 # Pages (6.0)
 #mas install 409203825 # Numbers (4.0)
 #mas install 456362093 # MuteMyMic (1.10)
-mas install 484388250 # Numi (1.7.7)
+#mas install 484388250 # Numi (1.7.7) # now done with brew
 #mas install 784801555 # Microsoft OneNote (15.27.1)
 mas install 560846814 # PDF Converter Master (4.0.0)
-mas install 896450579 # Textual (6.0.2)
+#mas install 896450579 # Textual (6.0.2) # TODO figure out if still in app store
 mas install 453114608 # JSON Helper (1.07)
 #mas install 682658836 # GarageBand (10.1.2)
 #mas install 488536386 # Location Helper (1.02)
 #mas install 700757313 # Halloween Fonts (4.0)
-mas install 883878097 # Server (5.2)
-mas install 431511738 # Timing (1.7.4)
-mas install 509148961 # SMARTReporter (3.1.11)
+#mas install 883878097 # Server (5.2) # seems to be no longer offered by Apple
+#mas install 431511738 # Timing (1.7.4) # installed by brew now
 mas install 465965038 # Markdown Pro (1.0.9)
 #mas install 607997198 # Marko (2.1)
 mas install 586862299 # Duplicate Cleaner For iPhoto (1.13)
 #mas install 497799835 # Xcode (8.0)
-mas install 491365225 # OneClickdigital (1.12)
-mas install 1508732804 # Soulver 3 (3.6)
+#mas install 491365225 # OneClickdigital (1.12) # no longer used; likely not available
 # mas install 413965349 # Soulver (2.6.0)
 mas install 408981434 # iMovie (10.1.2)  # TODO figure out why this doesn't install
 #mas install 424389933   # Final Cut Pro
@@ -50,18 +48,17 @@ mas install 594444151 # PDF to JPG (4.0)
 #mas install 555935825 # Themes for Keynote Free (2.2)
 mas install 929188617 # Timeline 3D (5.1.2)
 #mas install 715394237 # Condense (1.61)
-mas install 935700987 # Snapselect (1.3.0)
-mas install 435003921 # Fantastical (1.3.18)
+#mas install 935700987 # Snapselect (1.3.0) # no longer available
 #mas install 615916400 # BrowseShot (1.0)
 #mas install 511648940 # Metanota
 #mas install 406056744 # Evernote
 #mas install 412980789 # Full Deck Solitaire
 #mas install 692867256 # Simplenote
-mas install 410801088 # Wallpaper Wizard
+# mas install 410801088 # Wallpaper Wizard # no longer works well or seems to be available
 #mas install 426397771 # SQLVue
 mas install 456624497 # Brightness Slider
-mas install 445189367 # PopClip
-mas install 6462355119 # OwlOCR - Screenshot to Text (6.0.6)
+# mas install 445189367 # PopClip # use Maccy now; no longer seems available
+#mas install 6462355119 # OwlOCR - Screenshot to Text (6.0.6) # done with brew now
 #mas install 883878097 # Server
 #mas install 576421334 # Converto
 #mas install 467939042 # Growl
@@ -77,11 +74,11 @@ mas install 525912054 # WiFi Signal
 #mas install 415492014 # Inpaint 
 #mas install 503729945 # SizzlingKeys (5.1.4)
 mas install 549083868 # Display Menu (2.2.2)
-mas install 688211836 # EasyRes (1.1.1)
+#mas install 688211836 # EasyRes (1.1.1) # use BetterDisplay now; no longer seems available
 mas install 1274495053  # Microsoft To Do  ## NOT WORKING; TODO try to fix
 mas install 1295203466 # Microsoft Remote Desktop
 
-mas install 1607635845 # Velja (1.10.1) - browser picker: Open links in a specific browser or a matching native app. Easily switch between browsers
+#mas install 1607635845 # Velja (1.10.1) - browser picker: Open links in a specific browser or a matching native app. Easily switch between browsers # done with brew now
 mas install 1377973524 # Sandkorn (1.8.2) - shows you what entitlements those apps - [Sandkorn - Peter Borg Apps](https://www.peterborgapps.com/sandkorn/)
 mas install 425264550  # Blackmagic Disk Speed Test (3.4.2)
 mas install 937984704  # Amphetamine                    (5.2.2) - keep-awake utility
@@ -103,7 +100,7 @@ mas install 1499215709  # Pasteboard Viewer # view clipboard history
 mas install 1527716894  # Webp Converter - convert Webp images to PNG or JPG
 mas install 1612708557 # Scaler - Scaler is a bandwidth monitor app for your macOS device. It shows you your current network speed in the menu bar and provides detailed information about your data usage for the past 30 days. [0.0]
 
-mas install 1487406555  # Safari extension Tab Count
+#mas install 1487406555  # Safari extension Tab Count # no longer available
 mas install 1515213004  # Session Pal - Safari session manager
 mas install 1569813296  # 1Password for Safari
 
@@ -115,7 +112,7 @@ mas install 381059732 # WeekCal
 mas install 512464723  # AS Timer - easy to use timer; I tend to use raycast's built in timer now
 
 mas install 6444667067  # Hyperduck - Send links from iOS to a Mac; works better than air drop, works in any app, better than handoff
-mas install 472717129  # Type2Phone - Hyperduck likely is better
+#mas install 472717129  # Type2Phone - Hyperduck likely is better
 
 mas install 1522267256 # Shareful - Shareful makes the system share menu even more useful by providing some commonly needed share services
 
@@ -134,7 +131,7 @@ mas install 1547364831  # Blink: Eye Strain Reliever     (1.1)
 mas install 1457158844  # Take a break - timer, reminder (1.7.1)
 
 # wifi and network analyzers and speed testers
-mas install 1526841848 # yFi WiFi Companion (1.2) [yFi - stay connected to your WiFi](https://yfi.coderose.io/) - auto reconnects wifi when transfer rate is slow.
+#mas install 1526841848 # yFi WiFi Companion (1.2) [yFi - stay connected to your WiFi](https://yfi.coderose.io/) - auto reconnects wifi when transfer rate is slow. # no longer seems available
 
 mas install 1664371307 # Ultra Wifi - Analyzer, Monitor (2.1.0) # this one is the best!
 mas install 1153157709 # Speedtest by Ookla                      (1.27)
