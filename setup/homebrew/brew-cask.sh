@@ -105,6 +105,7 @@ brew install amadeus-pro
 brew install audacity
 #brew install busycal # I no longer use these
 #brew install busycontacts # I no longer use these
+# brew install fantastical # I no longer use these
 # brew install fullcontact -- no longer available
 #brew install evernote # install with mas instead
 #fantastical
@@ -227,6 +228,8 @@ brew install stats # Name: Stats - System monitor for the menu bar https://githu
 
 brew install menubar-stats # System monitor with temperature & fans plugins https://seense.com/menubarstats/
 # clock - no cask; same software maker [seense | The Clock for macOS](https://seense.com/the_clock/)
+
+brew install --cask smartreporter-free # Drive failure monitoring tool - https://www.corecode.io/smartreporter/
 
 brew install command-tab-plus #Keyboard-centric application and window switcher https://noteifyapp.com/command-tab-plus/
 # quick expose - no cask; same software maker [Quick Exposé: A New Way to Use Mission Control and App Exposé on macOS • MacPlus Software](https://noteifyapp.com/quick-expose/)
@@ -487,7 +490,7 @@ brew install onecast
 
 brew install crossover # Tool to run Windows software https://www.codeweavers.com/products/crossover-mac/
 brew install whisky # Wine wrapper built with SwiftUI https://getwhisky.app/
-
+brew install vmware-fusion #Create, manage, and run virtual machines https://www.vmware.com/products/fusion.html
 
 # Free Comic Book Reader
 brew install yacreader
