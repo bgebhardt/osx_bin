@@ -322,6 +322,7 @@ brew install gemini
 #brew install kitty #GPU-based terminal emulator https://github.com/kovidgoyal/kitty
 #brew install alacritty # Name: Alacritty GPU-accelerated terminal emulator (Mac and Windows) https://github.com/alacritty/alacritty/
 brew install warp # Rust-based terminal app; couldn't get it to work though
+brew install ghostty # Name: Ghostty - Terminal emulator with a modern design https://ghostty.com/
 
 brew install hammerspoon # Name: Hammerspoon - Desktop automation application - https://www.hammerspoon.org/
 brew install phoenix # Window and app manager scriptable with JavaScript https://github.com/kasper/phoenix/ (alternative to hammerspoon automation)
