@@ -361,5 +361,8 @@ brew install tesseract # OCR (Optical Character Recognition) engine https://gith
 
 brew install s-search # Web search from the terminal https://github.com/zquestz/s
 
+brew install shfmt # Autoformat shell script source code https://github.com/mvdan/sh
+brew install shellcheck # Static analysis and linting tool for sh/bash scripts https://www.shellcheck.net/
+
 # Remove outdated versions from the cellar.
 brew cleanup
