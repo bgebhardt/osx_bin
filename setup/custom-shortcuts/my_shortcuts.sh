@@ -17,7 +17,17 @@
 # # is used to denote number pad keys on full keyboards (e.g. #1 means 1 key on the number pad)
 # There’s also a little known feature in System Preferences that allows you to specify full menu hierarchies by separating the items with -> (e.g. File->Save, which is converted behind the scenes to use the escape character as a leading & separating character), which allows for disambiguation in the event multiple menu items exist with the same name. That’s supported here as well & is automatically converted.
 
+# Global shortcuts
+# Minimize - Control-M
+echo "Setting global shortcuts"
+./shortcut_writer.applescript NSGlobalDomain add 'Minimize' '^m'
+
 # Apple Notes
+# Add a checklist - Command-M, Strikethrough - Command-Shift-X, Minimize - Control-M
+echo "Setting Notes shortcuts"
 ./shortcut_writer.applescript com.apple.Notes add 'Checklist' '@m' 'Strikethrough' '@$x' 'Minimize' '^m'
 
 # Microsoft Outlook
+# New email - Command-N, Send - Command-Shift-D, Reply - Command-R, Forward - Command-J, Delete - Command-Delete, Archive - Command-Shift-M, Mark as read - Command-K, Mark as unread - Command-Shift-K, Minimize - Command-M
+echo "Setting Outlook shortcuts"
+./shortcut_writer.applescript com.microsoft.Outlook add 'Work Week' '~w' 'Three Day' '~3'
