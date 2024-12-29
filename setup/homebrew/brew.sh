@@ -29,6 +29,41 @@ brew install bash
 brew tap homebrew/versions
 brew install bash-completion2
 
+# Favorites
+
+brew install zoxide # A smarter cd command for navigating your filesystem.
+brew install eza # A modern replacement for `ls` with more features and better defaults.
+brew install bat # A cat clone with syntax highlighting and Git integration.
+brew install fzf # A general-purpose command-line fuzzy finder.
+brew install delta # A viewer for git and diff output.
+brew install fd # Simple, fast and user-friendly alternative to find - https://github.com/sharkdp/fd
+brew install tldr # Simplified and community-driven man pages - https://tldr.sh/
+brew install btop # A resource monitor that shows usage and stats for processor, memory, disks, network & processes.
+brew install jq # Lightweight and flexible command-line JSON processor https://stedolan.github.io/jq/
+brew install less # Pager program similar to more (1) but with support for windows and binary files https://www.greenwoodsoftware.com/less/
+
+# File Management
+
+brew install rmlint # Tool to find and remove duplicate files and other lint from your filesystem. https://rmlint.readthedocs.io/
+brew install rsync # Utility that provides fast incremental file transfer https://rsync.samba.org/
+brew install rsync-time-backup # Time Machine-style backup for the terminal using rsync https://github.com/laurent22/rsync-time-backup
+brew install rclone # Rsync for cloud storage https://rclone.org/
+brew install --cask kapitainsky-rclone-browser # GUI for rclone https://github.com/kapitainsky/RcloneBrowser
+brew install duck # Command-line interface for Cyberduck (a multi-protocol file transfer tool) https://duck.sh/ (can be scripted)
+brew install fswatch # Monitor a directory for changes and run a shell command https://github.com/emcrisostomo/fswatch
+
+# Additional Tools
+
+brew install ripgrep # A line-oriented search tool that recursively searches your current directory for a regex pattern.
+brew install yadm # A tool for managing dotfiles.
+brew install direnv # An environment switcher for the shell.
+brew install thefuck # Corrects errors in previous console commands.
+#brew install wget # A network utility to retrieve files from the web.
+# Terminal multiplexer - https://tmux.github.io/
+# [Tmux Cheat Sheet & Quick Reference](https://tmuxcheatsheet.com/)
+brew install tmux # A terminal multiplexer that allows multiple terminal sessions to be accessed simultaneously.
+brew install tree # A recursive directory listing command that produces a depth-indented listing of files. Use exa instead.
+
 # TODO: 05-22-2016 decide whether to enable this
 # Switch to using brew-installed bash as default shell
 # if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
@@ -43,7 +78,7 @@ brew install wget --with-iri
 # Note that the order in which these are installed is important;
 # see http://git.io/brew-narwhal-ringo.
 brew install ringojs
-#brew install narwhal - 05-22-2016: removed
+#brew install narwhal # 05-22-2016: removed
 
 # Install more recent versions of some OS X tools.
 brew install vim --override-system-vi
@@ -106,7 +141,6 @@ brew install rhino
 brew install speedtest_cli # Command-line interface for https://speedtest.net bandwidth tests https://github.com/sivel/speedtest-cli
 brew install ssh-copy-id
 brew install testssl
-brew install tree
 brew install vbindiff
 brew install webkit2png
 brew install zopfli
@@ -160,16 +194,14 @@ brew install graphviz
 brew install grep
 #brew install groovy # 09-14-2023: removed as I don't use this and it wouldn't update.
 brew install gzip
-brew install htop-osx
-brew install httpie
+brew install htop-osx # Improved top (interactive process viewer) https://hisham.hm/htop/
+brew install httpie # HTTP client for the terminal https://httpie.org/
 brew install hub # github command line wrapper
-brew install icdiff
+brew install icdiff # Improved colored diff https://www.jefftk.com/icdiff
 brew install icu4c
 brew install isl
 brew install jpeg
-brew install jq
 brew install Caskroom/cask/kdiff3
-brew install less
 brew install libevent
 brew install libffi
 brew install libmpc
@@ -199,12 +231,6 @@ brew install r
 # brew install homebrew/science/r-gui  # no longer using this
 brew install readline
 brew install redis
-brew install rsync # Utility that provides fast incremental file transfer https://rsync.samba.org/
-brew install rsync-time-backup # Time Machine-style backup for the terminal using rsync https://github.com/laurent22/rsync-time-backup
-brew install rclone # Rsync for cloud storage https://rclone.org/
-brew install --cask kapitainsky-rclone-browser # GUI for rclone https://github.com/kapitainsky/RcloneBrowser
-brew install duck # Command-line interface for Cyberduck (a multi-protocol file transfer tool) https://duck.sh/ (can be scripted)
-brew install fswatch # Monitor a directory for changes and run a shell command https://github.com/emcrisostomo/fswatch
 brew install sbt
 brew install scala
 brew install shellcheck
@@ -215,12 +241,10 @@ brew install ssh-copy-id
 brew install sslscan
 brew install subversion
 brew install tig
-brew install tree
 brew install the_silver_searcher # fast source code searching with "ag"
 brew install unixodbc
 brew install vim
 brew install wdiff
-brew install wget
 brew install wxmac
 brew install xz
 brew install z
@@ -235,8 +259,7 @@ brew install ssldump
 brew install fetchmail
 brew install procmail
 
-brew install tldr # Simplified and community-driven man pages - https://tldr.sh/
-brew install starship # Cross-shell prompt for astronauts - https://starship.rs
+#brew install starship # Cross-shell prompt for astronauts - https://starship.rs
 
 brew install rich-cli # Command-line toolbox for fancy output in the terminal https://github.com/textualize/rich-cli
 
@@ -326,9 +349,6 @@ brew install bandwhich
 # network scanner
 brew install nmap
 
-# Simple, fast and user-friendly alternative to find - https://github.com/sharkdp/fd
-brew install fd
-
 # Cmdline tool - Monitors sleep, wakeup, and idleness of a Mac - https://www.bernhard-baehr.de/
 brew install sleepwatcher
 
@@ -346,10 +366,6 @@ brew install jpdfbookmarks # Create and edit bookmarks on existing PDF files htt
 # brew install pdftk-java # Port of pdftk in java; pdftk provides lots of pdf cli tools. https://gitlab.com/pdftk-java/pdftk
 # looks like it requires java 11 which I don't have installed.
 # Trying the non-java original - brew install pdftk-java instead [PDFtk Server Manual](https://www.pdflabs.com/docs/pdftk-man-page/)
-
-# Terminal multiplexer - https://tmux.github.io/
-# [Tmux Cheat Sheet & Quick Reference](https://tmuxcheatsheet.com/)
-brew install tmux
 
 brew install ncdu # NCurses Disk Usage https://dev.yorhel.nl/ncdu
 

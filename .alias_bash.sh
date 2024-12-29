@@ -5,12 +5,20 @@
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
+# eza ls and tree replacement
+alias ls="eza"
+alias tree="eza -T"
+
+# zoxide replacement for cd
+alias cd=z
+
+# old LS configs, replaced with color eza
 # Color LS
-colorflag="-G"
-alias ls="command ls ${colorflag}"
-alias l="ls -lF ${colorflag}" # all files, in long format
-alias la="ls -laF ${colorflag}" # all files inc dotfiles, in long format
-alias lsd='ls -lF ${colorflag} | grep "^d"' # only directories
+# colorflag="-G"
+# alias ls="command ls ${colorflag}"
+# alias l="ls -lF ${colorflag}" # all files, in long format
+# alias la="ls -laF ${colorflag}" # all files inc dotfiles, in long format
+# alias lsd='ls -lF ${colorflag} | grep "^d"' # only directories
 
 # Quicker navigation
 alias ..="cd .."

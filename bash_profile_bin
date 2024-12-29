@@ -12,6 +12,11 @@ is_interactive_shell() {
 }
 #is_interactive_shell
 
+# print favorite tools
+if [[ $- == *i* ]]; then
+    awk '/###/{exit}1' "$HOME/bin/setup/homebrew/README-fav-cli-tools.md"
+fi
+
 iecho() {
     if [[ $- == *i* ]]; then
         echo "$@"
@@ -56,6 +61,13 @@ fi
 if [ -f $(brew --prefix)/etc/bash_completion.d/git-extras ]; then
     . $(brew --prefix)/etc/bash_completion.d/git-extras
 fi
+
+# Set up fzf key bindings and fuzzy completion
+# [junegunn/fzf: :cherry_blossom: A command-line fuzzy finder](https://github.com/junegunn/fzf#setting-up-shell-integration)
+eval "$(fzf --bash)"
+
+# see [ajeetdsouza/zoxide: A smarter cd command. Supports all major shells.](https://github.com/ajeetdsouza/zoxide)
+eval "$(zoxide init bash)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 # disabling as I'm not using gvm for now
