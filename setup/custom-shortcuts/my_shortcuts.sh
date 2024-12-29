@@ -21,7 +21,7 @@
 # Global shortcuts
 # Minimize - Control-M
 echo "Setting global shortcuts"
-./shortcut_writer.applescript NSGlobalDomain add 'Minimize' '^m'
+# ./shortcut_writer.applescript NSGlobalDomain add 'Minimize' '^m'
 
 # Apple Notes
 # Add a checklist - Command-M, Strikethrough - Command-Shift-X, Minimize - Control-M
