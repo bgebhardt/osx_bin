@@ -14,6 +14,9 @@
 # example: Set Finder as the default handler for ftp:// URLs:
 # duti -s com.apple.Finder ftp
 
+# -d <uti> lists the default handler; example: duti -d public.html
+# -l <uti> lists all registered handlers. example: duti -l public.html
+
 # Common file types to consider:
 # video: Common video formats (mp4, avi, mkv, etc.)
 # audio: Audio formats (mp3, wav, aac, etc.)
@@ -21,14 +24,8 @@
 # code: Programming and markup files (py, js, rs, etc.)
 # archive: Archive formats (zip, tar, gz, etc.)
 
-# TIP: Getting list of UTI's (from duti man page)
-
-# first you need to enable the locate and wait for it to finish indexing
-#sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
-
-# Then...
-# To get a list of UTIs on your system, you can use the following command line:
-#$(locate lsregister) -dump | grep '[[:space:]]uti:' | awk '{ print $2 }' | sort | uniq
+# Tip: Command will get all the claimed UTI's - a lot of output! see other script for this
+# /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump  | grep 'uti:' | awk '{ print $2 }' | sort | uniq
 
 # Check if duti is installed
 if ! command -v duti &> /dev/null
@@ -53,8 +50,8 @@ duti -s com.microsoft.VSCode public.shell-script
 
 # Set default PDF viewer to Skim
 echo "Setting default PDF viewer to Skim"
-duti -s net.sourceforge.skim-app.skim com.adobe.pdf
-#duti -s com.apple.Preview com.adobe.pdf
+duti -s net.sourceforge.skim-app.skim pdf all
+#duti -s com.apple.Preview pdf all # set back to Preview
 
 # Set default image viewer to Preview
 #echo "Setting default image viewer to Preview"
@@ -66,5 +63,3 @@ duti -s net.sourceforge.skim-app.skim com.adobe.pdf
 #duti -s org.videolan.vlc public.video
 
 echo "Default applications have been set."
-
-

@@ -78,23 +78,23 @@ Follow read me: https://github.com/bgebhardt/osx_bin
   * install Brew (see https://brew.sh)
   * Set up shell settings
 
-Set mac defaults
+## Set mac defaults
 
+Set mac default settings
 ```shell
 ~/bin/setup/macOS/mac-defaults.sh
 ```
 
-Install Rosetta with:
+## Install Rosetta with:
 
 ```shell
 /usr/sbin/softwareupdate --install-rosetta --agree-to-license
 ```
 
-Install minimum apps
+## Install minimum apps
 ```shell
 ~/bin/setup/homebrew/brew-cask-minimum.sh
 ```
-
 
 ## Install and set up Core Microsoft apps (now added to brew-cask-min install)
 
@@ -233,6 +233,20 @@ Install [Epson Printer Drivers](https://epson.com/Support/wa00607d)
 
 * Set CAPSLOCK to Control in System Preferences -> Keyboard -> Modifiers...
 * NOTE: I now use karabiner to accomplish this better. Load Karabiner config instead
+
+## Set default apps
+
+Run this script to change app defaults to my preferred defaults. It depends on `duti` being installed by brew.sh.
+
+```bash
+~/bin/setup/configs/config-app-defaults.sh 
+```
+
+You can get a list of all the UTI's (type of files to associate with an application) by running and redirecting into a file.
+
+```bash
+~/bin/setup/configs/list-all-utis.sh 
+```
 
 ## Dock
 Note: Now part of mac-defaults.sh
