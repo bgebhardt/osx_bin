@@ -96,6 +96,8 @@ addGUICustomKeyboardShortcutApplication ensures the application will appear in t
 
 If creating your own shortcuts, remember:
 
+Use NSGlobalDomain for global shortcuts.
+
 Bundle IDs are case sensitive.
 Full Disk Access must be enabled for applications protected by SIP (e.g. Safari, Mail, Preview).
 -- Add global application shortcuts.

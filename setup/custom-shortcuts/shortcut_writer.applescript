@@ -8,6 +8,8 @@ Example for calling script
 shortcut_writer.applescript com.apple.mail add 'Message->Move to->Mailbox1' '^@1' 'Message->Move to->Mailbox2' '^@2'
 shortcut_writer.applescript com.apple.mail rm  'Message->Move to->Mailbox1' 'Message->Move to->Mailbox2'
 
+Use NSGlobalDomain for global shortcuts
+
 In brief, the shortcuts use the same format as in DefaultKeyBinding.dict (but delete is \U0008 and forward delete is \U007F). The following are used to specify the modifier keys:
 
 ^ is control
