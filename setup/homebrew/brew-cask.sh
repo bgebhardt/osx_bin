@@ -258,8 +258,6 @@ brew install appcleaner # Application uninstaller https://freemacsoft.net/appcle
 
 # brew install bluesense # Detect the presence of your Bluetooth device https://apps.inspira.io/bluesense/ paid app I tried but don't use.
 
-
-
 # disk-inventory-x
 # omnidisksweeper
 #dropbox-encore
@@ -562,6 +560,13 @@ brew install popchar # Character map and font viewer https://www.ergonis.com/pro
 brew install shottr # Screenshot and screen recording tool https://shottr.com/
 brew install pdf-expert # PDF editor https://pdfexpert.com/
 brew install kapitainsky-rclone-browser # Rclone browser https://martins.ninja/RcloneBrowser/
+
+brew install --cask customshortcuts # Customise menu item keyboard shortcuts https://www.houdah.com/customShortcuts/
+# [CustomShortcuts 1.0 - Free Tool to Customize Menu Shortcuts](https://blog.houdah.com/2020/06/customshortcuts-1-0-free-tool-to-customize-menu-shortcuts/)
+# [Free Video Tutorial: Tip - Custom Shortcuts for macOS - Apple Mac, iPad & iPhone Tutorials from ScreenCastsOnline](https://www.screencastsonline.com/tutorials/utility-apps/tip-customshortcuts-for-macos)
+
+brew install --cask keyclu # Find shortcuts for any installed application https://sergii.tatarenkov.name/keyclu/support/
+# works with customshortcuts
 
 # installed by brew install office?
 # microsoft-auto-update
