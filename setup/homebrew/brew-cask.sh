@@ -155,6 +155,7 @@ brew install pdfsam-basic # Extracts pages, splits, merges, mixes and rotates PD
 brew install slack
 brew install skype
 brew install soulver # Notepad with a built-in calculator https://soulver.app/
+brew install soulver-cli # Standalone cli for the Soulver calculation engine https://github.com/soulverteam/Soulver-CLI
 brew install numi #Calculator and converter application https://numi.app/; costs $19.99; has raycast integration
 
 brew install rocket # Emoji picker optimized for blind people https://matthewpalmer.net/rocket/
