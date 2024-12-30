@@ -7,6 +7,7 @@
 * fd - A simple, fast and user-friendly alternative to 'find'.
 * tldr - Simplified and community-driven man pages.
 * btop - A resource monitor that shows usage and stats for processor, memory, disks, network & processes.
+* soulver - Standalone cli for the Soulver calculation engine - https://github.com/soulverteam/Soulver-CLI
 
 Find more in [file:///Users/bryan/bin/setup/homebrew/README-fav-cli-tools.md]
 ---
