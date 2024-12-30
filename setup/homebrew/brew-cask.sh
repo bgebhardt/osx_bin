@@ -545,7 +545,7 @@ brew install ollama # local LLM - Create, run, and share large language models (
 # Or, if you don't want/need a background service you can just run:
 #   /opt/homebrew/opt/ollama/bin/ollama serve
 
-brew install --cask superwhisper # Dictation tool including LLM reformatting https://superwhisper.com/
+brew install superwhisper # Dictation tool including LLM reformatting https://superwhisper.com/
 
 brew install boltai # AI chat client https://boltai.com/
 # from app store install OllmaSpring and Enchanted ai chat apps for Ollama
