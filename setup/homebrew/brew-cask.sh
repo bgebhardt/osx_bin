@@ -535,7 +535,7 @@ brew install horos # Medical image viewer https://horosproject.org/
 brew tap nailuoGG/recoll
 brew install recoll
 
-#brew install microsoft-azure-storage-explorer # Explorer for Azure Storage https://azure.microsoft.com/en-us/features/storage-explorer/
+brew install microsoft-azure-storage-explorer # Explorer for Azure Storage https://azure.microsoft.com/en-us/features/storage-explorer/
 
 # AI
 brew install ollama # local LLM - Create, run, and share large language models (LLMs) https://ollama.com/
@@ -544,6 +544,8 @@ brew install ollama # local LLM - Create, run, and share large language models (
 #   brew services start ollama
 # Or, if you don't want/need a background service you can just run:
 #   /opt/homebrew/opt/ollama/bin/ollama serve
+
+brew install --cask superwhisper # Dictation tool including LLM reformatting https://superwhisper.com/
 
 brew install boltai # AI chat client https://boltai.com/
 # from app store install OllmaSpring and Enchanted ai chat apps for Ollama
@@ -561,11 +563,11 @@ brew install shottr # Screenshot and screen recording tool https://shottr.com/
 brew install pdf-expert # PDF editor https://pdfexpert.com/
 brew install kapitainsky-rclone-browser # Rclone browser https://martins.ninja/RcloneBrowser/
 
-brew install --cask customshortcuts # Customise menu item keyboard shortcuts https://www.houdah.com/customShortcuts/
+brew install customshortcuts # Customise menu item keyboard shortcuts https://www.houdah.com/customShortcuts/
 # [CustomShortcuts 1.0 - Free Tool to Customize Menu Shortcuts](https://blog.houdah.com/2020/06/customshortcuts-1-0-free-tool-to-customize-menu-shortcuts/)
 # [Free Video Tutorial: Tip - Custom Shortcuts for macOS - Apple Mac, iPad & iPhone Tutorials from ScreenCastsOnline](https://www.screencastsonline.com/tutorials/utility-apps/tip-customshortcuts-for-macos)
 
-brew install --cask keyclu # Find shortcuts for any installed application https://sergii.tatarenkov.name/keyclu/support/
+brew install keyclu # Find shortcuts for any installed application https://sergii.tatarenkov.name/keyclu/support/
 # works with customshortcuts
 
 # installed by brew install office?
