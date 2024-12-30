@@ -2,6 +2,10 @@
 
 # my custom app shortcuts which are set using the shortcut_writer.applescript
 
+# TIP: to look up the bundle id of an app use this command
+# osascript -e 'id of app "Application Name"'
+
+
 # taken from https://forum.latenightsw.com/t/setting-other-applications-keyboard-shortcuts-using-nsuserdefaults-defaults-not-updating/3537/1
 
 # Example for calling script
@@ -32,3 +36,10 @@ echo "Setting Notes shortcuts"
 # New email - Command-N, Send - Command-Shift-D, Reply - Command-R, Forward - Command-J, Delete - Command-Delete, Archive - Command-Shift-M, Mark as read - Command-K, Mark as unread - Command-Shift-K, Minimize - Command-M
 echo "Setting Outlook shortcuts"
 ./shortcut_writer.applescript com.microsoft.Outlook add 'Work Week' '~w' 'Three Day' '~3'
+
+# Obsidian
+# Add Minimize - Control-M (as default conflicts with checklist shortcut)
+echo "Setting Obsidian shortcuts"
+./shortcut_writer.applescript md.obsidian add 'Minimize' '^m'
+
+echo "Remember to restart any running apps to see new shortcuts"
