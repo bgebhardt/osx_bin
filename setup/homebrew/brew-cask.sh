@@ -491,6 +491,9 @@ brew install crossover # Tool to run Windows software https://www.codeweavers.co
 brew install whisky # Wine wrapper built with SwiftUI https://getwhisky.app/
 brew install vmware-fusion #Create, manage, and run virtual machines https://www.vmware.com/products/fusion.html
 
+brew install drivethrurpg # DriveThruRPG app for Mac - https://www.drivethrurpg.com/product/295095/DriveThruRPG-Mac-App
+# Sync DriveThruRPG libraries to compatible devices - https://www.drivethrurpg.com/library_client.php
+
 # Free Comic Book Reader
 brew install yacreader
 
