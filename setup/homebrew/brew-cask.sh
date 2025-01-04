@@ -408,6 +408,7 @@ brew install devtoys # Utilities designed to make common development tasks easie
 brew install deltawalker # diff tool https://www.deltawalker.com/ # paid app, find/replace with regex; cli; undo/redo; export diffs
 brew install meld # Visual diff and merge tool https://yousseb.github.io/meld/ # 3-way compare, text editor, syntax highlighting, regex
 brew install diffmerge # [SourceGear | DiffMerge](https://www.sourcegear.com/diffmerge/) # taks drag and drop!
+brew install direqual # Advanced directory compare utility https://naarakstudio.com/direqual/
 # brew install beyond-compare # Compare files and folders https://www.scootersoftware.com/ paid app # compare with remote servers (OneDrive, Google, ...); Table compare; scripting
 # brew install kaleidoscope  # File and Folder comparison tool # paid app so removing
 
