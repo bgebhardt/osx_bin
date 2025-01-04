@@ -81,6 +81,9 @@ apps=(
         
     # https://skylum.com/account/my-software
     "https://skylum.com/download/luminar-neo-m1-paid" LuminarNeo
+    
+    # Drive Thru RPG site https://legacy.drivethrurpg.com/library_client.php
+    "https://dtrpg-library-app.s3.us-east-2.amazonaws.com/DriveThruRPG_3.4.6.dmg" DriveThruRPG
 
     # apps I no longer install
     #"https://noteifyapp.com/download/QuickExpose.zip QuickExpose"
