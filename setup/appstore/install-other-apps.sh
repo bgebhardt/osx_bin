@@ -85,6 +85,11 @@ apps=(
     # Drive Thru RPG site https://legacy.drivethrurpg.com/library_client.php
     "https://dtrpg-library-app.s3.us-east-2.amazonaws.com/DriveThruRPG_3.4.6.dmg" DriveThruRPG
 
+    "https://bundlehunt-files.s3.us-west-2.amazonaws.com/2024-downloads/KeyKeeper-2.7.0.dmg.zip" KeyKeeper
+    https://ensili.co/download/colorhound/colorhound-1.5.zip Color Hound
+
+    "https://www.mabasoft.net/downloads/files/World_Clock_Deluxe_4.19.3.dmg" World_Clock_Deluxe
+    
     # apps I no longer install
     #"https://noteifyapp.com/download/QuickExpose.zip QuickExpose"
     #"https://marked2app.com/download/ Marked2"

@@ -28,6 +28,9 @@ brew install omnifocus
 #brew install mailplane # as of 2021 it is no longer being developed
 #brew install dropbox
 brew install google-drive
+
+brew install dropshare # File sharing solution https://dropshare.app/
+
 # Onedrive cask conflicts with office
 #brew install --cask onedrive # Folder synchronization with OneDrive; required you pass cask
 #brew install wd-my-cloud # also WD Sync Installer.app
