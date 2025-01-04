@@ -297,6 +297,7 @@ brew install timemachineeditor # Utility to change the default backup interval o
 brew install space-saver # Delete local Time Machine backups
 brew install launchcontrol # Create, manage and debug system- and user services (launchctl GUI)
 brew install powerphotos # powerphotos for managing photo libraries
+brew install metaimage # Image metadata and geographical tag viewer & editor https://neededapps.com/metaimage/
 # brew install iphoto-library-manager # replaced with powerphotos
 brew install itsycal # Menu bar calendar https://www.mowglii.com/itsycal/
 
