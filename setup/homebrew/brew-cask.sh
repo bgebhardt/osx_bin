@@ -40,6 +40,8 @@ brew install timing
 brew install tripmode # manage data on cell connection
 brew install karabiner-elements # powerful and stable keyboard customizer
 
+brew install rsyncui # GUI for rsync https://github.com/rsyncOSX/RsyncUI
+
 # two apps that can change mouse/trackpad gestures (and more) especially adding middle click. Currently trying multitouch. 
 # Replace or complment karabiner
 brew install multitouch # Add more gestures for Trackpad and Magic Mouse https://multitouch.app/
@@ -410,7 +412,8 @@ brew install devtoys # Utilities designed to make common development tasks easie
 # nice article comparing diff tools - [The 5 Best Mac File Comparison Tools and Diff Tools](https://www.makeuseof.com/tag/mac-file-comparison-tools/)
 # delta walker is the best for me right now and I own it
 brew install deltawalker # diff tool https://www.deltawalker.com/ # paid app, find/replace with regex; cli; undo/redo; export diffs
-brew install meld # Visual diff and merge tool https://yousseb.github.io/meld/ # 3-way compare, text editor, syntax highlighting, regex
+# deprecated - brew install meld # Visual diff and merge tool https://yousseb.github.io/meld/ # 3-way compare, text editor, syntax highlighting, regex
+brew install dehesselle-meld # Visual diff and merge tool https://gitlab.com/dehesselle/meld_macos
 brew install diffmerge # [SourceGear | DiffMerge](https://www.sourcegear.com/diffmerge/) # taks drag and drop!
 brew install direqual # Advanced directory compare utility https://naarakstudio.com/direqual/
 # brew install beyond-compare # Compare files and folders https://www.scootersoftware.com/ paid app # compare with remote servers (OneDrive, Google, ...); Table compare; scripting
