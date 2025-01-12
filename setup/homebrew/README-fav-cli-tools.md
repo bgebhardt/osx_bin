@@ -3,11 +3,13 @@
 * eza (ls) - A modern replacement for `ls` with more features and better defaults.
 * bat (cat) - A cat clone with syntax highlighting and Git integration.
 * fzf - A general-purpose command-line fuzzy finder.
+* tv (television) - General purpose fuzzy finder TUI https://github.com/alexpasmantier/television
 * delta - A viewer for git and diff output.
 * fd - A simple, fast and user-friendly alternative to 'find'.
 * tldr - Simplified and community-driven man pages.
 * btop - A resource monitor that shows usage and stats for processor, memory, disks, network & processes.
 * soulver - Standalone cli for the Soulver calculation engine - https://github.com/soulverteam/Soulver-CLI
+* monolith - CLI tool for saving complete web pages as a single HTML file https://github.com/Y2Z/monolith
 
 Find more in [file:///Users/bryan/bin/setup/homebrew/README-fav-cli-tools.md]
 ---
@@ -62,6 +64,21 @@ Display above this line in .bash_profile with
 * tcpdump - A powerful command-line packet analyzer.
 * iperf3 - A tool for measuring maximum TCP and UDP bandwidth performance.
 * speedtest_cli # Command-line interface for https://speedtest.net bandwidth tests https://
+
+# Web tools
+
+* httpie -  httpie # HTTP client for the terminal https://httpie.org/
+* monolith - CLI tool for saving complete web pages as a single HTML file https://github.com/Y2Z/monolith
+* atac - Simple API client (Postman-like) in your terminal https://atac.julien-cpsn.com/
+
+Example monolith command
+monolith https://college.harvard.edu/admissions/apply/first-year-applicants/considering-gap-year -i -s -v -j -F -o considering-gap-year4.html
+-i - remove images
+-v - remove videos
+-j - remove javascript
+-F - remove web fonts - this can be lots of space!
+-o - output file
+-s - quiet
 
 # Fun
 

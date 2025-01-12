@@ -35,7 +35,10 @@ brew install zoxide # A smarter cd command for navigating your filesystem.
 brew install eza # A modern replacement for `ls` with more features and better defaults.
 brew install bat # A cat clone with syntax highlighting and Git integration.
 brew install fzf # A general-purpose command-line fuzzy finder.
+brew install television # General purpose fuzzy finder TUI https://github.com/alexpasmantier/television
 brew install delta # A viewer for git and diff output.
+brew install diffoscope # In-depth comparison of files, archives, and directories can output in friendly HTML https://diffoscope.org
+
 brew install fd # Simple, fast and user-friendly alternative to find - https://github.com/sharkdp/fd
 brew install tldr # Simplified and community-driven man pages - https://tldr.sh/
 brew install btop # A resource monitor that shows usage and stats for processor, memory, disks, network & processes.
@@ -196,6 +199,9 @@ brew install grep
 brew install gzip
 brew install htop-osx # Improved top (interactive process viewer) https://hisham.hm/htop/
 brew install httpie # HTTP client for the terminal https://httpie.org/
+brew install atac # Simple API client (Postman-like) in your terminal https://atac.julien-cpsn.com/
+brew install monolith # CLI tool for saving complete web pages as a single HTML file https://github.com/Y2Z/monolith
+
 brew install hub # github command line wrapper
 brew install icdiff # Improved colored diff https://www.jefftk.com/icdiff
 brew install icu4c
