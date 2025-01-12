@@ -42,4 +42,9 @@ echo "Setting Outlook shortcuts"
 echo "Setting Obsidian shortcuts"
 ./shortcut_writer.applescript md.obsidian add 'Minimize' '^m'
 
+# Skim
+# New from Clipboard - Option-Command-N
+echo "Setting Skim shortcuts"
+./shortcut_writer.applescript net.sourceforge.skim-app.skim add 'New From Clipboard' '~@n'
+
 echo "Remember to restart any running apps to see new shortcuts"
