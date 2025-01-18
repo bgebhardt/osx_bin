@@ -11,8 +11,21 @@
 # /Applications/Preview.app
 # com.apple.Preview
 
+# to get the id of an App use osascript like this
+# osascript -e 'id of app "Skim"'
+
 # example: Set Finder as the default handler for ftp:// URLs:
 # duti -s com.apple.Finder ftp
+
+# you can pass the role to set as follows
+# duti -s com.sindresorhus.velja public.html <role>
+
+# Valid roles are defined as follows:
+#        all                application handles all roles for the given UTI.
+#        viewer             application handles reading and displaying documents with the given UTI.
+#        editor             application can manipulate and save the item. Implies viewer.
+#        shell              application can execute the item.
+#        none               application cannot open the item, but provides an icon for the given UTI
 
 # -d <uti> lists the default handler; example: duti -d public.html
 # -l <uti> lists all registered handlers. example: duti -l public.html
@@ -61,5 +74,17 @@ duti -s net.sourceforge.skim-app.skim pdf all
 #echo "Setting default video player to VLC"
 #duti -s org.videolan.vlc public.movie
 #duti -s org.videolan.vlc public.video
+
+# Set default csv viewer to Excel
+echo "Setting default PDF viewer to Excel"
+duti -s com.microsoft.Excel csv all
+
+# Set default mp4 viewer to Elmedia Player
+echo "Setting default mp4 viewer to Elmedia Player"
+duti -s com.Eltima.ElmediaPlayer mp4 all
+
+# Set default mkv viewer to Elmedia Player
+echo "Setting default mkv viewer to Elmedia Player"
+duti -s com.Eltima.ElmediaPlayer mkv all
 
 echo "Default applications have been set."
