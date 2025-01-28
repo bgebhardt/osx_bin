@@ -386,5 +386,10 @@ brew install s-search # Web search from the terminal https://github.com/zquestz/
 brew install shfmt # Autoformat shell script source code https://github.com/mvdan/sh
 brew install shellcheck # Static analysis and linting tool for sh/bash scripts https://www.shellcheck.net/
 
+# [GitHub - ebullient/ttrpg-convert-cli: Utility to convert JSON data (for content you own) from 5etools or pf2etools into Obsidian-friendly Markdown.](https://github.com/ebullient/ttrpg-convert-cli/tree/main)
+brew tap ebullient/tap
+brew install ttrpg-convert-cli
+
+
 # Remove outdated versions from the cellar.
 brew cleanup
