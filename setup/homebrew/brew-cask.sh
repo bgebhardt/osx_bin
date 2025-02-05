@@ -557,6 +557,10 @@ brew install ollama # local LLM - Create, run, and share large language models (
 # Or, if you don't want/need a background service you can just run:
 #   /opt/homebrew/opt/ollama/bin/ollama serve
 
+brew install ollamac # Mac native AI chat client https://ollama.com/
+brew install lm-studio # Discover, download, and run local LLMs https://lmstudio.ai/
+# has a command line. See docs for how to install: [lms — LM Studio's CLI | LM Studio Docs](https://lmstudio.ai/docs/lms)
+
 brew install superwhisper # Dictation tool including LLM reformatting https://superwhisper.com/
 
 brew install boltai # AI chat client https://boltai.com/
