@@ -557,14 +557,20 @@ brew install ollama # local LLM - Create, run, and share large language models (
 # Or, if you don't want/need a background service you can just run:
 #   /opt/homebrew/opt/ollama/bin/ollama serve
 
+# Local AI clients
 brew install ollamac # Mac native AI chat client https://ollama.com/
 brew install lm-studio # Discover, download, and run local LLMs https://lmstudio.ai/
 # has a command line. See docs for how to install: [lms — LM Studio's CLI | LM Studio Docs](https://lmstudio.ai/docs/lms)
+
+brew install janus # AI chat client https://janusai.com/ suports local and remote LLMs
+brew install gpt4all # AI chat client https://gpt4all.com/
 
 brew install superwhisper # Dictation tool including LLM reformatting https://superwhisper.com/
 
 brew install boltai # AI chat client https://boltai.com/
 # from app store install OllmaSpring and Enchanted ai chat apps for Ollama
+
+brew install cursor # Write, edit, and chat about your code with AI https://www.cursor.com/
 
 # AI camera control https://www.obsbot.com/ Configuration and firmware update utility for OBSBOT Tiny and Meet series
 brew install obsbot-center 
