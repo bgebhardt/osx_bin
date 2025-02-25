@@ -489,6 +489,11 @@ brew install porting-kit # Install games and apps compiled for Microsoft Windows
 
 #brew install android-studio # Tools for building Android applications https://developer.android.com/studio/ (can emulate games but didn't really work)
 
+brew install android-file-transfer # Transfer files from and to an Android smartphone https://www.android.com/filetransfer/
+
+brew install genymotion # Android emulator https://www.genymotion.com/
+brew cask install android-platform-tools # Android SDK component https://developer.android.com/tools/releases/platform-tools
+
 # [Heroic-Games-Launcher/HeroicGamesLauncher: A Native GOG and Epic Games Launcher for Linux, Windows and Mac.](https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher#macos)
 brew install heroic
 # xattr -d com.apple.quarantine /Applications/Heroic.app # run this to fix the app is damaged error.
