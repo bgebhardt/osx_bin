@@ -40,10 +40,17 @@ brew install delta # A viewer for git and diff output.
 brew install diffoscope # In-depth comparison of files, archives, and directories can output in friendly HTML https://diffoscope.org
 
 brew install fd # Simple, fast and user-friendly alternative to find - https://github.com/sharkdp/fd
+brew install fselect # Find files with SQL-like queries https://github.com/jhspetersson/fselect https://github.com/jhspetersson/fselect/blob/master/docs/usage.md
 brew install tldr # Simplified and community-driven man pages - https://tldr.sh/
 brew install btop # A resource monitor that shows usage and stats for processor, memory, disks, network & processes.
 brew install jq # Lightweight and flexible command-line JSON processor https://stedolan.github.io/jq/
+brew install jql # JSON query language CLI tool https://github.com/yamafaktory/jql
+brew install sq # Data wrangler with jq-like query language https://sq.io
+brew install nao1215/tap/sqly # sqly - execute SQL against CSV, TSV, LTSV, JSON, and even Microsoft Excel™ files brew install https://github.com/nao1215/sqly
 brew install less # Pager program similar to more (1) but with support for windows and binary files https://www.greenwoodsoftware.com/less/
+
+brew tap Hyde46/hoard
+brew install hoard # Hoard is a command-line tool that helps you manage your dotfiles and other configuration files. https://github.com/Hyde46/hoard
 
 # File Management
 
@@ -57,7 +64,9 @@ brew install fswatch # Monitor a directory for changes and run a shell command h
 
 # Additional Tools
 
-brew install ripgrep # A line-oriented search tool that recursively searches your current directory for a regex pattern.
+brew install ripgrep # command is "rg" A line-oriented search tool that recursively searches your current directory for a regex pattern. https://github.com/BurntSushi/ripgrep
+brew install ripgrep-all # command is "rga" ripgrep-all is a wrapper around ripgrep that adds support for searching inside binary files, PDFs, and other file formats. https://github.com/phiresky/ripgrep-all, https://phiresky.github.io/blog/2019/rga--ripgrep-for-zip-targz-docx-odt-epub-jpg/
+
 brew install yadm # A tool for managing dotfiles.
 brew install direnv # An environment switcher for the shell.
 brew install thefuck # Corrects errors in previous console commands.
@@ -325,6 +334,8 @@ brew install go
 # install pandoc to convert markdown to various formats
 brew install pandoc
 
+brew install davep/homebrew/hike # Hike is a Markdown browser for the terminal. https://terminaltrove.com/hike/ https://github.com/davep/hike 
+
 # Recall what you did on the last working day. Psst! or be nosy and find what someone else in your team did ;-)
 # https://github.com/kamranahmedse/git-standup
 brew install git-standup
@@ -355,6 +366,8 @@ brew install bandwhich
 # network scanner
 brew install nmap
 
+brew install gping # Ping, but with a graph https://github.com/orf/gping
+
 # Cmdline tool - Monitors sleep, wakeup, and idleness of a Mac - https://www.bernhard-baehr.de/
 brew install sleepwatcher
 
@@ -376,6 +389,7 @@ brew install jpdfbookmarks # Create and edit bookmarks on existing PDF files htt
 brew install ncdu # NCurses Disk Usage https://dev.yorhel.nl/ncdu
 
 brew install cmatrix # Console Matrix (like the movie Marix) https://github.com/abishekvashok/cmatrix/
+brew install sontek/snowmachine/snowmachine # Snowmachine is a command-line tool that generates a snow effect in the terminal. https://github.com/sontek/snowmachine
 
 brew install blueutil # Get/set bluetooth power and discoverable state [toy/blueutil: CLI for bluetooth on OSX: power, discoverable state, list, inquire devices, connect, info, …](https://github.com/toy/blueutil)
 

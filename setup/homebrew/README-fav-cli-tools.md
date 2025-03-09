@@ -6,6 +6,7 @@
 * tv (television) - General purpose fuzzy finder TUI https://github.com/alexpasmantier/television
 * delta - A viewer for git and diff output.
 * fd - A simple, fast and user-friendly alternative to 'find'.
+* rg and rga - ripgrep replaces grep; recursively searches current directory for a regex pattern; rga searches inside binary files, PDFs, DOCX, and other file formats.
 * tldr - Simplified and community-driven man pages.
 * btop - A resource monitor that shows usage and stats for processor, memory, disks, network & processes.
 * soulver - Standalone cli for the Soulver calculation engine - https://github.com/soulverteam/Soulver-CLI
@@ -31,6 +32,9 @@ Display above this line in .bash_profile with
 * s-search # Web search from the terminal https://github.com/zquestz/s
 * youtube-dl # Download YouTube videos from the command-line https://youtube-dl.org/
 * tesseract # OCR (Optical Character Recognition) engine https://github.com/tesseract-ocr/
+* hike - a Markdown browser for the terminal. https://github.com/davep/hike
+* fselect # Find files with SQL-like queries https://github.com/jhspetersson/fselect
+* hoard - a command-line tool that helps you manage your dotfiles and other configuration files. https://github.com/Hyde46/hoard
 
 # PDF tools
 
@@ -54,6 +58,9 @@ Display above this line in .bash_profile with
 # Development
 
 * jq - A lightweight and flexible command-line JSON processor.
+* jql - JSON query language CLI tool https://github.com/yamafaktory/jql
+* sq - Data wrangler with jq-like query language https://sq.io
+* sqly - execute SQL against CSV, TSV, LTSV, JSON, and even Microsoft Excel™ files brew install nao1215/tap/sqly
 * entr - A utility for running arbitrary commands when files change.
 * fswatch # Monitor a directory for changes and run a shell command https://github.com/emcrisostomo/fswatch
 
@@ -83,3 +90,4 @@ monolith https://college.harvard.edu/admissions/apply/first-year-applicants/cons
 # Fun
 
 * cmatrix - A terminal-based "The Matrix" like screen saver.
+* snowmachine - A python script that allows your terminal to snow
