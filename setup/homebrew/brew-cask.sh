@@ -258,6 +258,13 @@ brew install default-folder-x # Utility to enhance the Open and Save dialogs in 
 brew install app-tamer # CPU management application - https://www.stclairsoft.com/AppTamer/
 brew install disk-drill
 
+#brew install sensei # Monitors the computer system and optimises its performance https://cindori.com/sensei # likely nice but paid product
+
+brew install monit # Manage and monitor processes, files, directories, and devices as a widge https://mmonit.com/monit/
+
+# new monitor to run on my 3rd monitor
+brew install xrg # System monitor https://gaucho.software/Products/XRG/
+
 # brew install disk-sensei -- no longer available
 # brew install appdelete # was disabled in brew for some reason
 brew install appcleaner # Application uninstaller https://freemacsoft.net/appcleaner/
@@ -475,6 +482,8 @@ brew install whatsapp # Native desktop client for WhatsApp https://www.whatsapp.
 #brew install gog-galaxy # disabling because it doesn't install well
 brew install steam
 brew install epic-games
+brew install ea # Name: EA App Electronic Arts game launcher
+
 brew install steamcmd
 brew install teamspeak-client
 # brew install minecraft-server -- no longer available
