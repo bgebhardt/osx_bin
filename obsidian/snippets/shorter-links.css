@@ -1,0 +1,30 @@
+/*
+Snippet that hides the URL text in edit mode and shows a symbol instead until you h1over over it.
+
+CSS found in the Obsidian forum here.
+[How to hide url link in edit mode until hovered on? - Share & showcase - Obsidian Forum](https://forum.obsidian.md/t/
+how-to-hide-url-link-in-edit-mode-until-hovered-on/82827)
+See video too: [Obsidian - Make your links look better in 5 minutes - YouTube](https://www.youtube.com/watch?v=UM7HH_sGRxs)
+*/
+
+/* Hide the URL text and show the symbol */
+div.cm-line .cm-string.cm-url:not(.cm-formatting) {
+    font-size: 0;
+}
+
+/* Display a symbol after the URL */
+div.cm-line .cm-string.cm-url:not(.cm-formatting)::after {
+    content: '🔗'; /* Replace with your desired symbol */
+    font-size: 1rem; /* Adjust font size as needed */
+    color: inherit; /* Inherit color from the parent element */
+}
+
+/* Ensure the URL text is visible when the cursor is over it */
+div.cm-line .cm-string.cm-url:not(.cm-formatting):hover {
+    font-size: inherit;
+}
+
+/* Hide the symbol when the cursor is over the URL */
+div.cm-line .cm-string.cm-url:not(.cm-formatting):hover::after {
+    content: '';
+}
