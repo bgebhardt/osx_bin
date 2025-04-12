@@ -20,25 +20,71 @@ fi
 # this isn't the most accurate way to check location.
 
 # Get the postal code based on the current IP address
-ip_response=$(curl -s ipinfo.io/json)
+ip_response=$(curl -s ipinfo.io/json) # doesn't work as well
+ip_response=$(curl -s https://ipapi.co/json)
 postal_code=$(echo "$ip_response" | jq -r '.postal')
 org=$(echo "$ip_response" | jq -r '.org')
 
-# Check if the organization is "AS7922 Comcast Cable Communications, LLC"
-if [[ "$org" == "AS7922 Comcast Cable Communications, LLC" ]]; then
-    echo "The organization is AS7922 Comcast Cable Communications, LLC"
-else
-    echo "The organization is $org (which is wrong so not checking)"
-    exit 0
-fi
-
 # Check if we are in postal code "94536" (where I live); but not specific enough
-if [[ "$postal_code" == "95103" ]]; then
-    echo "We are in postal code 95103"
+if [[ "$postal_code" == "94536" ]]; then
+    echo "We are in postal code 94536"
 else
     echo "We are not in postal code 94536, we are in postal code $postal_code"
     exit 0
 fi
+
+# Check if "Elmo" disk is mounted
+if mount | grep -q "Elmo"; then
+    echo "Elmo disk is connected"
+    # Add code here to display a notification
+
+    # if Elmo is mounted check if Elmo TM is mounted
+
+    # Check if "Elmo TM" disk is mounted
+    if ! mount | grep "Elmo TM"; then
+        echo "Elmo TM disk is not connected"
+        # Add code here to display a notification
+        osascript -e 'display notification "Elmo TM disk is not connected. Reconnect to resume TM backups." with title "Disk Notification"'
+    else
+        echo "Elmo TM disk is connected"
+    fi
+else
+    echo "Elmo disk is not connected"
+    # Add code here to display a notification
+    osascript -e 'display notification "Elmo disk is not connected. Reconnect it." with title "Disk Notification"'
+fi
+
+# Example: the json response from ipapi.co is:
+# curl -s https://ipapi.co/json
+# {
+#     "ip": "2601:646:9900:fd40:75d2:3b9a:7e3b:9c17",
+#     "network": "2601:646:9900:8000::/49",
+#     "version": "IPv6",
+#     "city": "Fremont",
+#     "region": "California",
+#     "region_code": "CA",
+#     "country": "US",
+#     "country_name": "United States",
+#     "country_code": "US",
+#     "country_code_iso3": "USA",
+#     "country_capital": "Washington",
+#     "country_tld": ".us",
+#     "continent_code": "NA",
+#     "in_eu": false,
+#     "postal": "94536",
+#     "latitude": 37.5625,
+#     "longitude": -122.0004,
+#     "timezone": "America/Los_Angeles",
+#     "utc_offset": "-0700",
+#     "country_calling_code": "+1",
+#     "currency": "USD",
+#     "currency_name": "Dollar",
+#     "languages": "en-US,es-US,haw,fr",
+#     "country_area": 9629091.0,
+#     "country_population": 327167434,
+#     "asn": "AS7922",
+#     "org": "COMCAST-7922"
+# }
 
 # Example: the json response from ipinfo.io is:
 # {
@@ -67,26 +113,3 @@ fi
 #   "timezone": "America/Los_Angeles",
 #   "readme": "https://ipinfo.io/missingauth"
 # }
-
-# Check if "Elmo" disk is mounted
-if mount | grep -q "Elmo"; then
-    echo "Elmo disk is connected"
-    # Add code here to display a notification
-
-    # if Elmo is mounted check if Elmo TM is mounted
-
-    # Check if "Elmo TM" disk is mounted
-    if ! mount | grep -q "Elmo TM"; then
-        echo "Elmo TM disk is not connected"
-        # Add code here to display a notification
-        osascript -e 'display notification "Elmo TM disk is not connected. Reconnect to resume TM backups." with title "Disk Notification"'
-    else
-        echo "Elmo TM disk is connected"
-    fi
-
-else
-    echo "Elmo disk is not connected"
-    # Add code here to display a notification
-    osascript -e 'display notification "Elmo disk is not connected. Reconnect it." with title "Disk Notification"'
-fi
-
