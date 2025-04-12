@@ -10,6 +10,8 @@ do
     then
         echo "$(date +'%Y-%m-%d %H:%M:%S') - ${app}.app is not running. Starting it now..."
         open -a "${app}"
+        # Send a notification that the app is being started
+        osascript -e "display notification \"Starting ${app}\" with title \"check-apps.sh\""
     else
         echo "$(date +'%Y-%m-%d %H:%M:%S') - ${app}.app is already running."
     fi
