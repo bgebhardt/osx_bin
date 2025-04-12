@@ -23,7 +23,6 @@ fi
 ip_response=$(curl -s ipinfo.io/json) # doesn't work as well
 ip_response=$(curl -s https://ipapi.co/json)
 postal_code=$(echo "$ip_response" | jq -r '.postal')
-org=$(echo "$ip_response" | jq -r '.org')
 
 # Check if we are in postal code "94536" (where I live); but not specific enough
 if [[ "$postal_code" == "94536" ]]; then
