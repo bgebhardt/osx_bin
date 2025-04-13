@@ -589,6 +589,11 @@ brew install boltai # AI chat client https://boltai.com/
 
 brew install cursor # Write, edit, and chat about your code with AI https://www.cursor.com/
 
+# AI image generation
+brew install stability-matrix # Stable Diffusion GUI for MacOS https://stability.ai/stability-matrix
+
+brew install diffusionbee # Name: Diffusion Bee - Stable Diffusion GUI for MacOS https://diffusionbee.com/
+
 # AI camera control https://www.obsbot.com/ Configuration and firmware update utility for OBSBOT Tiny and Meet series
 brew install obsbot-center 
 
