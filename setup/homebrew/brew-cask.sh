@@ -576,6 +576,9 @@ brew install ollamac # Mac native AI chat client https://ollama.com/
 brew install lm-studio # Discover, download, and run local LLMs https://lmstudio.ai/
 # has a command line. See docs for how to install: [lms — LM Studio's CLI | LM Studio Docs](https://lmstudio.ai/docs/lms)
 
+brew install claude # Name: Claude Anthropic's official Claude AI desktop app
+brew install chatgpt # Name: ChatGPT OpenAI's official ChatGPT desktop app
+
 brew install janus # AI chat client https://janusai.com/ suports local and remote LLMs
 brew install gpt4all # AI chat client https://gpt4all.com/
 
