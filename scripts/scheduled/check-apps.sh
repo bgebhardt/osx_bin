@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Scheduled every 15 minutes via Lingon X. Similar to cron.
+# Schedule the script to run every hour with no output
+# 0 * * * * /Users/bryan/bin/scripts/check-apps.sh > /dev/null 2>&1
+
 apps=("Bartender 5")
 # apps=("Bartender 5" "AnotherApp" "YetAnotherApp")
 
