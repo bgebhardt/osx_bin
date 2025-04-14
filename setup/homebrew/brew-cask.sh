@@ -594,6 +594,8 @@ brew install stability-matrix # Stable Diffusion GUI for MacOS https://stability
 
 brew install diffusionbee # Name: Diffusion Bee - Stable Diffusion GUI for MacOS https://diffusionbee.com/
 
+brew install draw-things # Name: Draw Things - Stable Diffusion GUI for MacOS https://drawthings.app/
+
 # AI camera control https://www.obsbot.com/ Configuration and firmware update utility for OBSBOT Tiny and Meet series
 brew install obsbot-center 
 
