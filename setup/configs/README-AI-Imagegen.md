@@ -1,11 +1,17 @@
 # Local AI Image Generators
 
-# Flux with Draw Things
+# Draw Things with Flux
 
 - Install Draw Things with brew
 - Download the Flux model (large one better)
 
 [Generate UNLIMITED FLUX AI Images for FREE 🔥 - YouTube](https://www.youtube.com/watch?v=GzUeuFbfSJI&list=PLxvrrRw25Lq3wwrnE8KKxsc6duzLnmopt)
+
+Docs
+- [Draw Things: AI-assisted Image Generation](https://drawthings.ai/)
+- [Draw Things WIKI](https://wiki.drawthings.ai/wiki/Main_Page)
+- [Video Basics - Draw Things WIKI](https://wiki.drawthings.ai/wiki/Video_Basics)
+
 
 # DiffusionBee and Flux
 
