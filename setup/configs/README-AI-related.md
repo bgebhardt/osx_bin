@@ -141,5 +141,7 @@ Gets MCP servers from ~/.mcp.json
 
 Setup video: [MCP server using Ollama for local LLMs - YouTube](https://www.youtube.com/watch?v=z0DScLrix48&list=WL&index=2)
 
+[Model Context Protocol (MCP) using Ollama | by Mehul Gupta | Data Science in Your Pocket | Mar, 2025 | Medium](https://medium.com/data-science-in-your-pocket/model-context-protocol-mcp-using-ollama-e719b2d9fd7a)
+
 Ollama set up
 [Learn Ollama in 15 Minutes - Run LLM Models Locally for FREE - YouTube](https://www.youtube.com/watch?v=UtSSMs6ObqY&t=5s)
