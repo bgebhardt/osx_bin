@@ -1,0 +1,116 @@
+/*
+Snippet that hides the URL text in edit mode and shows a symbol instead until you h1over over it.
+
+CSS found in the Obsidian forum here.
+[How to hide url link in edit mode until hovered on? - Share & showcase - Obsidian Forum](https://forum.obsidian.md/t/
+how-to-hide-url-link-in-edit-mode-until-hovered-on/82827)
+See video too: [Obsidian - Make your links look better in 5 minutes - YouTube](https://www.youtube.com/watch?v=UM7HH_sGRxs)
+
+Enhancements in this
+
+1. Added delay time and transition, so that the text wouldn’t suddenly show or disappear
+2. Supported the [[wikilink]] with Display text, as well
+3. Added the Style Settings support, so that you can switch it on/off with command or in the setting:
+4. REMOVED BY ME Added another feature: with the Link Editing Mode, the click event of link would be blocked, so that we can easily edit the link text
+
+
+*/
+
+/* Moy Link Optimize.css */
+/* 相关帖子：https://forum-zh.obsidian.md/t/topic/38000/6 */
+
+/* 点击链接的时候不跳转 */
+/* Style Settings 开关 */
+/* @settings
+
+name: Moy Link Mods
+id: moy-link-mods
+settings:
+    - 
+        id: link-editing-mode
+        title: Link Editing Mode
+        title.zh: 链接编辑模式
+        description: Cancel the link left mouse button click event
+        description.zh: 是否取消链接的左键点击功能
+        type: class-toggle
+        default: true
+        addCommand: true
+    - 
+        id: link-shorten
+        title: Link Shorten
+        title.zh: 缩短链接
+        description: Shorten the link, unless mouse hover
+        description.zh: 将链接缩短为 emoji，鼠标经过才完整显示
+        type: class-toggle
+        default: true
+        addCommand: true
+
+*/
+
+/* stops ability to click on wiki-links
+.link-editing-mode .cm-link .cm-underline:not(:hover),
+.link-editing-mode .cm-hmd-internal-link .cm-underline {
+  pointer-events: none;
+}
+*/
+
+/* 隐藏过长的链接网址部分 */
+/* Src: https://forum.obsidian.md/t/how-to-hide-url-link-in-edit-mode-until-hovered-on/82827 */
+/* Hide the URL text and show the symbol */
+.link-shorten div.cm-line .cm-string.cm-url:not(.cm-formatting) {
+    font-size: 0;
+    transition: font-size .2s cubic-bezier(1,0,.9,1) !important; 
+    transition-delay: 0.3s !important;
+    &::before {
+        content: '🔗';
+    }
+}
+
+/* Display a symbol after the URL */
+.link-shorten div.cm-line .cm-string.cm-url:not(.cm-formatting)::before {
+    content: '🔗'; /* Replace with your desired symbol */
+    font-size: 1rem; /* Adjust font size as needed */
+    color: inherit; /* Inherit color from the parent element */
+/*    font-size: var(--font-adaptive-normal);*/
+}
+
+/* Ensure the URL text is visible when the cursor is over it */
+.link-shorten div.cm-line .cm-string.cm-url:not(.cm-formatting):hover {
+    font-size: inherit;
+    transition: font-size 0.2s !important;
+/*  延迟一会儿再出现   */
+    transition-delay: 300ms !important; 
+}
+
+/* Hide the symbol when the cursor is over the URL */
+.link-shorten div.cm-line .cm-string.cm-url:not(.cm-formatting):hover::before {
+    /* content: ''; */
+}
+
+
+/* 修改 wikilink 格式的 */
+/* Modified by Moy */
+.link-shorten .cm-hmd-internal-link.cm-link-has-alias {
+    font-size: 0;
+    &:not(:hover){
+        transition: font-size .2s cubic-bezier(1,0,.9,1) !important; 
+        transition-delay: 0.3s !important;
+    }
+    &:hover {
+        font-size: inherit;
+        transition: font-size 0.2s !important;
+        transition-delay: 200ms !important;
+    }
+}
+
+/*.link-shorten .cm-hmd-internal-link.cm-link-has-alias:hover {
+    font-size: inherit;
+    transition: font-size 0.1s !important; 
+}*/
+
+.link-shorten .cm-hmd-internal-link.cm-link-has-alias:not(.cm-formatting)::before {
+    content: '📜'; /* Replace with your desired symbol 📄 */
+    font-size: 1rem; /* Adjust font size as needed */
+    color: inherit; /* Inherit color from the parent element */
+/*    font-size: var(--font-adaptive-normal);*/
+}
