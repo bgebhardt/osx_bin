@@ -11,7 +11,6 @@
 	<string>com.bryan.check-elmo</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/bin/sh</string>
 		<string>/Users/bryan/bin/scripts/scheduled/check-elmo.sh</string>
 	</array>
 	<key>RunAtLoad</key>

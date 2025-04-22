@@ -14,7 +14,7 @@ DAY_OF_WEEK=$(date +"%a")
 
 # Define the output file path
 # Get the current day of the week and format the output file
-OUTPUT_DIR="/tmp/finder_windows"
+OUTPUT_DIR="/Users/bryan/finder_windows"
 # Create the directory if it doesn't exist
 mkdir -p "$OUTPUT_DIR"
 
