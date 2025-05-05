@@ -98,7 +98,7 @@ fi
 
 # Check the last Time Machine backup using tmutil
 echo "Checking latest Time Machine backup with tmutil..."
-latest_backup=$(tmutil latestbackup -t 2>/dev/null)
+latest_backup=$(/usr/bin/tmutil latestbackup -t 2>/dev/null)
 
 if [ -n "$latest_backup" ]; then
     echo "Last Time Machine backup timestamp: $latest_backup"
@@ -152,7 +152,8 @@ if [ -n "$latest_backup" ]; then
     fi
 else
     echo "Could not determine the latest Time Machine backup"
-    osascript -e 'display notification "Unable to determine last backup time. Please check Time Machine." with title "Time Machine Status Unknown"'
+    #osascript -e 'display notification "Unable to determine last backup time. Please check Time Machine." with title "Time Machine Status Unknown"'
+    #osascript -e "display notification \"Unable to determine last backup time. Returned $latest_backup.\" with title \"Time Machine Status Unknown\""
 fi
 
 # Example: the json response from ipapi.co is:
