@@ -214,6 +214,9 @@ alias pycharm='/Applications/PyCharm.app/Contents/MacOS/pycharm'
 alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias pgstop='pg_ctl -D /usr/local/var/postgres stop'
 
+# added an alias to print the tools I use most. This is also printed when I start a shell.
+alias mytldr='awk '/###/{exit}1' "$HOME/bin/setup/homebrew/README-fav-cli-tools.md"'
+
 # https://github.com/github/hub
 # Wrap git automatically by adding the following to ~/.bash_profile:
 eval "$(hub alias -s)"
