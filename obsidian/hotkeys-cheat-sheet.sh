@@ -90,8 +90,17 @@ hotkeys_markdown=$(
     }
 )
 
+
 # Replace "Mod" with "Command" in the markdown output to make it Mac-friendly
-echo "$hotkeys_markdown" | sed 's/Mod/Command/g' | sed 's/Alt/Option/g' | sed 's/Meta/Command/g'
+{
+    echo "**Generated: $(date '+%Y-%m-%d %H:%M:%S')**"
+    echo ""
+    echo "$hotkeys_markdown" | sed 's/Mod/Command/g' | sed 's/Alt/Option/g' | sed 's/Meta/Command/g'
+    echo ""
+    echo "Mod = Command"
+    echo "Alt = Option"
+    echo "Ctrl = Control"
+}
 
 # Sample snippet from hotkeys.json file in .obsidian directory
 # {
