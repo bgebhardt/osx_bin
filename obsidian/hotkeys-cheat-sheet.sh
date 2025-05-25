@@ -39,7 +39,7 @@ fi
 #     }
 #     NR % 2 == 1 { cmd = $0 }
 #     NR % 2 == 0 { print "| " cmd " | " $0 " |" }
-'
+#'
 
 # How I built up to the final jq query.
 
@@ -73,13 +73,25 @@ hotkeys_list=$(jq -r '
     }
 ' "$input_json")
 
-# Print out hotkeys in a markdown table format
-echo "| Command | Modifiers | Key |"
-echo "|---------|-----------|-----|"
-echo "$hotkeys_list" | jq -r '    
-    ( . | [.command, .modifiers, .key] )
-    | @tsv
-' | tail -n +3 | awk -F'\t' '{ printf "| %s | %s | %s |\n", $1, $2, $3 }'
+# Mod = Command
+# Alt = Option
+# Ctrl = Control
+# Meta = Command
+
+# Store hotkeys in a markdown table format into a variable
+hotkeys_markdown=$( 
+    {
+        echo "| Command | Modifiers+Key |"
+        echo "|---------|----------------|"
+        echo "$hotkeys_list" | jq -r '    
+            ( . | [.command, .modifiers, .key] )
+            | @tsv
+        ' | tail -n +3 | awk -F'\t' '{ printf "| %s | %s+%s |\n", $1, $2, $3 }'
+    }
+)
+
+# Replace "Mod" with "Command" in the markdown output to make it Mac-friendly
+echo "$hotkeys_markdown" | sed 's/Mod/Command/g' | sed 's/Alt/Option/g' | sed 's/Meta/Command/g'
 
 # Sample snippet from hotkeys.json file in .obsidian directory
 # {
