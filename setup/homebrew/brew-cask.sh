@@ -108,6 +108,7 @@ brew install libreoffice # Free cross-platform office suite, fresh version https
 # brew install adobe-reader -- no longer available; install manually
 brew install amadeus-pro
 brew install audacity
+
 #brew install busycal # I no longer use these
 #brew install busycontacts # I no longer use these
 # brew install fantastical # I no longer use these
@@ -588,6 +589,8 @@ brew install boltai # AI chat client https://boltai.com/
 # from app store install OllmaSpring and Enchanted ai chat apps for Ollama
 
 brew install cursor # Write, edit, and chat about your code with AI https://www.cursor.com/
+
+brew install codex # OpenAI's coding agent that runs in your terminal https://github.com/openai/codex
 
 # AI image generation
 brew install stability-matrix # Stable Diffusion GUI for MacOS https://stability.ai/stability-matrix
