@@ -4,7 +4,7 @@
 # Schedule the script to run every hour with no output
 # 0 * * * * /Users/bryan/bin/scripts/check-apps.sh > /dev/null 2>&1
 
-apps=("Bartender 5")
+apps=("Bartender 5" "OwlOCR")
 # apps=("Bartender 5" "AnotherApp" "YetAnotherApp")
 
 for app in "${apps[@]}"
