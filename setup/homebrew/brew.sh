@@ -237,7 +237,6 @@ brew install mr
 brew install multimarkdown
 brew install multitail
 brew install mysql
-brew install node
 brew install nspr
 # brew install openssl # disabling as default  Mac OS ssh has keychain support
 brew install pandoc
@@ -328,8 +327,10 @@ brew install kafka
 brew install spark
 
 # install node
-brew install node
-brew install npm
+brew install node # Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. https://nodejs.org/en/
+brew install npm # npm is a package manager for JavaScript and the world's largest software registry. https://www.npmjs.com/ 
+
+brew install oven-sh/bun/bun # Bun is a fast all-in-one JavaScript runtime - https://bun.sh/
 
 # install go
 brew install go
@@ -353,6 +354,9 @@ brew install switchaudio-osx
 brew install jupyter
 brew install nbdime # diffing and merging of Jupyter Notebooks
 # brew install ipykernel # kernel needed to run jupyter notebooks
+
+# ai coding tools
+npm install -g @anthropic-ai/claude-code # Command-line interface for Claude AI
 
 brew install pipx # Execute binaries from Python packages in isolated environments https://pipx.pypa.io
 
