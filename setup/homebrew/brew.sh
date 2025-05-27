@@ -359,6 +359,7 @@ brew install nbdime # diffing and merging of Jupyter Notebooks
 npm install -g @anthropic-ai/claude-code # Command-line interface for Claude AI
 
 brew install pipx # Execute binaries from Python packages in isolated environments https://pipx.pypa.io
+brew install poetry # Python dependency management and packaging made easy https://python-poetry.org/
 
 # groups bandwidth by process.
 # [raboof/nethogs: Linux 'net top' tool](https://github.com/raboof/nethogs)

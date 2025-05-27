@@ -592,6 +592,8 @@ brew install cursor # Write, edit, and chat about your code with AI https://www.
 
 brew install codex # OpenAI's coding agent that runs in your terminal https://github.com/openai/codex
 
+brew install repo-prompt # Prompt generation tool https://repoprompt.com/
+
 # AI image generation
 brew install stability-matrix # Stable Diffusion GUI for MacOS https://stability.ai/stability-matrix
 
