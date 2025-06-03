@@ -334,6 +334,8 @@ brew install gemini
 
 # brew install synergy-core # Synergy, the keyboard and mouse sharing tool # have to install via the websites installer for it to work well. - https://symless.com/synergy/download
 
+brew install --cask rustdesk # Remote desktop software https://rustdesk.com/; open source alternative to TeamViewer and AnyDesk
+
 # terminals - other than iTerm; I'm sticking with iTerm though.
 #brew install kitty #GPU-based terminal emulator https://github.com/kovidgoyal/kitty
 #brew install alacritty # Name: Alacritty GPU-accelerated terminal emulator (Mac and Windows) https://github.com/alacritty/alacritty/
