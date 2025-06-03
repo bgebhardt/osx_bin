@@ -182,7 +182,13 @@ brew install csshx
 brew install dependency-check
 brew install diffutils
 brew install docbook
-brew install docker
+brew install docker # Docker is a platform for developing, shipping, and running applications in containers. https://www.docker.com/
+brew install docker-compose # Docker Compose is a tool for defining and running multi-container Docker applications.
+# Compose is a Docker plugin. For Docker to find the plugin, add "cliPluginsExtraDirs" to ~/.docker/config.json:
+#   "cliPluginsExtraDirs": [
+#       "/opt/homebrew/lib/docker/cli-plugins"
+#   ]
+
 brew install elasticsearch
 brew install emacs
 brew install erlang
@@ -329,6 +335,7 @@ brew install spark
 # install node
 brew install node # Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. https://nodejs.org/en/
 brew install npm # npm is a package manager for JavaScript and the world's largest software registry. https://www.npmjs.com/ 
+brew install nvm # Node Version Manager - a version manager for Node.js, designed to be installed per-user, and invoked per-shell.
 
 brew install oven-sh/bun/bun # Bun is a fast all-in-one JavaScript runtime - https://bun.sh/
 
@@ -359,6 +366,7 @@ brew install nbdime # diffing and merging of Jupyter Notebooks
 npm install -g @anthropic-ai/claude-code # Command-line interface for Claude AI
 
 brew install pipx # Execute binaries from Python packages in isolated environments https://pipx.pypa.io
+pipx ensurepath # need to run this after installing pipx to add it to the PATH
 brew install poetry # Python dependency management and packaging made easy https://python-poetry.org/
 
 # groups bandwidth by process.
