@@ -336,6 +336,7 @@ brew install spark
 brew install node # Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. https://nodejs.org/en/
 brew install npm # npm is a package manager for JavaScript and the world's largest software registry. https://www.npmjs.com/ 
 brew install nvm # Node Version Manager - a version manager for Node.js, designed to be installed per-user, and invoked per-shell.
+brew install pnpm # pnpm is a fast, disk space-efficient package manager https://pnpm.io/
 
 brew install oven-sh/bun/bun # Bun is a fast all-in-one JavaScript runtime - https://bun.sh/
 

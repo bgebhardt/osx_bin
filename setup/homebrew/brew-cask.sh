@@ -603,6 +603,8 @@ brew install diffusionbee # Name: Diffusion Bee - Stable Diffusion GUI for MacOS
 
 brew install draw-things # Name: Draw Things - Stable Diffusion GUI for MacOS https://drawthings.app/
 
+brew install screenpipe # Name: ScreenPipe - Library to build personalized AI powered by what you've seen, said, or heard [screenpipe | computer use AI SDK](https://screenpi.pe/onboarding)
+
 # AI camera control https://www.obsbot.com/ Configuration and firmware update utility for OBSBOT Tiny and Meet series
 brew install obsbot-center 
 
