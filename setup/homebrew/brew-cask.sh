@@ -153,6 +153,8 @@ brew install omnioutliner
 brew install pdf-converter-master
 brew install cisdem-pdf-converter-ocr # PDF Converter with OCR capability https://www.cisdem.com/pdf-converter-ocr-mac.html # alternate conversion option that I don't really use.
 
+brew install mactex # TeX distribution for macOS https://www.tug.org/mactex/; requires 4 GB of disk space
+
 # brew install curiosity # SwiftUI Reddit client https://github.com/Dimillian/RedditOS # easier to just use the web version
 
 brew install pdfpen

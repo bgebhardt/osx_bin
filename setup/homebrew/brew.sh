@@ -260,7 +260,6 @@ brew install shellcheck
 brew install spark
 brew install spidermonkey
 brew install sqlite
-brew install ssh-copy-id
 brew install sslscan
 brew install subversion
 brew install tig
@@ -289,6 +288,7 @@ brew install rich-cli # Command-line toolbox for fancy output in the terminal ht
 # cloud tools
 # brew install heroku - as of 2018 we no longer use heroku
 brew install azure-cli
+brew install doctl # The official command line interface for DigitalOcean
 
 
 # 09-04-2016 added to make EmptyEpsilon work
@@ -423,6 +423,9 @@ brew install shellcheck # Static analysis and linting tool for sh/bash scripts h
 brew tap ebullient/tap
 brew install ttrpg-convert-cli
 
+
+#brew install trash # Move files to the trash instead of deleting them permanently; not needed as this command is built into macOS now.
+brew install midnight-commander # Midnight Commander is a visual file manager, similar to Norton Commander. https://midnight-commander.org/
 
 # Remove outdated versions from the cellar.
 brew cleanup
