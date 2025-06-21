@@ -288,8 +288,13 @@ brew install rich-cli # Command-line toolbox for fancy output in the terminal ht
 # cloud tools
 # brew install heroku - as of 2018 we no longer use heroku
 brew install azure-cli
-brew install doctl # The official command line interface for DigitalOcean
+brew install doctl 
 
+# The official command line interface for DigitalOcean
+
+# IONOS CLI is a command line interface for IONOS Cloud and IONOS Managed Kubernetes
+brew tap ionos-cloud/homebrew-ionos-cloud
+brew install ionosctl
 
 # 09-04-2016 added to make EmptyEpsilon work
 # https://github.com/oznogon/EmptyEpsilon/issues/7
