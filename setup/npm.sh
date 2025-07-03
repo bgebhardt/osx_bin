@@ -51,3 +51,8 @@ npm -g install @adobe/helix-onedrive-cli
 npm -g install @pnp/cli-microsoft365
 
 npx n8n # n8n is a fair-code licensed node-based workflow automation tool. [n8n.io](https://n8n.io/)
+
+# [@google/gemini-cli - npm](https://www.npmjs.com/package/@google/gemini-cli) 
+# [google-gemini/gemini-cli: An open-source AI agent that brings the power of Gemini directly into your terminal.](https://github.com/google-gemini/gemini-cli)
+npm install -g @google/gemini-cli
+# alt: npx https://github.com/google-gemini/gemini-cli
