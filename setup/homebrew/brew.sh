@@ -215,7 +215,6 @@ brew install graphviz
 brew install grep
 #brew install groovy # 09-14-2023: removed as I don't use this and it wouldn't update.
 brew install gzip
-brew install htop-osx # Improved top (interactive process viewer) https://hisham.hm/htop/
 brew install httpie # HTTP client for the terminal https://httpie.org/
 brew install atac # Simple API client (Postman-like) in your terminal https://atac.julien-cpsn.com/
 brew install monolith # CLI tool for saving complete web pages as a single HTML file https://github.com/Y2Z/monolith
@@ -296,6 +295,10 @@ brew install doctl
 brew tap ionos-cloud/homebrew-ionos-cloud
 brew install ionosctl
 
+# S3 stroage commands
+brew install s3cmd # Command-line tool for the Amazon S3 service https://s3tools.org/s3cmd
+brew install s4cmd # Super S3 command-line tool https://github.com/bloomreach/s4cmd (adds multi-threading, parallel uploads, path handling, and more)
+
 # 09-04-2016 added to make EmptyEpsilon work
 # https://github.com/oznogon/EmptyEpsilon/issues/7
 brew install sfml
@@ -374,6 +377,16 @@ npm install -g @anthropic-ai/claude-code # Command-line interface for Claude AI
 brew install pipx # Execute binaries from Python packages in isolated environments https://pipx.pypa.io
 pipx ensurepath # need to run this after installing pipx to add it to the PATH
 brew install poetry # Python dependency management and packaging made easy https://python-poetry.org/
+
+# resource usage tools
+
+# cli resource usage tools
+brew install htop-osx # Improved top (interactive process viewer) https://hisham.hm/htop/
+brew install btop # A resource monitor that shows usage and stats for processor, memory, disks, network & processes. [aristocratos/btop: A monitor of resources](https://github.com/aristocratos/btop)
+brew install glances # Cross-platform system monitoring tool https://nicolargo.github.io/glances/
+brew install iftop # Display bandwidth usage on an interface
+brew install nload # Network traffic and bandwidth usage monitor
+brew install nethogs # Monitor network traffic per process
 
 # groups bandwidth by process.
 # [raboof/nethogs: Linux 'net top' tool](https://github.com/raboof/nethogs)
