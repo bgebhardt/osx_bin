@@ -236,6 +236,7 @@ brew install stats # Name: Stats - System monitor for the menu bar https://githu
 # brew install iglance # System monitor for the status bar - https://github.com/iglance/iGlance
 
 brew install menubar-stats # System monitor with temperature & fans plugins https://seense.com/menubarstats/
+brew install hot # Name: Hot - System monitor for the menu bar [macmade/Hot: Hot is macOS menu bar application that displays the CPU speed limit due to thermal issues.](https://github.com/macmade/Hot)
 # clock - no cask; same software maker [seense | The Clock for macOS](https://seense.com/the_clock/)
 
 brew install --cask smartreporter-free # Drive failure monitoring tool - https://www.corecode.io/smartreporter/
@@ -569,6 +570,21 @@ brew install recoll
 brew install microsoft-azure-storage-explorer # Explorer for Azure Storage https://azure.microsoft.com/en-us/features/storage-explorer/
 
 # AI
+
+# ai coding tools
+npm install -g @anthropic-ai/claude-code # Command-line interface for Claude AI
+
+# AI model serving and interactions
+
+# [LLM: A CLI utility and Python library for interacting with Large Language Models](https://llm.datasette.io/en/stable/index.html)
+pipx install llm
+pipx install mlx-lm # MLX-LM is a Python library for running LLMs on macOS using the MLX framework; it provides a Python interface to the MLX framework, allowing you to run LLMs on macOS with ease.
+# [Run LLMs on macOS using llm-mlx and Apple’s MLX framework](https://simonwillison.net/2025/Feb/15/llm-mlx/)
+llm install llm-mlx # Install the llm-mlx model for use with the llm CLI utility; this workes with mlx-lm and llm
+llm install llm-gpt4all # providing 17 models from the GPT4All project [Other models - LLM](https://llm.datasette.io/en/stable/other-models.html)
+
+# [mlx-lm·PyPI](https://pypi.org/project/mlx-lm/)
+
 brew install ollama # local LLM - Create, run, and share large language models (LLMs) https://ollama.com/
 # To run as service: 
 # To start ollama now and restart at login:
@@ -583,9 +599,10 @@ brew install lm-studio # Discover, download, and run local LLMs https://lmstudio
 
 brew install claude # Name: Claude Anthropic's official Claude AI desktop app
 brew install chatgpt # Name: ChatGPT OpenAI's official ChatGPT desktop app
+brew install gemini # Name: Gemini Google AI's official Gemini desktop app
 
 brew install janus # AI chat client https://janusai.com/ suports local and remote LLMs
-brew install gpt4all # AI chat client https://gpt4all.com/
+#brew install gpt4all # AI chat client https://gpt4all.com/
 
 brew install superwhisper # Dictation tool including LLM reformatting https://superwhisper.com/
 
