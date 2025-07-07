@@ -85,7 +85,9 @@ brew install tcpflow
 brew install tcpreplay
 brew install tcptrace
 brew install ucspi-tcp # `tcpserver` etc.
-brew install xpdf
+#brew install xpdf # disabled as it conflicts with poppler and poppler looks better
+brew install poppler # PDF rendering library (based on the xpdf-3.0 code base) https://poppler.freedesktop.org/
+# poppler tools: pdfattach, pdfdetach, pdffonts, pdfimages, pdfinfo, pdfseparate, pdfsig, pdftocairo, pdftohtml, pdftoppm, pdftops, pdftotext, pdfunite
 brew install xz
 
 # Install other useful binaries.
