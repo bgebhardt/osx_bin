@@ -118,7 +118,7 @@ brew install audacity
 brew install cron # Calendar for professionals and teams https://cron.com/
 
 # music and audio players and organizers
-brew install aural # Audio player inspired by Winamp https://github.com/maculateConception/aural-player
+# brew install aural # Audio player inspired by Winamp https://github.com/maculateConception/aural-player deprecated
 # didn't work :( brew install jmc # Media organizer https://github.com/jcm93/jmc
 
 # crashes on start - brew install clementine # Music player and library organizer https://www.clementine-player.org/
@@ -604,6 +604,8 @@ brew install gemini # Name: Gemini Google AI's official Gemini desktop app
 brew install janus # AI chat client https://janusai.com/ suports local and remote LLMs
 #brew install gpt4all # AI chat client https://gpt4all.com/
 
+brew install context # [Context - Native macOS Client for Model Context Protocol](https://www.contextmcp.app/)
+
 brew install superwhisper # Dictation tool including LLM reformatting https://superwhisper.com/
 
 brew install boltai # AI chat client https://boltai.com/
@@ -643,6 +645,8 @@ brew install customshortcuts # Customise menu item keyboard shortcuts https://ww
 
 brew install keyclu # Find shortcuts for any installed application https://sergii.tatarenkov.name/keyclu/support/
 # works with customshortcuts
+
+brew install skint # Check status of key security settings and features - https://eclecticlight.co/lockrattler-systhist/
 
 # installed by brew install office?
 # microsoft-auto-update
