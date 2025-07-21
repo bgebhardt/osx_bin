@@ -420,6 +420,7 @@ brew install devtoys # Utilities designed to make common development tasks easie
 #brew install phoenix-code # Code editor https://phcode.io/ interesting web site development tool. Not using it but saving here just in case.
 
 #brew install anaconda # Distribution of the Python and R programming languages for scientific computing https://www.anaconda.com/
+# brew install --cask miniconda # Anaconda alternative for Python and R programming languages https://docs.conda.io/en/latest/miniconda.html
 
 # diff tools
 # nice article comparing diff tools - [The 5 Best Mac File Comparison Tools and Diff Tools](https://www.makeuseof.com/tag/mac-file-comparison-tools/)
@@ -619,10 +620,9 @@ brew install repo-prompt # Prompt generation tool https://repoprompt.com/
 
 # AI image generation
 brew install stability-matrix # Stable Diffusion GUI for MacOS https://stability.ai/stability-matrix
-
 brew install diffusionbee # Name: Diffusion Bee - Stable Diffusion GUI for MacOS https://diffusionbee.com/
-
 brew install draw-things # Name: Draw Things - Stable Diffusion GUI for MacOS https://drawthings.app/
+brew install comfyui # Name: ComfyUI - Stable Diffusion GUI for MacOS https://comfyui.org/
 
 brew install screenpipe # Name: ScreenPipe - Library to build personalized AI powered by what you've seen, said, or heard [screenpipe | computer use AI SDK](https://screenpi.pe/onboarding)
 
