@@ -595,9 +595,12 @@ brew install ollama # local LLM - Create, run, and share large language models (
 #   /opt/homebrew/opt/ollama/bin/ollama serve
 
 # Local AI clients
+brew install ollama-app # Get up and running with large language models locally https://ollama.com/
 brew install ollamac # Mac native AI chat client https://ollama.com/
 brew install lm-studio # Discover, download, and run local LLMs https://lmstudio.ai/
 # has a command line. See docs for how to install: [lms — LM Studio's CLI | LM Studio Docs](https://lmstudio.ai/docs/lms)
+
+brew install gollama # Go manage your Ollama models https://smcleod.net
 
 brew install claude # Name: Claude Anthropic's official Claude AI desktop app
 brew install chatgpt # Name: ChatGPT OpenAI's official ChatGPT desktop app
