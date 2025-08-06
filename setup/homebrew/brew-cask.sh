@@ -329,6 +329,7 @@ brew install fbreader # Name: FBReader book reader https://fbreader.org/macos/
 #brew install adobe-digital-editions # Name: Adobe Digital Editions https://www.adobe.com/solutions/ebook/digital-editions.html
 
 brew install xmind # Mind mapping and brainstorming tool https://www.xmind.net/
+brew install freeplane # Freeplane is a free mind mapping software written in Java - https://www.freeplane.org/
 
 # duplicate finders
 brew install photosweeper-x # Tool to eliminate similar or duplicate photos https://overmacs.com/; preferred photo
@@ -613,7 +614,7 @@ brew install boltai # AI chat client https://boltai.com/
 # from app store install OllmaSpring and Enchanted ai chat apps for Ollama
 
 brew install cursor # Write, edit, and chat about your code with AI https://www.cursor.com/
-
+brew install kiro # AI-powered code editor from Amazon https://kiro.ai/
 brew install codex # OpenAI's coding agent that runs in your terminal https://github.com/openai/codex
 
 brew install repo-prompt # Prompt generation tool https://repoprompt.com/
