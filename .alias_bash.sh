@@ -7,10 +7,16 @@ alias sudo='sudo '
 
 # eza ls and tree replacement
 alias ls="eza"
+# options --no-filesize --no-time --no-permissions
+#alias ls="eza --long --color=always --icons=always --no-user"
 alias tree="eza -T"
 
 # zoxide replacement for cd
 alias cd=z
+
+# fzf alias
+alias f=fzf
+
 
 # old LS configs, replaced with color eza
 # Color LS

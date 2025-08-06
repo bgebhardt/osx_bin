@@ -4,8 +4,6 @@
 
 # copy this file to you home directory.
 
-source ~/bin/bash_profile_bin
-
 # Check if the shell is interactive
 if [[ $- == *i* ]]; then
     echo "This is an interactive shell"
@@ -18,9 +16,12 @@ if [[ $- == *i* ]]; then
         source ~/bin/bash_profile_warp
     fi
 
-    echo "** ready **"
-
 fi
+
+# this must be at the end of this file (zoxide requires it)
+source ~/bin/bash_profile_bin
+
+echo "** ready **"
 
 # RETIRED - I no longer use fig
 # Fig post block. Keep at the bottom of this file.

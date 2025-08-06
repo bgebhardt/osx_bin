@@ -66,8 +66,17 @@ fi
 # [junegunn/fzf: :cherry_blossom: A command-line fuzzy finder](https://github.com/junegunn/fzf#setting-up-shell-integration)
 eval "$(fzf --bash)"
 
-# see [ajeetdsouza/zoxide: A smarter cd command. Supports all major shells.](https://github.com/ajeetdsouza/zoxide)
-eval "$(zoxide init bash)"
+# see if any of these will work.
+# export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude •git " export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+
+# export FZF_DEFAULT_OPTS="--height 50% --layout=default --border --color=hl:#2dd4bf"
+# # fzf default for tmux
+# export FZF_TMUX_OPTS=" -p90%, 70% "
+
+# # Setup fzf previews
+# export FZF_CTRL_T_OPTS="--preview 'bat --color=always -n --line-range :500 {}'"
+# export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200' "
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 # disabling as I'm not using gvm for now
@@ -78,3 +87,6 @@ eval "$(zoxide init bash)"
 #export SDKMAN_DIR="$HOME/.sdkman"
 #[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+# see [ajeetdsouza/zoxide: A smarter cd command. Supports all major shells.](https://github.com/ajeetdsouza/zoxide)
+# this must be at the end of this file (zoxide requires it)
+eval "$(zoxide init bash)"
