@@ -115,6 +115,8 @@ brew install audacity
 # brew install fullcontact -- no longer available
 #brew install evernote # install with mas instead
 #fantastical
+brew install clay # Private rolodex to remember people better https://clay.earth/
+
 brew install cron # Calendar for professionals and teams https://cron.com/
 
 # music and audio players and organizers
