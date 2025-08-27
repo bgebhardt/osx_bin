@@ -89,4 +89,6 @@ eval "$(fzf --bash)"
 
 # see [ajeetdsouza/zoxide: A smarter cd command. Supports all major shells.](https://github.com/ajeetdsouza/zoxide)
 # this must be at the end of this file (zoxide requires it)
-eval "$(zoxide init bash)"
+# Moved to .bash_profile so its more likely always at the end.
+# echo "zoxide init..."
+#eval "$(zoxide init bash)"
