@@ -52,7 +52,7 @@ brew install raycast # replacement for spotlight (and alfred or launchbar)
 # Window Managers
 brew install rectangle # window manager - current preferred window manager
 
-brew install autumn # Window manager for JavaScript development https://apandhi.github.io/Autumn/
+# deprecated brew install autumn # Window manager for JavaScript development https://apandhi.github.io/Autumn/
 #brew install phoenix # Window and app manager scriptable with JavaScript https://github.com/kasper/phoenix/ 
 # phoenix seems not as easy to develop in as autumn; but has more examples and a few different features. See [Home · kasper/phoenix Wiki](https://github.com/kasper/phoenix/wiki#examples)
 
@@ -159,11 +159,11 @@ brew install mactex # TeX distribution for macOS https://www.tug.org/mactex/; re
 
 # brew install curiosity # SwiftUI Reddit client https://github.com/Dimillian/RedditOS # easier to just use the web version
 
-brew install pdfpen
+# deprecated brew install pdfpen
 brew install skim # PDF reader and note-taking application https://skim-app.sourceforge.io/
 brew install pdfsam-basic # Extracts pages, splits, merges, mixes and rotates PDF files https://pdfsam.org/
 brew install slack
-brew install skype
+# deprecated brew install skype # use teams now.
 brew install soulver # Notepad with a built-in calculator https://soulver.app/
 brew install soulver-cli # Standalone cli for the Soulver calculation engine https://github.com/soulverteam/Soulver-CLI
 brew install numi #Calculator and converter application https://numi.app/; costs $19.99; has raycast integration
@@ -189,7 +189,7 @@ brew install coteditor # Plain-text editor for web pages, program source codes a
 
 # Clipboard managers
 brew install maccy # Clipboard manager https://maccy.app/ # current favorite
-brew install 1clipboard # Clipboard managing app https://1clipboard.io/
+# deprecated brew install 1clipboard # Clipboard managing app https://1clipboard.io/
 brew install pastebot # Workflow application to improve productivity https://tapbots.com/pastebot/
 
 # brew install clop # Image, video and clipboard optimiser https://lowtechguys.com/clop/ will automatically optimize images and videos copied to the clipboard # TODO try this out
@@ -362,7 +362,7 @@ brew install hookmark # Link and retrieve key information https://hookproductivi
 
 brew install qr-journal # Allows users with an iSight (or compatible) camera to read QR codes https://www.joshjacob.com/mac-development/qrjournal.php
 
-brew install tnefs-enough # Read and extract files from Microsoft TNEF files https://www.joshjacob.com/mac-development/tnef.php
+# deprecated brew install tnefs-enough # Read and extract files from Microsoft TNEF files https://www.joshjacob.com/mac-development/tnef.php
 
 # Reference: [5 Ways to Turn Any Website Into a Desktop Mac App](https://www.makeuseof.com/tag/website-desktop-mac-app/)
 brew install fluid # Tool to turn a website into a desktop app - free app - https://fluidapp.com/
@@ -387,8 +387,8 @@ brew install breaktimer # Tool to manage periodic breaks https://breaktimer.app/
 
 ## Development apps
 brew install devutils # developer toolbox https://devutils.app/
-brew install atom
-brew install aptanastudio
+# deprecated brew install atom
+# deprecated brew install aptanastudio
 # brew install aqua-data-studio # disabled as I use it rarely and it's 1 GB of space
 brew install aquamacs
 brew install base
@@ -471,7 +471,7 @@ brew install qlprettypatch       # Preview .patch files
 brew install quicklook-csv       # Preview CSV files
 #brew install betterzipql         # Preview archives
 brew install webpquicklook       # Preview WebP images
-# brew install qlmarkdown # [sbarex/QLMarkdown: macOS Quick Look extension for Markdown files.](https://github.com/sbarex/QLMarkdown) duplicated line from above.
+# deprecated # brew install qlmarkdown # [sbarex/QLMarkdown: macOS Quick Look extension for Markdown files.](https://github.com/sbarex/QLMarkdown) duplicated line from above.
 
 #brew install facter        # cask broken # Facter gathers basic facts about systems. such as hardware, network settings, OS type and more.
 #brew install sublime-text3 # cask broken # Sublime Text is a sophisticated text editor for code, markup and prose.
@@ -520,8 +520,14 @@ brew install heroic
 brew install onecast
 
 brew install crossover # Tool to run Windows software https://www.codeweavers.com/products/crossover-mac/
-brew install whisky # Wine wrapper built with SwiftUI https://getwhisky.app/
-brew install vmware-fusion #Create, manage, and run virtual machines https://www.vmware.com/products/fusion.html
+
+# new best wine wrapper app
+# Kegworks [Sikarugir-App/Sikarugir: A user-friendly tool used to make wine wrapped ports of Windows software for macOS.](https://github.com/Sikarugir-App/Sikarugir)
+brew upgrade
+brew install --cask --no-quarantine Sikarugir-App/sikarugir/sikarugir
+# deprecated brew install whisky # Wine wrapper built with SwiftUI https://getwhisky.app/
+
+# deprecated; go to website to install brew install vmware-fusion #Create, manage, and run virtual machines https://www.vmware.com/products/fusion.html
 
 brew install drivethrurpg # DriveThruRPG app for Mac - https://www.drivethrurpg.com/product/295095/DriveThruRPG-Mac-App
 # Sync DriveThruRPG libraries to compatible devices - https://www.drivethrurpg.com/library_client.php
