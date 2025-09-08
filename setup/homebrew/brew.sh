@@ -445,5 +445,7 @@ brew install ttrpg-convert-cli
 #brew install trash # Move files to the trash instead of deleting them permanently; not needed as this command is built into macOS now.
 brew install midnight-commander # Midnight Commander is a visual file manager, similar to Norton Commander. https://midnight-commander.org/
 
+brew install harfbuzz # An OpenType text shaping engine https://harfbuzz.github.io/
+
 # Remove outdated versions from the cellar.
 brew cleanup
