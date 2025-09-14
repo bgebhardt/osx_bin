@@ -109,8 +109,15 @@ brew install libreoffice # Free cross-platform office suite, fresh version https
 brew install amadeus-pro
 brew install audacity
 
-#brew install busycal # I no longer use these
-#brew install busycontacts # I no longer use these
+brew install busycal # 09-13-2025 I'm using them again;  I no longer use these
+brew install busycontacts # 09-13-2025 I'm using them again;  I no longer use these
+
+# cli CardDav and CalDav clients
+brew install vdirsyncer # Synchronize calendars and contactsSynchronize calendars and contacts https://github.com/pimutils/vdirsyncer
+brew install khard # Console carddav client https://github.com/lucc/khard
+
+
+
 # brew install fantastical # I no longer use these
 # brew install fullcontact -- no longer available
 #brew install evernote # install with mas instead
@@ -170,6 +177,8 @@ brew install numi #Calculator and converter application https://numi.app/; costs
 
 brew install rocket # Emoji picker optimized for blind people https://matthewpalmer.net/rocket/
 # [TextPal — Super-fast emoji picker for macOS](https://www.textpal.app/) is an alternate but not installable by brew
+
+brew install sf-symbols # Apple's icon set for developers https://developer.apple.com/sf-symbols/
 
 # brew install logitech-myharmony #  -- no longer available
 brew install spotify
