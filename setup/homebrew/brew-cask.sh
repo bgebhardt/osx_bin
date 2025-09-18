@@ -233,6 +233,10 @@ brew install gimp # Free and open-source image editor https://www.gimp.org/
 brew install mimestream # new preferred Gmail desktop client
 # consider also Mailplane
 
+# Email
+# mailmate
+brew install --cask superhuman # paid Email client https://superhuman.com/
+
 ## Utilities
 # brew install amazon-drive -- no longer available
 # brew install amazon-music # need to delete folder in Applications Support and then works -- no longer supported
@@ -668,6 +672,8 @@ brew install keyclu # Find shortcuts for any installed application https://sergi
 # works with customshortcuts
 
 brew install skint # Check status of key security settings and features - https://eclecticlight.co/lockrattler-systhist/
+
+brew install overview # Create live window previews for any application https://williampierce.io/overview/
 
 # installed by brew install office?
 # microsoft-auto-update
