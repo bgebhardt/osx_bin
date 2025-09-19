@@ -38,6 +38,7 @@ brew install fzf # A general-purpose command-line fuzzy finder.
 brew install television # General purpose fuzzy finder TUI https://github.com/alexpasmantier/television
 brew install delta # A viewer for git and diff output.
 brew install diffoscope # In-depth comparison of files, archives, and directories can output in friendly HTML https://diffoscope.org
+brew install attempt # Retry a command until it succeeds [MaxBondABE/attempt: CLI for retrying fallible commands](https://github.com/MaxBondABE/attempt)
 
 brew install fd # Simple, fast and user-friendly alternative to find - https://github.com/sharkdp/fd
 brew install fselect # Find files with SQL-like queries https://github.com/jhspetersson/fselect https://github.com/jhspetersson/fselect/blob/master/docs/usage.md
@@ -373,6 +374,9 @@ brew install nbdime # diffing and merging of Jupyter Notebooks
 
 # ai coding tools
 npm install -g @anthropic-ai/claude-code # Command-line interface for Claude AI
+brew install claude-cmd # [kiliczsh/claude-cmd: Claude Code Commands Manager](https://github.com/kiliczsh/claude-cmd)
+brew install claude-hooks # [johnlindquist/claude-hooks](https://github.com/johnlindquist/claude-hooks)
+brew install tweakcc # [Piebald-AI/tweakcc: Command-line tool to customize Claude Code UI (themes, thinking verbs, input box style, user message display, sign-in ASCII art), fix bugs (frozen spinner), and add features (CLAUDE_CODE_CONTEXT_LIMIT).](https://github.com/Piebald-AI/tweakcc)
 
 brew install pipx # Execute binaries from Python packages in isolated environments https://pipx.pypa.io
 pipx ensurepath # need to run this after installing pipx to add it to the PATH

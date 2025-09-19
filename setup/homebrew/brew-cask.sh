@@ -639,7 +639,9 @@ brew install boltai # AI chat client https://boltai.com/
 
 brew install cursor # Write, edit, and chat about your code with AI https://www.cursor.com/
 brew install kiro # AI-powered code editor from Amazon https://kiro.ai/
-brew install codex # OpenAI's coding agent that runs in your terminal https://github.com/openai/codex
+brew install codex # OpenAI's coding agent that runs in your terminal https://github.com/openai/
+
+brew install opencode # AI coding agent, built for the terminal # https://opencode.ai
 
 brew install repo-prompt # Prompt generation tool https://repoprompt.com/
 
