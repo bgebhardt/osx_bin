@@ -21,7 +21,7 @@ brew upgrade
 
 ## Top Must Installs
 brew install 1password
-#brew install 1password/tap/1password-cli #TODO figure out how to get this working
+brew install 1password-cli # command line interface for 1password
 brew install iterm2
 #brew install flux
 brew install omnifocus
@@ -577,6 +577,8 @@ brew install tg-pro # Temperature monitoring, fan control and diagnostics https:
 brew install lingon-x # Automator software to start apps, run scripts or commands and more https://www.peterborgapps.com/lingon/
 brew install time-out # Customizable timing of breaks https://www.dejal.com/timeout/
 brew install blocs # Visual web design software https://blocsapp.com/
+
+brew install local # WordPress local development tool by Flywheel https://localwp.com/
 
 
 brew install transnomino # Batch rename utility https://www.transnomino.com/
