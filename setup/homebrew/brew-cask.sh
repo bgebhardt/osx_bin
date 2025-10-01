@@ -579,6 +579,8 @@ brew install time-out # Customizable timing of breaks https://www.dejal.com/time
 brew install blocs # Visual web design software https://blocsapp.com/
 
 brew install local # WordPress local development tool by Flywheel https://localwp.com/
+brew install wp-cli # Command line interface for WordPress https://wp-cli.org/
+brew install wp-cli-completion # Bash completion for Wpcli https://github.com/wp-cli/wp-cli
 
 
 brew install transnomino # Batch rename utility https://www.transnomino.com/
