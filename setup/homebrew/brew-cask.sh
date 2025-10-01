@@ -241,7 +241,8 @@ brew install --cask superhuman # paid Email client https://superhuman.com/
 # brew install amazon-drive -- no longer available
 # brew install amazon-music # need to delete folder in Applications Support and then works -- no longer supported
 brew install bartender # paid Menu bar icon organiser https://www.macbartender.com/
-#brew install jordanbaird-ice # free Menu bar manager https://github.com/jordanbaird/Ice # alternate free menu bar manager to consider
+brew install jordanbaird-ice # free Menu bar manager https://github.com/jordanbaird/Ice # alternate free menu bar manager to consider
+# trying free ice as bartender 6 is unstable.
 
 brew install boom
 #brew install brightness
