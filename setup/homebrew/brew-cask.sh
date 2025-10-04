@@ -31,6 +31,8 @@ brew install google-drive
 
 brew install dropshare # File sharing solution https://dropshare.app/
 
+brew install dropzone # Productivity app https://aptonic.com/
+
 # Onedrive cask conflicts with office
 #brew install --cask onedrive # Folder synchronization with OneDrive; required you pass cask
 #brew install wd-my-cloud # also WD Sync Installer.app
@@ -51,6 +53,7 @@ brew install raycast # replacement for spotlight (and alfred or launchbar)
 
 # Window Managers
 brew install rectangle # window manager - current preferred window manager
+brew install lasso-app # Window manager that allows you to snap windows into organized groups https://lassoapp.com/
 
 # deprecated brew install autumn # Window manager for JavaScript development https://apandhi.github.io/Autumn/
 #brew install phoenix # Window and app manager scriptable with JavaScript https://github.com/kasper/phoenix/ 
