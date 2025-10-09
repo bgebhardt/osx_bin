@@ -14,6 +14,18 @@ export PATH="/usr/local/bin:/opt/homebrew/bin/:$PATH"
 # pnpm build:self-host # uncomment this if you need to make a newer build
 pnpm start
 
+# This script is intended to be run as a background service using LaunchAgents. 
+
+# script is in ~/bin/scripts/scheduled/LaunchAgents/com.bryan.notecompanion.plist and can be copied to ~/Library/LaunchAgents/
+# and loaded with launchctl load ~/Library/LaunchAgents/com.bryan.notecompanion.plist
+
+# To manage it:
+# Stop: launchctl unload ~/Library/LaunchAgents/com.bryan.notecompanion.plist
+# Start: launchctl load ~/Library/LaunchAgents/com.bryan.notecompanion.plist
+# Restart: launchctl kickstart -k gui/$(id -u)/com.bryan.notecompanion
+
+# How to set up on PM2
+# as of 10-08-2025 I have it working with LaunchAgents.
 
 # Tried doing this as a launch agent but it was failing. So this is set up to be managed by PM2.
 # requires pm2 installed like so: 
