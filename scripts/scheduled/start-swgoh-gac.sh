@@ -11,7 +11,7 @@
 #   start-swgoh-gac.sh stop     # Stop the GAC script
 
 SCRIPT_DIR="/Users/bryan/code/personal/swgoh/grand-arena-automation"
-SCRIPT_NAME="run.sh"
+SCRIPT_NAME="run-grand-arena-automation.sh"
 LOG_FILE="/tmp/swgoh-gac.log"
 PID_FILE="/tmp/swgoh-gac.pid"
 
