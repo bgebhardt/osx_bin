@@ -173,7 +173,8 @@ brew install uv # Extremely fast Python package installer and resolver, written 
 # TODO: remove dupes from this list
 brew install ansible
 brew install asciidoc
-#brew install boot2docker
+#brew install docker-machine # Create Docker hosts locally and on cloud providers https://docs.gitlab.com/runner/executors/docker_machine.html
+
 brew install cairo
 brew install cask
 brew install chromedriver
@@ -183,8 +184,13 @@ brew install csshx
 brew install dependency-check
 brew install diffutils
 brew install docbook
-brew install docker # Docker is a platform for developing, shipping, and running applications in containers. https://www.docker.com/
-brew install docker-compose # Docker Compose is a tool for defining and running multi-container Docker applications.
+
+brew install --cask docker # Install Docker Desktop instead of boot2docker - https://www.docker.com/products/docker-desktop
+
+# skim brew docker as it might conflict with what Docker Desktop installs
+#brew install docker # Docker is a platform for developing, shipping, and running applications in containers. https://www.docker.com/
+#brew install docker-compose # Docker Compose is a tool for defining and running multi-container Docker applications.
+
 # Compose is a Docker plugin. For Docker to find the plugin, add "cliPluginsExtraDirs" to ~/.docker/config.json:
 #   "cliPluginsExtraDirs": [
 #       "/opt/homebrew/lib/docker/cli-plugins"
