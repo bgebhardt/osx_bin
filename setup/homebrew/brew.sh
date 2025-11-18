@@ -427,6 +427,8 @@ brew install pdfgrep # Search PDFs for strings matching a regular expression htt
 brew install poppler # PDF rendering library (based on the xpdf-3.0 code base) https://poppler.freedesktop.org/
 brew install jpdfbookmarks # Create and edit bookmarks on existing PDF files https://sourceforge.net/projects/jpdfbookmarks/
 
+brew install exiftool # Perl lib for reading and writing EXIF metadata https://exiftool.org works on images, PDF files, and more
+
 # brew install pdftk-java # Port of pdftk in java; pdftk provides lots of pdf cli tools. https://gitlab.com/pdftk-java/pdftk
 # looks like it requires java 11 which I don't have installed.
 # Trying the non-java original - brew install pdftk-java instead [PDFtk Server Manual](https://www.pdflabs.com/docs/pdftk-man-page/)
@@ -456,6 +458,12 @@ brew install ttrpg-convert-cli
 brew install midnight-commander # Midnight Commander is a visual file manager, similar to Norton Commander. https://midnight-commander.org/
 
 brew install harfbuzz # An OpenType text shaping engine https://harfbuzz.github.io/
+
+# Install mermaid-cli for generating diagrams and flowcharts from text in a similar manner as markdown.
+# run with mmdc. See [GitHub - mermaid-js/mermaid-cli: Command line tool for the Mermaid library](https://github.com/mermaid-js/mermaid-cli)
+npm install -g @mermaid-js/mermaid-cli
+
+brew install macsvg # MacSVG is a macOS application for creating and editing SVG files. https://macsvg.com/
 
 # Remove outdated versions from the cellar.
 brew cleanup
