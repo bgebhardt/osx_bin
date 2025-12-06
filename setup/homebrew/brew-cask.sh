@@ -645,6 +645,8 @@ brew install superwhisper # Dictation tool including LLM reformatting https://su
 brew install boltai # AI chat client https://boltai.com/
 # from app store install OllmaSpring and Enchanted ai chat apps for Ollama
 
+brew install quickwhisper # Audio transcription tool https://quickwhisper.app/
+
 brew install cursor # Write, edit, and chat about your code with AI https://www.cursor.com/
 brew install kiro # AI-powered code editor from Amazon https://kiro.ai/
 brew install codex # OpenAI's coding agent that runs in your terminal https://github.com/openai/
@@ -684,6 +686,10 @@ brew install keyclu # Find shortcuts for any installed application https://sergi
 brew install skint # Check status of key security settings and features - https://eclecticlight.co/lockrattler-systhist/
 
 brew install overview # Create live window previews for any application https://williampierce.io/overview/
+
+
+brew install dataflare # Data visualization tool https://dataflare.app/
+
 
 # installed by brew install office?
 # microsoft-auto-update
