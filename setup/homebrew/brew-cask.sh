@@ -503,6 +503,7 @@ brew install telegram-a # Web client for Telegram messenger - https://web.telegr
 brew install beeper # Universal chat app powered by Matrix - https://www.beeper.com/
 
 brew install whatsapp # Native desktop client for WhatsApp https://www.whatsapp.com/
+brew install signal # Signal is a secure messaging app for simple private communication with friends. https://signal.org/
 
 
 # Games
