@@ -465,5 +465,7 @@ npm install -g @mermaid-js/mermaid-cli
 
 brew install macsvg # MacSVG is a macOS application for creating and editing SVG files. https://macsvg.com/
 
+brew install termshot # Capture terminal output as images https://github.com/iamcco/termshot
+
 # Remove outdated versions from the cellar.
 brew cleanup
