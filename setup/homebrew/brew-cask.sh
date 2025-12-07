@@ -54,6 +54,7 @@ brew install raycast # replacement for spotlight (and alfred or launchbar)
 # Window Managers
 brew install rectangle # window manager - current preferred window manager
 brew install lasso-app # Window manager that allows you to snap windows into organized groups https://lassoapp.com/
+brew install mosaic # Window manager for macOS https://lightpillar.com/mosaic.html
 
 # deprecated brew install autumn # Window manager for JavaScript development https://apandhi.github.io/Autumn/
 #brew install phoenix # Window and app manager scriptable with JavaScript https://github.com/kasper/phoenix/ 
