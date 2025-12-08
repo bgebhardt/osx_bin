@@ -270,6 +270,8 @@ brew install keepingyouawake #Name: KeepingYouAwake - Tool to prevent the system
 # amphetimine is more feature reach but can't be installed by brew
 
 brew install espanso # Name: Espanso - Cross-platform Text Expander written in Rust https://espanso.org/; replace Typinator??
+brew install keyboard-maestro # Name: Keyboard Maestro - Workflow app for macOS https://www.keyboardmaestro.com/main/
+brew install typinator # Text expander https://www.ergonis.com/products/typinator/
 
 brew install raindropio # All-in-one bookmark manager https://raindrop.io/
 
@@ -670,7 +672,6 @@ brew install obsbot-center
 
 # apps added 12-23-2024 after audit
 brew install kdiff3 # File comparison and merge tool https://kdiff3.sourceforge.io/
-brew install typinator # Text expander https://www.ergonis.com/products/typinator/
 brew install github # GitHub Desktop https://desktop.github.com/
 brew install quicken # Personal finance manager https://www.quicken.com/mac
 brew install popchar # Character map and font viewer https://www.ergonis.com/products/popcharx/
