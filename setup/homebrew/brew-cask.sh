@@ -56,6 +56,8 @@ brew install rectangle # window manager - current preferred window manager
 brew install lasso-app # Window manager that allows you to snap windows into organized groups https://lassoapp.com/
 brew install mosaic # Window manager for macOS https://lightpillar.com/mosaic.html
 
+brew install alt-tab # Windows alt-tab on macOS https://alt-tab-macos.netlify.app/
+
 # deprecated brew install autumn # Window manager for JavaScript development https://apandhi.github.io/Autumn/
 #brew install phoenix # Window and app manager scriptable with JavaScript https://github.com/kasper/phoenix/ 
 # phoenix seems not as easy to develop in as autumn; but has more examples and a few different features. See [Home · kasper/phoenix Wiki](https://github.com/kasper/phoenix/wiki#examples)
