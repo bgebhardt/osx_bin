@@ -106,7 +106,7 @@ Install common brew tools.
 
 Install Apple Store apps I use via the very cool mas CLI for App Store.  Requires mas be installed with brew (done by brew.sh)
 ```
-~/bin/setup/mas.sh 
+~/bin/setup/appstore/mas.sh 
 ```
 > This will take quite a while.
 
