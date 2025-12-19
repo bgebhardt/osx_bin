@@ -100,7 +100,7 @@ TODO: document installation with Cask
 ## Install other tools
 Install common brew tools.
 ```
-~/bin/setup/brew.sh 
+~/bin/setup/homebrew/brew.sh 
 ```
 > This will take quite a while.  This may also fail if brew hits your maximum github API requests.  Wait for an hour and try again.
 

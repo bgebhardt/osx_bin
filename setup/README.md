@@ -56,6 +56,13 @@ $ git config --global user.email bryan.gebhardt@gmail.com
 /opt/homebrew/bin/gh repo clone bgebhardt/osx_bin
 ```
 
+Install eza an z which shell now depends on for ls and cd.
+
+```shell
+/opt/homebrew/bin/brew install eza
+/opt/homebrew/bin/brew install zoxide
+```
+
 follow the rest of the instructions on this page: https://github.com/bgebhardt/osx_bin
 
 * TODO: Set up ssh keys for new computer
@@ -78,12 +85,20 @@ Follow read me: https://github.com/bgebhardt/osx_bin
   * install Brew (see https://brew.sh)
   * Set up shell settings
 
+# Install common brew tools.
+This will make tools the shell depends on available.
+
+```
+~/bin/setup/homebrew/brew.sh 
+```
+> This will take quite a while.  This may also fail if brew hits your maximum github API requests.  Wait for an hour and try again.
 ## Set mac defaults
 
 Set mac default settings
 ```shell
 ~/bin/setup/macOS/mac-defaults.sh
 ```
+
 
 ## Install Rosetta with:
 
@@ -95,6 +110,25 @@ Set mac default settings
 ```shell
 ~/bin/setup/homebrew/brew-cask-minimum.sh
 ```
+# Install mas, npm, and python tools
+
+Install Apple Store apps I use via the very cool mas CLI for App Store.  Requires mas be installed with brew (done by brew.sh)
+```
+~/bin/setup/mas.sh 
+```
+> This will take quite a while.
+
+Install common python packages and tools.
+```
+~/bin/setup/python.sh 
+```
+> This will take quite a while.
+
+Install common node npm packages and tools.
+```
+~/bin/setup/npm.sh 
+```
+> This will take quite a while.
 
 ## Install and set up Core Microsoft apps (now added to brew-cask-min install)
 
