@@ -29,6 +29,16 @@ In Terminal set your profile to Homebrew for the colors to work.
 
 To finish setting up bash install run the following:
 
+Set up "gh" and login to your git account. Fun this and follow the prompts to login.
+``` shell
+brew install gh
+gh auth login
+```
+
+Run `brew install gh` to Add better GitHub support to git on the command-line
+Run `brew install hub` to Add GitHub support to git on the command-line (https://hub.github.com/)
+
+
 Now clone in the tools you need. Some are referenced by osx_bin
 ``` shell
 ~/bin/gitclone.sh
@@ -37,8 +47,6 @@ chmod a+x ~/bin/bashstrap/z.sh # need to make sure this is executable
 
 > Add all tools cloned directly from git. (Note these are also in the .gitignore).  The proper way would be with [submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules), but I'm lazy at the moment.
 
-Run `brew install gh` to Add better GitHub support to git on the command-line
-Run `brew install hub` to Add GitHub support to git on the command-line (https://hub.github.com/)
 
 In iTerm2 select iTerm2>Install Shell Integration  (see https://iterm2.com/documentation-shell-integration.html)
 
@@ -49,6 +57,10 @@ You can install a minimum set of my favorite apps by running:
 ~/bin/setup/brew-cask-minimum.sh 
 ```
 
+# Set up a new computer from scratch
+
+If Setting up a new Computer from scratch refer to the [README](setup/README.md) in the setup directory.
+
 # Complete Install
 
 To install everything else make sure you have the prerequisites and then you can run the scripts in the install section.
@@ -57,11 +69,11 @@ To install everything else make sure you have the prerequisites and then you can
 
 **Python**
 
-Install Python with brew.  Also installed by brew.sh.
-
+Install Python with brew.  (Also installed by brew.sh.)
+And upgrade pip while you're at it
 ```shell
 brew install python
-pip install --upgrade pip # upgrade pip while you're at it
+pip install --upgrade pip 
 pip install Pygments
 ```
 
@@ -88,7 +100,7 @@ TODO: document installation with Cask
 ## Install other tools
 Install common brew tools.
 ```
-~/.bin/setup/brew.sh 
+~/bin/setup/brew.sh 
 ```
 > This will take quite a while.  This may also fail if brew hits your maximum github API requests.  Wait for an hour and try again.
 
