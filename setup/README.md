@@ -282,6 +282,16 @@ You can get a list of all the UTI's (type of files to associate with an applicat
 ~/bin/setup/configs/list-all-utis.sh 
 ```
 
+## Set Custom App Shortcuts
+
+This script uses AppleScript to set custom app shortcuts in System Settings. More information in  ~/bin/setup/custom-shortcuts/README.md
+
+Run the following:
+```bash
+cd ~/bin/setup/custom-shortcuts/
+./my_shortcuts.sh
+```
+
 ## Dock
 Note: Now part of mac-defaults.sh
 Set app switcher to show on all monitors. Useful if laptop is monitor to the right of main monitor.
