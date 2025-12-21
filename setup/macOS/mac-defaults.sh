@@ -389,7 +389,7 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
 # Finder: show hidden files by default
 # printf "%s\n" "Finder: Show hidden files."
-# defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults write com.apple.finder AppleShowAllFiles -bool true
 
 # Finder: show all filename extensions
 #printf "%s\n" "Finder: Show filename extensions."
