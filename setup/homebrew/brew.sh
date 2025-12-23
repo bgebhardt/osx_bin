@@ -380,6 +380,7 @@ brew install nbdime # diffing and merging of Jupyter Notebooks
 
 # ai coding tools
 npm install -g @anthropic-ai/claude-code # Command-line interface for Claude AI
+# alt brew version, doesn't work if used npm to install. brew install --cask claude-code # Claude Code is a code assistant for developers https://claude.ai/
 brew install claude-cmd # [kiliczsh/claude-cmd: Claude Code Commands Manager](https://github.com/kiliczsh/claude-cmd)
 brew install claude-hooks # [johnlindquist/claude-hooks](https://github.com/johnlindquist/claude-hooks)
 brew install tweakcc # [Piebald-AI/tweakcc: Command-line tool to customize Claude Code UI (themes, thinking verbs, input box style, user message display, sign-in ASCII art), fix bugs (frozen spinner), and add features (CLAUDE_CODE_CONTEXT_LIMIT).](https://github.com/Piebald-AI/tweakcc)
