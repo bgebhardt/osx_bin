@@ -220,6 +220,13 @@ Replace username with the username on the remote Mac and remote_mac_ip with the 
 
 You can run these in the background and move on to configs. Check them periodically for errors.
 
+To install apps that mas and brew don't support run this.
+```shell
+~/bin/setup/appstore/install-other-apps.sh
+```
+
+Finally, look for apps in your OneDrive in "~/OneDrive/1 Common Info/Software Installers/"
+
 ## Applications not installed this way
 
 Use the script `\appstore\install-other-apps.sh` to install the following apps that aren't mas or brew compatible.

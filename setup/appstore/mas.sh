@@ -153,7 +153,8 @@ mas install 1664371307 # Ultra Wifi - Analyzer, Monitor (2.1.0) # this one is th
 mas install 1153157709 # Speedtest by Ookla                      (1.27)
 mas install 1455463454 # WiFi Speed Test Tools                   (1.6.4)
 
-mas install 302584613  # Amazon Kindle                                (6.86) replaces Kindle Classic app
+mas install 302584613  # Amazon Kindle (6.86) replaces Kindle Classic app
+mas install 545519333 # Amazon Prime Video (10.111)
 
 mas install 1516950324 # Overlap by Moleskine Studio    (2.1.1) Timezone meeting planner - [Overlap by Moleskine Studio on the App Store](https://apps.apple.com/us/app/overlap-by-moleskine-studio/id1516950324)
 

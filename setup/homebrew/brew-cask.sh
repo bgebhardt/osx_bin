@@ -698,6 +698,9 @@ brew install overview # Create live window previews for any application https://
 
 brew install dataflare # Data visualization tool https://dataflare.app/
 
+brew install yoink # Drag and drop shelf for files and snippets https://yoinkapp.com/
+
+brew install idrive # Cloud backup service https://www.idrive.com/mac-backup
 
 # installed by brew install office?
 # microsoft-auto-update
