@@ -10,6 +10,22 @@
 # mas search <app name> - to find an app identifier
 # in app store the id is 1607635845 from the url https://apps.apple.com/nz/app/velja/id1607635845?mt=12
 
+# WHY AREN'T APPS LISTED by mas list
+# Depends on Spotlight Metadata Server (MDS)
+# Starting with mas 2.0.0+, mas list sources data from macOS's Spotlight Metadata Server rather than querying the App Store directly
+# Apps must be properly indexed by Spotlight to appear in mas list results
+# You can check if an app is indexed with: mdls -rn kMDItemAppStoreAdamID /Applications/YourApp.app
+# If this returns nothing, the app isn't indexed and won't show in mas list
+
+# These re-indexing suggestions did not work
+#You can force reindexing of just the Applications folder:
+#bashmdimport /Applications
+#Or to be more thorough, you can disable and re-enable indexing for that #specific path:
+#bash# This will trigger a reindex
+#sudo mdutil -E /Applications
+
+# will right a script to search by name to get a full list.
+
 # Install mas - Mac App Store command-line interface
 masInstall() {
     if command -v mas >/dev/null; then
@@ -167,6 +183,18 @@ mas install 562211012 # name: Yomu
 mas install 1179373118 # name: Reader
 mas install 6469021132 # name: PDFgear
 mas install 1611378436 # name: Pure
+
+# New additions 12-24-2025
+
+mas install 6752221257 # Juicy: Battery Alerts & Health (1.1.0)
+mas install 1439431081 # Intermission - Breaks For Eyes  (3.1.0)
+mas install 1643649331 #OpenIn 4 Advanced Link Handler (4.3.5)
+mas install 6714467650 # Perplexity: Ask Anything (2.251216.0)
+mas install 6738511300 #  Microsoft Copilot (24.7.431218001)
+
+
+# RPG gaming Apps
+
 
 # mas install 540348655  # Monosnap - replaced by Shottr, but still a good app
 

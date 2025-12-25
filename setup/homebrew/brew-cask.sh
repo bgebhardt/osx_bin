@@ -429,6 +429,8 @@ brew install ngrok # sign up or login here https://ngrok.com/
 brew install quickjson
 brew install key-codes
 
+brew install docker # Docker containerization platform https://www.docker.com/
+
 # need to manually download version 9.1.1 of rapidweaver
 #brew install rapidweaver # Web design software https://www.realmacsoftware.com/rapidweaver/
 
