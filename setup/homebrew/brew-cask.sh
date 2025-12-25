@@ -702,6 +702,8 @@ brew install yoink # Drag and drop shelf for files and snippets https://yoinkapp
 
 brew install idrive # Cloud backup service https://www.idrive.com/mac-backup
 
+brew install mdrp # Mac DVDRipper Pro - Utility to rip and copy DVD content - https://www.macdvdripperpro.com/
+
 # installed by brew install office?
 # microsoft-auto-update
 # microsoft-edge
