@@ -57,7 +57,7 @@ duti -s com.microsoft.Outlook mailto
 
 # Set default text editor to Visual Studio Code
 echo "Setting default shell editor to Visual Studio Code"
-#duti -s com.microsoft.VSCode public.plain-text
+duti -s com.coteditor.CotEditor public.plain-text
 #duti -s com.microsoft.VSCode public.unix-executable
 duti -s com.microsoft.VSCode public.shell-script
 
