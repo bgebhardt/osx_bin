@@ -208,6 +208,7 @@ alias gi='git info'
 alias grm='git rm $(git ls-files --deleted)'
 #alias git_url='git remote show origin | grep Fetch' # will get the repo's url, can pass to pbcopy
 alias git_url='git --no-pager config --get remote.origin.url' # will get the repo's url, can pass to pbcopy
+alias gurl='git --no-pager config --get remote.origin.url' # will get the repo's url, can pass to pbcopy
 
 # Colored up cat!
 # You must install Pygments first - "sudo easy_install Pygments"
