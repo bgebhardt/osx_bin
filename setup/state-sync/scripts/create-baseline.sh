@@ -12,11 +12,21 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BASE_DIR="$(dirname "$SCRIPT_DIR")"
 
+# Load configuration
+CONFIG_FILE="$BASE_DIR/config.sh"
+if [[ -f "$CONFIG_FILE" ]]; then
+    # shellcheck source=/dev/null
+    source "$CONFIG_FILE"
+fi
+
+# Get snapshot base directory from config
+SNAPSHOT_BASE=$(get_snapshot_dir 2>/dev/null || echo "$BASE_DIR/snapshots")
+
 # Generate snapshot directory name
 TIMESTAMP=$(date +%Y-%m-%d-%H%M%S)
 HOSTNAME=$(hostname -s)
 SNAPSHOT_NAME="${1:-$TIMESTAMP-$HOSTNAME}"
-SNAPSHOT_DIR="$BASE_DIR/snapshots/$SNAPSHOT_NAME"
+SNAPSHOT_DIR="$SNAPSHOT_BASE/$SNAPSHOT_NAME"
 
 echo "========================================"
 echo "Creating State Baseline Snapshot"

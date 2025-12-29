@@ -9,8 +9,21 @@
 
 set -euo pipefail
 
-# Default output directory
-OUTPUT_DIR="${1:-$HOME/bin/setup/state-sync/snapshots/$(date +%Y-%m-%d-%H%M%S)}"
+# Load configuration
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CONFIG_FILE="$(dirname "$SCRIPT_DIR")/config.sh"
+if [[ -f "$CONFIG_FILE" ]]; then
+    # shellcheck source=/dev/null
+    source "$CONFIG_FILE"
+fi
+
+# Default output directory (use config if no argument provided)
+if [[ -n "${1:-}" ]]; then
+    OUTPUT_DIR="$1"
+else
+    SNAPSHOT_BASE=$(get_snapshot_dir 2>/dev/null || echo "$HOME/bin/setup/state-sync/snapshots")
+    OUTPUT_DIR="$SNAPSHOT_BASE/$(date +%Y-%m-%d-%H%M%S)"
+fi
 mkdir -p "$OUTPUT_DIR"
 
 OUTPUT_FILE="$OUTPUT_DIR/notification-settings.json"
