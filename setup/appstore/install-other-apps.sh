@@ -78,7 +78,7 @@ apps=(
     "https://jsonwizard.app/download JSONWizard"
     "https://seense.com/the_clock/updateapp/the_clock.zip TheClock"
     "https://dl.devant.io/v1/3c53887f-427a-4af7-9144-ee16178c62f4/21049/RapidWeaver.zip RapidWeaver"
-    "https://downloads.thelasso.app/Lasso.dmg Lasso"
+    #"https://downloads.thelasso.app/Lasso.dmg Lasso" # no done via brew
 
     # https://skylum.com/account/my-software
     "https://skylum.com/download/luminar-neo-m1-paid" LuminarNeo
@@ -102,7 +102,7 @@ apps=(
     "https://www.macxdvd.com/download/macxvideo-ai.dmg MacXVideoAI"
     "https://www.macxdvd.com/download/macx-dvd-ripper-pro.dmg MacXDVDRipperPro"
 
-    "https://download.cisdem.com/cisdem-pdfconverterocr.dmg Cisdem PDF Converter OCR"
+    #"https://download.cisdem.com/cisdem-pdfconverterocr.dmg Cisdem PDF Converter OCR" # now down via brew
     "https://download.cisdem.com/cisdem-contactsmate.dmg Cisdem ContactsMate"
 
     "https://www.koingosw.com/products/getmirrorfile.php?path=%2Fproducts%2Fairradar%2Fdownload%2Fairradar.dmg AirRadar"
@@ -113,7 +113,7 @@ apps=(
     "https://freefilesync.org/download/FreeFileSync_14.6_macOS.zip FreeFileSync"
 
     # Drive Thru RPG site https://legacy.drivethrurpg.com/library_client.php
-    "https://dtrpg-library-app.s3.us-east-2.amazonaws.com/DriveThruRPG_3.4.6.dmg" DriveThruRPG
+    # "https://dtrpg-library-app.s3.us-east-2.amazonaws.com/DriveThruRPG_3.4.6.dmg" DriveThruRPG # now done via brew
 
     "https://bundlehunt-files.s3.us-west-2.amazonaws.com/2024-downloads/KeyKeeper-2.7.0.dmg.zip KeyKeeper"
     "https://ensili.co/download/colorhound/colorhound-1.5.zip Color Hound"
