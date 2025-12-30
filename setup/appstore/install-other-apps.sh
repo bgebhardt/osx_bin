@@ -133,6 +133,7 @@ apps=(
     "https://fbreader.org/static/packages/macos/FBReader-2.1.3.dmg FBReader"
 
     "https://notes.granola.ai/download Granola"
+    
     # Missing apps
     # Peakto - [Media Asset Management Software for Visual Creators | Peakto](https://cyme.io/en/products/peakto/)
     
