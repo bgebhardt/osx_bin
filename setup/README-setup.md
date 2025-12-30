@@ -430,6 +430,42 @@ Here's the script:
 * Enable Extensions you want visible
 * Select Moonlight Glow from Appearance on Personal Profile
 
+## MailMate
+
+1. Copy over ~/Library/Application Support/MailMate/
+2. Copy over ~/Library/Preferences/com.freron.MailMate.plist
+
+If setting up from scratch pull in
+
+1. your custom keybindings from ~/Library/Application Support/MailMate/Resources/KeyBindings/
+2. bundles from ~/Library/Application Support/MailMate/Bundles
+ma
+### More notes on MailMate
+
+MailMate stores custom keybindings, bundles, and preferences in user-specific folders within ~/Library/Application Support/MailMate/. [1][2] App defaults reside in MailMate.app/Contents/, but edit only user copies to avoid overwrites on updates. [3]
+
+### Keybindings Location
+Custom files go in ~/Library/Application Support/MailMate/Resources/KeyBindings/ (create with mkdir -p). [1][4] Originals are at /Applications/MailMate.app/Contents/Resources/KeyBindings/ (e.g., Standard.plist, Gmail.plist). [3]
+
+### Bundles Location
+Place .mmBundle folders in ~/Library/Application Support/MailMate/Bundles/. [2] Managed defaults are in MailMate.app/Contents/SharedSupport/Bundles/. [5]
+
+### Preferences Location
+Main config is ~/Library/Application Support/MailMate/MailMate.plist. [6] Hidden preferences use additional plists like LDAP.plist in ~/Library/Application Support/MailMate/. [7] Access via Preferences menu or defaults write com.freron.MailMate keys. [7]
+
+Sources
+[1] Manual : Custom Key Bindings - MailMate https://manual.mailmate-app.com/custom_key_bindings
+[2] MailMate bundles for fun and profit https://1klb.com/posts/2016/02/26/mailmate-bundles/
+[3] MailMate keyboard shortcuts and Gmail archive handling - Annvix https://annvix.com/blog/mailmate-keyboard-shortcuts-and-gmail-archive-handling
+[4] My MailMate Keybindings | my CHANGE log - Jeremy Cowgar http://jeremy.cowgar.com/2014/09/22/my-mailmate-keybindings/
+[5] Mailmate - Michael Cordell's Brain Dump https://brain.mikecordell.com/mailmate
+[6] Manual : Preferences - MailMate https://manual.mailmate-app.com/preferences
+[7] Manual : Hidden Preferences - MailMate https://manual.mailmate-app.com/hidden_preferences
+[8] Mail preference file location Mojave - Apple Support Community https://discussions.apple.com/thread/250418629
+[9] Importing From MailMate to a Specific EagleFiler Folder https://forum.c-command.com/t/importing-from-mailmate-to-a-specific-eaglefiler-folder/15991
+[10] Additional MailMate Tips - tyler.io https://tyler.io/2020/04/28/additional-mailmate-tips/
+
+
 ## Shottr
 
 * Open and configure as directed
