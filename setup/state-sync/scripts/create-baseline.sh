@@ -58,33 +58,39 @@ SCRIPTS_RUN=()
 echo "Running capture scripts..."
 echo ""
 
-# Run login items capture
-echo "[1/2] Capturing login items..."
-if [[ -x "$SCRIPT_DIR/capture-login-items-state.sh" ]]; then
-    if "$SCRIPT_DIR/capture-login-items-state.sh" "$SNAPSHOT_DIR"; then
-        SCRIPTS_RUN+=("capture-login-items-state.sh")
-        echo "  ✓ Login items captured"
-    else
-        echo "  ✗ Failed to capture login items"
-    fi
-else
-    echo "  ⊘ Script not found or not executable: capture-login-items-state.sh"
-fi
-echo ""
+# Define all capture scripts in order
+CAPTURE_SCRIPTS=(
+    "capture-app-state.sh:Application state (Homebrew, MAS, Apps)"
+    "capture-system-prefs.sh:System preferences"
+    "capture-app-prefs.sh:Application preferences"
+    "capture-dev-env.sh:Development environment"
+    "capture-shell-config.sh:Shell configuration"
+    "capture-onedrive-state.sh:OneDrive sync state"
+    "capture-login-items-state.sh:Login items"
+    "capture-notification-settings-state.sh:Notification settings"
+    "capture-steam-game-state.sh:Steam games"
+)
 
-# Run notification settings capture
-echo "[2/2] Capturing notification settings..."
-if [[ -x "$SCRIPT_DIR/capture-notification-settings-state.sh" ]]; then
-    if "$SCRIPT_DIR/capture-notification-settings-state.sh" "$SNAPSHOT_DIR"; then
-        SCRIPTS_RUN+=("capture-notification-settings-state.sh")
-        echo "  ✓ Notification settings captured"
+script_num=1
+total_scripts=${#CAPTURE_SCRIPTS[@]}
+
+for script_entry in "${CAPTURE_SCRIPTS[@]}"; do
+    IFS=':' read -r script_name description <<< "$script_entry"
+
+    echo "[$script_num/$total_scripts] Capturing $description..."
+    if [[ -x "$SCRIPT_DIR/$script_name" ]]; then
+        if "$SCRIPT_DIR/$script_name" "$SNAPSHOT_DIR" 2>&1 | grep -q "captured successfully"; then
+            SCRIPTS_RUN+=("$script_name")
+            echo "  ✓ $description captured"
+        else
+            echo "  ✗ Failed to capture $description"
+        fi
     else
-        echo "  ✗ Failed to capture notification settings"
+        echo "  ⊘ Script not found or not executable: $script_name"
     fi
-else
-    echo "  ⊘ Script not found or not executable: capture-notification-settings-state.sh"
-fi
-echo ""
+    echo ""
+    ((script_num++))
+done
 
 # Update metadata with scripts that ran
 if command -v python3 &> /dev/null; then
