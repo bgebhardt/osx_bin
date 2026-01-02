@@ -193,6 +193,7 @@ mas install 1643649331 #OpenIn 4 Advanced Link Handler (4.3.5)
 mas install 6714467650 # Perplexity: Ask Anything (2.251216.0)
 mas install 6738511300 #  Microsoft Copilot (24.7.431218001)
 
+mas install 1596706466 # Speediness                      (1.8.1)
 
 # RPG gaming Apps
 
