@@ -171,7 +171,11 @@ brew install uv # Extremely fast Python package installer and resolver, written 
 
 # other brew items I added 05-22-2016
 # TODO: remove dupes from this list
-brew install terraform # Infrastructure as Code https://www.terraform.io/ (preferred over ansible)
+
+# Infrastructure as Code https://www.terraform.io/ (preferred over ansible). Install the latest by tapping hashicorp. Default brew version is old.
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform
+
 brew install ansible # Automate app and system configuration https://www.ansible.com/
 brew install asciidoc
 #brew install docker-machine # Create Docker hosts locally and on cloud providers https://docs.gitlab.com/runner/executors/docker_machine.html
