@@ -235,6 +235,8 @@ brew install tableflip # App to edit markdown files in place https://tableflipap
 brew install figma # Collaborative team software https://www.figma.com/
 brew install gimp # Free and open-source image editor https://www.gimp.org/
 
+brew install imageoptim # Tool to optimise images to a smaller size https://imageoptim.com/mac
+
 # Gmail desktop apps
 # brew install kiwi-for-gmail # no longer using
 brew install mimestream # new preferred Gmail desktop client
@@ -248,8 +250,10 @@ brew install --cask superhuman # paid Email client https://superhuman.com/
 # brew install amazon-drive -- no longer available
 # brew install amazon-music # need to delete folder in Applications Support and then works -- no longer supported
 brew install bartender # paid Menu bar icon organiser https://www.macbartender.com/
-brew install jordanbaird-ice # free Menu bar manager https://github.com/jordanbaird/Ice # alternate free menu bar manager to consider
+
+#brew install jordanbaird-ice # free Menu bar manager https://github.com/jordanbaird/Ice # alternate free menu bar manager to consider
 # trying free ice as bartender 6 is unstable.
+brew install --cask jordanbaird-ice@beta # install this version for Tahoe compatiblity
 
 brew install boom
 #brew install brightness
