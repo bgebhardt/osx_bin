@@ -4,9 +4,12 @@
 # Schedule the script to run every hour with no output
 # 0 * * * * /Users/bryan/bin/scripts/check-apps.sh > /dev/null 2>&1
 
-apps=("OwlOCR") # moved to Ice menu bar manager for potential stability improvements
+apps=("OwlOCR" "Hookmark") # moved to Ice menu bar manager for potential stability improvements
 # apps=("Bartender 5" "OwlOCR")
 # apps=("Bartender 5" "AnotherApp" "YetAnotherApp")
+
+# OwlOCR seems to exit often.
+# Hookmark on Tahoe seems to exit often.
 
 for app in "${apps[@]}"
 do
