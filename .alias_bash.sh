@@ -225,6 +225,10 @@ alias pgstop='pg_ctl -D /usr/local/var/postgres stop'
 # added an alias to print the tools I use most. This is also printed when I start a shell.
 alias mytldr='awk '/###/{exit}1' "$HOME/bin/setup/homebrew/README-fav-cli-tools.md"'
 
+# alias to launch VS Code with work profile
+alias wcode='~/bin/setup/vscode/vscode-work.sh'
+alias pcode='~/bin/setup/vscode/vscode-personal.sh'
+
 # https://github.com/github/hub
 # Wrap git automatically by adding the following to ~/.bash_profile:
 eval "$(hub alias -s)"
