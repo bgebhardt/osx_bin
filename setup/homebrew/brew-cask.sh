@@ -654,6 +654,7 @@ brew install janus # AI chat client https://janusai.com/ suports local and remot
 brew install context # [Context - Native macOS Client for Model Context Protocol](https://www.contextmcp.app/)
 
 brew install superwhisper # Dictation tool including LLM reformatting https://superwhisper.com/
+brew install wispr-flow # Voice-to-text dictation with AI-powered auto-editing https://wisprflow.ai/
 
 brew install boltai # AI chat client https://boltai.com/
 # from app store install OllmaSpring and Enchanted ai chat apps for Ollama
