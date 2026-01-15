@@ -317,6 +317,14 @@ killall Dock
 
 From [Show macOS app switcher across all monitors · GitHub](https://gist.github.com/jthodge/c4ba15a78fb29671dfa072fe279355f0)
 
+
+## Set up scheduled scripts
+
+
+- run ~bin/scripts/scheduled/install-pm2-services.sh to install scheduled scripts. This will set up the agents in the LaunchAgents folder
+- run ./save-finder-windows.sh manually once to allow permissions.
+
+
 ## RayCast (to replace spotlight)
 
 * Change Spotlight shortcut in System Preferences -> Keyboard to Control-Option-Command-Space

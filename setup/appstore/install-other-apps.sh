@@ -133,6 +133,9 @@ apps=(
     "https://fbreader.org/static/packages/macos/FBReader-2.1.3.dmg FBReader"
 
     "https://notes.granola.ai/download Granola"
+
+    # Autoswitch between function and special keys. [How FNable works, the FN key toggle to switch Function Keys | FNable](https://fnable.com/en/howItWorks.html)
+    "https://fnable.com/files/FNable.dmg FNable"
     
     # Missing apps
     # Peakto - [Media Asset Management Software for Visual Creators | Peakto](https://cyme.io/en/products/peakto/)
