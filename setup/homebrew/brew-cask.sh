@@ -460,8 +460,11 @@ brew install devtoys # Utilities designed to make common development tasks easie
 brew install deltawalker # diff tool https://www.deltawalker.com/ # paid app, find/replace with regex; cli; undo/redo; export diffs
 # deprecated - brew install meld # Visual diff and merge tool https://yousseb.github.io/meld/ # 3-way compare, text editor, syntax highlighting, regex
 brew install dehesselle-meld # Visual diff and merge tool https://gitlab.com/dehesselle/meld_macos
-brew install diffmerge # [SourceGear | DiffMerge](https://www.sourcegear.com/diffmerge/) # taks drag and drop!
+brew install diffmerge # [SourceGear | DiffMerge](https://www.sourcegear.com/diffmerge/) # takes drag and drop! But giving errors when opening now for some reason
 brew install direqual # Advanced directory compare utility https://naarakstudio.com/direqual/
+brew install --cask visualdiffer # Visual file comparison tool https://visualdiffer.com/ free
+
+# paid app
 # brew install beyond-compare # Compare files and folders https://www.scootersoftware.com/ paid app # compare with remote servers (OneDrive, Google, ...); Table compare; scripting
 # brew install kaleidoscope  # File and Folder comparison tool # paid app so removing
 
