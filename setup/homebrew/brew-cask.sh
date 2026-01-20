@@ -462,7 +462,12 @@ brew install deltawalker # diff tool https://www.deltawalker.com/ # paid app, fi
 brew install dehesselle-meld # Visual diff and merge tool https://gitlab.com/dehesselle/meld_macos
 brew install diffmerge # [SourceGear | DiffMerge](https://www.sourcegear.com/diffmerge/) # takes drag and drop! But giving errors when opening now for some reason
 brew install direqual # Advanced directory compare utility https://naarakstudio.com/direqual/
-brew install --cask visualdiffer # Visual file comparison tool https://visualdiffer.com/ free
+brew install visualdiffer # Visual file comparison tool https://visualdiffer.com/ free
+# see also these links for more set up
+# [visualdiffer/scripts](https://github.com/visualdiffer/scripts)
+# [VisualDiffer - Unix Shell Scripting Support](https://wiki.visualdiffer.com/unixshell.html) - I added an alias
+# [VisualDiffer - External Apps Integration](https://wiki.visualdiffer.com/externalApps.html)
+# Note: Added a script to ~/Library/Scripting repo that can compare 2 files from the Finder from the scripts or FastScripts menu using VisualDiffer.
 
 # paid app
 # brew install beyond-compare # Compare files and folders https://www.scootersoftware.com/ paid app # compare with remote servers (OneDrive, Google, ...); Table compare; scripting
