@@ -136,7 +136,10 @@ apps=(
 
     # Autoswitch between function and special keys. [How FNable works, the FN key toggle to switch Function Keys | FNable](https://fnable.com/en/howItWorks.html)
     "https://fnable.com/files/FNable.dmg FNable"
-    
+
+    # Hypercontext - Controlled automation of your Mac from Claude Desktop and other large language models with MCP capabilities.
+    "https://borum.dev/download/HyperContext.dmg HyperContext"
+
     # Missing apps
     # Peakto - [Media Asset Management Software for Visual Creators | Peakto](https://cyme.io/en/products/peakto/)
     
