@@ -653,6 +653,7 @@ brew install lm-studio # Discover, download, and run local LLMs https://lmstudio
 brew install gollama # Go manage your Ollama models https://smcleod.net
 
 brew install claude # Name: Claude Anthropic's official Claude AI desktop app
+brew install claudebar # Menu bar app for monitoring AI coding assistant usage quotas https://github.com/tddworks/ClaudeBar
 brew install chatgpt # Name: ChatGPT OpenAI's official ChatGPT desktop app
 brew install gemini # Name: Gemini Google AI's official Gemini desktop app
 
