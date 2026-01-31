@@ -140,6 +140,9 @@ apps=(
     # Hypercontext - Controlled automation of your Mac from Claude Desktop and other large language models with MCP capabilities.
     "https://borum.dev/download/HyperContext.dmg HyperContext"
 
+    # Claudia - enhances Claude Code with projects, session viewing, and more -  [Download Claudia - Claudia](https://getclaudia.org/downloads/)
+    "https://res.getclaudia.org/v0.1.1/claudia-macos-intel.dmg Claudia"
+
     # Missing apps
     # Peakto - [Media Asset Management Software for Visual Creators | Peakto](https://cyme.io/en/products/peakto/)
     
