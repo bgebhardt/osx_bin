@@ -14,6 +14,11 @@ export PATH=~/bin:/opt/homebrew/bin/:/usr/local/sbin:/usr/local/bin:/usr/local/a
 # set path for dotnet root
 export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
 
+# Golang environment variables
+export GOROOT=$(brew --prefix go)/libexec
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH
+
 # git-extra-commands conflictes with git-extras (installed from brew.sh). Removing from path.
 # To add it back add this: ~/bin/git-extra-commands/bin:
 
