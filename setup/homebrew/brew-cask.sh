@@ -376,7 +376,11 @@ brew install --cask rustdesk # Remote desktop software https://rustdesk.com/; op
 brew install warp # Rust-based terminal app; couldn't get it to work though
 brew install ghostty # Name: Ghostty - Terminal emulator with a modern design https://ghostty.com/
 
+# terminal utilities
 brew install terminal-notifier # Send macOS notifications from the command line TODO: add instructions for how to use this with Claude Code.
+brew install --cask openinterminal # gui version of Open Terminal at the current Finder location https://github.com/Ji4n1ng/OpenInTerminal
+brew install --cask openinterminal-lite # single click version of Open Terminal at the current Finder location https://github.com/Ji4n1ng/OpenInTerminal
+
 
 brew install hammerspoon # Name: Hammerspoon - Desktop automation application - https://www.hammerspoon.org/
 brew install phoenix # Window and app manager scriptable with JavaScript https://github.com/kasper/phoenix/ (alternative to hammerspoon automation)
