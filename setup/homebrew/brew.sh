@@ -394,7 +394,6 @@ brew install pipx # Execute binaries from Python packages in isolated environmen
 pipx ensurepath # need to run this after installing pipx to add it to the PATH
 brew install poetry # Python dependency management and packaging made easy https://python-poetry.org/
 
-
 # ai prompting and other Tools
 brew install fabric-ai # Command-line tool for managing and deploying AI prompts [danielmiessler/Fabric: Fabric is an open-source framework for augmenting humans using AI. It provides a modular system for solving specific problems using a crowdsourced set of AI prompts that can be used anywhere.](https://github.com/danielmiessler/Fabric/tree/main)
 
