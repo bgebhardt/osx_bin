@@ -164,6 +164,13 @@ test_apps=(
 
 echo "This script will download apps by opening the url in your default browser. This is likely to be fragile."
 
+# apps that can't be installed any way I've found. These apps are in my OneDrive.
+# TODO: add ability to install apps from a folder in my OneDrive.
+
+echo "Check your OneDrive for apps that can not be downloaded via script. If you have them, copy them to your Applications folder. If not, run the script and download them manually from the URLs printed in the terminal."
+echo "- [Spencer for Mac • Save and restore your perfect window layouts](https://macspencer.app/#buysection)"
+echo "- OwlOCR - [Near instant, high quality OCR for Mac with OwlOCR](https://www.owlocr.com/)"
+
 # echo "This script will download the following apps:"
 # for app in "${apps[@]}"; do
 #     IFS=' ' read -r url name <<< "$app"
