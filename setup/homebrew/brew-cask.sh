@@ -53,6 +53,8 @@ brew install raycast # replacement for spotlight (and alfred or launchbar)
 
 # Window Managers
 brew install rectangle # window manager - current preferred window manager
+brew install rectangle-pro # paid version of rectangle with more features https://rectangleapp.com/pro/
+# window manager - current preferred window manager
 brew install lasso-app # Window manager that allows you to snap windows into organized groups https://lassoapp.com/
 brew install mosaic # Window manager for macOS https://lightpillar.com/mosaic.html
 
