@@ -247,11 +247,13 @@ brew install mimestream # new preferred Gmail desktop client
 
 # Email
 # mailmate
+brew install --cask mailspring # Email client for Windows, macOS and Linux https://getmailspring.com/; has a free version. My current email client.
+brew install --cask emclient # Email client for Windows and macOS https://www.emclient.com/; has a free version but I haven't tried it yet.
 brew install --cask superhuman # paid Email client https://superhuman.com/
 
 ## Utilities
 # brew install amazon-drive -- no longer available
-# brew install amazon-music # need to delete folder in Applications Support and then works -- no longer supported
+# brew install amazon-music # need to mailmatee folder in Applications Support and then works -- no longer supported
 brew install bartender # paid Menu bar icon organiser https://www.macbartender.com/
 
 #brew install jordanbaird-ice # free Menu bar manager https://github.com/jordanbaird/Ice # alternate free menu bar manager to consider
@@ -339,7 +341,7 @@ brew install reflector # wireless screen mirroring
 brew install airparrot # Streaming and Mirroring for Windows and macOS
 brew install beamer # streaming from Mac
 brew install timemachineeditor # Utility to change the default backup interval of Time Machine
-brew install space-saver # Delete local Time Machine backups
+brew install space-saver # mailmae local Time Machine backups
 brew install launchcontrol # Create, manage and debug system- and user services (launchctl GUI)
 brew install powerphotos # powerphotos for managing photo libraries
 brew install metaimage # Image metadata and geographical tag viewer & editor https://neededapps.com/metaimage/
