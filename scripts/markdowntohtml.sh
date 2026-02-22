@@ -11,6 +11,8 @@
 # Use the approach taken here but do not include "-s" or font suggestions. I think leaving off "-s" on pandoc will remove any font embeddings.
 # [Convert Markdown to rich text (with syntax highlighting!) in any macOS app | Andrew Heiss – Andrew Heiss](https://www.andrewheiss.com/blog/2019/10/09/convert-md-rtf-macos-services/) 
 
+PLAY_SOUND="${PLAY_SOUND:-true}"
+
 set -euo pipefail
 
 export LC_CTYPE=UTF-8
@@ -45,17 +47,24 @@ if [ ! -s "$HTML_FILE" ]; then
     exit 1
 fi
 
-swift - "$MARKDOWN_FILE" "$HTML_FILE" << 'SWIFT'
-import Cocoa
+SWIFT_BINARY="$TMP_DIR/setclipboard"
 
+if [ ! -f "$SWIFT_BINARY" ]; then
+    echo "Compiling clipboard helper (one-time)..." >&2
+    cat > "$TMP_DIR/setclipboard.swift" << 'SWIFT'
+import Cocoa
 let markdown = try! String(contentsOfFile: CommandLine.arguments[1], encoding: .utf8)
 let html     = try! String(contentsOfFile: CommandLine.arguments[2], encoding: .utf8)
-
 let pb = NSPasteboard.general
 pb.clearContents()
 pb.declareTypes([.html, .string], owner: nil)
 pb.setString(html,     forType: .html)
 pb.setString(markdown, forType: .string)
 SWIFT
+    swiftc "$TMP_DIR/setclipboard.swift" -o "$SWIFT_BINARY"
+fi
+
+"$SWIFT_BINARY" "$MARKDOWN_FILE" "$HTML_FILE"
 
 echo "Done: clipboard has HTML (rich text) and markdown (plain text) representations"
+[[ "$PLAY_SOUND" == "true" ]] && afplay /System/Library/Sounds/Blow.aiff
