@@ -220,8 +220,8 @@ brew install gmp
 brew install gnu-sed
 brew install gnu-tar
 brew install gnu-which
-brew install gradle
-brew install grails
+#brew install gradle # no longer use java or gradle, so removing to save space
+#brew install grails # no longer use java or grails, so removing to save space
 brew install graphicsmagick
 brew install graphviz
 brew install grep
