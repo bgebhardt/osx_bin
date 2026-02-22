@@ -701,6 +701,7 @@ brew install obsbot-center
 # apps added 12-23-2024 after audit
 brew install kdiff3 # File comparison and merge tool https://kdiff3.sourceforge.io/
 brew install github # GitHub Desktop https://desktop.github.com/
+brew install git-credential-manager # Git Credential Manager for Mac https://aka.ms/gcm/mac
 brew install quicken # Personal finance manager https://www.quicken.com/mac
 brew install popchar # Character map and font viewer https://www.ergonis.com/products/popcharx/
 brew install shottr # Screenshot and screen recording tool https://shottr.com/
