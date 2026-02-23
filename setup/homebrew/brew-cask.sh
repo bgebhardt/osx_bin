@@ -445,6 +445,7 @@ brew install quickjson
 brew install key-codes
 
 brew install docker # Docker containerization platform https://www.docker.com/
+brew install docker-compose # Tool for defining and running multi-container Docker applications https://docs.docker.com/compose/
 
 # need to manually download version 9.1.1 of rapidweaver
 #brew install rapidweaver # Web design software https://www.realmacsoftware.com/rapidweaver/
