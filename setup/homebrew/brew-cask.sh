@@ -690,6 +690,8 @@ brew install opencode # AI coding agent, built for the terminal # https://openco
 
 brew install repo-prompt # Prompt generation tool https://repoprompt.com/
 
+brew install steipete/tap/codexbar # Menu bar app to monitor AI tool usage and costs [CodexBar](https://codexbar.app/)
+
 # AI image generation
 brew install stability-matrix # Stable Diffusion GUI for MacOS https://stability.ai/stability-matrix
 brew install diffusionbee # Name: Diffusion Bee - Stable Diffusion GUI for MacOS https://diffusionbee.com/
