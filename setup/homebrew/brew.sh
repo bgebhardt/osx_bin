@@ -384,7 +384,12 @@ brew install nbdime # diffing and merging of Jupyter Notebooks
 # brew install ipykernel # kernel needed to run jupyter notebooks
 
 # ai coding tools
-npm install -g @anthropic-ai/claude-code # Command-line interface for Claude AI
+#npm install -g @anthropic-ai/claude-code # Command-line interface for Claude AI
+# use the official Claude Code installer
+echo "Installing the official Claude AI desktop app..."
+curl -fsSL https://claude.ai/install.sh | bash
+echo "Claude AI desktop app installation complete."
+
 # alt brew version, doesn't work if used npm to install. brew install --cask claude-code # Claude Code is a code assistant for developers https://claude.ai/
 brew install claude-cmd # [kiliczsh/claude-cmd: Claude Code Commands Manager](https://github.com/kiliczsh/claude-cmd)
 brew install claude-hooks # [johnlindquist/claude-hooks](https://github.com/johnlindquist/claude-hooks)

@@ -636,7 +636,11 @@ brew install microsoft-azure-storage-explorer # Explorer for Azure Storage https
 # AI
 
 # ai coding tools
-npm install -g @anthropic-ai/claude-code # Command-line interface for Claude AI
+#npm install -g @anthropic-ai/claude-code # Command-line interface for Claude AI
+# use the official Claude Code installer
+echo "Installing the official Claude AI desktop app..."
+curl -fsSL https://claude.ai/install.sh | bash
+echo "Claude AI desktop app installation complete."
 
 # AI model serving and interactions
 
