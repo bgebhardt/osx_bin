@@ -9,11 +9,14 @@ if [[ $- == *i* ]]; then
     echo "This is an interactive shell"
 
     # moved my bash settings to my bin directory which is checked into git.
-    # checking for warp
-    if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then  #TODO: split bash_profile_bin into multiple - one for item, one for warp
+    if [[ $TERM_PROGRAM == "iTerm.app" ]]; then
         source ~/bin/bash_profile_iterm
-    else
+    elif [[ $TERM_PROGRAM == "WarpTerminal" ]]; then
         source ~/bin/bash_profile_warp
+    elif [[ $TERM_PROGRAM == "vscode" ]]; then
+        source ~/bin/bash_profile_vscode
+    else
+        source ~/bin/bash_profile_iterm
     fi
 
     echo "** ready **"
