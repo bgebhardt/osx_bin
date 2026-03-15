@@ -363,6 +363,9 @@ brew install oven-sh/bun/bun # Bun is a fast all-in-one JavaScript runtime - htt
 # install go
 brew install go
 
+# Rust installation
+brew install rust # Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety. https://www.rust-lang.org/
+
 # install pandoc to convert markdown to various formats
 brew install pandoc
 
