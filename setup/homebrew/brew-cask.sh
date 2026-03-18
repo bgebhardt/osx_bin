@@ -258,7 +258,10 @@ brew install bartender # paid Menu bar icon organiser https://www.macbartender.c
 
 #brew install jordanbaird-ice # free Menu bar manager https://github.com/jordanbaird/Ice # alternate free menu bar manager to consider
 # trying free ice as bartender 6 is unstable.
-brew install --cask jordanbaird-ice@beta # install this version for Tahoe compatiblity
+#brew install --cask jordanbaird-ice@beta # install this version for Tahoe compatiblity
+
+# switching to this fork of ice that is being maintained and has a newer version that is compatible with the latest macOS versions. See [stonerl/Thaw: Menu bar manager for macOS 26](https://github.com/stonerl/Thaw)
+brew install --cask thaw # Menu bar manager that hides icons when they are not active [stonerl/Thaw: Menu bar manager for macOS 26](https://github.com/stonerl/Thaw)
 
 brew install boom
 #brew install brightness
