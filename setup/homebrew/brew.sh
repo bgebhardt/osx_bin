@@ -489,5 +489,8 @@ brew install macsvg # MacSVG is a macOS application for creating and editing SVG
 
 brew install termshot # Capture terminal output as images https://github.com/iamcco/termshot
 
+brew install lftp #Sophisticated file transfer program https://lftp.yar.ru/
+
+
 # Remove outdated versions from the cellar.
 brew cleanup
