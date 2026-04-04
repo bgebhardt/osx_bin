@@ -4,6 +4,12 @@
 # Schedule the script to run every hour with no output
 # 0 * * * * /Users/bryan/bin/scripts/check-apps.sh > /dev/null 2>&1
 
+TERMINAL_NOTIFIER="/opt/homebrew/bin/terminal-notifier"
+if [ ! -x "$TERMINAL_NOTIFIER" ]; then
+    osascript -e 'display notification "terminal-notifier is not installed. Run: brew install terminal-notifier" with title "check-apps.sh"'
+    echo "$(date +'%Y-%m-%d %H:%M:%S') - terminal-notifier not found. Install with: brew install terminal-notifier"
+fi
+
 apps=("OwlOCR" "Hookmark") # moved to Thaw menu bar manager for potential stability improvements
 # apps=("Bartender 5" "OwlOCR")
 # apps=("Bartender 5" "AnotherApp" "YetAnotherApp")
@@ -27,17 +33,16 @@ do
 done
 
 # Special case: OneDrive runs 2 main processes (one per account: Personal + Work).
-# If fewer than 2 are running, restart OneDrive to recover both.
-onedrive_count=$(pgrep -f "/Applications/OneDrive.app/Contents/MacOS/OneDrive$" | wc -l | tr -d ' ')
-if [ "$onedrive_count" -lt 2 ]; then
-    echo "$(date +'%Y-%m-%d %H:%M:%S') - OneDrive: only ${onedrive_count}/2 processes running. Restarting..."
-    # Kill any remaining OneDrive processes for a clean restart
-    if [ "$onedrive_count" -gt 0 ]; then
-        pkill -f "/Applications/OneDrive.app/Contents/MacOS/OneDrive$"
-        sleep 2
-    fi
+# The pgrep pattern uses /MacOS/OneDrive$ to avoid matching "OneDrive Sync Service" or "OneDrive File Provider".
+onedrive_count=$(pgrep -xf "/Applications/OneDrive.app/Contents/MacOS/OneDrive" | wc -l | tr -d ' ')
+if [ "$onedrive_count" -eq 0 ]; then
+    echo "$(date +'%Y-%m-%d %H:%M:%S') - OneDrive: no processes running. Restarting..."
     open -a "OneDrive"
-    osascript -e 'display notification "Restarting OneDrive (missing process)" with title "check-apps.sh"'
+    $TERMINAL_NOTIFIER -title "check-apps.sh" -message "OneDrive: no processes were running (0/2). Attempted restart." -sender com.microsoft.OneDrive
+elif [ "$onedrive_count" -eq 1 ]; then
+    echo "$(date +'%Y-%m-%d %H:%M:%S') - OneDrive: only 1/2 processes running. Restarting..."
+    open -a "OneDrive"
+    $TERMINAL_NOTIFIER -title "check-apps.sh" -message "OneDrive: only 1/2 processes running. One account may be down. Attempted restart." -sender com.microsoft.OneDrive
 else
     echo "$(date +'%Y-%m-%d %H:%M:%S') - OneDrive: both processes running (${onedrive_count}/2)."
 fi
