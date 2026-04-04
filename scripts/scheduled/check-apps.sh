@@ -4,7 +4,7 @@
 # Schedule the script to run every hour with no output
 # 0 * * * * /Users/bryan/bin/scripts/check-apps.sh > /dev/null 2>&1
 
-apps=("OwlOCR" "Hookmark" "OneDrive") # moved to Thaw menu bar manager for potential stability improvements
+apps=("OwlOCR" "Hookmark") # moved to Thaw menu bar manager for potential stability improvements
 # apps=("Bartender 5" "OwlOCR")
 # apps=("Bartender 5" "AnotherApp" "YetAnotherApp")
 
@@ -25,6 +25,22 @@ do
         echo "$(date +'%Y-%m-%d %H:%M:%S') - ${app}.app is already running."
     fi
 done
+
+# Special case: OneDrive runs 2 main processes (one per account: Personal + Work).
+# If fewer than 2 are running, restart OneDrive to recover both.
+onedrive_count=$(pgrep -f "/Applications/OneDrive.app/Contents/MacOS/OneDrive$" | wc -l | tr -d ' ')
+if [ "$onedrive_count" -lt 2 ]; then
+    echo "$(date +'%Y-%m-%d %H:%M:%S') - OneDrive: only ${onedrive_count}/2 processes running. Restarting..."
+    # Kill any remaining OneDrive processes for a clean restart
+    if [ "$onedrive_count" -gt 0 ]; then
+        pkill -f "/Applications/OneDrive.app/Contents/MacOS/OneDrive$"
+        sleep 2
+    fi
+    open -a "OneDrive"
+    osascript -e 'display notification "Restarting OneDrive (missing process)" with title "check-apps.sh"'
+else
+    echo "$(date +'%Y-%m-%d %H:%M:%S') - OneDrive: both processes running (${onedrive_count}/2)."
+fi
 
 # open -a "/Applications/Bartender 5.app"
 
