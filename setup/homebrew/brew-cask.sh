@@ -449,6 +449,7 @@ brew install key-codes
 
 brew install docker # Docker containerization platform https://www.docker.com/
 brew install docker-compose # Tool for defining and running multi-container Docker applications https://docs.docker.com/compose/
+brew install orbstack # Docker desktop alternative https://orbstack.dev/; requires Apple Silicon. Faster better perf and resource usage.
 
 # need to manually download version 9.1.1 of rapidweaver
 #brew install rapidweaver # Web design software https://www.realmacsoftware.com/rapidweaver/
