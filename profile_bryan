@@ -18,6 +18,9 @@ export PATH="$PATH:$HOME/.config/agency/CurrentVersion"
 # [Obsidian CLI - Obsidian Help](https://help.obsidian.md/cli)
 #PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS" 
 
+# make sure gnu-sed is first in path
+export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+
 # set path for dotnet root
 export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
 
