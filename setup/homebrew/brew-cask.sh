@@ -741,6 +741,15 @@ brew install idrive # Cloud backup service https://www.idrive.com/mac-backup
 
 brew install mdrp # Mac DVDRipper Pro - Utility to rip and copy DVD content - https://www.macdvdripperpro.com/
 
+# network
+# use tailscale standalone app instead of the brew version as it is more up to date and works better. See [Tailscale for Mac - Tailscale](https://tailscale.com/download/mac/)
+#brew install tailscale # Tailscale is a zero-config VPN that connects your devices securely and easily. https://tailscale.com/
+
+# cloudflare tools
+brew install cloudflare-cli4 # Cloudflare CLI is a command-line tool for managing Cloudflare services and resources. https://developers.cloudflare.com/cloudflare-cli/get-started/installation/
+brew install cloudflare-speed-cli # Command-line tool to test Cloudflare's network speed from your terminal
+brew install cloudflared # Cloudflare Tunnel (formerly Argo Tunnel) is a service that allows you to securely expose your local server to the internet without opening ports on your router. https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide/installation
+
 # installed by brew install office?
 # microsoft-auto-update
 # microsoft-edge

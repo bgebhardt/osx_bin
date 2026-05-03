@@ -143,6 +143,10 @@ apps=(
     # Claudia - enhances Claude Code with projects, session viewing, and more -  [Download Claudia - Claudia](https://getclaudia.org/downloads/)
     "https://res.getclaudia.org/v0.1.1/claudia-macos-intel.dmg Claudia"
 
+    # Tailscale
+    # now done via brew; use tailscale standalone app instead of the brew version as it is more up to date and works better. See [Tailscale for Mac - Tailscale](https://tailscale.com/download/mac/)
+    "https://pkgs.tailscale.com/stable/#macos:~:text=Tailscale%2D1.96.5%2Dmacos.pkg Tailscale" 
+
     # Missing apps
     # Peakto - [Media Asset Management Software for Visual Creators | Peakto](https://cyme.io/en/products/peakto/)
     
