@@ -4,11 +4,10 @@
 # Schedule the script to run every hour with no output
 # 0 * * * * /Users/bryan/bin/scripts/check-apps.sh > /dev/null 2>&1
 
-TERMINAL_NOTIFIER="/opt/homebrew/bin/terminal-notifier"
-if [ ! -x "$TERMINAL_NOTIFIER" ]; then
-    osascript -e 'display notification "terminal-notifier is not installed. Run: brew install terminal-notifier" with title "check-apps.sh"'
-    echo "$(date +'%Y-%m-%d %H:%M:%S') - terminal-notifier not found. Install with: brew install terminal-notifier"
-fi
+# Absolute path because launchd PATH is /usr/bin:/bin:/usr/sbin:/sbin (no homebrew).
+# Used as a safety wrapper around osascript notifications so a hung notification
+# can never block the script (see 2026-04-18 incident with terminal-notifier).
+TIMEOUT="/opt/homebrew/bin/timeout"
 
 apps=("OwlOCR" "Hookmark") # moved to Thaw menu bar manager for potential stability improvements
 # apps=("Bartender 5" "OwlOCR")
@@ -38,11 +37,13 @@ onedrive_count=$(pgrep -xf "/Applications/OneDrive.app/Contents/MacOS/OneDrive" 
 if [ "$onedrive_count" -eq 0 ]; then
     echo "$(date +'%Y-%m-%d %H:%M:%S') - OneDrive: no processes running. Restarting..."
     open -a "OneDrive"
-    $TERMINAL_NOTIFIER -title "check-apps.sh" -message "OneDrive: no processes were running (0/2). Attempted restart." -sender com.microsoft.OneDrive
+    # timeout + & : defensive wrapper after the 2026-04-18 incident where terminal-notifier
+    # hung for 15 days, blocking this script. osascript is more reliable but we keep the guard.
+    $TIMEOUT 10 osascript -e 'display notification "OneDrive: no processes were running (0/2). Attempted restart." with title "check-apps.sh"' &
 elif [ "$onedrive_count" -eq 1 ]; then
     echo "$(date +'%Y-%m-%d %H:%M:%S') - OneDrive: only 1/2 processes running. Restarting..."
     open -a "OneDrive"
-    $TERMINAL_NOTIFIER -title "check-apps.sh" -message "OneDrive: only 1/2 processes running. One account may be down. Attempted restart." -sender com.microsoft.OneDrive
+    $TIMEOUT 10 osascript -e 'display notification "OneDrive: only 1/2 processes running. One account may be down. Attempted restart." with title "check-apps.sh"' &
 else
     echo "$(date +'%Y-%m-%d %H:%M:%S') - OneDrive: both processes running (${onedrive_count}/2)."
 fi
