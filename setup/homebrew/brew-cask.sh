@@ -203,6 +203,7 @@ brew install mathpix-snipping-tool # Scanner app for math and science https://ma
 # Markdown viewers
 brew install marked
 brew install mweb-pro
+brew install markedit # Markdown editor and viewer https://markedit.app/
 
 brew install coteditor # Plain-text editor for web pages, program source codes and more https://coteditor.com/; its scriptable
 
