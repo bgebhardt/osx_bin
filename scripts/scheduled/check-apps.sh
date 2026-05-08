@@ -15,7 +15,7 @@ apps=("OwlOCR" "Hookmark") # moved to Thaw menu bar manager for potential stabil
 
 # OwlOCR seems to exit often.
 # Hookmark on Tahoe seems to exit often.
-# OneDrive seems to exit often now too. 04-02-2026.
+# OneDrive checks live in check-onedrive.sh so they can be toggled separately.
 
 for app in "${apps[@]}"
 do
@@ -30,23 +30,6 @@ do
         echo "$(date +'%Y-%m-%d %H:%M:%S') - ${app}.app is already running."
     fi
 done
-
-# Special case: OneDrive runs 2 main processes (one per account: Personal + Work).
-# The pgrep pattern uses /MacOS/OneDrive$ to avoid matching "OneDrive Sync Service" or "OneDrive File Provider".
-onedrive_count=$(pgrep -xf "/Applications/OneDrive.app/Contents/MacOS/OneDrive" | wc -l | tr -d ' ')
-if [ "$onedrive_count" -eq 0 ]; then
-    echo "$(date +'%Y-%m-%d %H:%M:%S') - OneDrive: no processes running. Restarting..."
-    open -a "OneDrive"
-    # timeout + & : defensive wrapper after the 2026-04-18 incident where terminal-notifier
-    # hung for 15 days, blocking this script. osascript is more reliable but we keep the guard.
-    $TIMEOUT 10 osascript -e 'display notification "OneDrive: no processes were running (0/2). Attempted restart." with title "check-apps.sh"' &
-elif [ "$onedrive_count" -eq 1 ]; then
-    echo "$(date +'%Y-%m-%d %H:%M:%S') - OneDrive: only 1/2 processes running. Restarting..."
-    open -a "OneDrive"
-    $TIMEOUT 10 osascript -e 'display notification "OneDrive: only 1/2 processes running. One account may be down. Attempted restart." with title "check-apps.sh"' &
-else
-    echo "$(date +'%Y-%m-%d %H:%M:%S') - OneDrive: both processes running (${onedrive_count}/2)."
-fi
 
 # open -a "/Applications/Bartender 5.app"
 
