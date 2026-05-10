@@ -340,7 +340,11 @@ brew install downie # [Downie - YouTube Video Downloader for macOS](https://soft
 brew install permute # [Permute - Media Converter for macOS](https://software.charliemonroe.net/permute/)
 brew install betterzip
 brew install onyx # free multifunction utility for system maintence
-brew install screens # Control any computer from your Mac from anywhere in the world
+
+# Warning: Not upgrading screens, it is deprecated because it is now exclusively distributed on the Mac App Store! It was disabled on 2025-07-09.
+# S
+#brew install screens # Control any computer from your Mac from anywhere in the world
+
 brew install reflector # wireless screen mirroring
 brew install airparrot # Streaming and Mirroring for Windows and macOS
 brew install beamer # streaming from Mac
@@ -520,7 +524,10 @@ brew install visual-studio-code
 # Note: some of the plugins might not work instantly after brew install ... when you are on macOS Catalina or later. In this case, it is possible to download the plugin manually and copy the .qlgenerator file to ~/Library/QuickLook. This requires to run qlmanage -r (or a system restart) to enable the plugin.
 brew install qlcolorcode         # Preview source code files with syntax highlighting
 brew install qlstephen           # Preview plain text files without a file extension. Example: README, CHANGELOG, etc.
-brew install quicklook-json      # Preview JSON files
+
+# Warning: Not upgrading quicklook-json, it is disabled because it no longer meets the criteria for acceptable casks! It was disabled on 2025-12-23.
+# brew install quicklook-json      # Preview JSON files
+
 brew install qlprettypatch       # Preview .patch files
 brew install quicklook-csv       # Preview CSV files
 #brew install betterzipql         # Preview archives
@@ -720,7 +727,9 @@ brew install quicken # Personal finance manager https://www.quicken.com/mac
 brew install popchar # Character map and font viewer https://www.ergonis.com/products/popcharx/
 brew install shottr # Screenshot and screen recording tool https://shottr.com/
 brew install pdf-expert # PDF editor https://pdfexpert.com/
-brew install kapitainsky-rclone-browser # Rclone browser https://martins.ninja/RcloneBrowser/
+
+# Warning: Not upgrading kapitainsky-rclone-browser, it is deprecated because it is not maintained upstream! It was disabled on 2025-07-17.
+# brew install kapitainsky-rclone-browser # Rclone browser https://martins.ninja/RcloneBrowser/
 
 brew install customshortcuts # Customise menu item keyboard shortcuts https://www.houdah.com/customShortcuts/
 # [CustomShortcuts 1.0 - Free Tool to Customize Menu Shortcuts](https://blog.houdah.com/2020/06/customshortcuts-1-0-free-tool-to-customize-menu-shortcuts/)

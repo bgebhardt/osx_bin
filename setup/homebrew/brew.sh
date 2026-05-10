@@ -182,7 +182,6 @@ brew install asciidoc
 
 brew install cairo
 brew install cask
-brew install chromedriver
 brew install colordiff
 brew install couchdb
 brew install csshx
