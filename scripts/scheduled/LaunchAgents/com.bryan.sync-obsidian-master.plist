@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Sync ~/Obsidian Master → ~/Cloud-Drive/Obsidian Master. I'm backing up .obsidian directories in iDrive Cloud Drive. I use S3 for the data. -->
+	<key>Label</key>
+	<string>com.bryan.sync-obsidian-master</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Users/bryan/bin/scripts/scheduled/sync-mirror.sh</string>
+		<string>--name</string>
+		<string>obsidian-master</string>
+		<string>--src</string>
+		<string>/Users/bryan/Obsidian Master</string>
+		<string>--dest</string>
+		<string>/Users/bryan/Cloud-Drive/Obsidian Master</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>StartInterval</key>
+	<integer>21600</integer>
+	<key>StandardErrorPath</key>
+	<string>/tmp/sync-obsidian-master.err</string>
+	<key>StandardOutPath</key>
+	<string>/tmp/sync-obsidian-master.out</string>
+</dict>
+</plist>

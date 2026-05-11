@@ -1,33 +1,72 @@
 #!/bin/bash
 
-# Sync Obsidian vault from OneDrive to Cloud-Drive as a recoverable backup.
+# Generic rsync mirror with trash-on-delete and retention.
 #
-# Strategy: rsync mirror with a timestamped "_trash" dir.
-#   - Current state lives at  $DEST_ROOT/current/
-#   - Anything deleted or overwritten during a run is moved to
-#     $DEST_ROOT/_trash/<run-timestamp>/ preserving its relative path.
-#   - This protects against Claude Code or other tools corrupting/deleting
-#     files in the main ~/OneDrive/Obsidian/ vault: the bad state propagates
-#     to current/, but the prior-good version is kept under _trash/.
-#   - Old _trash/ entries older than $RETAIN_DAYS are pruned.
+# Usage:
+#   sync-mirror.sh --name NAME --src DIR --dest DIR [--retain-days N] [--verbose]
 #
-# Scheduled via com.bryan.sync-obsidian-backup LaunchAgent.
+# Required:
+#   --name NAME       Identifier used for log/lock paths (e.g. "obsidian-backup")
+#   --src DIR         Source directory
+#   --dest DIR        Destination root. Mirror lives at $DIR/current/;
+#                     deleted/overwritten files go to $DIR/_trash/<timestamp>/.
+#
+# Optional:
+#   --retain-days N   Days to keep trash entries (default 30)
+#   --verbose         Show rsync progress + stats (also via VERBOSE=1)
+#   -h, --help        Show this help
+#
+# Logs:  /tmp/sync-<name>.log
+# Lock:  /tmp/sync-<name>.lock.d
+#
+# Scheduled via per-job LaunchAgents (com.bryan.sync-<name>) that pass these
+# flags in ProgramArguments.
 
 set -uo pipefail
 
-SOURCE="${OBSIDIAN_SYNC_SRC:-$HOME/OneDrive/Obsidian}"
-DEST_ROOT="${OBSIDIAN_SYNC_DEST:-$HOME/Cloud-Drive/Obsidian}"
-RETAIN_DAYS="${OBSIDIAN_SYNC_RETAIN_DAYS:-30}"
+usage() {
+    sed -n '3,21p' "$0" | sed 's/^# \{0,1\}//'
+}
+
+SYNC_NAME=""
+SYNC_SRC=""
+SYNC_DEST=""
+RETAIN_DAYS=30
 VERBOSE="${VERBOSE:-0}"
-LOG_FILE="/tmp/sync-obsidian-backup.log"
-LOCK_DIR="/tmp/sync-obsidian-backup.lock.d"
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --name)         SYNC_NAME="$2"; shift 2 ;;
+        --src)          SYNC_SRC="$2"; shift 2 ;;
+        --dest)         SYNC_DEST="$2"; shift 2 ;;
+        --retain-days)  RETAIN_DAYS="$2"; shift 2 ;;
+        --verbose|-v)   VERBOSE=1; shift ;;
+        -h|--help)      usage; exit 0 ;;
+        *) echo "Unknown argument: $1" >&2; usage >&2; exit 2 ;;
+    esac
+done
+
+missing=()
+[[ -z "$SYNC_NAME" ]] && missing+=(--name)
+[[ -z "$SYNC_SRC"  ]] && missing+=(--src)
+[[ -z "$SYNC_DEST" ]] && missing+=(--dest)
+if (( ${#missing[@]} > 0 )); then
+    echo "Missing required: ${missing[*]}" >&2
+    usage >&2
+    exit 2
+fi
+
+SOURCE="$SYNC_SRC"
+DEST_ROOT="$SYNC_DEST"
+LOG_FILE="/tmp/sync-${SYNC_NAME}.log"
+LOCK_DIR="/tmp/sync-${SYNC_NAME}.lock.d"
 
 MIRROR="$DEST_ROOT/current"
 TRASH_ROOT="$DEST_ROOT/_trash"
 RUN_TS="$(date '+%Y-%m-%d_%H-%M-%S')"
 
 log() {
-    echo "$(date '+%Y-%m-%d %H:%M:%S') $*" >> "$LOG_FILE"
+    echo "$(date '+%Y-%m-%d %H:%M:%S') [$SYNC_NAME] $*" >> "$LOG_FILE"
 }
 
 # Atomic lock using mkdir to prevent overlapping runs.

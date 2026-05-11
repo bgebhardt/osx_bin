@@ -2,11 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<!-- Sync ~/OneDrive/Obsidian → ~/Cloud-Drive/Obsidian is disabled as I moved off of OneDrive for my vaults. -->
+	<key>Disabled</key>
+	<true/>
 	<key>Label</key>
 	<string>com.bryan.sync-obsidian-backup</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/Users/bryan/bin/scripts/scheduled/sync-obsidian-backup.sh</string>
+		<string>/Users/bryan/bin/scripts/scheduled/sync-mirror.sh</string>
+		<string>--name</string>
+		<string>obsidian-backup</string>
+		<string>--src</string>
+		<string>/Users/bryan/OneDrive/Obsidian</string>
+		<string>--dest</string>
+		<string>/Users/bryan/Cloud-Drive/Obsidian</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>

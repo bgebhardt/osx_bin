@@ -10,9 +10,10 @@ PLIST_DIR="$HOME/Library/LaunchAgents/"
 # Create the destination directory if it doesn't exist
 mkdir -p "$PLIST_DIR"
 
-# Copy all files from source directory to destination
+# Copy enabled plist files only (skip *.plist.disabled and other junk like .DS_Store).
+# To disable a job: rename its file from foo.plist to foo.plist.disabled.
 echo "Copying plist files from $SOURCE_PLIST_DIR to $PLIST_DIR"
-cp -f "$SOURCE_PLIST_DIR"/* "$PLIST_DIR" 2>/dev/null || echo "No files to copy or directory is empty"
+cp -f "$SOURCE_PLIST_DIR"com.bryan.*.plist "$PLIST_DIR" 2>/dev/null || echo "No files to copy or directory is empty"
 
 # Unload and load each com.bryan.* plist file
 echo "Loading LaunchAgents..."
