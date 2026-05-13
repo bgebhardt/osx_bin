@@ -47,8 +47,8 @@ Finder settings (set by mac-defaults.sh now)
 * Set your git user name. see https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
 
 ``` shell
-$ git config --global user.name "Bryan Gebhardt"
-$ git config --global user.email bryan.gebhardt@gmail.com
+git config --global user.name "Bryan Gebhardt"
+git config --global user.email bryan.gebhardt@gmail.com
 ```
 
 ## Download bin from github
