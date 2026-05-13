@@ -53,6 +53,8 @@ brew install raycast # replacement for spotlight (and alfred or launchbar)
 
 # Window Managers
 brew install rectangle # window manager - current preferred window manager
+brew install rectangle-pro # paid version of rectangle with more features https://rectangleapp.com/pro/
+# window manager - current preferred window manager
 brew install lasso-app # Window manager that allows you to snap windows into organized groups https://lassoapp.com/
 brew install mosaic # Window manager for macOS https://lightpillar.com/mosaic.html
 
@@ -168,6 +170,7 @@ brew install omnigraffle
 brew install omnioutliner
 brew install pdf-converter-master
 brew install cisdem-pdf-converter-ocr # PDF Converter with OCR capability https://www.cisdem.com/pdf-converter-ocr-mac.html # alternate conversion option that I don't really use.
+brew install tabula # Extract tables from PDF into CSV and Excel files https://tabula.technology/
 
 brew install mactex # TeX distribution for macOS https://www.tug.org/mactex/; requires 4 GB of disk space
 
@@ -200,6 +203,7 @@ brew install mathpix-snipping-tool # Scanner app for math and science https://ma
 # Markdown viewers
 brew install marked
 brew install mweb-pro
+brew install markedit # Markdown editor and viewer https://markedit.app/
 
 brew install coteditor # Plain-text editor for web pages, program source codes and more https://coteditor.com/; its scriptable
 
@@ -235,6 +239,8 @@ brew install tableflip # App to edit markdown files in place https://tableflipap
 brew install figma # Collaborative team software https://www.figma.com/
 brew install gimp # Free and open-source image editor https://www.gimp.org/
 
+brew install imageoptim # Tool to optimise images to a smaller size https://imageoptim.com/mac
+
 # Gmail desktop apps
 # brew install kiwi-for-gmail # no longer using
 brew install mimestream # new preferred Gmail desktop client
@@ -242,14 +248,21 @@ brew install mimestream # new preferred Gmail desktop client
 
 # Email
 # mailmate
+brew install --cask mailspring # Email client for Windows, macOS and Linux https://getmailspring.com/; has a free version. My current email client.
+brew install --cask emclient # Email client for Windows and macOS https://www.emclient.com/; has a free version but I haven't tried it yet.
 brew install --cask superhuman # paid Email client https://superhuman.com/
 
 ## Utilities
 # brew install amazon-drive -- no longer available
-# brew install amazon-music # need to delete folder in Applications Support and then works -- no longer supported
+# brew install amazon-music # need to mailmatee folder in Applications Support and then works -- no longer supported
 brew install bartender # paid Menu bar icon organiser https://www.macbartender.com/
-brew install jordanbaird-ice # free Menu bar manager https://github.com/jordanbaird/Ice # alternate free menu bar manager to consider
+
+#brew install jordanbaird-ice # free Menu bar manager https://github.com/jordanbaird/Ice # alternate free menu bar manager to consider
 # trying free ice as bartender 6 is unstable.
+#brew install --cask jordanbaird-ice@beta # install this version for Tahoe compatiblity
+
+# switching to this fork of ice that is being maintained and has a newer version that is compatible with the latest macOS versions. See [stonerl/Thaw: Menu bar manager for macOS 26](https://github.com/stonerl/Thaw)
+brew install --cask thaw # Menu bar manager that hides icons when they are not active [stonerl/Thaw: Menu bar manager for macOS 26](https://github.com/stonerl/Thaw)
 
 brew install boom
 #brew install brightness
@@ -327,12 +340,16 @@ brew install downie # [Downie - YouTube Video Downloader for macOS](https://soft
 brew install permute # [Permute - Media Converter for macOS](https://software.charliemonroe.net/permute/)
 brew install betterzip
 brew install onyx # free multifunction utility for system maintence
-brew install screens # Control any computer from your Mac from anywhere in the world
+
+# Warning: Not upgrading screens, it is deprecated because it is now exclusively distributed on the Mac App Store! It was disabled on 2025-07-09.
+# S
+#brew install screens # Control any computer from your Mac from anywhere in the world
+
 brew install reflector # wireless screen mirroring
 brew install airparrot # Streaming and Mirroring for Windows and macOS
 brew install beamer # streaming from Mac
 brew install timemachineeditor # Utility to change the default backup interval of Time Machine
-brew install space-saver # Delete local Time Machine backups
+brew install space-saver # mailmae local Time Machine backups
 brew install launchcontrol # Create, manage and debug system- and user services (launchctl GUI)
 brew install powerphotos # powerphotos for managing photo libraries
 brew install metaimage # Image metadata and geographical tag viewer & editor https://neededapps.com/metaimage/
@@ -370,6 +387,12 @@ brew install --cask rustdesk # Remote desktop software https://rustdesk.com/; op
 #brew install alacritty # Name: Alacritty GPU-accelerated terminal emulator (Mac and Windows) https://github.com/alacritty/alacritty/
 brew install warp # Rust-based terminal app; couldn't get it to work though
 brew install ghostty # Name: Ghostty - Terminal emulator with a modern design https://ghostty.com/
+
+# terminal utilities
+brew install terminal-notifier # Send macOS notifications from the command line TODO: add instructions for how to use this with Claude Code.
+brew install --cask openinterminal # gui version of Open Terminal at the current Finder location https://github.com/Ji4n1ng/OpenInTerminal
+brew install --cask openinterminal-lite # single click version of Open Terminal at the current Finder location https://github.com/Ji4n1ng/OpenInTerminal
+
 
 brew install hammerspoon # Name: Hammerspoon - Desktop automation application - https://www.hammerspoon.org/
 brew install phoenix # Window and app manager scriptable with JavaScript https://github.com/kasper/phoenix/ (alternative to hammerspoon automation)
@@ -430,6 +453,8 @@ brew install quickjson
 brew install key-codes
 
 brew install docker # Docker containerization platform https://www.docker.com/
+brew install docker-compose # Tool for defining and running multi-container Docker applications https://docs.docker.com/compose/
+brew install orbstack # Docker desktop alternative https://orbstack.dev/; requires Apple Silicon. Faster better perf and resource usage.H
 
 # need to manually download version 9.1.1 of rapidweaver
 #brew install rapidweaver # Web design software https://www.realmacsoftware.com/rapidweaver/
@@ -456,8 +481,16 @@ brew install devtoys # Utilities designed to make common development tasks easie
 brew install deltawalker # diff tool https://www.deltawalker.com/ # paid app, find/replace with regex; cli; undo/redo; export diffs
 # deprecated - brew install meld # Visual diff and merge tool https://yousseb.github.io/meld/ # 3-way compare, text editor, syntax highlighting, regex
 brew install dehesselle-meld # Visual diff and merge tool https://gitlab.com/dehesselle/meld_macos
-brew install diffmerge # [SourceGear | DiffMerge](https://www.sourcegear.com/diffmerge/) # taks drag and drop!
+brew install diffmerge # [SourceGear | DiffMerge](https://www.sourcegear.com/diffmerge/) # takes drag and drop! But giving errors when opening now for some reason
 brew install direqual # Advanced directory compare utility https://naarakstudio.com/direqual/
+brew install visualdiffer # Visual file comparison tool https://visualdiffer.com/ free
+# see also these links for more set up
+# [visualdiffer/scripts](https://github.com/visualdiffer/scripts)
+# [VisualDiffer - Unix Shell Scripting Support](https://wiki.visualdiffer.com/unixshell.html) - I added an alias
+# [VisualDiffer - External Apps Integration](https://wiki.visualdiffer.com/externalApps.html)
+# Note: Added a script to ~/Library/Scripting repo that can compare 2 files from the Finder from the scripts or FastScripts menu using VisualDiffer.
+
+# paid app
 # brew install beyond-compare # Compare files and folders https://www.scootersoftware.com/ paid app # compare with remote servers (OneDrive, Google, ...); Table compare; scripting
 # brew install kaleidoscope  # File and Folder comparison tool # paid app so removing
 
@@ -491,7 +524,10 @@ brew install visual-studio-code
 # Note: some of the plugins might not work instantly after brew install ... when you are on macOS Catalina or later. In this case, it is possible to download the plugin manually and copy the .qlgenerator file to ~/Library/QuickLook. This requires to run qlmanage -r (or a system restart) to enable the plugin.
 brew install qlcolorcode         # Preview source code files with syntax highlighting
 brew install qlstephen           # Preview plain text files without a file extension. Example: README, CHANGELOG, etc.
-brew install quicklook-json      # Preview JSON files
+
+# Warning: Not upgrading quicklook-json, it is disabled because it no longer meets the criteria for acceptable casks! It was disabled on 2025-12-23.
+# brew install quicklook-json      # Preview JSON files
+
 brew install qlprettypatch       # Preview .patch files
 brew install quicklook-csv       # Preview CSV files
 #brew install betterzipql         # Preview archives
@@ -612,7 +648,11 @@ brew install microsoft-azure-storage-explorer # Explorer for Azure Storage https
 # AI
 
 # ai coding tools
-npm install -g @anthropic-ai/claude-code # Command-line interface for Claude AI
+#npm install -g @anthropic-ai/claude-code # Command-line interface for Claude AI
+# use the official Claude Code installer
+echo "Installing the official Claude AI desktop app..."
+curl -fsSL https://claude.ai/install.sh | bash
+echo "Claude AI desktop app installation complete."
 
 # AI model serving and interactions
 
@@ -641,6 +681,7 @@ brew install lm-studio # Discover, download, and run local LLMs https://lmstudio
 brew install gollama # Go manage your Ollama models https://smcleod.net
 
 brew install claude # Name: Claude Anthropic's official Claude AI desktop app
+brew install claudebar # Menu bar app for monitoring AI coding assistant usage quotas https://github.com/tddworks/ClaudeBar
 brew install chatgpt # Name: ChatGPT OpenAI's official ChatGPT desktop app
 brew install gemini # Name: Gemini Google AI's official Gemini desktop app
 
@@ -650,6 +691,7 @@ brew install janus # AI chat client https://janusai.com/ suports local and remot
 brew install context # [Context - Native macOS Client for Model Context Protocol](https://www.contextmcp.app/)
 
 brew install superwhisper # Dictation tool including LLM reformatting https://superwhisper.com/
+brew install wispr-flow # Voice-to-text dictation with AI-powered auto-editing https://wisprflow.ai/
 
 brew install boltai # AI chat client https://boltai.com/
 # from app store install OllmaSpring and Enchanted ai chat apps for Ollama
@@ -663,6 +705,8 @@ brew install codex # OpenAI's coding agent that runs in your terminal https://gi
 brew install opencode # AI coding agent, built for the terminal # https://opencode.ai
 
 brew install repo-prompt # Prompt generation tool https://repoprompt.com/
+
+brew install steipete/tap/codexbar # Menu bar app to monitor AI tool usage and costs [CodexBar](https://codexbar.app/)
 
 # AI image generation
 brew install stability-matrix # Stable Diffusion GUI for MacOS https://stability.ai/stability-matrix
@@ -678,11 +722,14 @@ brew install obsbot-center
 # apps added 12-23-2024 after audit
 brew install kdiff3 # File comparison and merge tool https://kdiff3.sourceforge.io/
 brew install github # GitHub Desktop https://desktop.github.com/
+brew install git-credential-manager # Git Credential Manager for Mac https://aka.ms/gcm/mac
 brew install quicken # Personal finance manager https://www.quicken.com/mac
 brew install popchar # Character map and font viewer https://www.ergonis.com/products/popcharx/
 brew install shottr # Screenshot and screen recording tool https://shottr.com/
 brew install pdf-expert # PDF editor https://pdfexpert.com/
-brew install kapitainsky-rclone-browser # Rclone browser https://martins.ninja/RcloneBrowser/
+
+# Warning: Not upgrading kapitainsky-rclone-browser, it is deprecated because it is not maintained upstream! It was disabled on 2025-07-17.
+# brew install kapitainsky-rclone-browser # Rclone browser https://martins.ninja/RcloneBrowser/
 
 brew install customshortcuts # Customise menu item keyboard shortcuts https://www.houdah.com/customShortcuts/
 # [CustomShortcuts 1.0 - Free Tool to Customize Menu Shortcuts](https://blog.houdah.com/2020/06/customshortcuts-1-0-free-tool-to-customize-menu-shortcuts/)
@@ -703,6 +750,15 @@ brew install yoink # Drag and drop shelf for files and snippets https://yoinkapp
 brew install idrive # Cloud backup service https://www.idrive.com/mac-backup
 
 brew install mdrp # Mac DVDRipper Pro - Utility to rip and copy DVD content - https://www.macdvdripperpro.com/
+
+# network
+# use tailscale standalone app instead of the brew version as it is more up to date and works better. See [Tailscale for Mac - Tailscale](https://tailscale.com/download/mac/)
+#brew install tailscale # Tailscale is a zero-config VPN that connects your devices securely and easily. https://tailscale.com/
+
+# cloudflare tools
+brew install cloudflare-cli4 # Cloudflare CLI is a command-line tool for managing Cloudflare services and resources. https://developers.cloudflare.com/cloudflare-cli/get-started/installation/
+brew install cloudflare-speed-cli # Command-line tool to test Cloudflare's network speed from your terminal
+brew install cloudflared # Cloudflare Tunnel (formerly Argo Tunnel) is a service that allows you to securely expose your local server to the internet without opening ports on your router. https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide/installation
 
 # installed by brew install office?
 # microsoft-auto-update

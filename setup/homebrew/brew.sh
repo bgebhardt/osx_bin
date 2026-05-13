@@ -171,13 +171,17 @@ brew install uv # Extremely fast Python package installer and resolver, written 
 
 # other brew items I added 05-22-2016
 # TODO: remove dupes from this list
-brew install ansible
+
+# Infrastructure as Code https://www.terraform.io/ (preferred over ansible). Install the latest by tapping hashicorp. Default brew version is old.
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform
+
+brew install ansible # Automate app and system configuration https://www.ansible.com/
 brew install asciidoc
 #brew install docker-machine # Create Docker hosts locally and on cloud providers https://docs.gitlab.com/runner/executors/docker_machine.html
 
 brew install cairo
 brew install cask
-brew install chromedriver
 brew install colordiff
 brew install couchdb
 brew install csshx
@@ -215,8 +219,8 @@ brew install gmp
 brew install gnu-sed
 brew install gnu-tar
 brew install gnu-which
-brew install gradle
-brew install grails
+#brew install gradle # no longer use java or gradle, so removing to save space
+#brew install grails # no longer use java or grails, so removing to save space
 brew install graphicsmagick
 brew install graphviz
 brew install grep
@@ -358,6 +362,9 @@ brew install oven-sh/bun/bun # Bun is a fast all-in-one JavaScript runtime - htt
 # install go
 brew install go
 
+# Rust installation
+brew install rust # Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety. https://www.rust-lang.org/
+
 # install pandoc to convert markdown to various formats
 brew install pandoc
 
@@ -379,7 +386,12 @@ brew install nbdime # diffing and merging of Jupyter Notebooks
 # brew install ipykernel # kernel needed to run jupyter notebooks
 
 # ai coding tools
-npm install -g @anthropic-ai/claude-code # Command-line interface for Claude AI
+#npm install -g @anthropic-ai/claude-code # Command-line interface for Claude AI
+# use the official Claude Code installer
+echo "Installing the official Claude AI desktop app..."
+curl -fsSL https://claude.ai/install.sh | bash
+echo "Claude AI desktop app installation complete."
+
 # alt brew version, doesn't work if used npm to install. brew install --cask claude-code # Claude Code is a code assistant for developers https://claude.ai/
 brew install claude-cmd # [kiliczsh/claude-cmd: Claude Code Commands Manager](https://github.com/kiliczsh/claude-cmd)
 brew install claude-hooks # [johnlindquist/claude-hooks](https://github.com/johnlindquist/claude-hooks)
@@ -388,6 +400,14 @@ brew install tweakcc # [Piebald-AI/tweakcc: Command-line tool to customize Claud
 brew install pipx # Execute binaries from Python packages in isolated environments https://pipx.pypa.io
 pipx ensurepath # need to run this after installing pipx to add it to the PATH
 brew install poetry # Python dependency management and packaging made easy https://python-poetry.org/
+
+# ai prompting and other Tools
+brew install fabric-ai # Command-line tool for managing and deploying AI prompts [danielmiessler/Fabric: Fabric is an open-source framework for augmenting humans using AI. It provides a modular system for solving specific problems using a crowdsourced set of AI prompts that can be used anywhere.](https://github.com/danielmiessler/Fabric/tree/main)
+
+# install Fabric helper apps
+go install github.com/danielmiessler/fabric/cmd/to_pdf@latest # to_pdf - Convert text files to PDF using AI formatting
+go install github.com/danielmiessler/fabric/cmd/code2context@latest # code2context - Generate context for code snippets using AI
+go install github.com/danielmiessler/fabric/cmd/generate_changelog@latest # generate_changelog - Generate changelogs for git repositories using AI
 
 # resource usage tools
 
@@ -467,6 +487,9 @@ npm install -g @mermaid-js/mermaid-cli
 brew install macsvg # MacSVG is a macOS application for creating and editing SVG files. https://macsvg.com/
 
 brew install termshot # Capture terminal output as images https://github.com/iamcco/termshot
+
+brew install lftp #Sophisticated file transfer program https://lftp.yar.ru/
+
 
 # Remove outdated versions from the cellar.
 brew cleanup

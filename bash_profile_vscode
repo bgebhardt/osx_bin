@@ -1,18 +1,14 @@
-# bash profile items for iTerm and terminal
+#!/bin/bash
 
-echo "sourcing bash_profile_iterm"
+# bash profile for generic terminals (not iTerm, not Warp)
 
-# Window title that Timing can track paths.
-# https://timingapp.com/help/terminal
-# Be sure to set this in iTerm
-# iTerm -> Preferences -> Appearance -> Window & Tab titles -> check Show profile name option
-function __set_window_title() {
-    echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"
-}
-PROMPT_COMMAND="__set_window_title${PROMPT_COMMAND:+;$PROMPT_COMMAND}"
+echo "sourcing bash_profile_vscode"
+
+# Clear any inherited PROMPT_COMMAND (e.g. from a parent process that used bash_profile_iterm)
+unset PROMPT_COMMAND
 
 ### Prompt Colors
-# Modified version of @gf3’s Sexy Bash Prompt
+# Modified version of @gf3's Sexy Bash Prompt
 # (https://github.com/gf3/dotfiles)
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
 	export TERM=gnome-256color
@@ -66,12 +62,5 @@ function parse_git_branch() {
 symbol="⚡ "
 
 # for more docs see [Bash Prompt Escape Sequences]( http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/bash-prompt-escape-sequences.html )
-#export PS1="\[\t\][\!] \[${MAGENTA}\]\u \[$RESET\]in \[$GREEN\]\w\[$RESET\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$RESET\]$symbol\[$RESET\]"
 export PS1="\[\t\][\!] \[${MAGENTA}\]\u \[$RESET\]in \[$GREEN\]\w\[$RESET\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$RESET\] :"
 export PS2="\[$ORANGE\]→ \[$RESET\]"
-
-# enable iTerm2 shell integration
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-
-# init z! (https://github.com/rupa/z)
-~/bin/bashstrap/z.sh

@@ -4,9 +4,18 @@
 # Schedule the script to run every hour with no output
 # 0 * * * * /Users/bryan/bin/scripts/check-apps.sh > /dev/null 2>&1
 
-apps=("OwlOCR") # moved to Ice menu bar manager for potential stability improvements
+# Absolute path because launchd PATH is /usr/bin:/bin:/usr/sbin:/sbin (no homebrew).
+# Used as a safety wrapper around osascript notifications so a hung notification
+# can never block the script (see 2026-04-18 incident with terminal-notifier).
+TIMEOUT="/opt/homebrew/bin/timeout"
+
+apps=("OwlOCR" "Hookmark") # moved to Thaw menu bar manager for potential stability improvements
 # apps=("Bartender 5" "OwlOCR")
 # apps=("Bartender 5" "AnotherApp" "YetAnotherApp")
+
+# OwlOCR seems to exit often.
+# Hookmark on Tahoe seems to exit often.
+# OneDrive checks live in check-onedrive.sh so they can be toggled separately.
 
 for app in "${apps[@]}"
 do

@@ -9,10 +9,22 @@
 #TODO: merge this with ~/bin/.bash_profile (?)
 
 #set path to include my bin and the developer tools
-export PATH=~/bin:/opt/homebrew/bin/:/usr/local/sbin:/usr/local/bin:/usr/local/anaconda3/bin:/opt/homebrew/anaconda3/bin:/Xcode3/Developer/usr/bin:/Developer/Tools:/Applications/Postgres.app/Contents/Versions/10/bin:$PATH:/usr/local/mysql/bin:/usr/local/graphviz-2.14/bin:/Applications/splunk/bin:/Library/Wireshark:/usr/local/share/npm/bin
+export PATH=~/bin:/opt/homebrew/bin/:/usr/local/sbin:/usr/local/bin:/usr/local/anaconda3/bin:/opt/homebrew/anaconda3/bin:/Xcode3/Developer/usr/bin:/Developer/Tools:/Applications/Postgres.app/Contents/Versions/10/bin:$PATH:/usr/local/mysql/bin:/usr/local/graphviz-2.14/bin:/Applications/splunk/bin:/Library/Wireshark:/usr/local/share/npm/bin:/Applications/Obsidian.app/Contents/MacOS
+
+# add microsoft agency aka.ms/agency
+export PATH="$PATH:$HOME/.config/agency/CurrentVersion"
+
+# Path to Obsidian CLI is in above. FYI. 
+# [Obsidian CLI - Obsidian Help](https://help.obsidian.md/cli)
+#PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS" 
 
 # set path for dotnet root
 export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
+
+# Golang environment variables
+export GOROOT=$(brew --prefix go)/libexec
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH
 
 # git-extra-commands conflictes with git-extras (installed from brew.sh). Removing from path.
 # To add it back add this: ~/bin/git-extra-commands/bin:
