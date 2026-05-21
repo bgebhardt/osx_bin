@@ -82,7 +82,7 @@ for config_file in "${SHELL_CONFIGS[@]}"; do
         line_count=$(wc -l < "$full_path" | tr -d ' ')
 
         echo -n "    {\"file\": \"$config_file\", \"size\": $file_size, \"lines\": $line_count}" >> "$OUTPUT_FILE"
-        ((CAPTURED_COUNT++))
+        CAPTURED_COUNT=$((CAPTURED_COUNT + 1))
     fi
 done
 
@@ -145,7 +145,7 @@ fi
         for config_file in "${SHELL_CONFIGS[@]}"; do
             full_path="$HOME/$config_file"
             if [[ -f "$full_path" ]]; then
-                grep -E "^function |^[a-zA-Z_][a-zA-Z0-9_]*\(\)" "$full_path" 2>/dev/null | head -5 | sed 's/^/  /'
+                { grep -E "^function |^[a-zA-Z_][a-zA-Z0-9_]*\(\)" "$full_path" 2>/dev/null || true; } | head -5 | sed 's/^/  /'
             fi
         done | head -10
         echo ""

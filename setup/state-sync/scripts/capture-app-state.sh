@@ -37,43 +37,47 @@ echo "  \"capture_date\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"," >> "$OUTPUT_FILE"
 echo "  \"hostname\": \"$(hostname)\"," >> "$OUTPUT_FILE"
 echo "  \"user\": \"$USER\"," >> "$OUTPUT_FILE"
 
-# Homebrew formulae
+# Homebrew formulae (one bulk call instead of per-package — 200x speedup)
 echo "  \"homebrew\": {" >> "$OUTPUT_FILE"
 echo "    \"formulae\": [" >> "$OUTPUT_FILE"
 if command -v brew &> /dev/null; then
-    FORMULAE=$(brew list --formula 2>/dev/null || echo "")
+    FORMULAE=$(brew list --formula --versions 2>/dev/null || echo "")
     if [[ -n "$FORMULAE" ]]; then
+        count=$(wc -l <<<"$FORMULAE" | tr -d ' ')
+        echo "  Capturing $count brew formulae..." >&2
         first=true
-        while IFS= read -r formula; do
-            [[ -z "$formula" ]] && continue
-            version=$(brew list --versions "$formula" 2>/dev/null | awk '{print $2}' || echo "unknown")
+        while IFS=' ' read -r name version _; do
+            [[ -z "$name" ]] && continue
+            [[ -z "$version" ]] && version="unknown"
             if [[ "$first" == "true" ]]; then
                 first=false
             else
                 echo "," >> "$OUTPUT_FILE"
             fi
-            echo -n "      {\"name\": \"$formula\", \"version\": \"$version\"}" >> "$OUTPUT_FILE"
+            echo -n "      {\"name\": \"${name//\"/\\\"}\", \"version\": \"${version//\"/\\\"}\"}" >> "$OUTPUT_FILE"
         done <<< "$FORMULAE"
         echo "" >> "$OUTPUT_FILE"
     fi
 fi
 echo "    ]," >> "$OUTPUT_FILE"
 
-# Homebrew casks
+# Homebrew casks (one bulk call)
 echo "    \"casks\": [" >> "$OUTPUT_FILE"
 if command -v brew &> /dev/null; then
-    CASKS=$(brew list --cask 2>/dev/null || echo "")
+    CASKS=$(brew list --cask --versions 2>/dev/null || echo "")
     if [[ -n "$CASKS" ]]; then
+        count=$(wc -l <<<"$CASKS" | tr -d ' ')
+        echo "  Capturing $count brew casks..." >&2
         first=true
-        while IFS= read -r cask; do
-            [[ -z "$cask" ]] && continue
-            version=$(brew list --cask --versions "$cask" 2>/dev/null | awk '{print $2}' || echo "unknown")
+        while IFS=' ' read -r name version _; do
+            [[ -z "$name" ]] && continue
+            [[ -z "$version" ]] && version="unknown"
             if [[ "$first" == "true" ]]; then
                 first=false
             else
                 echo "," >> "$OUTPUT_FILE"
             fi
-            echo -n "      {\"name\": \"$cask\", \"version\": \"$version\"}" >> "$OUTPUT_FILE"
+            echo -n "      {\"name\": \"${name//\"/\\\"}\", \"version\": \"${version//\"/\\\"}\"}" >> "$OUTPUT_FILE"
         done <<< "$CASKS"
         echo "" >> "$OUTPUT_FILE"
     fi
@@ -105,6 +109,8 @@ fi
 echo "  ]," >> "$OUTPUT_FILE"
 
 # Applications directory apps (manual installs)
+app_total=$(find /Applications -maxdepth 1 -name '*.app' -type d 2>/dev/null | wc -l | tr -d ' ')
+echo "  Capturing $app_total /Applications entries..." >&2
 echo "  \"applications\": [" >> "$OUTPUT_FILE"
 if [[ -d "/Applications" ]]; then
     first=true

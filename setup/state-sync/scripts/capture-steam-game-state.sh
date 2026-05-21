@@ -96,8 +96,8 @@ for steam_dir in "${STEAM_LIBRARIES[@]}"; do
             escaped_name=$(echo "$game_name" | sed 's/"/\\"/g')
 
             echo -n "        {\"app_id\": \"$app_id\", \"name\": \"$escaped_name\", \"install_dir\": \"$install_dir\", \"size\": \"$size\"}" >> "$OUTPUT_FILE"
-            ((library_game_count++))
-            ((TOTAL_GAMES++))
+            library_game_count=$((library_game_count + 1))
+            TOTAL_GAMES=$((TOTAL_GAMES + 1))
         done < <(find "$steam_dir" -maxdepth 1 -name "appmanifest_*.acf" -type f 2>/dev/null | sort)
     fi
 
@@ -169,7 +169,7 @@ fi
                 fi
 
                 printf "%3d. %-50s %10s  App ID: %s\n" "$game_num" "$game_name" "$size" "$app_id"
-                ((game_num++))
+                game_num=$((game_num + 1))
             done < <(find "$steam_dir" -maxdepth 1 -name "appmanifest_*.acf" -type f 2>/dev/null | sort)
             echo ""
         done

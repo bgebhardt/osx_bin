@@ -75,7 +75,7 @@ for domain in "${APP_DOMAINS[@]}"; do
                 echo "," >> "$OUTPUT_FILE"
             fi
             echo -n "    \"$domain\": \"exported\"" >> "$OUTPUT_FILE"
-            ((EXPORTED_COUNT++))
+            EXPORTED_COUNT=$((EXPORTED_COUNT + 1))
         fi
     fi
 done

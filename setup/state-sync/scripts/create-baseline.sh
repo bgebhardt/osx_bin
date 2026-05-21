@@ -80,11 +80,23 @@ for script_entry in "${CAPTURE_SCRIPTS[@]}"; do
 
     echo "[$script_num/$total_scripts] Capturing $description..."
     if [[ -x "$SCRIPT_DIR/$script_name" ]]; then
-        if "$SCRIPT_DIR/$script_name" "$SNAPSHOT_DIR" 2>&1 | grep -q "captured successfully"; then
-            SCRIPTS_RUN+=("$script_name")
-            echo "  ✓ $description captured"
-        else
-            echo "  ✗ Failed to capture $description"
+        # Stream output through tee so progress is visible during long-running scripts,
+        # while still being able to detect the "captured successfully" success marker.
+        log_file="$SNAPSHOT_DIR/.${script_name%.sh}.log"
+        script_start=$SECONDS
+        if "$SCRIPT_DIR/$script_name" "$SNAPSHOT_DIR" 2>&1 \
+                | tee "$log_file" \
+                | sed 's/^/    /' \
+                | grep -E 'Capturing|captured successfully|Error|Warning' \
+                || true ; then
+            # Re-check the log for the success marker since we used `|| true` above
+            if grep -q "captured successfully" "$log_file" 2>/dev/null; then
+                SCRIPTS_RUN+=("$script_name")
+                elapsed=$((SECONDS - script_start))
+                echo "  ✓ $description captured (${elapsed}s)"
+            else
+                echo "  ✗ Failed to capture $description (see $log_file)"
+            fi
         fi
     else
         echo "  ⊘ Script not found or not executable: $script_name"
