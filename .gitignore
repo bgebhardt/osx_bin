@@ -5,3 +5,7 @@ dotfiles/
 git-extra-commands/
 myrepos/
 .DS_Store
+
+# state-sync generated output
+setup/state-sync/snapshots/
+setup/state-sync/baselines/
