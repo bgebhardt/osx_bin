@@ -23,6 +23,8 @@
 # 1. Install Obsidian and open it once (creates the app but no vaults yet)
 # 2. Restore your vault from restic:
 # bash
+# source ~/.config/restic/obsidian-env
+# restic restore latest --target ~/Obsidian\ Master/
 #    This restores ~/Obsidian Master with all your vaults, plugins, themes, and configs intact.
 # 3. Open the vaults in Obsidian — File → Open Vault → choose e.g. ~/Obsidian Master/Obsidian/Personal
 # 4. Set up Remotely Save — it'll already be installed (it was in .obsidian/plugins/). Configure it with your Backblaze credentials so ongoing data stays in sync between Macs.
@@ -40,6 +42,22 @@ LOCK_DIR="/tmp/${NAME}.lock.d"
 log() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') [$NAME] $*" >> "$LOG_FILE"
 }
+
+# ── Locate restic ─────────────────────────────────────────────────
+# LaunchAgents run with a minimal PATH (typically /usr/bin:/bin:/usr/sbin:/sbin)
+# that excludes Homebrew. Probe both Apple Silicon and Intel locations rather
+# than assuming `restic` is on PATH.
+if [[ -x /opt/homebrew/bin/restic ]]; then
+    RESTIC=/opt/homebrew/bin/restic
+elif [[ -x /usr/local/bin/restic ]]; then
+    RESTIC=/usr/local/bin/restic
+elif RESTIC=$(command -v restic 2>/dev/null); then
+    :   # found on PATH (e.g. interactive run)
+else
+    echo "$(date '+%Y-%m-%d %H:%M:%S') [$NAME] restic not found at /opt/homebrew/bin/restic, /usr/local/bin/restic, or on PATH" >> "$LOG_FILE"
+    exit 1
+fi
+log "Using restic at: $RESTIC"
 
 # ── Load credentials ──────────────────────────────────────────────
 if [[ ! -f "$ENV_FILE" ]]; then
@@ -73,9 +91,9 @@ if [[ -z "$(ls -A "$SOURCE" 2>/dev/null)" ]]; then
 fi
 
 # ── Initialize repo if needed ────────────────────────────────────
-if ! restic cat config >/dev/null 2>&1; then
+if ! "$RESTIC" cat config >/dev/null 2>&1; then
     log "Repository not initialized; running restic init."
-    restic init >> "$LOG_FILE" 2>&1
+    "$RESTIC" init >> "$LOG_FILE" 2>&1
     RC=$?
     if [[ $RC -ne 0 ]]; then
         log "restic init failed (rc=$RC); exiting."
@@ -85,7 +103,7 @@ fi
 
 # ── Backup ───────────────────────────────────────────────────────
 log "Starting backup: $SOURCE"
-restic backup "$SOURCE" \
+"$RESTIC" backup "$SOURCE" \
     --exclude='.DS_Store' \
     --exclude='._*' \
     --exclude='.trash/' \
@@ -108,7 +126,7 @@ log "Backup complete."
 
 # ── Prune old snapshots ─────────────────────────────────────────
 log "Pruning old snapshots..."
-restic forget \
+"$RESTIC" forget \
     --keep-daily    30 \
     --keep-weekly    4 \
     --keep-monthly   6 \
