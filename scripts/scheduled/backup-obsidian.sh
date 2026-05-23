@@ -12,24 +12,40 @@
 # Lock:         /tmp/backup-obsidian.lock.d
 #
 # Restore examples:
+#   source ~/.config/restic/obsidian-env
 #   restic snapshots                              # list all snapshots
-#   restic restore latest --target ~/restore/     # restore latest
-#   restic restore abc123 --target ~/restore/     # restore specific snapshot
-#   restic mount /mnt/restic                      # browse snapshots as filesystem
+#   restic restore latest --target /              # restore in-place to /Users/<you>/Obsidian Master
+#   restic restore abc123  --target /             # restore a specific snapshot in-place
+#   restic restore latest --target ~/scratch      # restore to a scratch dir for inspection
+#                                                 #   (files will be at ~/scratch/Users/<you>/Obsidian Master)
+#   restic mount /tmp/snap                        # browse snapshots as a read-only filesystem
+#
+# IMPORTANT — about --target:
+#   restic ALWAYS preserves the original absolute path inside whatever --target
+#   you give it. The backup source is /Users/<you>/Obsidian Master, so:
+#     --target ~/Obsidian\ Master/  →  ~/Obsidian Master/Users/<you>/Obsidian Master/...  (nested, wrong)
+#     --target /                    →  /Users/<you>/Obsidian Master/...                   (in-place, right)
 #
 # Scheduled via LaunchAgent: com.bryan.backup-obsidian
 
-# The easiest path to setting up Obsidian on a new mac is to restore your entire vault directory from backup, since that preserves all your plugins, themes, and settings. Here's the recommended process:
-# 1. Install Obsidian and open it once (creates the app but no vaults yet)
-# 2. Restore your vault from restic:
-# bash
-# source ~/.config/restic/obsidian-env
-# restic restore latest --target ~/Obsidian\ Master/
-#    This restores ~/Obsidian Master with all your vaults, plugins, themes, and configs intact.
+# The easiest path to setting up Obsidian on a new Mac is to restore your entire vault directory from backup, since that preserves all your plugins, themes, and settings. Recommended process:
+# 1. Install Obsidian and open it once (creates the app but no vaults yet).
+# 2. Restore your vault from restic to its original location:
+#      source ~/.config/restic/obsidian-env
+#      restic restore latest --target /
+#    This puts everything at ~/Obsidian Master/ with all vaults, plugins, themes, and configs intact.
+#    (--target / is safe here: restic only writes the files that were in the snapshot, it does not
+#    touch anything else in /. The original backup source was /Users/<you>/Obsidian Master, so that
+#    is where files land.)
 # 3. Open the vaults in Obsidian — File → Open Vault → choose e.g. ~/Obsidian Master/Obsidian/Personal
-# 4. Set up Remotely Save — it'll already be installed (it was in .obsidian/plugins/). Configure it with your Backblaze credentials so ongoing data stays in sync between Macs.
-# 5. Set up the restic backup on the new Mac too — copy backup-obsidian.sh, the plist, and obsidian-env from your ~/bin/scripts/scheduled/ repo, then run install-scheduled-scripts.sh.
-# Since your ~/bin is a git repo, steps 5 is really just cloning that repo on the new Mac and running the install script. Remotely Save handles day-to-day sync; restic handles the full restore and ongoing backup.
+# 4. Set up Remotely Save — it'll already be installed (it was in .obsidian/plugins/). Configure it
+#    with your Backblaze credentials so ongoing data stays in sync between Macs.
+# 5. Set up the restic backup on the new Mac too — copy backup-obsidian.sh, the plist, and
+#    obsidian-env from your ~/bin/scripts/scheduled/ repo, then run install-scheduled-scripts.sh.
+#
+# Since ~/bin is a git repo, step 5 is really just cloning that repo on the new Mac and running the
+# install script. Remotely Save handles day-to-day sync; restic handles the full restore and ongoing
+# backup.
 
 set -uo pipefail
 
