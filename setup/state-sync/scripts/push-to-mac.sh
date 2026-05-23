@@ -29,7 +29,9 @@ INCLUDE=""
 DRY_RUN=false
 NO_FRESH=false
 NO_RUN=false
-REMOTE_DIR='$HOME/state-sync-incoming'
+# Relative path → resolved against the remote user's home by both ssh and rsync.
+# Avoids the "$HOME isn't expanded by rsync's remote spec" gotcha.
+REMOTE_DIR='state-sync-incoming'
 REMOTE_USER=""
 
 while [[ $# -gt 0 ]]; do
@@ -179,10 +181,15 @@ mkdir -p "$BUNDLE_DIR/install"
 # Install scripts for this tier (and only this tier)
 cp "$INSTALL_SUBDIR/install-${TIER}-"* "$BUNDLE_DIR/install/" 2>/dev/null || true
 
-# Scripts the apply phase will need
-cp "$SCRIPT_DIR/apply-on-remote.sh" "$BUNDLE_DIR/"
+# Scripts the apply phase will need.
+# apply-on-remote.sh lives under templates/ since it's the script that gets
+# shipped to and runs on the target Mac (easier to review separately from the
+# orchestration code in scripts/).
+TEMPLATES_DIR="$(dirname "$SCRIPT_DIR")/templates"
+cp "$TEMPLATES_DIR/apply-on-remote.sh" "$BUNDLE_DIR/"
 cp "$SCRIPT_DIR/restore-app-prefs.sh" "$BUNDLE_DIR/"
 cp "$SCRIPT_DIR/lib-classify-app.sh" "$BUNDLE_DIR/"
+chmod +x "$BUNDLE_DIR/apply-on-remote.sh"
 
 if [[ "$INCLUDE_CONFIGS" == "true" ]]; then
     if [[ -d "$SETUP_ROOT/configs" ]]; then
@@ -274,7 +281,7 @@ echo ""
 # ---- Stage E: Trigger apply on remote ----
 if [[ "$NO_RUN" == "true" ]]; then
     echo "Transfer complete. To apply, SSH to $SSH_TARGET and run:"
-    echo "  bash ${REMOTE_DIR}/apply-on-remote.sh"
+    echo "  bash ~/${REMOTE_DIR}/apply-on-remote.sh"
     exit 0
 fi
 
@@ -282,7 +289,7 @@ read -r -p "Run apply-on-remote.sh on $SSH_TARGET now (interactive)? [y/N] " ans
 case "$ans" in
     y|Y|yes|YES)
         echo "--- Running apply-on-remote.sh on $SSH_TARGET ---"
-        ssh "${SSH_OPTS[@]}" -t "$SSH_TARGET" "bash ${REMOTE_DIR}/apply-on-remote.sh"
+        ssh "${SSH_OPTS[@]}" -t "$SSH_TARGET" "bash ~/${REMOTE_DIR}/apply-on-remote.sh"
         ;;
     *)
         echo "Skipped. Bundle is staged at: $SSH_TARGET:$REMOTE_DIR"

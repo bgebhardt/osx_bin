@@ -83,14 +83,29 @@ run_or_dry() {
 }
 
 # ---- Stage 1: Homebrew ----
+# Check PATH first, then the well-known install locations. Non-login SSH
+# sessions often don't have /opt/homebrew/bin on PATH even when brew exists.
 echo "=== Stage 1: Homebrew ==="
+BREW=""
 if command -v brew &>/dev/null; then
-    echo "  Homebrew already installed: $(brew --version | head -1)"
+    BREW="$(command -v brew)"
+elif [[ -x /opt/homebrew/bin/brew ]]; then
+    BREW="/opt/homebrew/bin/brew"
+    eval "$("$BREW" shellenv)"
+elif [[ -x /usr/local/bin/brew ]]; then
+    BREW="/usr/local/bin/brew"
+    eval "$("$BREW" shellenv)"
+fi
+
+if [[ -n "$BREW" ]]; then
+    echo "  Homebrew already installed at: $BREW"
+    echo "  Version: $("$BREW" --version | head -1)"
+    echo "  → skipping install."
 else
-    echo "  Homebrew not found."
+    echo "  Homebrew not found in PATH or /opt/homebrew/bin or /usr/local/bin."
     if confirm "Install Homebrew now?"; then
         run_or_dry /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        # Set PATH for this session
+        # Bring brew onto PATH for the rest of this session
         if [[ -x /opt/homebrew/bin/brew ]]; then
             eval "$(/opt/homebrew/bin/brew shellenv)"
         elif [[ -x /usr/local/bin/brew ]]; then

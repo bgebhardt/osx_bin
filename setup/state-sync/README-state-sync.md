@@ -133,7 +133,7 @@ constants at the top of each generator script.
 | Script | Purpose |
 |---|---|
 | `push-to-mac.sh <host> [--tier ...] [--include configs,prefs,defaults\|all] [--dry-run] [--no-run]` | Builds a transfer bundle (install scripts + optional `configs/`, captured plists, `mac-defaults.sh`), runs an `rsync --dry-run` preview, prompts to confirm, then rsyncs and optionally invokes `apply-on-remote.sh` interactively via SSH. Excludes obvious secret patterns automatically. |
-| `apply-on-remote.sh [--dry-run] [--all-yes]` | Runs on the target Mac. Walks 8 stages, each opt-in: Homebrew install → formulae → casks → mas (with sign-in check) → manual install list → configs copy → `mac-defaults.sh` → plist restore. |
+| `templates/apply-on-remote.sh [--dry-run] [--all-yes]` | The script shipped to and run on the target Mac. Lives under `templates/` for easier review since it's the only "code that runs elsewhere". Walks 8 stages, each opt-in: Homebrew detect/install (skips if already at `/opt/homebrew/bin/brew` or `/usr/local/bin/brew`) → formulae → casks → mas (with sign-in check) → manual install list → configs copy → `mac-defaults.sh` → plist restore. `push-to-mac.sh` copies this file into the bundle. |
 | `restore-app-prefs.sh [--dry-run] [--all] [--apps DOMAIN,…] [snapshot_dir]` | Runs `defaults import` on each `.plist` in the snapshot's `app-plists/` directory. Prompts per-domain by default. |
 
 ### Not yet implemented (TODO)
