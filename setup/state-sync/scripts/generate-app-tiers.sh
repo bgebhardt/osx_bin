@@ -182,12 +182,120 @@ jq -r '
     fi
 } > "$TIERS_DIR/summary.txt"
 
+# Markdown report (full per-app listing, all three tiers)
+REPORT_FILE="$TIERS_DIR/tiers-report.md"
+{
+    cat <<MD_HEADER
+# App Tier Report
+
+**Generated:** ${GENERATED_AT}
+**Snapshot:** $(jq -r '.snapshot' "$TIERS_DIR/_combined.json")
+**Hostname:** $(jq -r '.hostname' "$TIERS_DIR/_combined.json")
+
+## Thresholds
+
+- **essentials**: in Dock OR login item OR (\`use_count >= ${ESSENTIAL_USE_COUNT_MIN}\` AND used in last ${ESSENTIAL_RECENCY_DAYS} days)
+- **regular**: used in last ${REGULAR_RECENCY_DAYS} days (not in essentials)
+- **rare**: older or no usage data
+
+Tiers are mutually exclusive — each app appears in exactly one tier.
+
+## Counts
+
+| Tier | Apps |
+|------|------|
+MD_HEADER
+
+    total=0
+    for tier in essentials regular rare; do
+        count=$(jq '.count' "$TIERS_DIR/tier-${tier}.json")
+        printf '| %s | %d |\n' "$tier" "$count"
+        total=$((total + count))
+    done
+    printf '| **Total** | **%d** |\n\n' "$total"
+
+    echo "### Install-type breakdown (essentials + regular)"
+    echo ""
+    echo "| Type | Count |"
+    echo "|------|-------|"
+    jq -r '
+      [.tiers.essentials[], .tiers.regular[]]
+      | group_by(.install_type)
+      | map({type: .[0].install_type, count: length})
+      | sort_by(-.count)
+      | .[] | "| \(.type) | \(.count) |"
+    ' "$TIERS_DIR/_combined.json"
+
+    # Per-tier app listings
+    for tier in essentials regular rare; do
+        count=$(jq '.count' "$TIERS_DIR/tier-${tier}.json")
+        echo ""
+        case "$tier" in
+            essentials) blurb="Apps in Dock, login items, or used frequently and recently." ;;
+            regular)    blurb="Used in last ${REGULAR_RECENCY_DAYS} days but not in essentials." ;;
+            rare)       blurb="Older or no Spotlight usage data. Likely safe to skip on a new Mac." ;;
+        esac
+
+        # Wrap the long `rare` tier in a collapsible details block
+        if [[ "$tier" == "rare" ]] && [[ "$count" -gt 30 ]]; then
+            echo "## Rare ($count)"
+            echo ""
+            echo "$blurb"
+            echo ""
+            echo "<details>"
+            echo "<summary>Expand to see all $count rare apps</summary>"
+            echo ""
+        else
+            # Capitalize first letter via bash parameter expansion
+            tier_cap="$(tr '[:lower:]' '[:upper:]' <<< "${tier:0:1}")${tier:1}"
+            echo "## ${tier_cap} ($count)"
+            echo ""
+            echo "$blurb"
+            echo ""
+        fi
+
+        echo "| Name | Type | Score | Uses | Days | Dock | Login |"
+        echo "|------|------|-------|------|------|------|-------|"
+        jq -r '
+          .apps
+          | sort_by(-.score)
+          | .[]
+          | "| \(.name | gsub("\\|"; "\\|"))"
+            + " | \(.install_type)"
+            + " | \(.score)"
+            + " | \(.use_count)"
+            + " | \(.days_since_used // "-")"
+            + " | \(if .in_dock then "✓" else "-" end)"
+            + " | \(if .is_login_item then "✓" else "-" end) |"
+        ' "$TIERS_DIR/tier-${tier}.json"
+
+        if [[ "$tier" == "rare" ]] && [[ "$count" -gt 30 ]]; then
+            echo ""
+            echo "</details>"
+        fi
+    done
+
+    # Manual install section
+    if [[ -s "$TIERS_DIR/unclassified.txt" ]]; then
+        echo ""
+        echo "## Manual installs (essentials + regular tiers)"
+        echo ""
+        echo "These apps are NOT managed by brew or mas. \`generate-install-scripts.sh\` may still find a brew/mas line for them via name matching (see promotions.txt)."
+        echo ""
+        echo "| Tier | Name | Path |"
+        echo "|------|------|------|"
+        awk -F'\t' '{printf "| %s | %s | `%s` |\n", $1, $2, $3}' "$TIERS_DIR/unclassified.txt"
+    fi
+} > "$REPORT_FILE"
+
 # Drop the intermediate combined file
 rm -f "$TIERS_DIR/_combined.json"
 
 echo "" >&2
 echo "Done." >&2
-echo "Output:" >&2
+echo "Output files:" >&2
 ls -la "$TIERS_DIR" >&2
+echo "" >&2
+echo "Markdown report: $REPORT_FILE" >&2
 echo "" >&2
 head -50 "$TIERS_DIR/summary.txt"
