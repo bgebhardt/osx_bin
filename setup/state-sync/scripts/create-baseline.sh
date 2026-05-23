@@ -62,6 +62,7 @@ echo ""
 CAPTURE_SCRIPTS=(
     "capture-app-state.sh:Application state (Homebrew, MAS, Apps)"
     "capture-app-usage.sh:Application usage (Spotlight + Dock + login items)"
+    "capture-cli-usage.sh:CLI command usage (shell history)"
     "capture-system-prefs.sh:System preferences"
     "capture-app-prefs.sh:Application preferences"
     "capture-dev-env.sh:Development environment"
