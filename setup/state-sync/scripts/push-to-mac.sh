@@ -93,6 +93,25 @@ SETUP_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 SSH_TARGET="$HOST"
 [[ -n "$REMOTE_USER" ]] && SSH_TARGET="$REMOTE_USER@$HOST"
 
+# ---- SSH connection multiplexing ----
+# Opens a single master connection (one password prompt if key auth isn't set
+# up) and reuses it for every subsequent ssh/rsync call. ControlPersist keeps
+# the socket alive for 10 minutes after the script exits.
+SSH_CTL_DIR=$(mktemp -d "/tmp/state-sync-ssh-XXXXXX")
+SSH_CTL="$SSH_CTL_DIR/ctl-%h-%p-%r"
+SSH_OPTS=(-o "ControlMaster=auto" -o "ControlPath=$SSH_CTL" -o "ControlPersist=10m")
+# rsync picks up RSYNC_RSH from the environment
+export RSYNC_RSH="ssh -o ControlMaster=auto -o ControlPath=$SSH_CTL -o ControlPersist=10m"
+
+cleanup_ssh() {
+    # Close the master and remove the control dir
+    if [[ -n "${SSH_TARGET:-}" ]] && [[ -e "${SSH_CTL_DIR:-}" ]]; then
+        ssh -o "ControlPath=$SSH_CTL" -O exit "$SSH_TARGET" 2>/dev/null || true
+    fi
+    [[ -n "${SSH_CTL_DIR:-}" ]] && rm -rf "$SSH_CTL_DIR"
+}
+trap cleanup_ssh EXIT
+
 echo "========================================"
 echo "Push to Mac: $SSH_TARGET"
 echo "========================================"
@@ -105,10 +124,13 @@ echo "Remote dir:       $REMOTE_DIR (on target)"
 echo ""
 
 # ---- Verify SSH connectivity ----
-echo "--- Checking SSH connectivity ---"
-if ! ssh -o BatchMode=yes -o ConnectTimeout=5 "$SSH_TARGET" "echo ok" &>/dev/null; then
-    echo "Error: cannot SSH to $SSH_TARGET (need passwordless key auth)" >&2
-    echo "Hint: ssh-copy-id $SSH_TARGET" >&2
+# Drops BatchMode so SSH can fall back to password auth if no key is set up.
+# This is also the call that opens the multiplex master, so subsequent
+# ssh/rsync calls reuse the same authenticated socket.
+echo "--- Checking SSH connectivity (will prompt for password if no key auth) ---"
+if ! ssh "${SSH_OPTS[@]}" -o ConnectTimeout=10 "$SSH_TARGET" "echo ok" >/dev/null; then
+    echo "Error: cannot SSH to $SSH_TARGET" >&2
+    echo "Hint: try 'ssh $SSH_TARGET' manually first to diagnose." >&2
     exit 1
 fi
 echo "  SSH OK."
@@ -229,8 +251,8 @@ RSYNC_EXCLUDES=(
     --exclude='id_rsa*' --exclude='id_ed25519*'
 )
 
-# Ensure remote dir exists
-ssh "$SSH_TARGET" "mkdir -p ${REMOTE_DIR}"
+# Ensure remote dir exists (reuses the multiplex master, no extra password prompt)
+ssh "${SSH_OPTS[@]}" "$SSH_TARGET" "mkdir -p ${REMOTE_DIR}"
 
 echo "--- rsync dry-run preview ---"
 rsync -avz --dry-run "${RSYNC_EXCLUDES[@]}" "$BUNDLE_DIR/" "$SSH_TARGET:$REMOTE_DIR/" \
@@ -260,7 +282,7 @@ read -r -p "Run apply-on-remote.sh on $SSH_TARGET now (interactive)? [y/N] " ans
 case "$ans" in
     y|Y|yes|YES)
         echo "--- Running apply-on-remote.sh on $SSH_TARGET ---"
-        ssh -t "$SSH_TARGET" "bash ${REMOTE_DIR}/apply-on-remote.sh"
+        ssh "${SSH_OPTS[@]}" -t "$SSH_TARGET" "bash ${REMOTE_DIR}/apply-on-remote.sh"
         ;;
     *)
         echo "Skipped. Bundle is staged at: $SSH_TARGET:$REMOTE_DIR"
