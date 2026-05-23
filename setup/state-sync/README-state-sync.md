@@ -13,16 +13,25 @@ See [PLAN-activity-based-provisioning.md](PLAN-activity-based-provisioning.md) f
 ## Quick Start
 
 ```bash
-# A) Capture everything (state + activity)
-~/bin/setup/state-sync/scripts/create-baseline.sh
+SS=~/bin/setup/state-sync/scripts
 
-# B) Generate tiered install scripts from the latest snapshot
-~/bin/setup/state-sync/scripts/generate-app-tiers.sh
-~/bin/setup/state-sync/scripts/generate-install-scripts.sh --tier essentials
+# A) Capture everything (state + GUI activity + CLI activity)
+$SS/create-baseline.sh                # Runs all 11 capture-* scripts
 
-# C) Push to a new Mac and apply (interactive, dry-run first)
-~/bin/setup/state-sync/scripts/push-to-mac.sh newmac.local --dry-run
-~/bin/setup/state-sync/scripts/push-to-mac.sh newmac.local --tier essentials --include configs
+# B) Generate GUI app tiers + filtered install scripts
+$SS/generate-app-tiers.sh             # → snapshots/<latest>/tiers/{tier-*.json, tiers-report.md}
+$SS/generate-install-scripts.sh --tier essentials
+                                      # → snapshots/<latest>/tiers/install/install-essentials-*.sh
+
+# C) Rank CLI tools by frequency (independent from GUI tiers)
+$SS/generate-cli-tiers.sh             # → snapshots/<latest>/cli-tiers/{cli-tier-*.json, cli-tiers-report.md}
+
+# D) Push to a new Mac and apply (interactive, always dry-run first)
+$SS/push-to-mac.sh newmac.local --dry-run
+$SS/push-to-mac.sh newmac.local --tier essentials --include configs
+
+# E) Restore app preferences from a snapshot (e.g. for a single app)
+$SS/restore-app-prefs.sh --dry-run --apps com.googlecode.iterm2
 ```
 
 Default snapshot dir: `$HOME/bin/setup/state-sync/snapshots/` (override in `~/.state-sync-config`).
@@ -77,96 +86,77 @@ The state-sync system serves several key purposes:
 4. **Change Tracking** - Document what has changed since initial setup
 5. **Backup Validation** - Verify critical settings are preserved
 
-## Suggested Scripts
+## Scripts
 
-### Core State Capture Scripts
+All scripts live in `scripts/`. Tunable thresholds (tier cutoffs, etc.) are
+constants at the top of each generator script.
 
-- **`capture-app-state.sh`** - Snapshot of all installed applications (brew, mas, manual installs)
-  - Output: JSON/text files with app names, versions, install methods
-  - Captures: Homebrew formulae, casks, Mac App Store apps, manually installed apps
+### Capture (state → snapshot dir)
 
-- **`capture-system-prefs.sh`** - Snapshot of macOS system preferences
-  - Output: plist exports for key system settings
-  - Captures: Dock, Finder, Trackpad, Keyboard, Security, etc.
+| Script | What it captures | Output file(s) |
+|---|---|---|
+| `capture-app-state.sh` | Installed apps: brew formulae, casks, MAS apps, `/Applications` apps with version | `app-state.json`, `app-state.txt` |
+| `capture-app-usage.sh` | GUI app usage via Spotlight `kMDItemLastUsedDate` + `kMDItemUseCount`, Dock pins, login items | `app-usage.json`, `app-usage.txt` |
+| `capture-cli-usage.sh` | CLI command frequency from `~/.bash_history` + `~/.zsh_history`, classified by install source | `cli-usage.json`, `cli-usage.txt` |
+| `capture-system-prefs.sh` | macOS system defaults plists (Dock, Finder, Trackpad, Keyboard, …) | `system-prefs.json`, `plists/` |
+| `capture-app-prefs.sh` | Per-app plist exports (Terminal, iTerm2, VS Code, Chrome, …) | `app-prefs.json`, `app-plists/*.plist` |
+| `capture-dev-env.sh` | Versions of dev tools, env vars, git config (no key material) | `dev-env.json`, `dev-env.txt` |
+| `capture-shell-config.sh` | Copies of `.bashrc` / `.zshrc` / `.profile` / etc. | `shell-config.json`, `dotfiles/` |
+| `capture-onedrive-state.sh` | Which OneDrive dirs are currently downloaded locally | `onedrive-state.json` |
+| `capture-onedrive-state-interactive.sh` | Same, with interactive prompts | `onedrive-state.json` |
+| `capture-login-items-state.sh` | Login items + LaunchAgents via `osascript` + `sfltool` | `login-items.json` |
+| `capture-notification-settings-state.sh` | Per-app notification settings | `notification-settings.json` |
+| `capture-steam-game-state.sh` | Installed Steam games | `steam-games.json` |
 
-- **`capture-app-prefs.sh`** - Snapshot of application preferences
-  - Output: plist exports for commonly configured apps
-  - Captures: Terminal, iTerm2, VS Code, Chrome, Safari, etc.
+### Orchestration
 
-- **`capture-dev-env.sh`** - Snapshot of development environment
-  - Output: Versions of tools, paths, environment variables
-  - Captures: Node, Python, Ruby, Git config, SSH keys (names only), shell config
+| Script | Purpose |
+|---|---|
+| `create-baseline.sh` | Runs every `capture-*` script in order, writing into a timestamped snapshot dir. Shows per-step elapsed time and a `✓`/`✗` indicator. |
 
-- **`capture-shell-config.sh`** - Snapshot of shell configuration
-  - Output: Copies of dotfiles and shell profiles
-  - Captures: .bashrc, .bash_profile, .zshrc, .profile, custom scripts
+### Tier generation (snapshot → ranked manifests)
 
-- **`capture-onedrive-state.sh`** - Snapshot of all OneDrive directories currently downloaded locally to machine.
-  - Output: List of directories currently downloaded on machine
-  - Captures: all OneDrive directories on the machine that have files in them.
+| Script | Reads | Writes |
+|---|---|---|
+| `lib-classify-app.sh` | (sourceable) `brew list --cask` + `mas list` | Index JSON keyed by lowercase app name → `{install_type, cask_name, mas_id}` |
+| `generate-app-tiers.sh` | `app-usage.json` + classification index | `tiers/tier-{essentials,regular,rare}.json`, `tiers/tiers-report.md`, `tiers/unclassified.txt`, `tiers/summary.txt` |
+| `generate-cli-tiers.sh` | `cli-usage.json` | `cli-tiers/cli-tier-{essentials,regular,rare}.json`, `cli-tiers/cli-tiers-report.md`, `cli-tiers/cli-tiers-summary.txt` |
 
-- **`capture-login-items-state.sh`** - Snapshot of all login items for each user.
-  - Output: List of all login items
-  - Captures: List of all login items
+### Install-script generation (tier → subset install scripts)
 
-- **`capture-notification-settings-state.sh`** - Snapshot notification settings for all apps. This will help in porting them over.
-  - Output: List all notification settings that are not default
-  - Captures: All apps listed in notification center
+| Script | Purpose |
+|---|---|
+| `generate-install-scripts.sh --tier <essentials\|regular\|all>` | For the chosen tier, filters `setup/homebrew/brew*.sh` + `setup/appstore/mas.sh` to produce `install-<tier>-{brew,brew-cask,mas}.sh` plus `install-<tier>-manual.txt` (apps with no brew/mas line) and `install-<tier>-promotions.txt` (manually-installed apps that have a brew/mas line available, auto-included). |
 
-- **`capture-steam-game-state.sh`** - Capture all the installed steam games.
-  - Output: List all steam games installed
-  - Captures: All apps steam games installed
+### Push / apply (old Mac → new Mac over SSH)
 
-### Comparison & Diff Scripts
+| Script | Purpose |
+|---|---|
+| `push-to-mac.sh <host> [--tier ...] [--include configs,prefs,defaults\|all] [--dry-run] [--no-run]` | Builds a transfer bundle (install scripts + optional `configs/`, captured plists, `mac-defaults.sh`), runs an `rsync --dry-run` preview, prompts to confirm, then rsyncs and optionally invokes `apply-on-remote.sh` interactively via SSH. Excludes obvious secret patterns automatically. |
+| `apply-on-remote.sh [--dry-run] [--all-yes]` | Runs on the target Mac. Walks 8 stages, each opt-in: Homebrew install → formulae → casks → mas (with sign-in check) → manual install list → configs copy → `mac-defaults.sh` → plist restore. |
+| `restore-app-prefs.sh [--dry-run] [--all] [--apps DOMAIN,…] [snapshot_dir]` | Runs `defaults import` on each `.plist` in the snapshot's `app-plists/` directory. Prompts per-domain by default. |
 
-- **`compare-states.sh`** - Compare two state snapshots
-  - Input: Two snapshot directories
-  - Output: Detailed diff report showing additions, removals, changes
+### Not yet implemented (TODO)
 
-- **`compare-to-baseline.sh`** - Compare current state to baseline
-  - Input: Baseline snapshot directory (e.g., "fresh-install")
-  - Output: What has changed since baseline
+These appeared in the original plan but aren't built yet:
 
-- **`drift-report.sh`** - Generate comprehensive drift report
-  - Output: HTML/Markdown report showing all differences
-  - Useful for: Documentation, troubleshooting, compliance
+| Script | Purpose |
+|---|---|
+| `compare-states.sh` | Diff two snapshot directories |
+| `compare-to-baseline.sh` | Diff current state vs a named baseline |
+| `drift-report.sh` | Markdown drift report |
+| `sync-from-machine.sh` | Pull configs from another Mac (inverse of `push-to-mac.sh`) |
+| `restore-system-prefs.sh` | Re-apply captured system defaults (currently use `setup/macOS/mac-defaults.sh` via `apply-on-remote.sh`) |
+| `schedule-snapshots.sh` | launchd job for weekly/monthly snapshots |
+| `list-snapshots.sh` | Tabular listing of all snapshots |
 
-### Synchronization Scripts
+## Implementation Approach (historical plan)
 
-- **`sync-from-machine.sh`** - Pull configuration from another Mac
-  - Input: Source machine hostname/IP and username
-  - Output: Config files copied locally
-  - Uses: rsync over SSH
-
-- **`sync-to-machine.sh`** - Push configuration to another Mac
-  - Input: Target machine hostname/IP and username
-  - Output: Config files copied remotely
-  - Uses: rsync over SSH
-
-- **`restore-app-prefs.sh`** - Restore application preferences from snapshot
-  - Input: Snapshot directory
-  - Action: Copies plist files back to ~/Library/Preferences
-
-- **`restore-system-prefs.sh`** - Restore system preferences from snapshot
-  - Input: Snapshot directory
-  - Action: Applies system defaults from snapshot
-  - Requires: sudo for some settings
-
-### Utility Scripts
-
-- **`create-baseline.sh`** - Create a new baseline snapshot
-  - Runs all capture scripts
-  - Tags snapshot with date and machine name
-  - Output: Timestamped snapshot directory
-
-- **`schedule-snapshots.sh`** - Set up automated periodic snapshots
-  - Creates launchd job for weekly/monthly snapshots
-  - Useful for: Tracking gradual changes over time
-
-- **`list-snapshots.sh`** - List all available snapshots
-  - Output: Table showing snapshot dates, machines, sizes
-
-## Implementation Approach
+> The phases below are the original design plan. Phases 1–3 are implemented;
+> see [PLAN-activity-based-provisioning.md](PLAN-activity-based-provisioning.md)
+> for what was actually built. Phase 4 (scheduling, drift reports) is partially
+> done — `create-baseline.sh` is the convenience entry point, but launchd
+> scheduling and `compare-states.sh` / `drift-report.sh` are still TODO.
 
 ### Phase 1: Foundation (State Capture)
 
@@ -281,44 +271,66 @@ The state-sync system serves several key purposes:
 
 ## Common Workflows
 
-### Workflow 1: New Machine Setup
+### Workflow 1: Provision a new Mac with only the apps I actually use
 
 ```bash
-# On old Mac - capture everything
-./create-baseline.sh
+SS=~/bin/setup/state-sync/scripts
 
-# Transfer snapshot to new Mac
-scp -r snapshots/YYYY-MM-DD-machinename newmac:~/
+# On the OLD Mac — full capture, then generate tiers + install scripts
+$SS/create-baseline.sh                                # 11 capture scripts (~90s)
+$SS/generate-app-tiers.sh                             # GUI app tiers + report
+$SS/generate-cli-tiers.sh                             # CLI tool tiers + report
+$SS/generate-install-scripts.sh --tier essentials     # subset install scripts
 
-# On new Mac - review what's missing
-./compare-states.sh ~/snapshots/YYYY-MM-DD-machinename ~/snapshots/current
+# Review what would be transferred (no SSH side-effects yet)
+open ~/bin/setup/state-sync/snapshots/<latest>/tiers/tiers-report.md
+open ~/bin/setup/state-sync/snapshots/<latest>/cli-tiers/cli-tiers-report.md
+
+# Push to the new Mac (dry-run, then real)
+$SS/push-to-mac.sh newmac.local --tier essentials --include configs --dry-run
+$SS/push-to-mac.sh newmac.local --tier essentials --include configs
+
+# push-to-mac.sh will offer to run apply-on-remote.sh interactively over SSH.
+# Each install stage prompts on the target Mac.
 ```
 
-### Workflow 2: Periodic Auditing
+### Workflow 2: Inspect what's used vs what's installed
 
 ```bash
-# Capture current state
-./capture-app-state.sh
+SS=~/bin/setup/state-sync/scripts
+$SS/capture-app-usage.sh    # GUI usage from Spotlight + Dock + login items
+$SS/capture-cli-usage.sh    # CLI usage from shell history
+$SS/generate-app-tiers.sh
+$SS/generate-cli-tiers.sh
 
-# Compare to baseline
-./compare-to-baseline.sh baselines/2024-01-fresh-install
-
-# Review drift report
-./drift-report.sh > drift-$(date +%Y-%m-%d).md
+# Browse the reports
+ls ~/bin/setup/state-sync/snapshots/<latest>/{tiers,cli-tiers}/*.md
 ```
 
-### Workflow 3: Configuration Sync
+### Workflow 3: Restore individual app preferences
 
 ```bash
-# Pull configs from primary Mac
-./sync-from-machine.sh bryan-macbook-pro.local bryan
+SS=~/bin/setup/state-sync/scripts
 
-# Review changes
-./compare-states.sh ~/current ~/synced
+# From the latest snapshot, dry-run first
+$SS/restore-app-prefs.sh --dry-run
 
-# Apply selectively
-./restore-app-prefs.sh ~/synced --dry-run
-./restore-app-prefs.sh ~/synced --apps "Terminal,iTerm,VSCode"
+# Restore only specific apps
+$SS/restore-app-prefs.sh --apps com.googlecode.iterm2,com.microsoft.VSCode
+
+# Or restore everything captured without prompting
+$SS/restore-app-prefs.sh --all
+```
+
+### Workflow 4: Periodic drift check (manual until `compare-states.sh` exists)
+
+```bash
+SS=~/bin/setup/state-sync/scripts
+$SS/create-baseline.sh "$(date +%Y-%m-%d)-weekly"
+
+# Manual diff for now — compare two snapshots' app-state.json
+diff <(jq -S . snapshots/old/app-state.json) \
+     <(jq -S . snapshots/new/app-state.json) | less
 ```
 
 ## Design Principles
