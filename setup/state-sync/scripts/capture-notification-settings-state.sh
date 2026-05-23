@@ -1,15 +1,25 @@
 #!/bin/bash
 #
 # capture-notification-settings-state.sh
-# Captures notification settings for all apps
-# Focuses on non-default settings to help with porting to new machines
+# Captures whatever notification-related state is readable on this macOS.
 #
-# Output: JSON file with notification settings per app
+# BACKGROUND (2026):
+#   The legacy ~/Library/Preferences/com.apple.ncprefs.plist was removed in
+#   newer macOS (Sequoia/Tahoe). Per-app notification settings now live in
+#   the sandboxed usernotificationsd daemon and are not directly readable
+#   from user-space scripts. TCC.db has the permission grant/deny info but
+#   reading it requires Full Disk Access granted to Terminal (a manual
+#   user step), and even then it only records allowed/denied, not the
+#   detailed style settings (banner/alert/sound/badge/lock-screen).
+#
+#   This script captures what IS accessible, documents the limitations,
+#   and never fails the baseline.
+#
+# Output: notification-settings.json + notification-settings.txt
 # Usage: ./capture-notification-settings-state.sh [output_dir]
 
-set -euo pipefail
+set -uo pipefail
 
-# Load configuration
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONFIG_FILE="$(dirname "$SCRIPT_DIR")/config.sh"
 if [[ -f "$CONFIG_FILE" ]]; then
@@ -17,7 +27,6 @@ if [[ -f "$CONFIG_FILE" ]]; then
     source "$CONFIG_FILE"
 fi
 
-# Default output directory (use config if no argument provided)
 if [[ -n "${1:-}" ]]; then
     OUTPUT_DIR="$1"
 else
@@ -30,50 +39,107 @@ OUTPUT_FILE="$OUTPUT_DIR/notification-settings.json"
 SUMMARY_FILE="$OUTPUT_DIR/notification-settings.txt"
 
 echo "Capturing notification settings state..."
-echo "Output directory: $OUTPUT_DIR"
 
-# Notification settings are stored in a database
-# We'll use notificationutil (private tool) if available, otherwise read the plist/db directly
-NOTIF_DB="$HOME/Library/Application Support/NotificationCenter"
-NOTIF_PLIST="$HOME/Library/Preferences/com.apple.ncprefs.plist"
+# ---- Probes ----
+LEGACY_PLIST="$HOME/Library/Preferences/com.apple.ncprefs.plist"
+USERNOTIFD_PLIST="$HOME/Library/Preferences/com.apple.usernotificationsd.plist"
+USERNOTIFKIT_PLIST="$HOME/Library/Preferences/com.apple.usernotificationskit.plist"
+USER_TCC_DB="$HOME/Library/Application Support/com.apple.TCC/TCC.db"
+SYSTEM_TCC_DB="/Library/Application Support/com.apple.TCC/TCC.db"
 
-# Function to get notification settings using defaults
-get_notification_settings() {
-    if [[ -f "$NOTIF_PLIST" ]]; then
-        defaults read com.apple.ncprefs 2>/dev/null || echo ""
-    else
-        echo ""
+MACOS_VER=$(sw_vers -productVersion 2>/dev/null || echo "unknown")
+MACOS_BUILD=$(sw_vers -buildVersion 2>/dev/null || echo "unknown")
+
+LEGACY_AVAILABLE=false
+LEGACY_APPS=()
+if [[ -f "$LEGACY_PLIST" ]] && /usr/libexec/PlistBuddy -c "Print :apps" "$LEGACY_PLIST" &>/dev/null; then
+    LEGACY_AVAILABLE=true
+    # Parse legacy plist (pre-Sequoia macOS)
+    NUM_APPS=$(/usr/libexec/PlistBuddy -c "Print :apps" "$LEGACY_PLIST" 2>/dev/null | grep -c "Dict" || echo 0)
+    for ((i=0; i<NUM_APPS; i++)); do
+        BUNDLE_ID=$(/usr/libexec/PlistBuddy -c "Print :apps:$i:bundle-id" "$LEGACY_PLIST" 2>/dev/null || echo "")
+        FLAGS=$(/usr/libexec/PlistBuddy -c "Print :apps:$i:flags" "$LEGACY_PLIST" 2>/dev/null || echo "")
+        [[ -n "$BUNDLE_ID" ]] && LEGACY_APPS+=("$BUNDLE_ID:$FLAGS")
+    done
+fi
+
+# ---- TCC notification permissions (kTCCServiceUserNotifications) ----
+# Only readable if Terminal has Full Disk Access. Try both user and system DBs.
+TCC_APPS_NDJSON=$(mktemp)
+TCC_READABLE=false
+TCC_SOURCE=""
+for db in "$USER_TCC_DB" "$SYSTEM_TCC_DB"; do
+    [[ -f "$db" ]] || continue
+    # The 'access' table on modern macOS has columns including:
+    # service, client, client_type, auth_value, auth_reason, auth_version, ...
+    # auth_value: 0=denied, 2=allowed (varies by version)
+    out=$(sqlite3 "$db" \
+        "SELECT client, auth_value FROM access WHERE service = 'kTCCServiceUserNotifications';" \
+        2>/dev/null || true)
+    if [[ -n "$out" ]]; then
+        TCC_READABLE=true
+        TCC_SOURCE="$db"
+        while IFS='|' read -r client auth; do
+            [[ -z "$client" ]] && continue
+            case "$auth" in
+                0) status="denied"  ;;
+                2) status="allowed" ;;
+                *) status="unknown" ;;
+            esac
+            jq -nc --arg c "$client" --arg s "$status" --argjson v "${auth:-0}" \
+                '{client: $c, auth_status: $s, auth_value: $v}' >> "$TCC_APPS_NDJSON"
+        done <<<"$out"
+        break
     fi
-}
+done
 
-# Function to parse notification center database
-get_notif_center_apps() {
-    # Try to read the plist for app list
-    if [[ -f "$NOTIF_PLIST" ]]; then
-        # Get the apps section
-        defaults read com.apple.ncprefs apps 2>/dev/null | \
-            grep -E "(bundle-id|flags)" | \
-            sed 's/^[[:space:]]*//' || echo ""
-    fi
-}
+TCC_APPS_JSON=$(jq -s '.' "$TCC_APPS_NDJSON" 2>/dev/null || echo "[]")
+TCC_COUNT=$(jq 'length' <<<"$TCC_APPS_JSON" 2>/dev/null || echo 0)
+rm -f "$TCC_APPS_NDJSON"
 
-# Function to check if notifications are allowed for an app
-check_app_notifications() {
-    local bundle_id="$1"
-    defaults read com.apple.ncprefs.plist 2>/dev/null | \
-        grep -A 20 "$bundle_id" | \
-        grep -E "(flags|badge|sound|alert)" | \
-        head -10 || echo ""
-}
+# ---- Global notification settings ----
+REMOTE_NOTIF_ENABLED=$(defaults read com.apple.usernotificationsd RemoteNotifications.isEnabled 2>/dev/null || echo "unknown")
 
-# Start building JSON
-echo "{" > "$OUTPUT_FILE"
-echo "  \"capture_date\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"," >> "$OUTPUT_FILE"
-echo "  \"hostname\": \"$(hostname)\"," >> "$OUTPUT_FILE"
-echo "  \"user\": \"$USER\"," >> "$OUTPUT_FILE"
-echo "  \"notification_settings\": {" >> "$OUTPUT_FILE"
+# ---- Build JSON output ----
+if ! command -v jq &>/dev/null; then
+    echo "Error: jq is required." >&2
+    exit 1
+fi
 
-# Start building summary
+jq -n \
+    --arg capture_date "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+    --arg hostname "$(hostname)" \
+    --arg user "$USER" \
+    --arg macos_ver "$MACOS_VER" \
+    --arg macos_build "$MACOS_BUILD" \
+    --argjson legacy_available "$LEGACY_AVAILABLE" \
+    --argjson tcc_readable "$TCC_READABLE" \
+    --arg tcc_source "$TCC_SOURCE" \
+    --argjson tcc_apps "$TCC_APPS_JSON" \
+    --arg remote_notif_enabled "$REMOTE_NOTIF_ENABLED" \
+    '{
+      capture_date: $capture_date,
+      hostname: $hostname,
+      user: $user,
+      macos: {version: $macos_ver, build: $macos_build},
+      capture_status: {
+        legacy_plist_available: $legacy_available,
+        tcc_db_readable: $tcc_readable,
+        tcc_source: $tcc_source,
+        note: (
+          if $legacy_available then "Legacy plist found — per-app settings captured."
+          elif $tcc_readable then "TCC db readable — per-app allow/deny captured (Terminal has Full Disk Access)."
+          else "Neither legacy plist nor TCC db readable. Grant Terminal Full Disk Access (System Settings → Privacy & Security → Full Disk Access) to capture per-app notification permissions on this macOS version."
+          end
+        )
+      },
+      tcc_notification_permissions: $tcc_apps,
+      global_settings: {
+        remote_notifications_enabled: $remote_notif_enabled
+      }
+    }' > "$OUTPUT_FILE"
+
+# ---- Build human-readable summary ----
 {
     echo "========================================"
     echo "Notification Settings State Snapshot"
@@ -81,143 +147,63 @@ echo "  \"notification_settings\": {" >> "$OUTPUT_FILE"
     echo "Date: $(date)"
     echo "Hostname: $(hostname)"
     echo "User: $USER"
+    echo "macOS: $MACOS_VER ($MACOS_BUILD)"
     echo ""
-    echo "Note: This captures apps with non-default notification settings"
+    echo "Capture status:"
+    echo "  Legacy plist available: $LEGACY_AVAILABLE"
+    echo "  TCC db readable:        $TCC_READABLE"
+    [[ -n "$TCC_SOURCE" ]] && echo "  TCC source:             $TCC_SOURCE"
     echo ""
-} > "$SUMMARY_FILE"
 
-# Get all notification settings
-NOTIF_DATA=$(get_notification_settings)
-
-# Extract app information
-if [[ -n "$NOTIF_DATA" ]]; then
-    # Parse the plist output to extract app bundle IDs and their settings
-    echo "    \"apps\": [" >> "$OUTPUT_FILE"
-
-    # Use PlistBuddy for more reliable parsing
-    if command -v /usr/libexec/PlistBuddy &> /dev/null; then
-        # Get the number of apps
-        NUM_APPS=$(/usr/libexec/PlistBuddy -c "Print :apps" "$NOTIF_PLIST" 2>/dev/null | grep -c "Dict" || echo "0")
-
-        if [[ "$NUM_APPS" -gt 0 ]]; then
-            for ((i=0; i<NUM_APPS; i++)); do
-                BUNDLE_ID=$(/usr/libexec/PlistBuddy -c "Print :apps:$i:bundle-id" "$NOTIF_PLIST" 2>/dev/null || echo "")
-                FLAGS=$(/usr/libexec/PlistBuddy -c "Print :apps:$i:flags" "$NOTIF_PLIST" 2>/dev/null || echo "0")
-
-                if [[ -n "$BUNDLE_ID" ]]; then
-                    # Add comma for all but first entry
-                    if [[ $i -gt 0 ]]; then
-                        echo "," >> "$OUTPUT_FILE"
-                    fi
-
-                    # Determine settings based on flags (bitwise)
-                    # Common flag values:
-                    # 0 = notifications off
-                    # 178 = banners, sounds, badges (typical default)
-                    # flags is a bitfield that controls various notification settings
-
-                    ALERTS_ENABLED="unknown"
-                    BADGES_ENABLED="unknown"
-                    SOUNDS_ENABLED="unknown"
-
-                    # Try to get more specific settings
-                    SHOW_IN_NC=$(/usr/libexec/PlistBuddy -c "Print :apps:$i:show-in-notification-center" "$NOTIF_PLIST" 2>/dev/null || echo "unknown")
-                    BADGE_APP=$(/usr/libexec/PlistBuddy -c "Print :apps:$i:badge-app-icon" "$NOTIF_PLIST" 2>/dev/null || echo "unknown")
-                    SHOW_PREVIEW=$(/usr/libexec/PlistBuddy -c "Print :apps:$i:show-message-preview" "$NOTIF_PLIST" 2>/dev/null || echo "unknown")
-
-                    echo "      {" >> "$OUTPUT_FILE"
-                    echo "        \"bundle_id\": \"$BUNDLE_ID\"," >> "$OUTPUT_FILE"
-                    echo "        \"flags\": $FLAGS," >> "$OUTPUT_FILE"
-                    echo "        \"show_in_notification_center\": \"$SHOW_IN_NC\"," >> "$OUTPUT_FILE"
-                    echo "        \"badge_app_icon\": \"$BADGE_APP\"," >> "$OUTPUT_FILE"
-                    echo "        \"show_message_preview\": \"$SHOW_PREVIEW\"" >> "$OUTPUT_FILE"
-                    echo -n "      }" >> "$OUTPUT_FILE"
-                fi
-            done
-            echo "" >> "$OUTPUT_FILE"
-        fi
-    fi
-
-    echo "    ]" >> "$OUTPUT_FILE"
-else
-    echo "    \"apps\": []" >> "$OUTPUT_FILE"
-fi
-
-echo "  }," >> "$OUTPUT_FILE"
-
-# Add system-wide notification settings
-echo "  \"system_settings\": {" >> "$OUTPUT_FILE"
-DO_NOT_DISTURB=$(defaults read com.apple.ncprefs.plist dnd_prefs 2>/dev/null | grep -v "^{" | grep -v "^}" | sed 's/^[[:space:]]*//' || echo "")
-echo "    \"do_not_disturb\": \"$DO_NOT_DISTURB\"" >> "$OUTPUT_FILE"
-echo "  }" >> "$OUTPUT_FILE"
-
-echo "}" >> "$OUTPUT_FILE"
-
-# Build summary file
-# Initialize NUM_APPS outside the heredoc
-NUM_APPS=0
-if command -v /usr/libexec/PlistBuddy &> /dev/null && [[ -f "$NOTIF_PLIST" ]]; then
-    NUM_APPS=$(/usr/libexec/PlistBuddy -c "Print :apps" "$NOTIF_PLIST" 2>/dev/null | grep -c "Dict" || echo "0")
-fi
-
-{
-    echo "========================================"
-    echo "Apps with Notification Settings"
-    echo "========================================"
-
-    if command -v /usr/libexec/PlistBuddy &> /dev/null && [[ -f "$NOTIF_PLIST" ]]; then
-        echo "Total apps with notification settings: $NUM_APPS"
+    if [[ "$LEGACY_AVAILABLE" == "true" ]]; then
+        echo "========================================"
+        echo "Per-app settings (from legacy plist)"
+        echo "========================================"
+        printf '%s\n' "${LEGACY_APPS[@]}" | awk -F: 'BEGIN{printf "%-60s %s\n", "BUNDLE ID", "FLAGS"} {printf "%-60s %s\n", $1, $2}'
         echo ""
-
-        if [[ "$NUM_APPS" -gt 0 ]]; then
-            echo "Bundle ID                                    | Flags | Badges | NC"
-            echo "-------------------------------------------- | ----- | ------ | ---"
-
-            for ((i=0; i<NUM_APPS; i++)); do
-                BUNDLE_ID=$(/usr/libexec/PlistBuddy -c "Print :apps:$i:bundle-id" "$NOTIF_PLIST" 2>/dev/null || echo "")
-                FLAGS=$(/usr/libexec/PlistBuddy -c "Print :apps:$i:flags" "$NOTIF_PLIST" 2>/dev/null || echo "0")
-                BADGE=$(/usr/libexec/PlistBuddy -c "Print :apps:$i:badge-app-icon" "$NOTIF_PLIST" 2>/dev/null || echo "?")
-                SHOW_NC=$(/usr/libexec/PlistBuddy -c "Print :apps:$i:show-in-notification-center" "$NOTIF_PLIST" 2>/dev/null || echo "?")
-
-                if [[ -n "$BUNDLE_ID" ]]; then
-                    # Truncate long bundle IDs
-                    BUNDLE_SHORT=$(echo "$BUNDLE_ID" | cut -c 1-44)
-                    printf "%-44s | %5s | %6s | %s\n" "$BUNDLE_SHORT" "$FLAGS" "$BADGE" "$SHOW_NC"
-                fi
-            done
-        fi
-    else
-        echo "Could not read notification preferences."
-        echo "Plist file: $NOTIF_PLIST"
     fi
 
-    echo ""
-    echo "========================================"
-    echo "Non-Default Settings (Flags != 178)"
-    echo "========================================"
-
-    if [[ "$NUM_APPS" -gt 0 ]]; then
-        for ((i=0; i<NUM_APPS; i++)); do
-            BUNDLE_ID=$(/usr/libexec/PlistBuddy -c "Print :apps:$i:bundle-id" "$NOTIF_PLIST" 2>/dev/null || echo "")
-            FLAGS=$(/usr/libexec/PlistBuddy -c "Print :apps:$i:flags" "$NOTIF_PLIST" 2>/dev/null || echo "0")
-
-            if [[ -n "$BUNDLE_ID" && "$FLAGS" != "178" ]]; then
-                echo "$BUNDLE_ID (flags=$FLAGS)"
-            fi
-        done
+    if [[ "$TCC_READABLE" == "true" ]]; then
+        echo "========================================"
+        echo "TCC notification permissions ($TCC_COUNT apps)"
+        echo "========================================"
+        echo "Source: $TCC_SOURCE"
+        echo ""
+        jq -r '.tcc_notification_permissions[] | "\(.auth_status)\t\(.client)"' "$OUTPUT_FILE" \
+            | sort | awk -F'\t' 'BEGIN{printf "%-9s %s\n", "STATUS", "CLIENT"} {printf "%-9s %s\n", $1, $2}'
+        echo ""
     fi
 
-} >> "$SUMMARY_FILE"
+    if [[ "$LEGACY_AVAILABLE" == "false" ]] && [[ "$TCC_READABLE" == "false" ]]; then
+        echo "========================================"
+        echo "Per-app settings NOT CAPTURED"
+        echo "========================================"
+        echo "On macOS $MACOS_VER:"
+        echo "  - Legacy ~/Library/Preferences/com.apple.ncprefs.plist no longer exists"
+        echo "    (Apple moved per-app notification settings into the sandboxed"
+        echo "    usernotificationsd daemon — not accessible from user scripts.)"
+        echo "  - TCC.db is also not readable by this Terminal."
+        echo ""
+        echo "To capture per-app notification permissions on modern macOS:"
+        echo "  1. Open: System Settings → Privacy & Security → Full Disk Access"
+        echo "  2. Click '+' and add: $(command -v bash) (or Terminal.app / iTerm.app)"
+        echo "  3. Re-run create-baseline.sh"
+        echo ""
+        echo "Note: even with TCC access, the captured info is per-app allow/deny only."
+        echo "Detailed settings (banner style, sounds, badges, lock screen) require"
+        echo "manual re-configuration on the target Mac."
+        echo ""
+    fi
 
-# Pretty-print the JSON file
-if command -v python3 &> /dev/null; then
-    python3 -m json.tool "$OUTPUT_FILE" > "${OUTPUT_FILE}.tmp" && mv "${OUTPUT_FILE}.tmp" "$OUTPUT_FILE"
-fi
+    echo "========================================"
+    echo "Global settings"
+    echo "========================================"
+    echo "RemoteNotifications.isEnabled: $REMOTE_NOTIF_ENABLED"
+} > "$SUMMARY_FILE"
 
 echo ""
 echo "Notification settings captured successfully!"
-echo "JSON output: $OUTPUT_FILE"
+echo "JSON: $OUTPUT_FILE"
 echo "Summary: $SUMMARY_FILE"
 echo ""
-echo "Preview:"
 head -30 "$SUMMARY_FILE"
