@@ -1,0 +1,25 @@
+# State Sync Configuration Template
+# Copy this file to ~/.state-sync-config and customize as needed
+#
+# Example: cp ~/bin/setup/state-sync/templates/state-sync-config.template ~/.state-sync-config
+
+# Snapshot directory - where state snapshots are stored
+# This should be a location that's backed up (e.g., OneDrive, iCloud, Dropbox)
+SNAPSHOT_DIR="$HOME/bin/setup/state-sync/snapshots"
+
+# Baseline directory - where baseline snapshots are stored
+BASELINE_DIR="$HOME/bin/setup/state-sync/baselines"
+
+# Example configurations:
+
+# OneDrive (Personal)
+# SNAPSHOT_DIR="$HOME/Library/CloudStorage/OneDrive-Personal/1 Common Info/snapshots"
+# BASELINE_DIR="$HOME/Library/CloudStorage/OneDrive-Personal/1 Common Info/baselines"
+
+# iCloud Drive
+# SNAPSHOT_DIR="$HOME/Library/Mobile Documents/com~apple~CloudDocs/state-sync/snapshots"
+# BASELINE_DIR="$HOME/Library/Mobile Documents/com~apple~CloudDocs/state-sync/baselines"
+
+# Dropbox
+# SNAPSHOT_DIR="$HOME/Dropbox/state-sync/snapshots"
+# BASELINE_DIR="$HOME/Dropbox/state-sync/baselines"
