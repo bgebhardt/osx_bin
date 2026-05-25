@@ -359,6 +359,18 @@ brew "maven"  # Java-based project management
 brew "maven-completion"  # maven-bash-completion
 brew "reattach-to-user-namespace"  # work around for tmux-related pastboard problems (helps mas) https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
 
+# Work-machine additions (from 2026-05-23 snapshot — not yet installed here)
+brew "docker-completion"  # Shell completion for Docker
+brew "dotnet"             # .NET SDK
+brew "llvm"               # LLVM toolchain
+brew "m4"                 # GNU macro processor (build tooling dep)
+brew "php"                # PHP
+brew "protobuf"           # Protocol Buffers
+brew "scala-cli"          # Modern Scala CLI tool
+brew "sqlite"             # SQLite database engine
+brew "tcl-tk"             # Tcl/Tk scripting + GUI toolkit
+brew "z3"                 # Z3 theorem prover
+
 # (not in source scripts — discovered via brew bundle dump)
 brew "ack"  # Search tool like grep, but optimized for programmers
 brew "bash"  # Bourne-Again SHell, a UNIX command interpreter

@@ -4,10 +4,11 @@ This directory now contains both the original imperative shell scripts (`brew.sh
 
 | File | Purpose |
 | --- | --- |
-| `Brewfile` | Full manifest of everything currently installed on this Mac (taps, formulae, casks, mas apps, VS Code extensions). |
-| `Brewfile.minimum` | The "fresh-machine essentials" set — mirrors `brew-cask-minimum.sh`. |
-| `Brewfile.work` | Work-machine overlay — mirrors `brew-cask-work.sh` + `brew-work.sh`. Both source scripts are older; expect many entries to be stale. |
-| `generate-brewfiles.py` | Regenerator. Parses the `*.sh` scripts and merges with `brew bundle dump --describe` output. |
+| `Brewfile` | **Hand-curated master.** Never overwritten by the generator. Your declared intent across machines. |
+| `Brewfile.<host>.<YYYY-MM-DD>` | Per-machine, per-day snapshot of what's *actually* installed. Generated. Diff against the master to see drift. |
+| `Brewfile.minimum` | "Fresh-machine essentials" — mirrors `brew-cask-minimum.sh`. Generated. |
+| `Brewfile.work` | Work-machine overlay — mirrors `brew-cask-work.sh` + `brew-work.sh`. Generated; expect stale entries. |
+| `generate-brewfiles.py` | Regenerator. Parses the `*.sh` scripts and merges with `brew bundle dump --describe` output. Writes everything **except** the master. |
 
 ## Why both formats?
 
@@ -17,24 +18,31 @@ This directory now contains both the original imperative shell scripts (`brew.sh
 ## Daily usage
 
 ```sh
-# What's missing or out of date on this machine?
-brew bundle check  --file=setup/homebrew/Brewfile
+# What's missing on this machine compared to your master intent?
+brew bundle check --file=setup/homebrew/Brewfile --no-upgrade
 
-# Same, but ignore "outdated" — only report presence.
-brew bundle check  --file=setup/homebrew/Brewfile --no-upgrade
-
-# Install everything missing.
+# Install everything in the master that isn't installed yet.
 brew bundle install --file=setup/homebrew/Brewfile
 
-# What's installed but NOT in the manifest? (drift report — does not modify)
+# What's installed but NOT in the master? (drift report — does not modify)
 brew bundle cleanup --file=setup/homebrew/Brewfile
 ```
 
-On a fresh Mac, the typical flow is still the shell scripts (they run post-install hooks). Use `Brewfile.minimum` if you want a fast `brew bundle install --file=Brewfile.minimum` for the essentials only.
+On a fresh Mac, the typical flow is still the shell scripts (they run post-install hooks). Use `Brewfile.minimum` for a fast `brew bundle install --file=Brewfile.minimum` of just the essentials.
 
-## Regenerating after editing the `*.sh` scripts
+## Master vs. snapshots
 
-When you add or remove items in `brew.sh` / `brew-cask.sh`, refresh the Brewfiles:
+The `Brewfile` master is yours — edit it freely, add things you *want* installed (even if not yet present), comment things out as historical notes. The generator will never touch it.
+
+The generator produces a per-machine, per-day snapshot named `Brewfile.<hostname>.<YYYY-MM-DD>` that captures what's actually installed right now. Use it to:
+
+- **diff against the master** to find drift in either direction (`diff Brewfile Brewfile.host.date`),
+- **compare across machines** by running the generator on each and diffing the resulting snapshot files,
+- **bootstrap or recover** the master from a known-good machine state (copy the snapshot over the master and edit from there).
+
+## Generating a snapshot
+
+Run any time to capture the current state of this machine:
 
 ```sh
 brew bundle dump --describe --no-restart \
@@ -44,11 +52,16 @@ brew bundle dump --describe --no-restart \
 python3 setup/homebrew/generate-brewfiles.py
 ```
 
+Output:
+- `Brewfile.<hostname>.<YYYY-MM-DD>` — fresh snapshot (overwrites today's if it already exists)
+- `Brewfile.minimum` and `Brewfile.work` — regenerated from the `*.sh` source scripts
+- The `Brewfile` master is **not** touched
+
 The generator:
 
 - Parses each `*.sh` script for section headers and inline `# comment` annotations.
 - Reads `/tmp/Brewfile.generated` as the authoritative install list from this machine.
-- Merges them so each Brewfile entry carries the section header + your hand-written comment (falling back to Homebrew's stock description when you didn't write one).
+- Merges them so each entry carries the section header + your hand-written comment (falling back to Homebrew's stock description when you didn't write one).
 - Annotates taps with the formula(e) they provide (e.g. `tap "Hyde46/hoard"  # for hoard`).
 - Drops commented-out lines from the source scripts (the journal stays in the `*.sh` files; the Brewfile is a manifest).
 

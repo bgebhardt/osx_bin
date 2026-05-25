@@ -7,13 +7,26 @@ headers, inline annotations, and tap-consumer comments.
 """
 from __future__ import annotations
 import re
+import socket
+from datetime import date
 from pathlib import Path
 
 HOME = Path("/Users/bryan/bin/setup/homebrew")
 DUMP = Path("/tmp/Brewfile.generated")
-OUT_FULL = HOME / "Brewfile"
 OUT_MIN = HOME / "Brewfile.minimum"
 OUT_WORK = HOME / "Brewfile.work"
+
+
+def snapshot_path() -> Path:
+    """Per-machine, per-day dump filename: Brewfile.<hostname>.<YYYY-MM-DD>.
+
+    The hand-curated master lives at setup/homebrew/Brewfile and is NEVER
+    written by this generator. Snapshots are diffable references — compare
+    one against the master to see drift, or compare snapshots across machines
+    or dates.
+    """
+    hostname = socket.gethostname().split(".")[0]  # strip .local / .lan
+    return HOME / f"Brewfile.{hostname}.{date.today().isoformat()}"
 
 # ---------- Parsing source scripts ----------
 
@@ -366,18 +379,20 @@ def clean_mas_name(comment: str | None, idnum: str) -> str:
 
 # ---------- Build the full Brewfile ----------
 
-def build_full(brew_idx, cask_idx, all_idx, dump, section_order) -> str:
+def build_full(brew_idx, cask_idx, all_idx, dump, section_order, snapshot_name: str) -> str:
     lines: list[str] = []
-    lines.append("# Full Brewfile — declarative manifest of everything installed on this Mac.")
+    lines.append(f"# {snapshot_name} — per-machine, per-day snapshot of installed packages.")
     lines.append("# Generated from `brew bundle dump --describe`, merged with curated section")
     lines.append("# headers and inline comments from setup/homebrew/brew.sh and brew-cask.sh.")
     lines.append("#")
-    lines.append("# Use:  brew bundle check  --file=setup/homebrew/Brewfile   # what's missing?")
-    lines.append("#       brew bundle install --file=setup/homebrew/Brewfile   # install missing")
-    lines.append("#       brew bundle cleanup --file=setup/homebrew/Brewfile   # what's extra?")
+    lines.append("# THIS IS NOT THE MASTER. The hand-curated master is setup/homebrew/Brewfile,")
+    lines.append("# which is never overwritten by the generator. Use this snapshot to:")
+    lines.append("#   - diff against the master to find drift")
+    lines.append("#   - compare against snapshots from other machines or dates")
+    lines.append("#   - regenerate the master from a known-good state if needed")
     lines.append("#")
     lines.append("# Source-of-truth journal (deprecated entries, commentary, history) lives in")
-    lines.append("# the brew*.sh scripts — they are unchanged. This file is the manifest.")
+    lines.append("# the brew*.sh scripts — they are unchanged.")
     lines.append("")
 
     # Taps
@@ -580,8 +595,9 @@ def main():
 
     dump = parse_dump(DUMP)
 
-    full = build_full(brew_idx, cask_idx, all_idx, dump, section_order)
-    OUT_FULL.write_text(full)
+    out_full = snapshot_path()
+    full = build_full(brew_idx, cask_idx, all_idx, dump, section_order, out_full.name)
+    out_full.write_text(full)
 
     min_header = [
         "# Brewfile.minimum — essentials for a fresh Mac.",
@@ -612,9 +628,10 @@ def main():
     ]
     OUT_WORK.write_text("\n".join(parts) + "\n")
 
-    print(f"wrote {OUT_FULL} ({OUT_FULL.stat().st_size} bytes)")
+    print(f"wrote {out_full} ({out_full.stat().st_size} bytes)")
     print(f"wrote {OUT_MIN} ({OUT_MIN.stat().st_size} bytes)")
     print(f"wrote {OUT_WORK} ({OUT_WORK.stat().st_size} bytes)")
+    print(f"note: master at {HOME / 'Brewfile'} is left untouched.")
 
 
 if __name__ == "__main__":
