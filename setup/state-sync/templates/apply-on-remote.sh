@@ -6,13 +6,15 @@
 #
 # Stages (each opt-in via prompt):
 #   1. Verify / install Homebrew
-#   2. Install brew formulae from install-<tier>-brew.sh
-#   3. Install brew casks from install-<tier>-brew-cask.sh
-#   4. Install Mac App Store apps from install-<tier>-mas.sh
-#   5. Print manual install list
-#   6. (--include configs) Copy app configs (Karabiner, Rectangle, etc.)
-#   7. (--include defaults) Run mac-defaults.sh
-#   8. (--include prefs)    Run restore-app-prefs.sh
+#   2. Preview Brewfile.<tier> via `brew bundle check`
+#   3. Install brew formulae   (brew bundle install --no-cask --no-mas --no-vscode)
+#   4. Install brew casks      (brew bundle install --no-brew --no-mas --no-vscode)
+#   5. Install Mac App Store   (brew bundle install --no-brew --no-cask --no-vscode)
+#   6. Run post-install-<tier>.sh   (pipx/curl steps that Brewfile can't express)
+#   7. Print manual install list
+#   8. (--include configs) Copy app configs (Karabiner, Rectangle, etc.)
+#   9. (--include defaults) Run mac-defaults.sh
+#  10. (--include prefs)    Run restore-app-prefs.sh
 #
 # Usage: apply-on-remote.sh [--all-yes] [--dry-run]
 #   --all-yes   Accept every prompt (use with caution)
@@ -51,20 +53,22 @@ if [[ -f "$BUNDLE_DIR/MANIFEST.txt" ]]; then
     echo ""
 fi
 
-# Detect tier from filenames
+# Detect tier from filenames: install/Brewfile.<tier>
 TIER=""
-for f in "$BUNDLE_DIR"/install/install-*-brew-cask.sh; do
+BREWFILE=""
+for f in "$BUNDLE_DIR"/install/Brewfile.*; do
     [[ -f "$f" ]] || continue
     fname=$(basename "$f")
-    TIER="${fname#install-}"
-    TIER="${TIER%-brew-cask.sh}"
+    TIER="${fname#Brewfile.}"
+    BREWFILE="$f"
     break
 done
 if [[ -z "$TIER" ]]; then
-    echo "Error: cannot detect tier (no install/install-*-brew-cask.sh found)" >&2
+    echo "Error: cannot detect tier (no install/Brewfile.* found)" >&2
     exit 1
 fi
 echo "Detected tier: $TIER"
+echo "Brewfile:      $BREWFILE"
 echo ""
 
 confirm() {
@@ -107,9 +111,11 @@ else
         run_or_dry /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         # Bring brew onto PATH for the rest of this session
         if [[ -x /opt/homebrew/bin/brew ]]; then
-            eval "$(/opt/homebrew/bin/brew shellenv)"
+            BREW="/opt/homebrew/bin/brew"
+            eval "$("$BREW" shellenv)"
         elif [[ -x /usr/local/bin/brew ]]; then
-            eval "$(/usr/local/bin/brew shellenv)"
+            BREW="/usr/local/bin/brew"
+            eval "$("$BREW" shellenv)"
         fi
     else
         echo "  Skipping Homebrew install. brew/mas/cask stages will be unavailable."
@@ -117,77 +123,90 @@ else
 fi
 echo ""
 
-# ---- Stage 2: brew formulae ----
-echo "=== Stage 2: brew formulae ==="
-BREW_SCRIPT="$BUNDLE_DIR/install/install-${TIER}-brew.sh"
-if [[ -f "$BREW_SCRIPT" ]]; then
-    count=$(grep -cE '^[[:space:]]*brew install ' "$BREW_SCRIPT" || true)
-    echo "  Script: $BREW_SCRIPT ($count formulae)"
-    if [[ "$count" -gt 0 ]] && confirm "Run brew formula installs?"; then
-        if command -v brew &>/dev/null; then
-            run_or_dry bash "$BREW_SCRIPT" || echo "  (some formulae failed; continuing)"
-        else
-            echo "  brew not on PATH; skipping"
-        fi
-    fi
-else
-    echo "  No brew script in bundle, skipping."
+# Common counts from Brewfile (used by stages 2-5).
+brew_count=$(grep -cE '^brew "' "$BREWFILE" || true)
+cask_count=$(grep -cE '^cask "' "$BREWFILE" || true)
+mas_count=$(grep -cE '^mas "' "$BREWFILE" || true)
+
+# ---- Stage 2: Preview Brewfile ----
+echo "=== Stage 2: Preview Brewfile.$TIER ==="
+echo "  Entries: $brew_count formulae, $cask_count casks, $mas_count mas apps"
+if command -v brew &>/dev/null && confirm "Run \`brew bundle check\` to preview what's missing?"; then
+    # --no-upgrade: report only missing, not outdated.
+    "$BREW" bundle check --file="$BREWFILE" --no-upgrade --verbose || true
 fi
 echo ""
 
-# ---- Stage 3: brew casks ----
-echo "=== Stage 3: brew casks ==="
-CASK_SCRIPT="$BUNDLE_DIR/install/install-${TIER}-brew-cask.sh"
-if [[ -f "$CASK_SCRIPT" ]]; then
-    count=$(grep -cE '^[[:space:]]*brew install ' "$CASK_SCRIPT" || true)
-    echo "  Script: $CASK_SCRIPT ($count casks)"
-    if [[ "$count" -gt 0 ]] && confirm "Run brew cask installs?"; then
-        if command -v brew &>/dev/null; then
-            run_or_dry bash "$CASK_SCRIPT" || echo "  (some casks failed; continuing)"
-        else
-            echo "  brew not on PATH; skipping"
-        fi
+# ---- Stage 3: brew formulae ----
+echo "=== Stage 3: brew formulae ($brew_count) ==="
+if [[ "$brew_count" -gt 0 ]] && confirm "Install brew formulae?"; then
+    if command -v brew &>/dev/null; then
+        run_or_dry "$BREW" bundle install --file="$BREWFILE" \
+            --no-upgrade --no-cask --no-mas --no-vscode \
+            || echo "  (some formulae failed; continuing)"
+    else
+        echo "  brew not on PATH; skipping"
     fi
-else
-    echo "  No cask script in bundle, skipping."
 fi
 echo ""
 
-# ---- Stage 4: Mac App Store ----
-echo "=== Stage 4: Mac App Store ==="
-MAS_SCRIPT="$BUNDLE_DIR/install/install-${TIER}-mas.sh"
-if [[ -f "$MAS_SCRIPT" ]]; then
-    count=$(grep -cE '^[[:space:]]*mas install ' "$MAS_SCRIPT" || true)
-    echo "  Script: $MAS_SCRIPT ($count apps)"
-    if [[ "$count" -gt 0 ]]; then
-        if ! command -v mas &>/dev/null; then
-            echo "  mas not installed."
-            if confirm "Install mas via brew?"; then
-                run_or_dry brew install mas
-            fi
-        fi
-        if command -v mas &>/dev/null; then
-            if mas account &>/dev/null; then
-                signed_in=$(mas account 2>&1 | head -1)
-                echo "  App Store signed in as: $signed_in"
-            else
-                echo "  Not signed into Mac App Store."
-                echo "  Please open App Store.app and sign in, then re-run with --tier mas only."
-            fi
-            if confirm "Run mas installs now?"; then
-                run_or_dry bash "$MAS_SCRIPT" || echo "  (some mas installs failed; continuing)"
-            fi
-        else
-            echo "  mas unavailable; skipping."
-        fi
+# ---- Stage 4: brew casks ----
+echo "=== Stage 4: brew casks ($cask_count) ==="
+if [[ "$cask_count" -gt 0 ]] && confirm "Install brew casks?"; then
+    if command -v brew &>/dev/null; then
+        run_or_dry "$BREW" bundle install --file="$BREWFILE" \
+            --no-upgrade --no-brew --no-mas --no-vscode \
+            || echo "  (some casks failed; continuing)"
+    else
+        echo "  brew not on PATH; skipping"
     fi
-else
-    echo "  No mas script in bundle, skipping."
 fi
 echo ""
 
-# ---- Stage 5: manual installs ----
-echo "=== Stage 5: Manual installs ==="
+# ---- Stage 5: Mac App Store ----
+echo "=== Stage 5: Mac App Store ($mas_count) ==="
+if [[ "$mas_count" -gt 0 ]]; then
+    if ! command -v mas &>/dev/null; then
+        echo "  mas not installed."
+        if confirm "Install mas via brew?"; then
+            run_or_dry "$BREW" install mas
+        fi
+    fi
+    if command -v mas &>/dev/null; then
+        if mas account &>/dev/null; then
+            signed_in=$(mas account 2>&1 | head -1)
+            echo "  App Store signed in as: $signed_in"
+        else
+            echo "  Not signed into Mac App Store."
+            echo "  Please open App Store.app and sign in, then re-run this stage."
+        fi
+        if confirm "Run mas installs now?"; then
+            run_or_dry "$BREW" bundle install --file="$BREWFILE" \
+                --no-upgrade --no-brew --no-cask --no-vscode \
+                || echo "  (some mas installs failed; continuing)"
+        fi
+    else
+        echo "  mas unavailable; skipping."
+    fi
+fi
+echo ""
+
+# ---- Stage 6: post-install hooks ----
+echo "=== Stage 6: Post-install hooks ==="
+POST_INSTALL="$BUNDLE_DIR/install/post-install-${TIER}.sh"
+if [[ -f "$POST_INSTALL" ]]; then
+    echo "  Script: $POST_INSTALL"
+    echo "  These are side-effects Brewfile can't express (pipx installs, curl-based installers, …)."
+    if confirm "Run post-install hooks?"; then
+        run_or_dry bash "$POST_INSTALL" || echo "  (some post-install steps failed; continuing)"
+    fi
+else
+    echo "  No post-install script in bundle, skipping."
+fi
+echo ""
+
+# ---- Stage 7: manual installs ----
+echo "=== Stage 7: Manual installs ==="
 MANUAL_FILE="$BUNDLE_DIR/install/install-${TIER}-manual.txt"
 if [[ -f "$MANUAL_FILE" ]]; then
     body_lines=$(grep -cv '^#\|^$' "$MANUAL_FILE" || echo 0)
@@ -201,8 +220,8 @@ else
 fi
 echo ""
 
-# ---- Stage 6: app configs ----
-echo "=== Stage 6: App configs ==="
+# ---- Stage 8: app configs ----
+echo "=== Stage 8: App configs ==="
 if [[ -d "$BUNDLE_DIR/configs" ]]; then
     echo "  Configs dir: $BUNDLE_DIR/configs"
     ls -1 "$BUNDLE_DIR/configs" | sed 's/^/    /'
@@ -229,8 +248,8 @@ else
 fi
 echo ""
 
-# ---- Stage 7: macOS defaults ----
-echo "=== Stage 7: macOS defaults ==="
+# ---- Stage 9: macOS defaults ----
+echo "=== Stage 9: macOS defaults ==="
 if [[ -f "$BUNDLE_DIR/mac-defaults.sh" ]]; then
     echo "  Script: $BUNDLE_DIR/mac-defaults.sh"
     echo "  WARNING: this sets dozens of system defaults. Review the script first."
@@ -242,8 +261,8 @@ else
 fi
 echo ""
 
-# ---- Stage 8: app prefs ----
-echo "=== Stage 8: App preferences (plist imports) ==="
+# ---- Stage 10: app prefs ----
+echo "=== Stage 10: App preferences (plist imports) ==="
 if [[ -d "$BUNDLE_DIR/app-plists" ]] && [[ -f "$BUNDLE_DIR/restore-app-prefs.sh" ]]; then
     plist_count=$(find "$BUNDLE_DIR/app-plists" -name '*.plist' | wc -l | tr -d ' ')
     echo "  $plist_count plist(s) available"

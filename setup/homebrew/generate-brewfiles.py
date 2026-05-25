@@ -12,6 +12,7 @@ from datetime import date
 from pathlib import Path
 
 HOME = Path("/Users/bryan/bin/setup/homebrew")
+MAS_SH = Path("/Users/bryan/bin/setup/appstore/mas.sh")
 DUMP = Path("/tmp/Brewfile.generated")
 OUT_MIN = HOME / "Brewfile.minimum"
 OUT_WORK = HOME / "Brewfile.work"
@@ -101,33 +102,95 @@ def looks_like_section(title: str, double_hash: bool) -> bool:
     return True
 
 
+def _parse_install_line(
+    line: str, file_name: str, line_num: int, commented: bool
+) -> dict | None:
+    """Match one line as a tap / mas / brew (formula or cask) install entry.
+
+    When `commented` is True, the line was reached by stripping a leading `#`
+    and the resulting record is a tombstone — it gets `source_file` /
+    `source_line` so the snapshot can annotate where it came from.
+    """
+    src_file = file_name if commented else None
+    src_line = line_num if commented else None
+    m = TAP_RE.match(line)
+    if m:
+        return {
+            "kind": "tap",
+            "name": m.group(1),
+            "comment": (m.group(2) or "").strip() or None,
+            "commented_out": commented,
+            "source_file": src_file,
+            "source_line": src_line,
+        }
+    m = MAS_RE.match(line)
+    if m:
+        return {
+            "kind": "mas",
+            "id": m.group(1),
+            "comment": (m.group(2) or "").strip() or None,
+            "commented_out": commented,
+            "source_file": src_file,
+            "source_line": src_line,
+        }
+    m = INSTALL_RE.match(line)
+    if m:
+        is_cask = bool(
+            re.match(r"^\s*brew\s+(?:cask\s+install|install\s+--cask)\b", line)
+        )
+        return {
+            "kind": "brew",
+            "name": m.group(1),
+            "comment": (m.group(2) or "").strip() or None,
+            "is_cask": is_cask,
+            "commented_out": commented,
+            "source_file": src_file,
+            "source_line": src_line,
+        }
+    return None
+
+
 def parse_script(path: Path) -> list[dict]:
     """Parse a shell setup script into an ordered list of records.
 
     Each record is one of:
       {"kind": "section", "title": str}
-      {"kind": "brew",    "name": str, "comment": str|None, "is_cask": bool}
-      {"kind": "tap",     "name": str, "comment": str|None}
-      {"kind": "mas",     "id": str,   "comment": str|None}
-    Commented-out install lines are skipped (journal stays in source).
+      {"kind": "brew",    "name": str, "comment": str|None, "is_cask": bool,
+                          "commented_out": bool, "source_file": str|None,
+                          "source_line": int|None}
+      {"kind": "tap",     "name": str, ...}
+      {"kind": "mas",     "id": str,   ...}
+
+    Commented-out `# brew install foo`, `# brew tap foo`, and `# mas install N`
+    lines become tombstone records (commented_out=True) so the snapshot
+    Brewfile can emit them as `# cask "foo"  # [tombstone …]`. State-sync's
+    promotion logic matches against these. Other commented patterns (pipx,
+    curl, llm, …) are skipped — they have no Brewfile equivalent.
     """
     records: list[dict] = []
     if not path.exists():
         return records
     raw_lines = path.read_text().splitlines()
+    file_name = path.name
     for idx, raw in enumerate(raw_lines):
         line = raw.rstrip("\n")
         stripped = line.strip()
         if not stripped:
             continue
-        # Skip lines that are commented-out install commands. The leading '#'
-        # before a brew/mas keyword means inactive.
-        if stripped.startswith("#") and re.match(
-            r"^#+\s*(brew|mas|pipx|pip|go|npm|llm|curl|echo)\b", stripped
-        ):
-            continue
-        # Section headers (line is purely a comment).
         if stripped.startswith("#"):
+            uncommented = re.sub(r"^#+\s?", "", stripped)
+            # Tombstone-eligible: commented brew/mas/tap lines.
+            if re.match(r"^(brew|mas)\b", uncommented):
+                rec = _parse_install_line(
+                    uncommented, file_name, idx + 1, commented=True
+                )
+                if rec is not None:
+                    records.append(rec)
+                continue
+            # Other commented install-ish patterns: drop entirely (no Brewfile form).
+            if re.match(r"^(pipx|pip|go|npm|llm|curl|echo)\b", uncommented):
+                continue
+            # Section headers (line is purely a comment).
             m = SECTION_RE.match(line)
             if m:
                 title = m.group(1).strip()
@@ -138,53 +201,24 @@ def parse_script(path: Path) -> list[dict]:
                     records.append({"kind": "section", "title": title})
             continue
         # Active install / tap / mas.
-        m = TAP_RE.match(line)
-        if m:
-            records.append(
-                {
-                    "kind": "tap",
-                    "name": m.group(1),
-                    "comment": (m.group(2) or "").strip() or None,
-                }
-            )
-            continue
-        m = MAS_RE.match(line)
-        if m:
-            records.append(
-                {
-                    "kind": "mas",
-                    "id": m.group(1),
-                    "comment": (m.group(2) or "").strip() or None,
-                }
-            )
-            continue
-        m = INSTALL_RE.match(line)
-        if m:
-            name = m.group(1)
-            comment = (m.group(2) or "").strip() or None
-            # Detect cask vs brew. The regex consumed --cask via non-capturing
-            # group, so re-check the raw line.
-            is_cask = bool(
-                re.match(r"^\s*brew\s+(?:cask\s+install|install\s+--cask)\b", line)
-            )
-            records.append(
-                {
-                    "kind": "brew",
-                    "name": name,
-                    "comment": comment,
-                    "is_cask": is_cask,
-                }
-            )
+        rec = _parse_install_line(line, file_name, idx + 1, commented=False)
+        if rec is not None:
+            records.append(rec)
     return records
 
 
 def index_records(records: list[dict], section_order: list[str]):
-    """Build a lookup: (kind, name-or-id) -> {section, comment}.
+    """Build a lookup of active entries plus a list of tombstones.
+
+    Returns (idx, tombstones).
+      idx: (kind, name-or-id) -> {section, comment} for active entries only.
+      tombstones: list of commented-out records with `section` attached.
 
     Also extends section_order in place with sections in first-seen order.
     `kind` is 'brew', 'cask', 'tap', or 'mas'.
     """
     idx: dict[tuple[str, str], dict] = {}
+    tombstones: list[dict] = []
     current_section = None
     seen_sections = set(section_order)
     for rec in records:
@@ -193,6 +227,9 @@ def index_records(records: list[dict], section_order: list[str]):
             if current_section not in seen_sections:
                 section_order.append(current_section)
                 seen_sections.add(current_section)
+            continue
+        if rec.get("commented_out"):
+            tombstones.append({**rec, "section": current_section})
             continue
         if rec["kind"] == "brew":
             key_kind = "cask" if rec["is_cask"] else "brew"
@@ -210,7 +247,7 @@ def index_records(records: list[dict], section_order: list[str]):
                 "section": current_section,
                 "comment": rec["comment"],
             }
-    return idx
+    return idx, tombstones
 
 
 # ---------- Parsing the brew bundle dump ----------
@@ -366,6 +403,34 @@ def fmt_mas(name: str, idnum: str, comment: str | None) -> str:
     return base + fmt_comment(comment)
 
 
+def _tombstone_suffix(tomb: dict) -> str:
+    """Build the trailing `# [tombstone src:line] comment` annotation."""
+    bits: list[str] = []
+    src_file = tomb.get("source_file")
+    src_line = tomb.get("source_line")
+    if src_file and src_line:
+        bits.append(f"[tombstone {src_file}:{src_line}]")
+    if tomb.get("comment"):
+        bits.append(tomb["comment"])
+    return ("  # " + " ".join(bits)) if bits else ""
+
+
+def fmt_tombstone(tomb: dict) -> str:
+    """Render a tombstone record as a commented Brewfile entry.
+
+    State-sync's promotion lookup matches `# cask "X"` / `# brew "X"` /
+    `# mas "X", id: N` / `# tap "X"` against these lines.
+    """
+    if tomb["kind"] == "tap":
+        return f'# tap "{tomb["name"]}"' + _tombstone_suffix(tomb)
+    if tomb["kind"] == "mas":
+        name = clean_mas_name(tomb.get("comment"), tomb["id"])
+        return f'# mas "{name}", id: {tomb["id"]}' + _tombstone_suffix(tomb)
+    # brew formula or cask
+    keyword = "cask" if tomb.get("is_cask") else "brew"
+    return f'# {keyword} "{tomb["name"]}"' + _tombstone_suffix(tomb)
+
+
 def clean_mas_name(comment: str | None, idnum: str) -> str:
     """Extract a clean app name from a source-script comment like
     'OwlOCR - Screenshot to Text (6.0.6)' -> 'OwlOCR'.
@@ -379,7 +444,53 @@ def clean_mas_name(comment: str | None, idnum: str) -> str:
 
 # ---------- Build the full Brewfile ----------
 
-def build_full(brew_idx, cask_idx, all_idx, dump, section_order, snapshot_name: str) -> str:
+def _bucket_tombstones(tombstones: list[dict], all_idx: dict) -> dict:
+    """Group tombstones for output: by section for brew/cask, flat for tap/mas.
+
+    Dedupes by canonical key (so the same commented entry appearing in multiple
+    source scripts is only emitted once). Skips tombstones whose name has an
+    active counterpart in `all_idx` — no point listing both.
+    """
+    by_section: dict[str, dict[str, list[dict]]] = {}
+    taps: list[dict] = []
+    masapps: list[dict] = []
+    seen: set[tuple[str, str]] = set()
+    for tomb in tombstones:
+        kind = tomb["kind"]
+        if kind == "brew":
+            short = tomb["name"].split("/")[-1]
+            kind_str = "cask" if tomb.get("is_cask") else "brew"
+            key = (kind_str, short)
+            if key in seen or (kind_str, short) in all_idx or (kind_str, tomb["name"]) in all_idx:
+                continue
+            seen.add(key)
+            section = tomb.get("section") or DISCOVERED_SECTION
+            slot = "cask" if tomb.get("is_cask") else "brew"
+            by_section.setdefault(section, {"brew": [], "cask": []})[slot].append(tomb)
+        elif kind == "tap":
+            key = ("tap", tomb["name"].lower())
+            if key in seen or key in all_idx:
+                continue
+            seen.add(key)
+            taps.append(tomb)
+        elif kind == "mas":
+            key = ("mas", tomb["id"])
+            if key in seen or key in all_idx:
+                continue
+            seen.add(key)
+            masapps.append(tomb)
+    return {"by_section": by_section, "taps": taps, "mas": masapps}
+
+
+def build_full(
+    brew_idx,
+    cask_idx,
+    all_idx,
+    tombstones: list[dict],
+    dump,
+    section_order,
+    snapshot_name: str,
+) -> str:
     lines: list[str] = []
     lines.append(f"# {snapshot_name} — per-machine, per-day snapshot of installed packages.")
     lines.append("# Generated from `brew bundle dump --describe`, merged with curated section")
@@ -392,8 +503,13 @@ def build_full(brew_idx, cask_idx, all_idx, dump, section_order, snapshot_name: 
     lines.append("#   - regenerate the master from a known-good state if needed")
     lines.append("#")
     lines.append("# Source-of-truth journal (deprecated entries, commentary, history) lives in")
-    lines.append("# the brew*.sh scripts — they are unchanged.")
+    lines.append("# the brew*.sh scripts — they are unchanged. Tombstone lines (`# cask \"X\"`")
+    lines.append("# with `[tombstone …]` annotation) mirror commented `# brew install X` lines")
+    lines.append("# from the source scripts, so state-sync can promote manually-installed apps")
+    lines.append("# to a brew/mas line without re-parsing the source scripts.")
     lines.append("")
+
+    tomb_buckets = _bucket_tombstones(tombstones, all_idx)
 
     # Taps
     consumers = tap_consumers(dump["brews"], dump["casks"])
@@ -402,6 +518,8 @@ def build_full(brew_idx, cask_idx, all_idx, dump, section_order, snapshot_name: 
         rec = all_idx.get(("tap", tap.lower()))
         user_comment = rec["comment"] if rec else None
         lines.append(fmt_tap(tap, consumers.get(tap.lower(), []), user_comment))
+    for tomb in sorted(tomb_buckets["taps"], key=lambda t: t["name"].lower()):
+        lines.append(fmt_tombstone(tomb))
     lines.append("")
 
     # Group brews and casks by section. Items within a section are kept as
@@ -438,23 +556,40 @@ def build_full(brew_idx, cask_idx, all_idx, dump, section_order, snapshot_name: 
     if DISCOVERED_SECTION in grouped:
         final_order.append(DISCOVERED_SECTION)
 
-    for section in final_order:
+    # Sections that have only tombstones (no active dump entries) still need
+    # to appear so their tombstones don't get orphaned.
+    tomb_sections = set(tomb_buckets["by_section"].keys())
+    final_order_with_tombs = list(final_order)
+    for s in tomb_sections:
+        if s not in final_order_with_tombs:
+            final_order_with_tombs.append(s)
+
+    for section in final_order_with_tombs:
         lines.append(f"# {section}")
         # Sort within section by name for stable output.
-        for _name, item in sorted(grouped[section]["brew"]):
+        active = grouped.get(section, {"brew": [], "cask": []})
+        for _name, item in sorted(active["brew"]):
             lines.append(item)
-        for _name, item in sorted(grouped[section]["cask"]):
+        for _name, item in sorted(active["cask"]):
             lines.append(item)
+        # Tombstones for this section, after active entries.
+        tombs_here = tomb_buckets["by_section"].get(section, {"brew": [], "cask": []})
+        for tomb in sorted(tombs_here["brew"], key=lambda t: t["name"].lower()):
+            lines.append(fmt_tombstone(tomb))
+        for tomb in sorted(tombs_here["cask"], key=lambda t: t["name"].lower()):
+            lines.append(fmt_tombstone(tomb))
         lines.append("")
 
     # mas
-    if dump["mas"]:
+    if dump["mas"] or tomb_buckets["mas"]:
         lines.append("# Mac App Store apps")
         mas_idx = {k[1]: v for k, v in all_idx.items() if k[0] == "mas"}
         for name, idnum, stock_desc in dump["mas"]:
             rec = mas_idx.get(idnum)
             comment = (rec and rec["comment"]) or stock_desc
             lines.append(fmt_mas(name, idnum, comment))
+        for tomb in sorted(tomb_buckets["mas"], key=lambda t: t["id"]):
+            lines.append(fmt_tombstone(tomb))
         lines.append("")
 
     # vscode
@@ -544,6 +679,11 @@ def build_tier_from_script(script_path: Path, header_lines: list[str]) -> str:
             continue
         if rec["kind"] == "tap":
             continue
+        # Minimum/work overlays only emit active entries — they're curated
+        # manifests, not journals. Tombstones (commented_out records) only
+        # belong in the per-day snapshot Brewfile.
+        if rec.get("commented_out"):
+            continue
         if rec["kind"] == "brew":
             short = rec["name"].split("/")[-1]
             if rec["is_cask"]:
@@ -579,16 +719,33 @@ def build_tier_from_script(script_path: Path, header_lines: list[str]) -> str:
 def main():
     brew_sh = parse_script(HOME / "brew.sh")
     cask_sh = parse_script(HOME / "brew-cask.sh")
+    mas_sh = parse_script(MAS_SH)
     min_sh = parse_script(HOME / "brew-cask-minimum.sh")
     work_cask_sh = parse_script(HOME / "brew-cask-work.sh")
     work_sh = parse_script(HOME / "brew-work.sh")
 
     all_idx: dict = {}
+    all_tombstones: list[dict] = []
     section_order: list[str] = []
-    # Order matters: brew.sh/brew-cask.sh (canonical) processed first so
-    # their sections take priority in ordering. Later sources fill in extras.
-    for recs in (brew_sh, cask_sh, min_sh, work_cask_sh, work_sh):
-        all_idx.update(index_records(recs, section_order))
+    # Canonical scripts: contribute both active entries and tombstones.
+    # Order matters: brew.sh/brew-cask.sh processed first so their sections
+    # take priority in ordering.
+    for recs in (brew_sh, cask_sh, mas_sh):
+        idx, tombs = index_records(recs, section_order)
+        all_idx.update(idx)
+        all_tombstones.extend(tombs)
+    # Overlay scripts: active entries only — they're not journals.
+    for recs in (min_sh, work_cask_sh, work_sh):
+        idx, _ = index_records(recs, section_order)
+        all_idx.update(idx)
+
+    # brew-cask*.sh writes most lines as `brew install foo` (no --cask flag);
+    # the regex correctly marks active entries as is_cask=False, but anyone
+    # looking up a cask tombstone (e.g. state-sync) expects to find them as
+    # `# cask "foo"`. Override is_cask based on the source file convention.
+    for tomb in all_tombstones:
+        if tomb["kind"] == "brew" and (tomb.get("source_file") or "").startswith("brew-cask"):
+            tomb["is_cask"] = True
 
     brew_idx = {k[1]: v for k, v in all_idx.items() if k[0] == "brew"}
     cask_idx = {k[1]: v for k, v in all_idx.items() if k[0] == "cask"}
@@ -596,7 +753,9 @@ def main():
     dump = parse_dump(DUMP)
 
     out_full = snapshot_path()
-    full = build_full(brew_idx, cask_idx, all_idx, dump, section_order, out_full.name)
+    full = build_full(
+        brew_idx, cask_idx, all_idx, all_tombstones, dump, section_order, out_full.name
+    )
     out_full.write_text(full)
 
     min_header = [

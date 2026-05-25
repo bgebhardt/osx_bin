@@ -7,7 +7,7 @@
 #   tier-rare.json        (everything else)
 #
 # Buckets are EXCLUSIVE. Each app appears in exactly one tier.
-# Layer 3 (generate-install-scripts.sh) can union them via the --tier flag.
+# Layer 3 (generate-tier-brewfile.sh) can union them via the --tier flag.
 #
 # Usage: generate-app-tiers.sh [snapshot_dir]
 #   If snapshot_dir is omitted, uses the most recent snapshot dir.
@@ -280,7 +280,7 @@ MD_HEADER
         echo ""
         echo "## Manual installs (essentials + regular tiers)"
         echo ""
-        echo "These apps are NOT managed by brew or mas. \`generate-install-scripts.sh\` may still find a brew/mas line for them via name matching (see promotions.txt)."
+        echo "These apps are NOT managed by brew or mas. \`generate-tier-brewfile.sh\` may still find a brew/mas line for them via name matching against the Brewfile snapshot (see promotions.txt)."
         echo ""
         echo "| Tier | Name | Path |"
         echo "|------|------|------|"

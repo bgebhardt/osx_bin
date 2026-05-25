@@ -18,10 +18,11 @@ SS=~/bin/setup/state-sync/scripts
 # A) Capture everything (state + GUI activity + CLI activity)
 $SS/create-baseline.sh                # Runs all 11 capture-* scripts
 
-# B) Generate GUI app tiers + filtered install scripts
+# B) Generate GUI app tiers + filtered Brewfile subset
 $SS/generate-app-tiers.sh             # → snapshots/<latest>/tiers/{tier-*.json, tiers-report.md}
-$SS/generate-install-scripts.sh --tier essentials
-                                      # → snapshots/<latest>/tiers/install/install-essentials-*.sh
+$SS/generate-tier-brewfile.sh --tier essentials
+                                      # → snapshots/<latest>/tiers/install/Brewfile.essentials
+                                      #   (+ manual.txt, promotions.txt, post-install-*.sh if needed)
 
 # C) Rank CLI tools by frequency (independent from GUI tiers)
 $SS/generate-cli-tiers.sh             # → snapshots/<latest>/cli-tiers/{cli-tier-*.json, cli-tiers-report.md}
@@ -60,21 +61,35 @@ The provisioning flow has four layers:
 
    Each app is also tagged with `install_type` (brew/mas/other) and its cask_name or mas_id.
 
-3. **Install-script generation** (`generate-install-scripts.sh`) — For a chosen tier
-   (essentials / regular / all), filters the canonical `homebrew/brew*.sh`, `appstore/mas.sh`,
-   and `appstore/install-other-apps.sh` scripts to produce a minimal subset:
-   - `install-<tier>-brew.sh`
-   - `install-<tier>-brew-cask.sh`
-   - `install-<tier>-mas.sh`
-   - `install-<tier>-manual.txt`
-   - `install-<tier>-promotions.txt` — apps installed manually that have a brew/mas line
-     available (auto-promoted into the brew/mas install scripts)
+3. **Tier Brewfile generation** (`generate-tier-brewfile.sh`) — For a chosen tier
+   (essentials / regular / all), reads the latest generated snapshot Brewfile
+   (`setup/homebrew/Brewfile.<hostname>.<date>`, produced by `generate-brewfiles.py`)
+   and emits a tier subset:
+   - `Brewfile.<tier>` — primary install manifest (`brew bundle install --file=`)
+   - `install-<tier>-manual.txt` — apps with no brew/mas line available
+   - `install-<tier>-promotions.txt` — audit log of `other` → brew/mas promotions
+     (matched against active *and* tombstone entries in the snapshot Brewfile)
+   - `post-install-<tier>.sh` — optional, only if any tier app triggers a hook
+     in the static map (claude installer, pipx-installed `llm`, etc. — things
+     Brewfile can't express)
+   - `summary-<tier>.txt`
+
+   Tombstones (commented-out `# cask "foo"` entries in the snapshot Brewfile) are
+   how the "promotions" feature works without re-parsing `brew-cask.sh`: the
+   generator (`generate-brewfiles.py`) carries over each commented
+   `# brew install foo` line from the source scripts as a tombstone with
+   provenance (`[tombstone brew-cask.sh:NNN]`).
 
 4. **SSH push + remote apply** (`push-to-mac.sh` + `apply-on-remote.sh`) — Builds a
    transfer bundle, rsyncs it to a target Mac (with `--dry-run` preview), and runs the
    apply script interactively over SSH. Each stage prompts before doing anything:
-   Homebrew → brew formulae → brew casks → mas → manual install list → app configs
-   (Karabiner, Rectangle, Raycast) → mac-defaults.sh → app preference plists.
+   Homebrew → `brew bundle check` preview → brew formulae → brew casks → mas →
+   post-install hooks → manual install list → app configs (Karabiner, Rectangle,
+   Raycast) → mac-defaults.sh → app preference plists.
+
+   The brew/cask/mas stages all run against the same `Brewfile.<tier>` using
+   `brew bundle install --no-X` filters, so each type can still be skipped
+   independently.
 
 ## Purpose
 
@@ -122,18 +137,19 @@ constants at the top of each generator script.
 | `generate-app-tiers.sh` | `app-usage.json` + classification index | `tiers/tier-{essentials,regular,rare}.json`, `tiers/tiers-report.md`, `tiers/unclassified.txt`, `tiers/summary.txt` |
 | `generate-cli-tiers.sh` | `cli-usage.json` | `cli-tiers/cli-tier-{essentials,regular,rare}.json`, `cli-tiers/cli-tiers-report.md`, `cli-tiers/cli-tiers-summary.txt` |
 
-### Install-script generation (tier → subset install scripts)
+### Tier Brewfile generation (tier → Brewfile subset)
 
 | Script | Purpose |
 |---|---|
-| `generate-install-scripts.sh --tier <essentials\|regular\|all>` | For the chosen tier, filters `setup/homebrew/brew*.sh` + `setup/appstore/mas.sh` to produce `install-<tier>-{brew,brew-cask,mas}.sh` plus `install-<tier>-manual.txt` (apps with no brew/mas line) and `install-<tier>-promotions.txt` (manually-installed apps that have a brew/mas line available, auto-included). |
+| `lib-brewfile-parse.sh` | (sourceable) Helpers for looking up cask/brew/mas/tap entries in a Brewfile. Returns `active:<line>` / `tombstone:<line>` / empty. Also exposes `find_latest_snapshot_brewfile`. |
+| `generate-tier-brewfile.sh --tier <essentials\|regular\|all> [--brewfile <path>]` | For the chosen tier, reads the latest snapshot Brewfile (or one passed via `--brewfile`) and emits `Brewfile.<tier>` + `install-<tier>-manual.txt` + `install-<tier>-promotions.txt` + optional `post-install-<tier>.sh`. Promotions match against tombstone entries (commented `# cask "foo"`) too. |
 
 ### Push / apply (old Mac → new Mac over SSH)
 
 | Script | Purpose |
 |---|---|
-| `push-to-mac.sh <host> [--tier ...] [--include configs,prefs,defaults\|all] [--dry-run] [--no-run]` | Builds a transfer bundle (install scripts + optional `configs/`, captured plists, `mac-defaults.sh`), runs an `rsync --dry-run` preview, prompts to confirm, then rsyncs and optionally invokes `apply-on-remote.sh` interactively via SSH. Excludes obvious secret patterns automatically. |
-| `templates/apply-on-remote.sh [--dry-run] [--all-yes]` | The script shipped to and run on the target Mac. Lives under `templates/` for easier review since it's the only "code that runs elsewhere". Walks 8 stages, each opt-in: Homebrew detect/install (skips if already at `/opt/homebrew/bin/brew` or `/usr/local/bin/brew`) → formulae → casks → mas (with sign-in check) → manual install list → configs copy → `mac-defaults.sh` → plist restore. `push-to-mac.sh` copies this file into the bundle. |
+| `push-to-mac.sh <host> [--tier ...] [--include configs,prefs,defaults\|all] [--dry-run] [--no-run]` | Builds a transfer bundle (Brewfile.tier + manual.txt + promotions.txt + optional post-install + `configs/`, captured plists, `mac-defaults.sh`), runs an `rsync --dry-run` preview, prompts to confirm, then rsyncs and optionally invokes `apply-on-remote.sh` interactively via SSH. Refreshes the snapshot Brewfile (via `generate-brewfiles.py`) before tier generation so tombstones are current. Excludes obvious secret patterns automatically. |
+| `templates/apply-on-remote.sh [--dry-run] [--all-yes]` | The script shipped to and run on the target Mac. Lives under `templates/` for easier review since it's the only "code that runs elsewhere". Walks 10 stages, each opt-in: Homebrew detect/install (skips if already at `/opt/homebrew/bin/brew` or `/usr/local/bin/brew`) → `brew bundle check` preview → formulae (`brew bundle install --no-cask --no-mas`) → casks (`--no-brew --no-mas`) → mas (with sign-in check, `--no-brew --no-cask`) → `post-install-<tier>.sh` → manual install list → configs copy → `mac-defaults.sh` → plist restore. `push-to-mac.sh` copies this file into the bundle. |
 | `restore-app-prefs.sh [--dry-run] [--all] [--apps DOMAIN,…] [snapshot_dir]` | Runs `defaults import` on each `.plist` in the snapshot's `app-plists/` directory. Prompts per-domain by default. |
 
 ### Not yet implemented (TODO)
@@ -276,11 +292,11 @@ These appeared in the original plan but aren't built yet:
 ```bash
 SS=~/bin/setup/state-sync/scripts
 
-# On the OLD Mac — full capture, then generate tiers + install scripts
+# On the OLD Mac — full capture, then generate tiers + Brewfile subset
 $SS/create-baseline.sh                                # 11 capture scripts (~90s)
 $SS/generate-app-tiers.sh                             # GUI app tiers + report
 $SS/generate-cli-tiers.sh                             # CLI tool tiers + report
-$SS/generate-install-scripts.sh --tier essentials     # subset install scripts
+$SS/generate-tier-brewfile.sh --tier essentials       # Brewfile.essentials subset
 
 # Review what would be transferred (no SSH side-effects yet)
 open ~/bin/setup/state-sync/snapshots/<latest>/tiers/tiers-report.md

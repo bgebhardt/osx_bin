@@ -152,7 +152,12 @@ if [[ "$NO_FRESH" != "true" ]]; then
         "$SCRIPT_DIR/capture-app-prefs.sh" "$SNAPSHOT_DIR_NEW" >/dev/null
     fi
     "$SCRIPT_DIR/generate-app-tiers.sh" "$SNAPSHOT_DIR_NEW" >/dev/null
-    "$SCRIPT_DIR/generate-install-scripts.sh" --tier "$TIER" "$SNAPSHOT_DIR_NEW" >/dev/null
+    # Make sure the Brewfile snapshot is fresh before generating the tier subset.
+    if [[ -f "$SETUP_ROOT/homebrew/generate-brewfiles.py" ]]; then
+        brew bundle dump --describe --no-restart --file=/tmp/Brewfile.generated --force >/dev/null
+        python3 "$SETUP_ROOT/homebrew/generate-brewfiles.py" >/dev/null
+    fi
+    "$SCRIPT_DIR/generate-tier-brewfile.sh" --tier "$TIER" "$SNAPSHOT_DIR_NEW" >/dev/null
 
     SNAPSHOT_DIR="$SNAPSHOT_DIR_NEW"
 else
@@ -178,8 +183,16 @@ BUNDLE_DIR=$(mktemp -d "/tmp/state-sync-bundle-XXXXXX")
 echo "  Local bundle: $BUNDLE_DIR"
 
 mkdir -p "$BUNDLE_DIR/install"
-# Install scripts for this tier (and only this tier)
+# Install artifacts for this tier (and only this tier):
+#   - Brewfile.<tier>             — primary install manifest
+#   - install-<tier>-manual.txt   — apps with no brew/mas line
+#   - install-<tier>-promotions.txt — audit log
+#   - post-install-<tier>.sh      — optional, only if hooks were triggered
+#   - summary-<tier>.txt
+cp "$INSTALL_SUBDIR/Brewfile.${TIER}" "$BUNDLE_DIR/install/" 2>/dev/null || true
 cp "$INSTALL_SUBDIR/install-${TIER}-"* "$BUNDLE_DIR/install/" 2>/dev/null || true
+cp "$INSTALL_SUBDIR/post-install-${TIER}.sh" "$BUNDLE_DIR/install/" 2>/dev/null || true
+cp "$INSTALL_SUBDIR/summary-${TIER}.txt" "$BUNDLE_DIR/install/" 2>/dev/null || true
 
 # Scripts the apply phase will need.
 # apply-on-remote.sh lives under templates/ since it's the script that gets
