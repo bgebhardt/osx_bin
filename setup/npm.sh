@@ -56,3 +56,7 @@ npx n8n # n8n is a fair-code licensed node-based workflow automation tool. [n8n.
 # [google-gemini/gemini-cli: An open-source AI agent that brings the power of Gemini directly into your terminal.](https://github.com/google-gemini/gemini-cli)
 npm install -g @google/gemini-cli
 # alt: npx https://github.com/google-gemini/gemini-cli
+
+# Install mermaid-cli for generating diagrams and flowcharts from text in a similar manner as markdown.
+# run with mmdc. See [GitHub - mermaid-js/mermaid-cli: Command line tool for the Mermaid library](https://github.com/mermaid-js/mermaid-cli)
+npm install -g @mermaid-js/mermaid-cli

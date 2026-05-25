@@ -7,6 +7,9 @@
 pip install --upgrade pip
 pip3 install --upgrade pip
 
+pip install Pygments
+pip3 install Pygments
+
 # data science related
 pip install pandas matplotlib fake-factory delorean xlwt
 pip install libgraphite
