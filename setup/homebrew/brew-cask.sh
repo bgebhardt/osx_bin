@@ -130,9 +130,9 @@ brew install khard # Console carddav client https://github.com/lucc/khard
 # brew install fullcontact -- no longer available
 #brew install evernote # install with mas instead
 #fantastical
-brew install clay # Private rolodex to remember people better https://clay.earth/
+brew install mesh # Private rolodex to remember people better https://clay.earth/
 
-brew install cron # Calendar for professionals and teams https://cron.com/
+#brew install notion-calendar # [Notion Calendar](https://www.notion.com/product/calendar)
 
 # music and audio players and organizers
 # brew install aural # Audio player inspired by Winamp https://github.com/maculateConception/aural-player deprecated
@@ -215,7 +215,7 @@ brew install pastebot # Workflow application to improve productivity https://tap
 # brew install clop # Image, video and clipboard optimiser https://lowtechguys.com/clop/ will automatically optimize images and videos copied to the clipboard # TODO try this out
 
 
-brew install cakebrew # GUI app for Homebrew https://github.com/brunophilipe/Cakebrew
+#brew install cakebrew # GUI app for Homebrew https://github.com/brunophilipe/Cakebrew
 
 #notetaking
 # Notion notetaking apps - cross platform
