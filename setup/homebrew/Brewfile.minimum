@@ -1,0 +1,37 @@
+# Brewfile.minimum — essentials for a fresh Mac.
+# Mirrors the active entries in setup/homebrew/brew-cask-minimum.sh.
+# The source script remains the canonical journal (commented-out entries,
+# history, notes); this file is the declarative manifest.
+#
+# Use:  brew bundle install --file=setup/homebrew/Brewfile.minimum
+
+# Apps
+brew "mas"  # Install App Store command line tools https://github.com/mas-cli/mas
+
+# Top Must Installs
+cask "1password"
+cask "fastscripts"
+cask "warp"  # Rust-based terminal app; couldn't get it to work though
+cask "obsidian"  # Knowledge base that works on top of a local folder of plain text Markdown files https://obsidian.md/
+cask "skim"  # PDF reader and note-taking application https://skim-app.sourceforge.io/
+cask "microsoft-office"  # requires admin password to install
+cask "microsoft-edge"
+cask "microsoft-teams"
+cask "visual-studio-code"
+cask "github"
+brew "hookmark"  # Link and retrieve key information https://hookproductivity.com/
+
+# Login items
+cask "bartender"
+cask "raycast"  # spotlight replacement, deciding between it an alfred
+cask "popchar"
+cask "rectangle"
+cask "karabiner-elements"
+cask "default-folder-x"
+cask "betterdisplay"
+cask "shottr"  # free screen shot tool; preferred over Monosnap
+cask "typinator"  # Tool to automate the insertion of frequently used text and graphics https://www.ergonis.com/products/typinator/
+cask "rocket-typist"  # Text expander for common phrases https://witt-software.com/rockettypist/
+cask "onedrive"  # Folder synchronization with OneDrive; required you pass cask
+mas "OwlOCR", id: 6462355119  # OwlOCR - Screenshot to Text (6.0.6)
+mas "Velja", id: 1607635845  # Velja (1.10.1) - browser picker: Open links in a specific browser or a matching native app. Easily switch between browsers

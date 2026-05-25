@@ -1,0 +1,287 @@
+# Brewfile.work — work-machine overlay.
+# Mirrors active entries in setup/homebrew/brew-cask-work.sh and brew-work.sh.
+# These source scripts are older overlays kept for reference; many entries
+# may no longer install cleanly. Run `brew bundle check --file=Brewfile.work`
+# to see what's missing or stale.
+
+# Apps
+brew "cask"
+
+# Productivity/Office
+cask "adobe-reader"
+cask "fullcontact"
+cask "elmedia-player"
+cask "firefox"
+cask "music-manager"
+cask "kindle"
+cask "send-to-kindle"
+cask "markdown-service-tools"
+cask "qlmarkdown"
+cask "textexpander"
+cask "pdf-converter-master"
+cask "soulver"
+cask "tripmode"
+cask "busycal"
+cask "busycontacts"
+
+# Utilities
+cask "1clipboard"
+cask "bartender"
+cask "brightness"
+cask "caffeine"
+cask "carbon-copy-cloner"
+cask "cronnix"
+cask "crossover"
+cask "daisydisk"
+cask "default-folder-x"
+cask "disk-drill"
+cask "disk-sensei"
+cask "appdelete"
+cask "bluesense"
+cask "omnioutliner"
+cask "forklift"
+cask "grandperspective"
+cask "growlnotify"
+cask "little-snitch"
+cask "gemini"
+cask "macpilot"
+cask "macupdate-desktop"
+cask "mactracker"
+cask "rcdefaultapp"
+cask "popclip"
+cask "superduper"
+cask "imazing"
+
+# Development apps
+cask "atom"
+cask "diffmerge"
+cask "aptanastudio"
+cask "aqua-data-studio"
+cask "aquamacs"
+cask "base"
+cask "codekit"
+cask "coderunner"
+cask "dash"
+cask "boot2docker"
+cask "deltawalker"
+cask "espresso"
+cask "github-desktop"
+cask "xquartz"
+cask "quickjson"
+cask "key-codes"
+cask "mamp"
+cask "navicat-for-mysql"
+cask "pycharm"
+cask "rstudio"
+cask "rapidweaver"
+cask "virtualbox"  # VirtualBox is a powerful x86 and AMD64/Intel64 virtualization product
+cask "virtualbox-extension-pack"  # VirtualBox Extension Pack
+cask "vagrant"  # Vagrant is a tool for building and distributing development environments.
+cask "visual-studio-code"
+cask "kitematic"
+cask "sequel-pro"
+cask "java"
+cask "qlcolorcode"  # Preview source code files with syntax highlighting
+cask "qlstephen"  # Preview plain text files without a file extension. Example: README, CHANGELOG, etc.
+cask "quicklook-json"  # Preview JSON files
+cask "qlprettypatch"  # Preview .patch files
+cask "quicklook-csv"  # Preview CSV files
+cask "betterzipql"  # Preview archives
+cask "webpquicklook"  # Preview WebP images
+cask "gitup"  # Visualization Tool for Git
+cask "kaleidoscope"  # File and Folder comparison tool
+
+# Games
+cask "gog-galaxy"
+cask "steam"
+cask "steamcmd"
+cask "teamspeak-client"
+
+# --- from brew-work.sh ---
+
+# Taps
+tap "homebrew/versions"
+tap "bramstein/webfonttools"
+
+# Apps
+brew "coreutils"
+brew "moreutils"
+brew "findutils"
+brew "gnu-sed"
+brew "bash"
+brew "bash-completion2"
+brew "wget"
+brew "ringojs"
+brew "vim"
+brew "homebrew/dupes/grep"
+brew "homebrew/dupes/screen"
+brew "homebrew/php/php56"
+brew "sfnt2woff"
+brew "sfnt2woff-zopfli"
+brew "woff2"
+brew "aircrack-ng"
+brew "bfg"
+brew "binutils"
+brew "binwalk"
+brew "cifer"
+brew "dex2jar"
+brew "dns2tcp"
+brew "fcrackzip"
+brew "foremost"
+brew "hashpump"
+brew "hydra"
+brew "john"
+brew "knock"
+brew "netpbm"
+brew "nmap"
+brew "pngcheck"
+brew "socat"
+brew "sqlmap"
+brew "tcpflow"
+brew "tcpreplay"
+brew "tcptrace"
+brew "ucspi-tcp"  # `tcpserver` etc.
+brew "poppler"  # PDF rendering library (based on the xpdf-3.0 code base) https://poppler.freedesktop.org/
+brew "xz"
+brew "ack"
+brew "dark-mode"
+brew "git"
+brew "git-lfs"
+brew "imagemagick"
+brew "lua"
+brew "lynx"
+brew "p7zip"
+brew "pigz"
+brew "pv"
+brew "rename"
+brew "rhino"
+brew "speedtest_cli"
+brew "ssh-copy-id"
+brew "testssl"
+brew "tree"
+brew "vbindiff"
+brew "webkit2png"
+brew "zopfli"
+brew "python"
+
+# dev tools added recently
+brew "the_silver_searcher"  # fast source code searching with "ag"
+brew "hub"  # github command line wrapper
+brew "ansible"
+brew "asciidoc"
+brew "boot2docker"
+brew "cairo"
+brew "cask"
+brew "chromedriver"
+brew "colordiff"
+brew "couchdb"
+brew "csshx"
+brew "dependency-check"
+brew "diffutils"
+brew "docbook"
+brew "docker"
+brew "elasticsearch"
+brew "emacs"
+brew "erlang"
+brew "flow"
+brew "fontconfig"
+brew "fpp"
+brew "freetype"
+brew "gawk"
+brew "gcc"
+brew "gdbm"
+brew "gettext"
+brew "git-extras"
+brew "glib"
+brew "gmp"
+brew "gnu-tar"
+brew "gnu-which"
+brew "gradle"
+brew "grails"
+brew "graphicsmagick"
+brew "graphviz"
+brew "groovy"
+brew "gzip"
+brew "htop-osx"
+brew "httpie"
+brew "icdiff"
+brew "icu4c"
+brew "isl"
+brew "jpeg"
+brew "jq"
+brew "Caskroom/cask/kdiff3"
+brew "less"
+brew "libevent"
+brew "libffi"
+brew "libmpc"
+brew "libpng"
+brew "libtiff"
+brew "libtool"
+brew "libyaml"
+brew "logstash"
+brew "memcached"
+brew "mongodb"
+brew "mpfr"
+brew "mr"
+brew "multimarkdown"
+brew "multitail"
+brew "mysql"
+brew "node"
+brew "nspr"
+brew "openssl"
+brew "pandoc"
+brew "pcre"
+brew "pixman"
+brew "pkg-config"
+brew "qt"
+brew "r"
+brew "r-gui"
+brew "readline"
+brew "redis"
+brew "rsync"
+brew "sbt"
+brew "scala"
+brew "shellcheck"
+brew "spark"
+brew "spidermonkey"
+brew "springboot"
+brew "sqlite"
+brew "sslscan"
+brew "subversion"
+brew "tig"
+brew "unixodbc"
+brew "vagrant-completion"
+brew "wdiff"
+brew "wxmac"
+brew "z"
+brew "zsh"
+brew "zsh-completions"
+brew "zsh-history-substring-search"
+brew "zsh-lovers"
+brew "zsh-syntax-highlighting"
+brew "tcpstat"
+brew "tcptrack"  # trouble downloading from tcptrace.org
+brew "ssldump"
+brew "fetchmail"
+brew "procmail"
+brew "sfml"
+
+# Development tools
+brew "eclipse-jee"  # Eclipse IDE for Java EE Developers
+brew "sts"  # Spring Tool Suite
+brew "maven"  # Java-based project management
+brew "maven-completion"  # maven-bash-completion
+brew "jenkins"  # CI Server
+brew "sonar"  # Static Code Analysis Tool
+brew "docker-machine"  # installs Docker, then configures the Docker client to talk to them
+brew "docker-compose"  # tool for defining and running multi-container applications with Docker
+brew "docker-swarm"  # Turn a pool of Docker hosts into a single, virtual host
+brew "docker-completion"  # Shell completion for Docker
+brew "mas"  # Install App Store command line tools https://github.com/mas-cli/mas
+brew "reattach-to-user-namespace"  # work around for tmux-related pastboard problems (helps mas) https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
+
+# kubernetes tools
+brew "kubectx"
+brew "kafka"
+brew "npm"
+
