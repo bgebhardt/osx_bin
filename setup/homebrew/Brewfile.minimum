@@ -72,3 +72,4 @@ brew "tldr"  # Simplified and community-driven man pages - https://tldr.sh/
 brew "zoxide"  # A smarter cd command for navigating your filesystem.
 brew "restic"  # Fast, efficient and secure backup program
 cask "1password-cli"  # Command-line interface for 1Password
+brew "uv"  # Extremely fast Python package installer and resolver, written in Rust https://docs.astral.sh/uv/
