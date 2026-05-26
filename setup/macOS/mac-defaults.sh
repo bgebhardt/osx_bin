@@ -522,6 +522,53 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
 
 ###############################################################################
+# Sharing                                                                     #
+###############################################################################
+
+# Sharing: Check Full Disk Access for the current terminal app.
+# systemsetup and several other privileged calls silently fail without it.
+# Grant via: System Settings → Privacy & Security → Full Disk Access → add your terminal
+# app (Terminal.app, iTerm, Warp, etc.), quit and relaunch it, then re-run this script.
+# The probe reads the TCC database, which TCC itself gates on the FDA entitlement.
+printf "%s\n" "Sharing: Checking Full Disk Access for the current terminal app..."
+if ls "/Library/Application Support/com.apple.TCC/TCC.db" >/dev/null 2>&1; then
+    printf "%s\n" "Sharing: Full Disk Access is granted."
+    FDA_OK=1
+else
+    printf "%s\n" "Sharing: WARNING — Full Disk Access NOT granted to this terminal."
+    printf "%s\n" "  Open System Settings → Privacy & Security → Full Disk Access, add your"
+    printf "%s\n" "  terminal app, quit + relaunch it, then re-run this script."
+    FDA_OK=0
+fi
+
+# Sharing: Enable Remote Login (System Settings → General → Sharing → Remote Login)
+# Note: systemsetup may prompt interactively to confirm; pipe `yes` if you want to
+# suppress that, e.g. `yes | sudo systemsetup -setremotelogin on`.
+if [[ "${FDA_OK:-0}" -eq 1 ]]; then
+    printf "%s\n" "Sharing: Enabling Remote Login (SSH)."
+    sudo systemsetup -setremotelogin on
+    # Verify:
+    # sudo systemsetup -getremotelogin
+    # Optionally restrict SSH to a specific group rather than all users:
+    # sudo dseditgroup -o edit -a "$USER" -t user com.apple.access_ssh
+else
+    printf "%s\n" "Sharing: Skipping Remote Login — grant Full Disk Access first."
+    # sudo systemsetup -setremotelogin on
+fi
+
+# Sharing: Enable Screen Sharing (System Settings → General → Sharing → Screen Sharing)
+# Does not require Full Disk Access — only sudo.
+printf "%s\n" "Sharing: Enabling Screen Sharing."
+sudo launchctl enable system/com.apple.screensharing
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.screensharing.plist 2>/dev/null || true
+# Verify:
+# sudo launchctl print system/com.apple.screensharing | head -n 20
+# To disable:
+# sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.screensharing.plist
+# sudo launchctl disable system/com.apple.screensharing
+
+
+###############################################################################
 # Safari                                                                      #
 ###############################################################################
 
