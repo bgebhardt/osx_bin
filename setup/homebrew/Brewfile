@@ -170,7 +170,7 @@ cask "superhuman"  # paid Email client https://superhuman.com/
 # Utilities
 brew "handbrake"  # https://handbrake.fr/
 brew "monit"  # Manage and monitor processes, files, directories, and devices as a widge https://mmonit.com/monit/
-cask "bartender"  # Menu bar icon organiser
+#cask "bartender"  # Menu bar icon organiser
 cask "carbon-copy-cloner"  # Hard disk backup and cloning utility
 cask "crossover"  # Tool to run Windows software
 cask "daisydisk"  # Disk space visualiser
@@ -180,7 +180,7 @@ cask "forklift"  # Finder replacement and FTP, SFTP, WebDAV and Amazon s3 client
 cask "gemini"  # Disk space cleaner that finds and deletes duplicated and similar files
 cask "grandperspective"  # Graphically shows disk usage within a file system
 cask "imazing"  # iPhone management application
-cask "little-snitch"  # Host-based application firewall
+#cask "little-snitch"  # Host-based application firewall
 cask "macpilot"  # Graphical user interface for the command terminal
 cask "mactracker"  # Detailed information on every Apple product ever made
 cask "omnioutliner"  # Note taking application and information organiser
@@ -201,24 +201,24 @@ cask "openinterminal"  # gui version of Open Terminal at the current Finder loca
 cask "openinterminal-lite"  # single click version of Open Terminal at the current Finder location https://github.com/Ji4n1ng/OpenInTerminal
 
 # Development apps
-brew "github-release"  # Create and edit releases on Github (and upload artifacts)
-cask "aquamacs"  # Text editor based on GNU Emacs
 cask "base"  # App to create, design, edit and browse SQLite 3 database files
-cask "codekit"  # App for building websites
-cask "coderunner"  # Multi-language programming editor
 cask "dash"  # API documentation browser and code snippet manager
-cask "deltawalker"  # Tool to compare and synchronise files and folders
-cask "diffmerge"  # Visually compare and merge files
-cask "espresso"  # Website editor focusing on flair and efficiency
 cask "qlcolorcode"  # Preview source code files with syntax highlighting
-cask "qlmarkdown"  # Preview Markdown files
 cask "qlprettypatch"  # Preview .patch files
 cask "qlstephen"  # Preview plain text files without a file extension. Example: README, CHANGELOG, etc.
 cask "quickjson"  # Quick Look plugin to pretty-print JSON
 cask "quicklook-csv"  # Preview CSV files
 cask "visual-studio-code"  # Open-source code editor
 cask "webpquicklook"  # Preview WebP images
-cask "xquartz"  # Open-source version of the X.Org X Window System
+#cask "xquartz"  # Open-source version of the X.Org X Window System
+#brew "github-release"  # Create and edit releases on Github (and upload artifacts)
+#cask "aquamacs"  # Text editor based on GNU Emacs
+#cask "codekit"  # App for building websites
+#cask "coderunner"  # Multi-language programming editor
+#cask "deltawalker"  # Tool to compare and synchronise files and folders
+#cask "diffmerge"  # Visually compare and merge files
+#cask "espresso"  # Website editor focusing on flair and efficiency
+#cask "qlmarkdown"  # Preview Markdown files
 
 # diff tools
 brew "gitup"  # Visualization Tool for Git
@@ -229,7 +229,7 @@ cask "steam"  # Video game digital distribution service
 cask "steamcmd"  # Command-line client for Steam
 cask "teamspeak-client"  # Voice communication client
 
-# VNC viewers and servers
+# WordPress
 brew "wp-cli"  # Command line interface for WordPress https://wp-cli.org/
 brew "wp-cli-completion"  # Bash completion for Wpcli https://github.com/wp-cli/wp-cli
 
@@ -242,7 +242,7 @@ brew "gollama"  # Go manage your Ollama models https://smcleod.net
 brew "opencode"  # AI coding agent, built for the terminal # https://opencode.ai
 
 # AI image generation
-brew "screenpipe"  # Name: ScreenPipe - Library to build personalized AI powered by what you've seen, said, or heard [screenpipe | computer use AI SDK](https://screenpi.pe/onboarding)
+#brew "screenpipe"  # Name: ScreenPipe - Library to build personalized AI powered by what you've seen, said, or heard [screenpipe | computer use AI SDK](https://screenpi.pe/onboarding)
 
 # cloudflare tools
 brew "cloudflare-cli4"  # Cloudflare CLI is a command-line tool for managing Cloudflare services and resources. https://developers.cloudflare.com/cloudflare-cli/get-started/installation/
@@ -262,14 +262,14 @@ cask "shottr"  # free screen shot tool; preferred over Monosnap
 brew "ansible"  # Automate deployment, configuration, and upgrading
 brew "asciidoc"  # Formatter/translator for text files to numerous formats
 brew "cairo"  # Vector graphics library with cross-device output support
-brew "cask"  # Emacs dependency management
+#brew "cask"  # Emacs dependency management
 brew "colordiff"  # Color-highlighted diff(1) output
 brew "coreutils"  # GNU File, Shell, and Text utilities
 brew "couchdb"  # Apache CouchDB database server
 brew "csshx"  # Cluster ssh tool for Terminal.app
 brew "dependency-check"  # OWASP dependency-check
 brew "diffutils"  # File comparison utilities
-brew "docbook"  # Standard XML representation system for technical documents
+#brew "docbook"  # Standard XML representation system for technical documents
 brew "docker"  # Pack, ship and run any application as a lightweight container
 brew "emacs"  # GNU Emacs text editor
 brew "erlang"  # Programming language for highly scalable real-time systems
@@ -327,14 +327,14 @@ brew "readline"  # Library for command-line editing
 brew "redis"  # Persistent key-value database, with built-in net interface
 brew "rsync"  # Utility that provides fast incremental file transfer
 brew "sbt"  # Build tool for Scala projects
-brew "scala"  # JVM-based programming language
+#brew "scala"  # JVM-based programming language
 brew "sfml"  # Multi-media library with bindings for multiple languages
 brew "shellcheck"  # Static analysis and lint tool, for (ba)sh scripts
 brew "spidermonkey"  # JavaScript-C Engine
 brew "ssh-copy-id"  # Add a public key to a remote machine's authorized_keys file
 brew "ssldump"  # SSLv3/TLS network protocol analyzer
 brew "sslscan"  # Test SSL/TLS enabled services to discover supported cipher suites
-brew "subversion"  # Version control system designed to be a better CVS
+#brew "subversion"  # Version control system designed to be a better CVS
 brew "tcpstat"  # Active TCP connections monitoring tool
 brew "the_silver_searcher"  # fast source code searching with "ag"
 brew "tig"  # Text interface for Git repositories
@@ -352,11 +352,11 @@ brew "zsh-syntax-highlighting"  # Fish shell like syntax highlighting for zsh
 
 # Development tools
 brew "docker-compose"  # tool for defining and running multi-container applications with Docker
-brew "groovy"  # Groovy: a Java-based scripting language
-brew "jenkins"  # CI Server
+#brew "groovy"  # Groovy: a Java-based scripting language
+#brew "jenkins"  # CI Server
+#brew "maven"  # Java-based project management
+#brew "maven-completion"  # maven-bash-completion
 brew "mas"  # Install App Store command line tools https://github.com/mas-cli/mas
-brew "maven"  # Java-based project management
-brew "maven-completion"  # maven-bash-completion
 brew "reattach-to-user-namespace"  # work around for tmux-related pastboard problems (helps mas) https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
 
 # Work-machine additions (from 2026-05-23 snapshot — not yet installed here)
@@ -381,9 +381,10 @@ brew "binwalk"  # Searches a binary image for embedded files and executable code
 brew "cifer"  # Work on automating classical cipher cracking in C
 brew "dark-mode"  # Control the macOS dark mode from the command-line
 brew "dash-shell"  # POSIX-compliant descendant of NetBSD's ash (the Almquist SHell)
-brew "dex2jar"  # Tools to work with Android .dex and Java .class files
+#brew "dex2jar"  # Tools to work with Android .dex and Java .class files
 brew "dns2tcp"  # TCP over DNS tunnel
-brew "fcrackzip"  # Zip password cracker
+#brew "fcrackzip"  # Zip password cracker
+#brew "john"  # Featureful UNIX password cracker
 brew "findutils"  # Collection of GNU find, xargs, and locate
 brew "foremost"  # Console program to recover files based on their headers and footers
 brew "git-delta"  # Syntax-highlighting pager for git and diff output
@@ -391,7 +392,6 @@ brew "git-lfs"  # Git extension for versioning large files
 brew "htop"  # Improved top (interactive process viewer)
 brew "hydra"  # Network logon cracker which supports many services
 brew "imagemagick"  # Tools and libraries to manipulate images in select formats
-brew "john"  # Featureful UNIX password cracker
 brew "jupyterlab"  # Interactive environments for writing and running code
 brew "knock"  # Port-knock server
 brew "lua"  # Powerful, lightweight programming language
@@ -404,12 +404,11 @@ brew "pngcheck"  # Print info and check PNG, JNG, and MNG files
 brew "pv"  # Monitor data's progress through a pipe
 brew "python@3.14"  # Interpreted, interactive, object-oriented programming language
 brew "rename"  # Perl-powered file rename script with many helpful built-ins
-brew "restic"  # Fast, efficient and secure backup program
 brew "rhino"  # JavaScript engine
 brew "ringojs"  # CommonJS-based JavaScript runtime
 brew "bramstein/webfonttools/sfnt2woff"  # Convert existing TrueType/OpenType fonts to WOFF format
 brew "bramstein/webfonttools/sfnt2woff-zopfli"  # WOFF utilities with Zopfli compression
-brew "sloth-cli"  # Prometheus SLO generator
+#brew "sloth-cli"  # Prometheus SLO generator
 brew "socat"  # SOcket CAT: netcat on steroids
 brew "speedtest-cli"  # Command-line interface for https://speedtest.net bandwidth tests
 brew "sqlmap"  # Penetration testing for SQL injection and database servers
@@ -427,10 +426,10 @@ cask "1password-cli"  # Command-line interface for 1Password
 cask "aerial"  # Apple TV Aerial screensaver
 cask "airbuddy"  # AirPods companion app
 cask "airparrot"  # Tool to wirelessly mirror the screen or stream media files
-cask "aldente"  # Menu bar tool to limit maximum charging percentage
-cask "alt-tab"  # Enable Windows-like alt-tab
+#cask "aldente"  # Menu bar tool to limit maximum charging percentage
+#cask "alt-tab"  # Enable Windows-like alt-tab
 cask "amadeus-pro"  # Multi-purpose audio recorder, editor and converter
-cask "android-file-transfer"  # Transfer files from and to an Android smartphone
+#cask "android-file-transfer"  # Transfer files from and to an Android smartphone
 cask "app-tamer"  # CPU management application
 cask "appcleaner"  # Application uninstaller
 cask "audacity"  # Multi-track audio editor and recorder
@@ -440,9 +439,9 @@ cask "beamer"  # Desktop casting/streaming app for Apple TV and Chromecast
 cask "beeper"  # Universal chat app powered by Matrix
 cask "bettertouchtool"  # Tool to customise input devices and automate computer systems
 cask "betterzip"  # Utility to create and modify archives
-cask "blocs"  # Visual web design software
+#cask "blocs"  # Visual web design software
 cask "boltai"  # AI chat client
-cask "boom"  # Transforms audio input
+#cask "boom"  # Transforms audio input
 cask "brave-browser"  # Web browser focusing on privacy
 cask "breaktimer"  # Tool to manage periodic breaks
 cask "calibre"  # E-books management software
@@ -451,8 +450,8 @@ cask "cisdem-document-reader"  # Document reader to open and view Windows-based 
 cask "cisdem-pdf-converter-ocr"  # PDF Converter with OCR capability
 cask "claude"  # Anthropic's official Claude AI desktop app
 cask "claudebar"  # Menu bar app for monitoring AI coding assistant usage quotas
-cask "cloudmounter"  # Mounts cloud storages as local discs
-cask "coconutbattery"  # Tool to show live information about the batteries in various devices
+#cask "cloudmounter"  # Mounts cloud storages as local discs
+#cask "coconutbattery"  # Tool to show live information about the batteries in various devices
 cask "codex"  # OpenAI's coding agent that runs in your terminal
 cask "steipete/tap/codexbar"  # Menu bar usage monitor for Codex and Claude
 cask "colorwell"  # Colour picker and colour palette generator
@@ -462,7 +461,7 @@ cask "command-tab-plus"  # Keyboard-centric application and window switcher
 cask "context"  # MCP client and inspector
 cask "copilot-cli"  # Brings the power of Copilot coding agent directly to your terminal
 cask "coteditor"  # Plain-text editor for web pages, program source codes and more
-cask "cursor"  # Write, edit, and chat about your code with AI
+#cask "cursor"  # Write, edit, and chat about your code with AI
 cask "customshortcuts"  # Customise menu item keyboard shortcuts
 cask "cyberduck"  # Server and cloud storage browser
 cask "dataflare"  # Database manager
@@ -473,8 +472,8 @@ cask "devutils"  # All-in-one toolbox for developers
 cask "diffusionbee"  # Run Stable Diffusion locally
 cask "direqual"  # Advanced directory compare utility
 cask "discord"  # Voice and text chat software
-cask "displaylink"  # Drivers for DisplayLink docks, adapters and monitors
-cask "docker-desktop"  # App to build and share containerised applications and microservices
+#cask "displaylink"  # Drivers for DisplayLink docks, adapters and monitors
+#cask "docker-desktop"  # App to build and share containerised applications and microservices
 cask "downie"  # Downloads videos from different websites
 cask "draw-things"  # Run Stable Diffusion locally
 cask "drivethrurpg"  # Sync DriveThruRPG libraries to compatible devices
@@ -489,8 +488,8 @@ cask "figma"  # Collaborative team software
 cask "find-any-file"  # File finder
 cask "fluid"  # Tool to turn a website into a desktop app
 cask "freeplane"  # Mind mapping and knowledge management software
-cask "genymotion"  # Android emulator
-cask "ghostty"  # Terminal emulator that uses platform-native UI and GPU acceleration
+#cask "genymotion"  # Android emulator
+#cask "ghostty"  # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "gimp"  # Free and open-source image editor
 cask "git-credential-manager"  # Cross-platform Git credential storage for multiple hosting providers
 cask "google-drive"  # Client for the Google Drive storage service
@@ -503,10 +502,10 @@ cask "hype"  # App to create animated and interactive web content
 cask "idrive"  # Cloud backup and storage solution
 cask "iina"  # Free and open-source media player
 cask "imageoptim"  # Tool to optimise images to a smaller size
-cask "iterm2"  # Terminal emulator as alternative to Apple's Terminal app
+#cask "iterm2"  # Terminal emulator as alternative to Apple's Terminal app
 cask "itsycal"  # Menu bar calendar
-cask "jordanbaird-ice@beta"  # Menu bar manager
-cask "caskroom/cask/kdiff3"  # Utility for comparing and merging files and directories
+#cask "jordanbaird-ice@beta"  # Menu bar manager
+#cask "caskroom/cask/kdiff3"  # Utility for comparing and merging files and directories
 cask "keepingyouawake"  # Tool to prevent the system from going into sleep mode
 cask "keyboard-maestro"  # Automation software
 cask "keyboardcleantool"  # Blocks all Keyboard and TouchBar input
@@ -532,7 +531,7 @@ cask "meld"  # Visual diff and merge tool
 cask "menubar-stats"  # System monitor with temperature & fans plugins
 cask "mesh"  # Private rolodex to remember people better
 cask "metaimage"  # Image metadata and geographical tag viewer & editor
-cask "microsoft-azure-storage-explorer"  # Explorer for Azure Storage
+#cask "microsoft-azure-storage-explorer"  # Explorer for Azure Storage
 cask "mimestream"  # Native app email client for Gmail
 cask "minecraft"  # Sandbox construction video game
 cask "mission-control-plus"  # Manage your windows in Mission Control
@@ -545,16 +544,16 @@ cask "mweb-pro"  # Markdown writing, note taking, and static blog generator app
 cask "netnewswire"  # Free and open-source RSS reader
 cask "netspot"  # WiFi site survey software and WiFi scanner
 cask "network-radar"  # Tool to scan and monitor the network
-cask "notion"  # App to write, plan, collaborate, and get organised
-cask "notion-calendar"  # Calendar for professionals and teams
+#cask "notion"  # App to write, plan, collaborate, and get organised
+#cask "notion-calendar"  # Calendar for professionals and teams
 cask "numi"  # Calculator and converter application
 cask "obs"  # Open-source software for live streaming and screen recording
 cask "ollama-app"  # Get up and running with large language models locally
 cask "ollamac"  # Interact with Ollama models
 cask "omnifocus"  # Scheduling application focusing on organisation
-cask "omnigraffle"  # Visual communication software
-cask "onecast"  # Xbox remote play
-cask "onyx"  # Verify system files structure, run miscellaneous maintenance and more
+#cask "omnigraffle"  # Visual communication software
+#cask "onecast"  # Xbox remote play
+#cask "onyx"  # Verify system files structure, run miscellaneous maintenance and more
 cask "orbstack"  # Replacement for Docker Desktop
 cask "overview"  # Create live window previews for any application
 cask "paletro"  # Command palette in any application
@@ -562,7 +561,7 @@ cask "pastebot"  # Workflow application to improve productivity
 cask "pdf-expert"  # PDF reader, editor and annotator
 cask "pdfsam-basic"  # Extracts pages, splits, merges, mixes and rotates PDF files
 cask "permute"  # Converts and edits video, audio or image files
-cask "phoenix"  # Window and app manager scriptable with JavaScript
+#cask "phoenix"  # Window and app manager scriptable with JavaScript
 cask "photosweeper-x"  # Tool to eliminate similar or duplicate photos
 cask "playcover-community"  # Sideload iOS apps and games
 cask "plex-media-server"  # Home media server
@@ -585,7 +584,7 @@ cask "rsyncui"  # GUI for rsync
 cask "sf-symbols"  # Tool that provides consistent, highly configurable symbols for apps
 cask "signal"  # Instant messaging application focusing on security
 cask "sikarugir-app/sikarugir/sikarugir"  # Porting tool, to make Windows programs/games into native apps
-cask "simplenote"  # React client for Simplenote
+#cask "simplenote"  # React client for Simplenote
 cask "skint"  # Check status of key security settings and features
 cask "space-saver"  # Delete local Time Machine backups
 cask "spotify"  # Music streaming service
@@ -595,7 +594,7 @@ cask "superwhisper"  # Dictation tool including LLM reformatting
 cask "swish"  # Control windows and applications right from your trackpad
 cask "tableflip"  # Edit plain text tables in place: Markdown, CSV, JSON. LaTeX and HTML export
 cask "tabula"  # Tool for liberating data tables trapped inside PDF files
-cask "tagspaces"  # Offline, open-source, document manager with tagging support
+#cask "tagspaces"  # Offline, open-source, document manager with tagging support
 cask "telegram-a"  # Web client for Telegram messenger
 cask "tg-pro"  # Temperature monitoring, fan control and diagnostics
 cask "thaw@beta"  # Menu bar manager
@@ -607,10 +606,10 @@ cask "transnomino"  # Batch rename utility
 cask "visualdiffer"  # Visually compare folders and files
 cask "vlc"  # Multimedia player
 cask "vnc-viewer"  # Remote desktop application focusing on security
-cask "wallpaper-wizard"  # Adjustable wallpaper application
+#cask "wallpaper-wizard"  # Adjustable wallpaper application
 cask "whatsapp"  # Native desktop client for WhatsApp
 cask "wispr-flow"  # Voice-to-text dictation with AI-powered auto-editing
-cask "xmind"  # Mind mapping and brainstorming tool
+#cask "xmind"  # Mind mapping and brainstorming tool
 cask "xrg"  # System monitor
 cask "yacreader"  # Comic reader
 cask "yoink"  # Drag and drop utility
@@ -701,7 +700,7 @@ mas "WeekCal", id: 381059732
 mas "WiFi Signal", id: 525912054
 mas "WiFi Speed Test", id: 1455463454
 mas "Windows App", id: 1295203466
-mas "Xcode", id: 497799835
+#mas "Xcode", id: 497799835
 mas "Yomu", id: 562211012
 
 # VS Code extensions

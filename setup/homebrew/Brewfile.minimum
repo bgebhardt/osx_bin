@@ -13,18 +13,36 @@ cask "fastscripts"
 cask "warp"  # Rust-based terminal app; couldn't get it to work though
 cask "obsidian"  # Knowledge base that works on top of a local folder of plain text Markdown files https://obsidian.md/
 cask "skim"  # PDF reader and note-taking application https://skim-app.sourceforge.io/
-cask "microsoft-office"  # requires admin password to install
 cask "microsoft-edge"
-cask "microsoft-teams"
+cask "brave-browser"  # Web browser focusing on privacy
+cask "comet"  # Web browser with integrated AI assistant
+cask "busycal"  # Calendar software focusing on flexibility and reliability
+cask "busycontacts"  # Contact manager focusing on efficiency
+cask "emclient"  # Email client for Windows and macOS https://www.emclient.com/; has a free version but I haven't tried it yet.
+#cask "microsoft-office"  # requires admin password to install
+#cask "microsoft-teams"
 cask "visual-studio-code"
-cask "github"
+cask "github"  # Desktop client for GitHub repositories
+brew "git"  # Distributed revision control system
 brew "hookmark"  # Link and retrieve key information https://hookproductivity.com/
+cask "claude"  # Anthropic's official Claude AI desktop app
+cask "coteditor"  # Plain-text editor for web pages, program source codes and more
+cask "markedit"  # Markdown editor
+cask "cyberduck"  # Server and cloud storage browser
+cask "mountain-duck"  # Mounts servers and cloud storages as a disk on the desktop
+cask "visualdiffer"  # Visually compare folders and files
+mas "Home Assistant", id: 1099568401
+mas "Juicy", id: 6752221257
+mas "OwlOCR", id: 6462355119  # OwlOCR - Screenshot to Text (6.0.6)
+
 
 # Login items
-cask "bartender"
+#cask "bartender"
+cask "thaw@beta"  # Menu bar manager
 cask "raycast"  # spotlight replacement, deciding between it an alfred
 cask "popchar"
 cask "rectangle"
+cask "rectangle-pro"  # Window snapping tool
 cask "karabiner-elements"
 cask "default-folder-x"
 cask "betterdisplay"
@@ -34,3 +52,23 @@ cask "rocket-typist"  # Text expander for common phrases https://witt-software.c
 cask "onedrive"  # Folder synchronization with OneDrive; required you pass cask
 mas "OwlOCR", id: 6462355119  # OwlOCR - Screenshot to Text (6.0.6)
 mas "Velja", id: 1607635845  # Velja (1.10.1) - browser picker: Open links in a specific browser or a matching native app. Easily switch between browsers
+
+# Favorites
+brew "bash"  # Bourne-Again SHell, a UNIX command interpreter
+brew "bash-completion@2"  # Programmable completion for Bash 4.2+
+brew "bat"  # A cat clone with syntax highlighting and Git integration.
+brew "diffoscope"  # In-depth comparison of files, archives, and directories can output in friendly HTML https://diffoscope.org
+brew "eza"  # A modern replacement for `ls` with more features and better defaults.
+brew "fd"  # Simple, fast and user-friendly alternative to find - https://github.com/sharkdp/fd
+brew "fselect"  # Find files with SQL-like queries https://github.com/jhspetersson/fselect https://github.com/jhspetersson/fselect/blob/master/docs/usage.md
+brew "fzf"  # A general-purpose command-line fuzzy finder.
+brew "hyde46/hoard/hoard"  # Hoard is a command-line tool that helps you manage your dotfiles and other configuration files. https://github.com/Hyde46/hoard
+brew "jql"  # JSON query language CLI tool https://github.com/yamafaktory/jql
+brew "less"  # Pager program similar to more
+brew "sq"  # Data wrangler with jq-like query language https://sq.io
+brew "nao1215/tap/sqly"  # sqly - execute SQL against CSV, TSV, LTSV, JSON, and even Microsoft Excel™ files brew install https://github.com/nao1215/sqly
+brew "television"  # General purpose fuzzy finder TUI https://github.com/alexpasmantier/television
+brew "tldr"  # Simplified and community-driven man pages - https://tldr.sh/
+brew "zoxide"  # A smarter cd command for navigating your filesystem.
+brew "restic"  # Fast, efficient and secure backup program
+cask "1password-cli"  # Command-line interface for 1Password
