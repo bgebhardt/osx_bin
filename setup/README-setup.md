@@ -10,18 +10,9 @@ Set up Apple iCloud and minimal settings
 * follow initial set up flow from Apple
   * enter iCloud account
   * in system settings turn on all iCloud services (click name ->iCloud -> see all)
-* Turn on internet accounts in System Preferences -> Internet Accounts
-    * Started with personal google - passkey didn’t work though
-    * Re-add accounts
-    * Work Exchange - Contacts and Calendars
-    * Google bryan.gebhardt@gmail.com - Mail, Contacts, and Calendars
-    * Google 2 - bryangeb@gmail.com - inactive
+
 * Set mouse speed and secondary click
 * Set trackpad right corner secondary click and tap to click
-* Set up 1Password
-* In Control Center preferences in System Preferences items (new script might do this?)
-  * Show Bluetooth menu
-  * Show TimeMachine menu 
 
 Finder settings (set by mac-defaults.sh now)
 
@@ -48,7 +39,7 @@ Finder settings (set by mac-defaults.sh now)
 
 ``` shell
 gh auth login # authenticate to GitHub
-gh auth git-setup # wire that auth into Git's credential system
+gh auth setup-git # wire that auth into Git's credential system
 git config --global user.name "Bryan Gebhardt"
 git config --global user.email bryan.gebhardt@gmail.com
 ```
@@ -80,20 +71,19 @@ Add this to the .bash_profile in the home directory. I don't check this in becau
 export HOMEBREW_CACHE="/Volumes/Bert/Caches/Homebrew"
 echo "setting brew cache location to $HOMEBREW_CACHE"
 ```
-
 # Install applications
 
 Follow read me: https://github.com/bgebhardt/osx_bin
   * install Brew (see https://brew.sh)
   * Set up shell settings
 
-# Install common brew tools.
+# Install common brew tools and apps
 This will make tools the shell depends on available.
 
 This will install the minimal set of brew cli, casks, mas (app store), go, (python packages (via uv), rust (via Cargo)
 ```sh
 # Install everything in the master that isn't installed yet.
-brew bundle install --file=setup/homebrew/Brewfile.minimum
+brew bundle install -v --file=setup/homebrew/Brewfile.minimum
 ```
 
 **Legacy**
@@ -112,6 +102,21 @@ Set mac default settings
 ```shell
 ~/bin/setup/macOS/mac-defaults.sh
 ```
+
+# More Mac Setup steps
+
+* Turn on internet accounts in System Preferences -> Internet Accounts
+    * Started with personal google - passkey didn’t work though
+    * Re-add accounts
+    * Work Exchange - Contacts and Calendars
+    * Google bryan.gebhardt@gmail.com - Mail, Contacts, and Calendars
+    * Google 2 - bryangeb@gmail.com - inactive
+* Set up 1Password
+* In Control Center preferences in System Preferences items (new script might do this?)
+  * Show Bluetooth menu
+  * Show TimeMachine menu 
+
+
 ## Install Tailscale
 
 Not done via brew; use tailscale standalone app instead of the brew version as it is more up to date and works better. See [Tailscale for Mac - Tailscale](https://tailscale.com/download/mac/)
@@ -222,13 +227,13 @@ This will install all brew cli, casks, mas (app store), go, (python packages (vi
 
 ```sh
 # What's missing on this machine compared to your master intent?
-brew bundle check --file=setup/homebrew/Brewfile --no-upgrade
+brew bundle check -v --file=setup/homebrew/Brewfile --no-upgrade
 
 # Install everything in the master that isn't installed yet.
-brew bundle install --file=setup/homebrew/Brewfile
+brew bundle install -v --file=setup/homebrew/Brewfile
 
 # What's installed but NOT in the master? (drift report — does not modify)
-brew bundle cleanup --file=setup/homebrew/Brewfile
+brew bundle cleanup -v --file=setup/homebrew/Brewfile
 ```
 
 ## Legacy way

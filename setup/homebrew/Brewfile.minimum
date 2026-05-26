@@ -7,52 +7,6 @@
 # Apps
 brew "mas"  # Install App Store command line tools https://github.com/mas-cli/mas
 
-# Top Must Installs
-cask "1password"
-cask "fastscripts"
-cask "warp"  # Rust-based terminal app; couldn't get it to work though
-cask "obsidian"  # Knowledge base that works on top of a local folder of plain text Markdown files https://obsidian.md/
-cask "skim"  # PDF reader and note-taking application https://skim-app.sourceforge.io/
-cask "microsoft-edge"
-cask "brave-browser"  # Web browser focusing on privacy
-cask "comet"  # Web browser with integrated AI assistant
-cask "busycal"  # Calendar software focusing on flexibility and reliability
-cask "busycontacts"  # Contact manager focusing on efficiency
-cask "emclient"  # Email client for Windows and macOS https://www.emclient.com/; has a free version but I haven't tried it yet.
-#cask "microsoft-office"  # requires admin password to install
-#cask "microsoft-teams"
-cask "visual-studio-code"
-cask "github"  # Desktop client for GitHub repositories
-brew "git"  # Distributed revision control system
-brew "hookmark"  # Link and retrieve key information https://hookproductivity.com/
-cask "claude"  # Anthropic's official Claude AI desktop app
-cask "coteditor"  # Plain-text editor for web pages, program source codes and more
-cask "markedit"  # Markdown editor
-cask "cyberduck"  # Server and cloud storage browser
-cask "mountain-duck"  # Mounts servers and cloud storages as a disk on the desktop
-cask "visualdiffer"  # Visually compare folders and files
-mas "Home Assistant", id: 1099568401
-mas "Juicy", id: 6752221257
-mas "OwlOCR", id: 6462355119  # OwlOCR - Screenshot to Text (6.0.6)
-
-
-# Login items
-#cask "bartender"
-cask "thaw@beta"  # Menu bar manager
-cask "raycast"  # spotlight replacement, deciding between it an alfred
-cask "popchar"
-cask "rectangle"
-cask "rectangle-pro"  # Window snapping tool
-cask "karabiner-elements"
-cask "default-folder-x"
-cask "betterdisplay"
-cask "shottr"  # free screen shot tool; preferred over Monosnap
-cask "typinator"  # Tool to automate the insertion of frequently used text and graphics https://www.ergonis.com/products/typinator/
-cask "rocket-typist"  # Text expander for common phrases https://witt-software.com/rockettypist/
-cask "onedrive"  # Folder synchronization with OneDrive; required you pass cask
-mas "OwlOCR", id: 6462355119  # OwlOCR - Screenshot to Text (6.0.6)
-mas "Velja", id: 1607635845  # Velja (1.10.1) - browser picker: Open links in a specific browser or a matching native app. Easily switch between browsers
-
 # Favorites
 brew "bash"  # Bourne-Again SHell, a UNIX command interpreter
 brew "bash-completion@2"  # Programmable completion for Bash 4.2+
@@ -73,3 +27,45 @@ brew "zoxide"  # A smarter cd command for navigating your filesystem.
 brew "restic"  # Fast, efficient and secure backup program
 cask "1password-cli"  # Command-line interface for 1Password
 brew "uv"  # Extremely fast Python package installer and resolver, written in Rust https://docs.astral.sh/uv/
+brew "pyenv"  # Python version management https://github.com/pyenv/pyenv great for installing multiple versions of python
+brew "hub"  # github command line wrapper
+
+# Top Must Installs
+cask "1password"
+cask "fastscripts"
+cask "warp"  # Rust-based terminal app; couldn't get it to work though
+cask "obsidian"  # Knowledge base that works on top of a local folder of plain text Markdown files https://obsidian.md/
+cask "skim"  # PDF reader and note-taking application https://skim-app.sourceforge.io/
+cask "microsoft-edge"
+cask "brave-browser"  # Web browser focusing on privacy
+cask "comet"  # Web browser with integrated AI assistant
+cask "visual-studio-code"
+cask "github"  # Desktop client for GitHub repositories
+brew "git"  # Distributed revision control system
+cask "hookmark"  # Link and retrieve key information https://hookproductivity.com/
+cask "claude"  # Anthropic's official Claude AI desktop app
+cask "coteditor"  # Plain-text editor for web pages, program source codes and more
+cask "markedit"  # Markdown editor
+cask "cyberduck"  # Server and cloud storage browser
+cask "mountain-duck"  # Mounts servers and cloud storages as a disk on the desktop
+cask "visualdiffer"  # Visually compare folders and files
+mas "Home Assistant", id: 1099568401
+mas "Juicy", id: 6752221257
+mas "OwlOCR", id: 6462355119  # OwlOCR - Screenshot to Text (6.0.6)
+
+
+# Login items
+#cask "bartender"
+cask "thaw@beta"  # Menu bar manager
+cask "raycast"  # spotlight replacement, deciding between it an alfred
+cask "rectangle"
+cask "rectangle-pro"  # Window snapping tool
+cask "karabiner-elements"
+cask "default-folder-x"
+cask "betterdisplay"
+cask "shottr"  # free screen shot tool; preferred over Monosnap
+cask "typinator"  # Tool to automate the insertion of frequently used text and graphics https://www.ergonis.com/products/typinator/
+cask "rocket-typist"  # Text expander for common phrases https://witt-software.com/rockettypist/
+cask "onedrive"  # Folder synchronization with OneDrive; required you pass cask
+mas "OwlOCR", id: 6462355119  # OwlOCR - Screenshot to Text (6.0.6)
+mas "Velja", id: 1607635845  # Velja (1.10.1) - browser picker: Open links in a specific browser or a matching native app. Easily switch between browsers
