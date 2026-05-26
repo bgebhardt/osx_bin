@@ -4,11 +4,11 @@ This directory now contains both the original imperative shell scripts (`brew.sh
 
 | File | Purpose |
 | --- | --- |
-| `Brewfile` | **Hand-curated master.** Never overwritten by the generator. Your declared intent across machines. |
-| `Brewfile.<host>.<YYYY-MM-DD>` | Per-machine, per-day snapshot of what's *actually* installed. Generated. Diff against the master to see drift. |
-| `Brewfile.minimum` | "Fresh-machine essentials" — mirrors `brew-cask-minimum.sh`. Generated. |
-| `Brewfile.work` | Work-machine overlay — mirrors `brew-cask-work.sh` + `brew-work.sh`. Generated; expect stale entries. |
-| `generate-brewfiles.py` | Regenerator. Parses the `*.sh` scripts and merges with `brew bundle dump --describe` output. Writes everything **except** the master. |
+| `Brewfile` | **Hand-curated master.** Your declared intent across machines. |
+| `Brewfile.minimum` | **Hand-curated.** Fresh-machine essentials. Sister to `brew-cask-minimum.sh`. |
+| `Brewfile.work` | **Hand-curated.** Work-machine overlay. Sister to `brew-cask-work.sh` + `brew-work.sh`. |
+| `Brewfile.<host>.<YYYY-MM-DD>` | Per-machine, per-day snapshot of what's *actually* installed. **Only file the generator writes.** Diff against the master to see drift. |
+| `generate-brewfiles.py` | Snapshot generator. Parses the `*.sh` scripts (for section headers, inline comments, and tombstones) and merges with `brew bundle dump --describe` output. Writes only the dated snapshot — the three hand-curated Brewfiles are never touched. |
 
 ## Why both formats?
 
@@ -54,8 +54,7 @@ python3 setup/homebrew/generate-brewfiles.py
 
 Output:
 - `Brewfile.<hostname>.<YYYY-MM-DD>` — fresh snapshot (overwrites today's if it already exists)
-- `Brewfile.minimum` and `Brewfile.work` — regenerated from the `*.sh` source scripts
-- The `Brewfile` master is **not** touched
+- `Brewfile`, `Brewfile.minimum`, `Brewfile.work` are hand-curated and **never** touched by the generator. Edit them directly.
 
 The generator:
 
@@ -68,6 +67,6 @@ The generator:
 ## Known quirks
 
 - **`brew bundle check` without `--no-upgrade` reports outdated-but-installed packages as "needs to be installed".** This is expected — append `--no-upgrade` if you only care about presence.
-- **`Brewfile.minimum` may show items as missing.** This is expected when the *intent* in `brew-cask-minimum.sh` (e.g. `microsoft-office` cask) doesn't match how the apps were actually installed on this machine (e.g. installed via Microsoft installer, not the brew cask). `check` is telling you the truth: the manifest and reality diverge.
-- **`Brewfile.work` will show many failures.** The work source scripts are older overlays (`brew-work.sh` literally says "OLD ITEMS TO REMOVE BELOW HERE"). Most entries no longer exist as casks. Treat the file as a historical reference and prune as you go.
+- **`Brewfile.minimum` may show items as missing.** This is expected when the *intent* (e.g. `microsoft-office` cask) doesn't match how the apps were actually installed on this machine (e.g. installed via Microsoft installer, not the brew cask). `check` is telling you the truth: the manifest and reality diverge.
+- **`Brewfile.work` may show many failures.** Edit it down to what currently installs cleanly. Old entries kept around as commented-out tombstones for memory.
 - **Post-install steps are not in any Brewfile.** `pipx install llm`, `llm install llm-mlx`, `go install … fabric …`, `npm install -g @mermaid-js/mermaid-cli`, and `curl … claude.ai/install.sh` all live in `brew.sh` / `brew-cask.sh` only. The Brewfile format has no equivalent.

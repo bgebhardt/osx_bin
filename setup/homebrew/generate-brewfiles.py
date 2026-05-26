@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
-"""Merge brew bundle dump output with curated source-script structure.
+"""Generate a per-machine, per-day Brewfile snapshot.
 
-Reads the user's setup/homebrew/*.sh scripts and the authoritative dump at
-/tmp/Brewfile.generated, then writes three Brewfiles preserving section
-headers, inline annotations, and tap-consumer comments.
+Reads `brew bundle dump --describe` output at /tmp/Brewfile.generated and
+merges in section headers, inline annotations, tap-consumer comments, and
+tombstone entries for commented `# brew install foo` lines from the source
+scripts (brew.sh / brew-cask.sh / mas.sh). Writes a single output:
+
+    setup/homebrew/Brewfile.<hostname>.<YYYY-MM-DD>
+
+The master Brewfile and the curated Brewfile.minimum / Brewfile.work are
+all hand-maintained and never touched by this generator.
 """
 from __future__ import annotations
 import re
@@ -14,8 +20,6 @@ from pathlib import Path
 HOME = Path("/Users/bryan/bin/setup/homebrew")
 MAS_SH = Path("/Users/bryan/bin/setup/appstore/mas.sh")
 DUMP = Path("/tmp/Brewfile.generated")
-OUT_MIN = HOME / "Brewfile.minimum"
-OUT_WORK = HOME / "Brewfile.work"
 
 
 def snapshot_path() -> Path:
@@ -630,96 +634,16 @@ def build_full(
     return "\n".join(lines) + "\n"
 
 
-# ---------- Build minimum/work from their source scripts ----------
-
-def build_tier_from_script(script_path: Path, header_lines: list[str]) -> str:
-    """Emit a Brewfile from a single source script, preserving sections,
-    install lines, taps, and mas entries with comments.
-
-    Deduplicates: if a short name appears as both `brew install X` (typo) and
-    `brew install --cask X` in the source, keep only the cask form.
-    """
-    records = parse_script(script_path)
-
-    # First pass: collect cask short-names so we can drop brew formulae that
-    # are actually casks-by-typo.
-    cask_names = {
-        r["name"].split("/")[-1]
-        for r in records
-        if r["kind"] == "brew" and r["is_cask"]
-    }
-    # Also dedupe: track names we've already emitted within a kind so we don't
-    # print the same `cask "X"` line twice (also a script typo case).
-    emitted_brew: set[str] = set()
-    emitted_cask: set[str] = set()
-
-    lines: list[str] = list(header_lines)
-    lines.append("")
-
-    # Collect taps first.
-    taps = [r for r in records if r["kind"] == "tap"]
-    seen_taps: set[str] = set()
-    if taps:
-        lines.append("# Taps")
-        for t in taps:
-            if t["name"] in seen_taps:
-                continue
-            seen_taps.add(t["name"])
-            lines.append(fmt_tap(t["name"], [], t["comment"]))
-        lines.append("")
-
-    current_section_emitted = False
-    in_section: str | None = None
-    for rec in records:
-        if rec["kind"] == "section":
-            in_section = rec["title"]
-            lines.append("")
-            lines.append(f"# {in_section}")
-            current_section_emitted = True
-            continue
-        if rec["kind"] == "tap":
-            continue
-        # Minimum/work overlays only emit active entries — they're curated
-        # manifests, not journals. Tombstones (commented_out records) only
-        # belong in the per-day snapshot Brewfile.
-        if rec.get("commented_out"):
-            continue
-        if rec["kind"] == "brew":
-            short = rec["name"].split("/")[-1]
-            if rec["is_cask"]:
-                if short in emitted_cask:
-                    continue
-                emitted_cask.add(short)
-                if not current_section_emitted:
-                    lines.append("# Apps")
-                    current_section_emitted = True
-                lines.append(fmt_cask(rec["name"], rec["comment"]))
-            else:
-                if short in cask_names:
-                    continue  # drop brew "X" if cask "X" also appears
-                if short in emitted_brew:
-                    continue
-                emitted_brew.add(short)
-                if not current_section_emitted:
-                    lines.append("# Apps")
-                    current_section_emitted = True
-                lines.append(fmt_brew(rec["name"], rec["comment"]))
-        elif rec["kind"] == "mas":
-            if not current_section_emitted:
-                lines.append("# Mac App Store apps")
-                current_section_emitted = True
-            display = clean_mas_name(rec["comment"], rec["id"])
-            lines.append(fmt_mas(display, rec["id"], rec["comment"]))
-
-    return "\n".join(lines).rstrip() + "\n"
-
-
 # ---------- main ----------
 
 def main():
+    # Canonical scripts contribute active entries (for section/comment lookup)
+    # and tombstones (commented `# brew install foo` lines).
     brew_sh = parse_script(HOME / "brew.sh")
     cask_sh = parse_script(HOME / "brew-cask.sh")
     mas_sh = parse_script(MAS_SH)
+    # Overlay scripts contribute active entries only — they're curated
+    # manifests, not journals, so their commented-out lines aren't tombstones.
     min_sh = parse_script(HOME / "brew-cask-minimum.sh")
     work_cask_sh = parse_script(HOME / "brew-cask-work.sh")
     work_sh = parse_script(HOME / "brew-work.sh")
@@ -727,14 +651,12 @@ def main():
     all_idx: dict = {}
     all_tombstones: list[dict] = []
     section_order: list[str] = []
-    # Canonical scripts: contribute both active entries and tombstones.
     # Order matters: brew.sh/brew-cask.sh processed first so their sections
     # take priority in ordering.
     for recs in (brew_sh, cask_sh, mas_sh):
         idx, tombs = index_records(recs, section_order)
         all_idx.update(idx)
         all_tombstones.extend(tombs)
-    # Overlay scripts: active entries only — they're not journals.
     for recs in (min_sh, work_cask_sh, work_sh):
         idx, _ = index_records(recs, section_order)
         all_idx.update(idx)
@@ -758,39 +680,8 @@ def main():
     )
     out_full.write_text(full)
 
-    min_header = [
-        "# Brewfile.minimum — essentials for a fresh Mac.",
-        "# Mirrors the active entries in setup/homebrew/brew-cask-minimum.sh.",
-        "# The source script remains the canonical journal (commented-out entries,",
-        "# history, notes); this file is the declarative manifest.",
-        "#",
-        "# Use:  brew bundle install --file=setup/homebrew/Brewfile.minimum",
-    ]
-    OUT_MIN.write_text(
-        build_tier_from_script(HOME / "brew-cask-minimum.sh", min_header)
-    )
-
-    work_header = [
-        "# Brewfile.work — work-machine overlay.",
-        "# Mirrors active entries in setup/homebrew/brew-cask-work.sh and brew-work.sh.",
-        "# These source scripts are older overlays kept for reference; many entries",
-        "# may no longer install cleanly. Run `brew bundle check --file=Brewfile.work`",
-        "# to see what's missing or stale.",
-    ]
-    # Combine both work scripts into one Brewfile.
-    parts = [
-        build_tier_from_script(HOME / "brew-cask-work.sh", work_header).rstrip(),
-        "",
-        "# --- from brew-work.sh ---",
-        build_tier_from_script(HOME / "brew-work.sh", []).rstrip(),
-        "",
-    ]
-    OUT_WORK.write_text("\n".join(parts) + "\n")
-
     print(f"wrote {out_full} ({out_full.stat().st_size} bytes)")
-    print(f"wrote {OUT_MIN} ({OUT_MIN.stat().st_size} bytes)")
-    print(f"wrote {OUT_WORK} ({OUT_WORK.stat().st_size} bytes)")
-    print(f"note: master at {HOME / 'Brewfile'} is left untouched.")
+    print(f"note: Brewfile, Brewfile.minimum, Brewfile.work are hand-curated and left untouched.")
 
 
 if __name__ == "__main__":

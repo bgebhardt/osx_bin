@@ -1,8 +1,10 @@
-# Brewfile.work — work-machine overlay.
-# Mirrors active entries in setup/homebrew/brew-cask-work.sh and brew-work.sh.
-# These source scripts are older overlays kept for reference; many entries
-# may no longer install cleanly. Run `brew bundle check --file=Brewfile.work`
-# to see what's missing or stale.
+# Brewfile.work — work-machine overlay. Hand-curated.
+# Sister to setup/homebrew/brew-cask-work.sh and brew-work.sh (those source
+# scripts are older overlays kept for reference). This file is never auto-
+# regenerated; edit it directly.
+#
+# Use:  brew bundle install --file=setup/homebrew/Brewfile.work
+# Check: brew bundle check  --file=setup/homebrew/Brewfile.work
 
 # Apps
 brew "cask"

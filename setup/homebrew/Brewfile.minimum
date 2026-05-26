@@ -1,7 +1,6 @@
-# Brewfile.minimum — essentials for a fresh Mac.
-# Mirrors the active entries in setup/homebrew/brew-cask-minimum.sh.
-# The source script remains the canonical journal (commented-out entries,
-# history, notes); this file is the declarative manifest.
+# Brewfile.minimum — essentials for a fresh Mac. Hand-curated.
+# Sister to setup/homebrew/brew-cask-minimum.sh (the install-script journal).
+# This file is never auto-regenerated; edit it directly.
 #
 # Use:  brew bundle install --file=setup/homebrew/Brewfile.minimum
 
