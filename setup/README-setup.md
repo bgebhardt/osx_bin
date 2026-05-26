@@ -47,6 +47,8 @@ Finder settings (set by mac-defaults.sh now)
 * Set your git user name. see https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
 
 ``` shell
+gh auth login # authenticate to GitHub
+gh auth git-setup # wire that auth into Git's credential system
 git config --global user.name "Bryan Gebhardt"
 git config --global user.email bryan.gebhardt@gmail.com
 ```
@@ -88,17 +90,31 @@ Follow read me: https://github.com/bgebhardt/osx_bin
 # Install common brew tools.
 This will make tools the shell depends on available.
 
+This will install the minimal set of brew cli, casks, mas (app store), go, (python packages (via uv), rust (via Cargo)
+```sh
+# Install everything in the master that isn't installed yet.
+brew bundle install --file=setup/homebrew/Brewfile.minimum
 ```
+
+**Legacy**
+now part of Brewfile.minimum
+
+```sh
 ~/bin/setup/homebrew/brew.sh 
+# install minimum apps
+~/bin/setup/homebrew/brew-cask-minimum.sh
 ```
 > This will take quite a while.  This may also fail if brew hits your maximum github API requests.  Wait for an hour and try again.
+
 ## Set mac defaults
 
 Set mac default settings
 ```shell
 ~/bin/setup/macOS/mac-defaults.sh
 ```
+## Install Tailscale
 
+Not done via brew; use tailscale standalone app instead of the brew version as it is more up to date and works better. See [Tailscale for Mac - Tailscale](https://tailscale.com/download/mac/)
 
 ## Install Rosetta with:
 
@@ -106,11 +122,9 @@ Set mac default settings
 /usr/sbin/softwareupdate --install-rosetta --agree-to-license
 ```
 
-## Install minimum apps
-```shell
-~/bin/setup/homebrew/brew-cask-minimum.sh
-```
-# Install mas, npm, and python tools
+# LEGACY - Install mas, npm, and python tools
+
+These are now done by Brewfile
 
 Install Apple Store apps I use via the very cool mas CLI for App Store.  Requires mas be installed with brew (done by brew.sh)
 ```
@@ -203,6 +217,21 @@ Replace username with the username on the remote Mac and remote_mac_ip with the 
 * Turn on cloud sync
 
 # Set up rest of apps (including cli apps)
+
+This will install all brew cli, casks, mas (app store), go, (python packages (via uv), rust (via Cargo)
+
+```sh
+# What's missing on this machine compared to your master intent?
+brew bundle check --file=setup/homebrew/Brewfile --no-upgrade
+
+# Install everything in the master that isn't installed yet.
+brew bundle install --file=setup/homebrew/Brewfile
+
+# What's installed but NOT in the master? (drift report — does not modify)
+brew bundle cleanup --file=setup/homebrew/Brewfile
+```
+
+## Legacy way
 
 * run ./mas.sh
   * There may be errors as app id's may have changed or because of authorization errors
@@ -358,6 +387,10 @@ iDrive cloud sync is needed for my Obsidian vault
 
 ## Obsidian Note taking setup
 
+Download "Obsidian Master" with restic
+See restic config in 1password secure note
+Set up remotely save in vaults
+
 Enable core plugins
 My vaults are in OneDrive. Set up those to applications first.
 
@@ -402,7 +435,7 @@ Set keyboard shortcuts
 * The short cuts I've used can be found at https://github.com/bgebhardt/osx_scripts_folder/blob/master/fastscripts-shortcuts.csv
 * There is a script in that repo that can export all shortcuts
 
-## Bartender
+## Bartender - replaced with Thaw
 
 * Open and set up
 * Set Start on Launch
@@ -438,7 +471,7 @@ Here's the script:
 * Enable Extensions you want visible
 * Select Moonlight Glow from Appearance on Personal Profile
 
-## MailMate
+## MailMate - replaced with eM Client
 
 1. Copy over ~/Library/Application Support/MailMate/
 2. Copy over ~/Library/Preferences/com.freron.MailMate.plist
@@ -548,7 +581,7 @@ TODO: figure out list of all extensions you install.
 License - NFRTM-4BUJN-ZVE23-CGBFT-KUKDI-YZGK5-LHO53
 Restore backup from iCloud in preferences
 
-## Fig - shell integrations
+## RETIRED - Fig - shell integrations
 
 No longer used.
 Open and configure as directed
@@ -785,7 +818,7 @@ sample config file: [mackup/doc/.mackup.cfg at master · lra/mackup](https://git
 My config is to sync to iDrive Cloud Drive. See mackup.template.cfg
 Supports about 20-30 of my apps
 
-## Joplin Note taking Setup 
+## RETIRED - Joplin Note taking Setup 
 I use [Joplin](https://joplinapp.org/) for cross platform note taking instead of Apple Notes so I can get my notes on Windows as well. It has great plugins but requires you to write all in markdown. Synchronization is through OneDrive and is not quite as robust as Apple Notes. Overall though it's a great app.
 
 All files are in ~/.config/joplin-desktop and ~/.config/joplin.
