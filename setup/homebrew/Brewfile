@@ -11,7 +11,7 @@
 
 # Taps
 tap "bramstein/webfonttools"  # for sfnt2woff, sfnt2woff-zopfli
-tap "caskroom/cask"  # for kdiff3
+tap "homebrew/cask"  # for kdiff3
 tap "davep/homebrew"
 tap "ebullient/tap"  # for ttrpg-convert-cli
 tap "hashicorp/tap"  # for terraform
@@ -150,7 +150,7 @@ cask "busycontacts"  # Contact manager focusing on efficiency
 cask "elmedia-player"  # Video and audio player
 cask "firefox"  # Web browser
 cask "markdown-service-tools"  # Collection of services for Markdown-formatted text
-cask "send-to-kindle"  # Tool for sending personal documents to Kindles from Macs
+#cask "send-to-kindle"  # Tool for sending personal documents to Kindles from Macs
 cask "soulver"  # Notepad with a built-in calculator
 cask "textexpander"  # Inserts pre-made snippets of text anywhere
 cask "tripmode"  # Control your data usage on slow or expensive networks
@@ -229,7 +229,7 @@ brew "powershell", link: false  # Command-line shell and scripting language http
 # Games
 cask "steam"  # Video game digital distribution service
 cask "steamcmd"  # Command-line client for Steam
-cask "teamspeak-client"  # Voice communication client
+#cask "teamspeak-client"  # Voice communication client
 
 # WordPress
 brew "wp-cli"  # Command line interface for WordPress https://wp-cli.org/
@@ -589,7 +589,7 @@ cask "sikarugir-app/sikarugir/sikarugir"  # Porting tool, to make Windows progra
 #cask "simplenote"  # React client for Simplenote
 cask "skint"  # Check status of key security settings and features
 cask "space-saver"  # Delete local Time Machine backups
-cask "spotify"  # Music streaming service
+#cask "spotify"  # Music streaming service
 cask "stability-matrix"  # Package manager and inference UI for Stable Diffusion
 cask "stats"  # System monitor for the menu bar
 cask "superwhisper"  # Dictation tool including LLM reformatting
@@ -817,22 +817,26 @@ go "github.com/danielmiessler/fabric/cmd/code2context"
 go "github.com/danielmiessler/fabric/cmd/to_pdf"
 
 # NPM global packages (installed via `npm install -g`)
-npm "@adobe/helix-onedrive-cli"
-npm "@foundryvtt/foundryvtt-cli"
-npm "@google/gemini-cli"
-npm "@lionello/onedrive-cli"
-npm "@mermaid-js/mermaid-cli"
-npm "@pnp/cli-microsoft365"
-npm "azure-cli"
-npm "bower"
-npm "eslint"
-npm "git-open"
-npm "grunt-cli"
-npm "http-server"
-npm "jshint"
-npm "nestor"
-npm "onedrive-link"
-npm "reapp"
+# TODO: create npm script and run that instead.
+# BUG: That confirms it — npm install -g works fine from your shell. The issue is that brew bundle spawns npm in a subprocess with a restricted PATH that doesn't include /opt/homebrew/bin, so the #!/usr/bin/env node shebang in npm fails to resolve.
+
+# This is a known limitation of brew bundle's npm entry support on Apple Silicon Macs (where Homebrew lives at /opt/homebrew instead of /usr/local). The simplest fix is to install the npm packages separately after brew bundle finishes. You
+# npm "@adobe/helix-onedrive-cli"
+# npm "@foundryvtt/foundryvtt-cli"
+# npm "@google/gemini-cli"
+# npm "@lionello/onedrive-cli"
+# npm "@mermaid-js/mermaid-cli"
+# npm "@pnp/cli-microsoft365"
+# npm "azure-cli"
+# npm "bower"
+# npm "eslint"
+# npm "git-open"
+# npm "grunt-cli"
+# npm "http-server"
+# npm "jshint"
+# npm "nestor"
+# npm "onedrive-link"
+# npm "reapp"
 
 # uv tools — migration target from pipx. These are not yet installed via uv;
 # add them by running the commands in the comments below, then `uv tool list`
