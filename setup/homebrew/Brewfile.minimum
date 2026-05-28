@@ -64,9 +64,9 @@ cask "karabiner-elements"
 cask "default-folder-x"
 cask "betterdisplay"
 cask "shottr"  # free screen shot tool; preferred over Monosnap
-cask "typinator"  # Tool to automate the insertion of frequently used text and graphics https://www.ergonis.com/products/typinator/
+# cask "typinator"  # PINNED to v9 — homebrew cask is at v10.0; install v9 manually from https://ergonis.com/downloads/ until ready to upgrade.
 cask "rocket-typist"  # Text expander for common phrases https://witt-software.com/rockettypist/
-cask "microsoft-office"  # requires admin password to install
+cask "microsoft-office"  # requires admin password to install; best way to install best office and onedrive.
 #cask "onedrive"  # Folder synchronization with OneDrive; required you pass cask; this conflicts with microsoft-office cask
 mas "OwlOCR", id: 6462355119  # OwlOCR - Screenshot to Text (6.0.6)
 mas "Velja", id: 1607635845  # Velja (1.10.1) - browser picker: Open links in a specific browser or a matching native app. Easily switch between browsers
