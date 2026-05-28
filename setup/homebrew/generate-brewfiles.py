@@ -8,7 +8,8 @@ scripts (brew.sh / brew-cask.sh / mas.sh). Writes a single output:
 
     setup/homebrew/Brewfile.<hostname>.<YYYY-MM-DD>
 
-The master Brewfile and the curated Brewfile.minimum / Brewfile.work are
+The master Brewfile and the curated persona files (Brewfile.minimum,
+Brewfile.homeserver, Brewfile.desktop, Brewfile.work, Brewfile.games) are
 all hand-maintained and never touched by this generator.
 """
 from __future__ import annotations
@@ -681,7 +682,7 @@ def main():
     out_full.write_text(full)
 
     print(f"wrote {out_full} ({out_full.stat().st_size} bytes)")
-    print(f"note: Brewfile, Brewfile.minimum, Brewfile.work are hand-curated and left untouched.")
+    print(f"note: Brewfile and the persona files (Brewfile.minimum, Brewfile.homeserver, Brewfile.desktop, Brewfile.work, Brewfile.games) are hand-curated and left untouched.")
 
 
 if __name__ == "__main__":

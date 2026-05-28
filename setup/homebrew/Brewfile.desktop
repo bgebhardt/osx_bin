@@ -1,0 +1,451 @@
+# Brewfile.desktop — GUI Mac apps for day-to-day personal use.
+# Hand-curated. Never auto-regenerated; edit it directly.
+#
+# Cascade: install AFTER Brewfile.minimum and Brewfile.homeserver. Entries
+# here intentionally exclude anything already in minimum (warp, obsidian,
+# skim, microsoft-edge, brave-browser, comet, vscode, github, claude,
+# coteditor, markedit, cyberduck, mountain-duck, visualdiffer, hookmark,
+# 1password, fastscripts, betterdisplay, karabiner-elements, raycast,
+# rectangle, rectangle-pro, default-folder-x, shottr, typinator,
+# rocket-typist, thaw@beta, microsoft-office, Velja, OwlOCR, Juicy,
+# Home Assistant) and anything in Brewfile.games.
+#
+# Use:  brew bundle install --file=setup/homebrew/Brewfile.desktop
+
+# Taps providing GUI apps
+tap "davep/homebrew"
+tap "nailuogg/recoll"  # for recoll
+tap "steipete/tap"  # for codexbar
+
+# Productivity / Office
+cask "busycal"  # Calendar software focusing on flexibility and reliability
+cask "busycontacts"  # Contact manager focusing on efficiency
+cask "elmedia-player"  # Video and audio player
+cask "firefox"  # Web browser
+cask "markdown-service-tools"  # Collection of services for Markdown-formatted text
+#cask "send-to-kindle"  # Tool for sending personal documents to Kindles from Macs
+cask "soulver"  # Notepad with a built-in calculator
+cask "textexpander"  # Inserts pre-made snippets of text anywhere
+cask "tripmode"  # Control your data usage on slow or expensive networks
+cask "microsoft-teams"
+
+# Email
+cask "emclient"  # Email client for Windows and macOS https://www.emclient.com/
+cask "mailspring"  # Email client https://getmailspring.com/
+cask "superhuman"  # paid Email client https://superhuman.com/
+cask "mimestream"  # Native app email client for Gmail
+
+# Utilities
+#cask "bartender"  # Menu bar icon organiser
+cask "carbon-copy-cloner"  # Hard disk backup and cloning utility
+cask "crossover"  # Tool to run Windows software
+cask "daisydisk"  # Disk space visualiser
+cask "disk-drill"  # Data recovery software
+cask "forklift"  # Finder replacement and FTP, SFTP, WebDAV and Amazon s3 client
+cask "gemini"  # Disk space cleaner that finds and deletes duplicated and similar files
+cask "grandperspective"  # Graphically shows disk usage within a file system
+cask "imazing"  # iPhone management application
+#cask "little-snitch"  # Host-based application firewall
+cask "macpilot"  # Graphical user interface for the command terminal
+cask "mactracker"  # Detailed information on every Apple product ever made
+cask "omnioutliner"  # Note taking application and information organiser
+cask "popclip"  # Used to access context-specific actions when text is selected
+cask "sloth"  # Mac app that shows all open files and sockets https://sveinbjorn.org/sloth
+cask "smartreporter-free"  # Drive failure monitoring tool - https://www.corecode.io/smartreporter/
+cask "superduper"  # Backup, recovery and cloning software
+# Delisted from Homebrew — install manually or find replacements:
+# cask "cronnix"        # cron editor GUI — no formula/cask in Homebrew anymore
+# cask "obsbot-center"  # OBSBOT camera config — no formula/cask in Homebrew anymore
+
+# Remote access / file sharing
+cask "rustdesk"  # Remote desktop software https://rustdesk.com/
+
+# Terminal helpers (GUI)
+cask "openinterminal"  # gui version of Open Terminal at the current Finder location
+cask "openinterminal-lite"  # single click version of Open Terminal at the current Finder location
+
+# Development apps
+cask "base"  # App to create, design, edit and browse SQLite 3 database files
+cask "dash"  # API documentation browser and code snippet manager
+cask "qlcolorcode"  # Preview source code files with syntax highlighting
+cask "qlprettypatch"  # Preview .patch files
+cask "qlstephen"  # Preview plain text files without a file extension. Example: README, CHANGELOG, etc.
+cask "quickjson"  # Quick Look plugin to pretty-print JSON
+cask "quicklook-csv"  # Preview CSV files
+cask "webpquicklook"  # Preview WebP images
+#cask "xquartz"  # Open-source version of the X.Org X Window System
+#brew "github-release"  # Create and edit releases on Github (and upload artifacts)
+#cask "aquamacs"  # Text editor based on GNU Emacs
+#cask "codekit"  # App for building websites
+#cask "coderunner"  # Multi-language programming editor
+#cask "deltawalker"  # Tool to compare and synchronise files and folders
+#cask "diffmerge"  # Visually compare and merge files
+#cask "espresso"  # Website editor focusing on flair and efficiency
+#cask "qlmarkdown"  # Preview Markdown files
+
+# Login items
+cask "popchar"  # Utility to display all characters of a font
+
+# Misc utilities/discovered casks
+# (1password-cli lives in Brewfile.minimum)
+cask "aerial"  # Apple TV Aerial screensaver
+cask "airbuddy"  # AirPods companion app
+cask "airparrot"  # Tool to wirelessly mirror the screen or stream media files
+#cask "aldente"  # Menu bar tool to limit maximum charging percentage
+#cask "alt-tab"  # Enable Windows-like alt-tab
+cask "amadeus-pro"  # Multi-purpose audio recorder, editor and converter
+#cask "android-file-transfer"  # Transfer files from and to an Android smartphone
+cask "app-tamer"  # CPU management application
+cask "appcleaner"  # Application uninstaller
+cask "audacity"  # Multi-track audio editor and recorder
+cask "batteries"  # Track all your devices' batteries
+cask "beamer"  # Desktop casting/streaming app for Apple TV and Chromecast
+cask "beeper"  # Universal chat app powered by Matrix
+cask "bettertouchtool"  # Tool to customise input devices and automate computer systems
+cask "betterzip"  # Utility to create and modify archives
+#cask "blocs"  # Visual web design software
+cask "boltai"  # AI chat client
+#cask "boom"  # Transforms audio input
+cask "breaktimer"  # Tool to manage periodic breaks
+cask "calibre"  # E-books management software
+cask "chatgpt"  # OpenAI's official ChatGPT desktop app
+cask "cisdem-document-reader"  # Document reader to open and view Windows-based files
+cask "cisdem-pdf-converter-ocr"  # PDF Converter with OCR capability
+cask "claudebar"  # Menu bar app for monitoring AI coding assistant usage quotas
+#cask "cloudmounter"  # Mounts cloud storages as local discs
+#cask "coconutbattery"  # Tool to show live information about the batteries in various devices
+cask "codex"  # OpenAI's coding agent that runs in your terminal
+cask "steipete/tap/codexbar"  # Menu bar usage monitor for Codex and Claude
+cask "colorwell"  # Colour picker and colour palette generator
+cask "comfyui"  # Node-based image, video and audio generator
+cask "command-tab-plus"  # Keyboard-centric application and window switcher
+cask "context"  # MCP client and inspector
+cask "copilot-cli"  # Brings the power of Copilot coding agent directly to your terminal
+#cask "cursor"  # Write, edit, and chat about your code with AI
+cask "customshortcuts"  # Customise menu item keyboard shortcuts
+cask "dataflare"  # Database manager
+cask "descript"  # Audio and video editor
+cask "deskpad"  # Virtual monitor for screen sharing
+cask "devtoys"  # Utilities designed to make common development tasks easier
+cask "devutils"  # All-in-one toolbox for developers
+cask "diffusionbee"  # Run Stable Diffusion locally
+cask "direqual"  # Advanced directory compare utility
+cask "discord"  # Voice and text chat software
+#cask "displaylink"  # Drivers for DisplayLink docks, adapters and monitors
+#cask "docker-desktop"  # App to build and share containerised applications and microservices
+cask "downie"  # Downloads videos from different websites
+cask "draw-things"  # Run Stable Diffusion locally
+cask "drivethrurpg"  # Sync DriveThruRPG libraries to compatible devices
+cask "dropshare"  # File sharing solution
+cask "dropzone"  # Productivity app
+cask "espanso"  # Cross-platform Text Expander written in Rust
+cask "expressions"  # Regular expressions manager app
+cask "fbreader"  # Book reader
+cask "figma"  # Collaborative team software
+cask "find-any-file"  # File finder
+cask "fluid"  # Tool to turn a website into a desktop app
+cask "freeplane"  # Mind mapping and knowledge management software
+#cask "genymotion"  # Android emulator
+#cask "ghostty"  # Terminal emulator that uses platform-native UI and GPU acceleration
+cask "gimp"  # Free and open-source image editor
+cask "git-credential-manager"  # Cross-platform Git credential storage for multiple hosting providers
+cask "google-drive"  # Client for the Google Drive storage service
+cask "hammerspoon"  # Desktop automation application
+cask "horos"  # Medical image viewer
+cask "hot"  # Menu bar application that displays the CPU speed limit due to thermal issues
+cask "hype"  # App to create animated and interactive web content
+cask "idrive"  # Cloud backup and storage solution
+cask "iina"  # Free and open-source media player
+cask "imageoptim"  # Tool to optimise images to a smaller size
+#cask "iterm2"  # Terminal emulator as alternative to Apple's Terminal app
+cask "itsycal"  # Menu bar calendar
+#cask "jordanbaird-ice@beta"  # Menu bar manager
+#cask "caskroom/cask/kdiff3"  # Utility for comparing and merging files and directories
+cask "keepingyouawake"  # Tool to prevent the system from going into sleep mode
+cask "keyboard-maestro"  # Automation software
+cask "keyboardcleantool"  # Blocks all Keyboard and TouchBar input
+cask "keyclu"  # Find shortcuts for any installed application
+cask "kiro"  # Agent-centric IDE with spec-driven development
+cask "lasso-app"  # Move and resize windows with mouse
+cask "latest"  # Utility that shows the latest app updates
+cask "launchcontrol"  # Create, manage and debug system and user services
+cask "libreoffice"  # Free cross-platform office suite, fresh version
+cask "lingon-x"  # Automator software to start apps, run scripts or commands and more
+cask "lm-studio"  # Discover, download, and run local LLMs
+cask "local"  # WordPress local development tool by Flywheel
+cask "lunar"  # Adaptive brightness for external displays
+cask "maccy"  # Clipboard manager
+cask "macsvg"  # App for designing HTML5 Scalable Vector Graphics
+cask "mactex"  # Full TeX Live distribution with GUI applications
+cask "mark-text"  # Markdown editor
+cask "mathpix-snipping-tool"  # Scanner app for math and science
+cask "mdrp"  # Utility to rip and copy DVD content
+cask "meetingbar"  # Shows the next meeting in the menu bar
+cask "meld"  # Visual diff and merge tool
+cask "menubar-stats"  # System monitor with temperature & fans plugins
+cask "mesh"  # Private rolodex to remember people better
+cask "metaimage"  # Image metadata and geographical tag viewer & editor
+#cask "microsoft-azure-storage-explorer"  # Explorer for Azure Storage
+cask "mission-control-plus"  # Manage your windows in Mission Control
+cask "monitorcontrol"  # Tool to control external monitor brightness & volume
+cask "mosaic"  # Resize and reposition apps
+cask "movist-pro"  # Media player
+cask "multitouch"  # Add more gestures for Trackpad and Magic Mouse
+cask "mweb-pro"  # Markdown writing, note taking, and static blog generator app
+cask "netnewswire"  # Free and open-source RSS reader
+cask "netspot"  # WiFi site survey software and WiFi scanner
+cask "network-radar"  # Tool to scan and monitor the network
+#cask "notion"  # App to write, plan, collaborate, and get organised
+#cask "notion-calendar"  # Calendar for professionals and teams
+cask "numi"  # Calculator and converter application
+cask "obs"  # Open-source software for live streaming and screen recording
+cask "ollama-app"  # Get up and running with large language models locally
+cask "ollamac"  # Interact with Ollama models
+cask "omnifocus"  # Scheduling application focusing on organisation
+#cask "omnigraffle"  # Visual communication software
+#cask "onecast"  # Xbox remote play
+#cask "onyx"  # Verify system files structure, run miscellaneous maintenance and more
+cask "orbstack"  # Replacement for Docker Desktop
+cask "overview"  # Create live window previews for any application
+cask "paletro"  # Command palette in any application
+cask "pastebot"  # Workflow application to improve productivity
+cask "pdf-expert"  # PDF reader, editor and annotator
+cask "pdfsam-basic"  # Extracts pages, splits, merges, mixes and rotates PDF files
+cask "permute"  # Converts and edits video, audio or image files
+#cask "phoenix"  # Window and app manager scriptable with JavaScript
+cask "photosweeper-x"  # Tool to eliminate similar or duplicate photos
+cask "plex-media-server"  # Home media server
+cask "plexamp"  # Music player focusing on visuals
+cask "powerphotos"  # Tool to organise photo libraries
+cask "powershell"  # Command-line shell and scripting language
+cask "qr-journal"  # Allows users with an iSight (or compatible) camera to read QR codes
+cask "quicken"  # Personal finance manager
+cask "quickwhisper"  # Audio transcription tool
+cask "raindropio"  # All-in-one bookmark manager
+cask "nailuogg/recoll/recoll"  # Full-text search for your desktop.
+cask "reflector"  # Wireless screen-mirroring application
+cask "remote-wake-up"  # Wake up devices with a click of a button
+cask "repo-prompt"  # Prompt generation tool
+cask "rocket"  # Emoji picker optimised for blind people
+cask "rsyncui"  # GUI for rsync
+cask "sf-symbols"  # Tool that provides consistent, highly configurable symbols for apps
+cask "signal"  # Instant messaging application focusing on security
+#cask "simplenote"  # React client for Simplenote
+cask "skint"  # Check status of key security settings and features
+cask "space-saver"  # Delete local Time Machine backups
+#cask "spotify"  # Music streaming service
+cask "stability-matrix"  # Package manager and inference UI for Stable Diffusion
+cask "stats"  # System monitor for the menu bar
+cask "superwhisper"  # Dictation tool including LLM reformatting
+cask "swish"  # Control windows and applications right from your trackpad
+cask "tableflip"  # Edit plain text tables in place: Markdown, CSV, JSON. LaTeX and HTML export
+cask "tabula"  # Tool for liberating data tables trapped inside PDF files
+#cask "tagspaces"  # Offline, open-source, document manager with tagging support
+cask "telegram-a"  # Web client for Telegram messenger
+cask "tg-pro"  # Temperature monitoring, fan control and diagnostics
+cask "time-out"  # Customizable timing of breaks
+cask "timemachineeditor"  # Utility to change the default backup interval of Time Machine
+cask "timing"  # Automatic time and productivity tracking app
+cask "topnotch"  # Utility to hide the notch
+cask "transnomino"  # Batch rename utility
+cask "vlc"  # Multimedia player
+cask "vnc-viewer"  # Remote desktop application focusing on security
+#cask "wallpaper-wizard"  # Adjustable wallpaper application
+cask "whatsapp"  # Native desktop client for WhatsApp
+cask "wispr-flow"  # Voice-to-text dictation with AI-powered auto-editing
+#cask "xmind"  # Mind mapping and brainstorming tool
+cask "xrg"  # System monitor
+cask "yacreader"  # Comic reader
+cask "yoink"  # Drag and drop utility
+cask "zoom"  # Video communication and virtual meeting platform
+cask "zotero"  # Collect, organise, cite, and share research sources
+
+# Mac App Store apps
+mas "1Password for Safari", id: 1569813296
+mas "Actions", id: 1586435171
+mas "Amazing AI", id: 1660147028
+mas "Amperfy", id: 1530145038
+mas "Amphetamine", id: 937984704
+mas "AppLocker", id: 1132845904
+mas "AS Timer", id: 512464723
+mas "Azure VPN Client", id: 1553936137
+mas "Barbee", id: 1548711022
+mas "Battery Health", id: 490192174
+mas "Blackmagic Disk Speed Test", id: 425264550
+mas "Blink", id: 1547364831
+mas "Bluebook", id: 1645016851
+mas "Brightness Slider", id: 456624497
+mas "Canva", id: 897446215
+mas "Cloud Battery", id: 1481005137
+mas "Color Picker", id: 1545870783
+mas "Copilot", id: 6738511300
+mas "Craft", id: 1487937127
+mas "Display Menu", id: 549083868
+mas "Duplicate Cleaner For iPhoto", id: 586862299
+mas "EmojiFinder", id: 1457744893
+mas "Enchanted", id: 6474268307
+mas "Expresso", id: 593913958
+mas "GarageBand", id: 682658836
+mas "Gifski", id: 1351639930
+mas "Grab2Text", id: 6475956137
+mas "Hand Mirror", id: 1502839586
+mas "Health Auto Export", id: 1115567069
+mas "HEIC Converter", id: 1294126402
+mas "Hidden Bar", id: 1452453066
+mas "Highlights", id: 1498912833
+mas "Hyperduck", id: 6444667067
+mas "iMovie", id: 408981434
+mas "Infinite Art", id: 1468834161
+mas "InfiniteSkies", id: 1557797120
+mas "Infuse", id: 1136220934
+mas "Intermission", id: 1439431081
+mas "JSON Helper", id: 453114608
+mas "Key Codes", id: 414568915
+mas "Keynote", id: 361285480
+mas "Kindle", id: 302584613
+mas "Liquid", id: 569048352
+mas "Markdown Pro", id: 465965038
+mas "Microsoft To Do", id: 1274495053
+mas "MindNode Classic", id: 1289197285
+mas "MSG Viewer for Outlook", id: 973213640
+mas "OpenIn", id: 1643649331
+mas "Overlap", id: 1516950324
+mas "Pandan", id: 1569600264
+mas "Pasteboard Viewer", id: 1499215709
+mas "Pastel", id: 413897608
+mas "PDF Converter Master", id: 560846814
+mas "PDF to JPG", id: 594444151
+mas "PDFgear", id: 6469021132
+mas "Pine Player", id: 1112075769
+mas "Prime Video", id: 545519333
+mas "Pure Paste", id: 1611378436
+mas "Reader", id: 1179373118
+mas "Sandkorn", id: 1377973524
+mas "Scaler", id: 1612708557
+mas "Session Pal", id: 1515213004
+mas "Shareful", id: 1522267256
+mas "Shazam", id: 897118787
+mas "Slack", id: 803453959
+mas "Speediness", id: 1596706466
+mas "Speedtest", id: 1153157709
+mas "StockSpy Realtime Stocks Quote", id: 876529098
+mas "Taify", id: 6502970995
+mas "Take a Break", id: 1457158844
+mas "Ultra Wifi", id: 1664371307
+mas "Universal Print", id: 6450432292
+mas "Unsplash Wallpapers", id: 1284863847
+mas "VOX", id: 461369673
+mas "Webp Converter", id: 1527716894
+mas "WeekCal", id: 381059732
+mas "WiFi Signal", id: 525912054
+mas "WiFi Speed Test", id: 1455463454
+mas "Windows App", id: 1295203466
+#mas "Xcode", id: 497799835
+mas "Yomu", id: 562211012
+
+# VS Code extensions (Brewfile.minimum installs vscode itself; cascade order matters)
+vscode "4ops.terraform"
+vscode "alefragnani.bookmarks"
+vscode "alefragnani.project-manager"
+vscode "anthropic.claude-code"
+vscode "antoineperrin.checkbox-display"
+vscode "bajdzis.vscode-database"
+vscode "ban.spellright"
+vscode "bat67.markdown-extension-pack"
+vscode "behzad88.aurelia"
+vscode "bierner.emojisense"
+vscode "bierner.markdown-checkbox"
+vscode "bierner.markdown-emoji"
+vscode "bierner.markdown-preview-github-styles"
+vscode "brunnerh.altervista-thesaurus"
+vscode "chrischinchilla.vscode-pandoc"
+vscode "christian-kohler.npm-intellisense"
+vscode "csholmq.excel-to-markdown-table"
+vscode "darkriszty.markdown-table-prettify"
+vscode "davidanson.vscode-markdownlint"
+vscode "dbaeumer.vscode-eslint"
+vscode "dbankier.vscode-instant-markdown"
+vscode "deerawan.vscode-dash"
+vscode "donjayamanne.bower"
+vscode "donjayamanne.githistory"
+vscode "donjayamanne.jquerysnippets"
+vscode "formulahendry.code-runner"
+vscode "goessner.mdmath"
+vscode "golang.go"
+vscode "grapecity.gc-excelviewer"
+vscode "gruntfuggly.todo-tree"
+vscode "hashicorp.terraform"
+vscode "humao.rest-client"
+vscode "idleberg.applescript"
+vscode "idleberg.jxa"
+vscode "ionutvmi.path-autocomplete"
+vscode "jakebathman.mysql-syntax"
+vscode "jerriepelser.copy-markdown-as-html"
+vscode "johnpapa.angular1"
+vscode "johnpapa.angular2"
+vscode "johnpapa.vscode-peacock"
+vscode "joshbax.mdhelper"
+vscode "jrieken.md-navigate"
+vscode "kukushi.pasteurl"
+vscode "lfs.vscode-emacs-friendly"
+vscode "llvm-vs-code-extensions.lldb-dap"
+vscode "lukasz-wronski.ftp-sync"
+vscode "magicstack.magicpython"
+vscode "mdickin.markdown-shortcuts"
+vscode "mechatroner.rainbow-csv"
+vscode "mohsen1.prettify-json"
+vscode "ms-azuretools.vscode-azureappservice"
+vscode "ms-azuretools.vscode-azureresourcegroups"
+vscode "ms-azuretools.vscode-containers"
+vscode "ms-azuretools.vscode-cosmosdb"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-dotnettools.vscode-dotnet-runtime"
+vscode "ms-mssql.data-workspace-vscode"
+vscode "ms-mssql.mssql"
+vscode "ms-mssql.sql-bindings-vscode"
+vscode "ms-mssql.sql-database-projects-vscode"
+vscode "ms-python.isort"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-toolsai.jupyter"
+vscode "ms-toolsai.jupyter-keymap"
+vscode "ms-toolsai.jupyter-renderers"
+vscode "ms-toolsai.vscode-ai"
+vscode "ms-toolsai.vscode-ai-remote"
+vscode "ms-toolsai.vscode-jupyter-cell-tags"
+vscode "ms-toolsai.vscode-jupyter-slideshow"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode-remote.remote-wsl"
+vscode "ms-vscode.azurecli"
+vscode "ms-vscode.makefile-tools"
+vscode "ms-vscode.powershell"
+vscode "ms-vscode.wordcount"
+vscode "ms-vsliveshare.vsliveshare"
+vscode "pkief.markdown-checkbox"
+vscode "pkosta2005.heroku-command"
+vscode "redhat.java"
+vscode "revilowaldow.5etools-language-server"
+vscode "samverschueren.yo"
+vscode "seesharprun.view-in-default-application"
+vscode "shd101wyy.markdown-preview-enhanced"
+vscode "sourcegraph.cody-ai"
+vscode "streetsidesoftware.code-spell-checker"
+vscode "swiftlang.swift-vscode"
+vscode "tamasfe.even-better-toml"
+vscode "telesoho.vscode-markdown-paste-image"
+vscode "tootone.org-mode"
+vscode "tree.5e-syntax"
+vscode "vinnyjames.vscode-autohotkey-vj"
+vscode "vscjava.vscode-java-debug"
+vscode "vscjava.vscode-java-dependency"
+vscode "vscjava.vscode-java-pack"
+vscode "vscjava.vscode-java-test"
+vscode "vscjava.vscode-maven"
+vscode "wayou.vscode-todo-highlight"
+vscode "wcwhitehead.bootstrap-3-snippets"
+vscode "wmaurer.change-case"
+vscode "xabikos.javascriptsnippets"
+vscode "yzane.markdown-pdf"
+vscode "yzhang.dictionary-completion"
+vscode "yzhang.markdown-all-in-one"
+vscode "zignd.html-css-class-completion"

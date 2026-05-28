@@ -1,0 +1,30 @@
+# Brewfile.games — gaming overlay. Optional on any machine. Hand-curated.
+# This file is never auto-regenerated; edit it directly.
+#
+# Cascade: Brewfile.minimum → Brewfile.homeserver → Brewfile.desktop → Brewfile.games
+# (games can be installed independently — they don't depend on desktop.)
+#
+# Use:  brew bundle install --file=setup/homebrew/Brewfile.games
+
+# Steam ecosystem
+cask "steam"      # Video game digital distribution service
+cask "steamcmd"   # Command-line client for Steam
+
+# Other launchers
+cask "battle-net"  # Blizzard's launcher
+cask "ea"          # Electronic Arts game launcher
+cask "epic-games"  # Launcher for *Epic Games* games
+cask "heroic"      # Open-source launcher for Epic + GOG
+#cask "gog-galaxy" # legacy work file entry — re-enable if needed
+cask "porting-kit" # Install games and apps compiled for Microsoft Windows
+cask "prismlauncher" # Minecraft launcher
+cask "sikarugir-app/sikarugir/sikarugir" # Porting tool to turn Windows games into native Mac apps
+
+# Games (installed directly)
+cask "minecraft"
+
+# Mobile/console sideloading
+cask "playcover-community"  # Sideload iOS apps and games
+
+# Voice comms commonly paired with gaming
+#cask "teamspeak-client"  # legacy work file entry — kept as tombstone

@@ -6,6 +6,25 @@
 #       brew bundle install --file=setup/homebrew/Brewfile   # install missing
 #       brew bundle cleanup --file=setup/homebrew/Brewfile   # what's extra?
 #
+# This is the union/master across all machines. For per-role provisioning
+# install the cascade instead — each layer is additive:
+#
+#   Headless home server:
+#     brew bundle install --file=Brewfile.minimum
+#     brew bundle install --file=Brewfile.homeserver
+#
+#   Personal Mac (full desktop):
+#     brew bundle install --file=Brewfile.minimum
+#     brew bundle install --file=Brewfile.homeserver
+#     brew bundle install --file=Brewfile.desktop
+#     brew bundle install --file=Brewfile.games        # optional overlay
+#
+#   Work Mac:
+#     brew bundle install --file=Brewfile.minimum
+#     brew bundle install --file=Brewfile.homeserver
+#     brew bundle install --file=Brewfile.desktop
+#     brew bundle install --file=Brewfile.work
+#
 # Source-of-truth journal (deprecated entries, commentary, history) lives in
 # the brew*.sh scripts — they are unchanged. This file is the manifest.
 

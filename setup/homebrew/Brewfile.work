@@ -3,8 +3,23 @@
 # scripts are older overlays kept for reference). This file is never auto-
 # regenerated; edit it directly.
 #
+# Cascade: install AFTER Brewfile.minimum + Brewfile.homeserver +
+# Brewfile.desktop. Entries here should be TRUE work-only additions that
+# don't belong on a personal Mac — auth/MDM tools, work-licensed apps,
+# MS-internal tooling. Most of Microsoft-the-product (Office, Teams) is
+# already in Brewfile.minimum because it's used on every machine.
+#
 # Use:  brew bundle install --file=setup/homebrew/Brewfile.work
 # Check: brew bundle check  --file=setup/homebrew/Brewfile.work
+#
+# --- Current active overlay (intentionally empty; add as needed) ---
+# (no current work-only entries; populate when a new work-specific tool
+#  needs managing via brew bundle)
+#
+# --- Legacy tombstones below. Kept as a journal per the user's preserve-
+#     commented-lines policy. Many active lines further down predate the
+#     current Homebrew taps and will fail `brew bundle check` if left active.
+#     Mark obsolete ones with `#` rather than deleting them. ---
 
 # Apps
 brew "cask"
