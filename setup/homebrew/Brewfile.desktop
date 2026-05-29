@@ -16,6 +16,7 @@
 tap "davep/homebrew"
 tap "nailuogg/recoll"  # for recoll
 tap "steipete/tap"  # for codexbar
+tap "xykong/tap" # for flux-markdown
 
 # Productivity / Office
 cask "busycal"  # Calendar software focusing on flexibility and reliability
@@ -28,6 +29,7 @@ cask "soulver"  # Notepad with a built-in calculator
 cask "textexpander"  # Inserts pre-made snippets of text anywhere
 cask "tripmode"  # Control your data usage on slow or expensive networks
 cask "microsoft-teams"
+cask "flux-markdown" # Markdown editor with live preview and support for Mermaid diagrams
 
 # Email
 cask "emclient"  # Email client for Windows and macOS https://www.emclient.com/
@@ -114,13 +116,11 @@ cask "cisdem-pdf-converter-ocr"  # PDF Converter with OCR capability
 cask "claudebar"  # Menu bar app for monitoring AI coding assistant usage quotas
 #cask "cloudmounter"  # Mounts cloud storages as local discs
 #cask "coconutbattery"  # Tool to show live information about the batteries in various devices
-cask "codex"  # OpenAI's coding agent that runs in your terminal
 cask "steipete/tap/codexbar"  # Menu bar usage monitor for Codex and Claude
 cask "colorwell"  # Colour picker and colour palette generator
 cask "comfyui"  # Node-based image, video and audio generator
 cask "command-tab-plus"  # Keyboard-centric application and window switcher
-cask "context"  # MCP client and inspector
-cask "copilot-cli"  # Brings the power of Copilot coding agent directly to your terminal
+# (codex, copilot-cli, context — CLI AI tools — moved to Brewfile.ai)
 #cask "cursor"  # Write, edit, and chat about your code with AI
 cask "customshortcuts"  # Customise menu item keyboard shortcuts
 cask "dataflare"  # Database manager

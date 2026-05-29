@@ -1,0 +1,39 @@
+# Brewfile.ai — command-line AI / LLM tools. Hand-curated.
+# Never auto-regenerated; edit it directly.
+#
+# Standalone overlay (like Brewfile.games). Install on any machine that
+# wants CLI AI tooling — a GPU home server, a personal Mac, etc. Not
+# auto-included by the minimum → homeserver → desktop cascade.
+#
+# Scope: command-line tools only. GUI AI apps (ChatGPT, LM Studio,
+# Draw Things, ComfyUI, ollama-app, BoltAI, etc.) live in Brewfile.desktop.
+#
+# Note: uv-managed AI tools (llm, mlx-lm, marker-pdf) and post-install
+# hooks live in the master Brewfile / brew.sh — Brewfile format can't
+# express them.
+#
+# Use:  brew bundle install --file=setup/homebrew/Brewfile.ai
+
+# ai coding tools
+brew "claude-cmd"  # [kiliczsh/claude-cmd: Claude Code Commands Manager](https://github.com/kiliczsh/claude-cmd)
+brew "claude-hooks"  # [johnlindquist/claude-hooks](https://github.com/johnlindquist/claude-hooks)
+brew "tweakcc"  # Customize Claude Code UI (themes, etc.)
+brew "opencode"  # AI coding agent, built for the terminal # https://opencode.ai
+
+# ai prompting and other Tools
+brew "fabric-ai"  # Command-line tool for managing and deploying AI prompts https://github.com/danielmiessler/Fabric
+
+# AI model serving and interactions
+brew "hf"  # Hugging Face CLI tool https://huggingface.co/docs/huggingface_hub/quick-start
+brew "ollama"  # local LLM - Create, run, and share large language models (LLMs) https://ollama.com/
+
+# Local AI clients
+brew "gollama"  # Go manage your Ollama models https://smcleod.net
+
+# AI image generation
+#brew "screenpipe"  # Library to build personalized AI from screen/audio context
+
+# AI casks that run in the terminal (distributed as casks, but CLI tools)
+cask "codex"  # OpenAI's coding agent that runs in your terminal
+cask "copilot-cli"  # Brings the power of Copilot coding agent directly to your terminal
+cask "context"  # MCP client and inspector

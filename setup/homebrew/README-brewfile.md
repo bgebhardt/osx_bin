@@ -11,6 +11,7 @@ The Brewfiles are organized as a **cascade of role/persona overlays**. Each laye
 | `Brewfile.homeserver` | **Hand-curated.** CLI tools, dev tools, AI/LLM CLIs, networking & system utilities. Usable on a headless box. | Adds to `minimum` |
 | `Brewfile.desktop` | **Hand-curated.** GUI Mac apps for day-to-day personal use (most casks, MAS apps, VS Code extensions). | Adds to `minimum + homeserver` |
 | `Brewfile.work` | **Hand-curated.** Work-machine-only overlay (auth/MDM tools, work-licensed apps). Currently a placeholder + journal. | Adds to `minimum + homeserver + desktop` |
+| `Brewfile.ai` | **Hand-curated.** Command-line AI / LLM tools (claude-cmd, fabric-ai, ollama, opencode, codex, copilot-cli, …). Optional overlay on any machine. GUI AI apps stay in `desktop`. | Stand-alone overlay |
 | `Brewfile.games` | **Hand-curated.** Steam, Epic, Battle.net, game launchers. Optional overlay on any machine. | Stand-alone overlay |
 | `Brewfile.<host>.<YYYY-MM-DD>` | Per-machine, per-day snapshot of what's *actually* installed. **Only file the generator writes.** Diff against the master to see drift. | — |
 | `generate-brewfiles.py` | Snapshot generator. Parses the `*.sh` scripts (for section headers, inline comments, and tombstones) and merges with `brew bundle dump --describe` output. Writes only the dated snapshot — the hand-curated Brewfiles are never touched. | — |
@@ -21,11 +22,13 @@ The Brewfiles are organized as a **cascade of role/persona overlays**. Each laye
 # Headless home server
 brew bundle install --file=setup/homebrew/Brewfile.minimum
 brew bundle install --file=setup/homebrew/Brewfile.homeserver
+brew bundle install --file=setup/homebrew/Brewfile.ai      # optional (e.g. a GPU box)
 
 # Personal Mac (full desktop)
 brew bundle install --file=setup/homebrew/Brewfile.minimum
 brew bundle install --file=setup/homebrew/Brewfile.homeserver
 brew bundle install --file=setup/homebrew/Brewfile.desktop
+brew bundle install --file=setup/homebrew/Brewfile.ai      # optional
 brew bundle install --file=setup/homebrew/Brewfile.games   # optional
 
 # Work Mac
@@ -84,7 +87,7 @@ python3 setup/homebrew/generate-brewfiles.py
 
 Output:
 - `Brewfile.<hostname>.<YYYY-MM-DD>` — fresh snapshot (overwrites today's if it already exists)
-- `Brewfile`, `Brewfile.minimum`, `Brewfile.homeserver`, `Brewfile.desktop`, `Brewfile.work`, `Brewfile.games` are hand-curated and **never** touched by the generator. Edit them directly.
+- `Brewfile`, `Brewfile.minimum`, `Brewfile.homeserver`, `Brewfile.desktop`, `Brewfile.work`, `Brewfile.ai`, `Brewfile.games` are hand-curated and **never** touched by the generator. Edit them directly.
 
 The generator:
 
@@ -100,12 +103,13 @@ Apply in order. First match wins. Use these when adding a new entry or deciding 
 
 1. **Already in a lower layer (e.g. `Brewfile.minimum`)** → leave there only. Do not duplicate.
 2. **Gaming cask or game-launcher** → `Brewfile.games`.
-3. **`brew` formula (CLI/library/daemon)** → `Brewfile.homeserver`.
-4. **`cask` GUI app** → `Brewfile.desktop` (or `Brewfile.work` if work-machine-only).
-5. **`mas` App Store app** → `Brewfile.desktop`.
-6. **`vscode` extensions** → `Brewfile.desktop` (cascade order ensures VS Code is installed first via `minimum`).
-7. **`go`/`uv`/`npm`/post-install entries** → master `Brewfile` only — these aren't `brew bundle`-installable; the post-install hooks live in `brew.sh`/`brew-cask.sh`.
-8. **Tombstoned/commented-out lines** → preserve them in whichever file the live entry would belong to.
+3. **Command-line AI / LLM tool** (formula *or* a cask that runs in the terminal, e.g. `codex`, `copilot-cli`) → `Brewfile.ai`. GUI AI apps (ChatGPT, LM Studio, Draw Things, ComfyUI, ollama-app, …) → `Brewfile.desktop`.
+4. **`brew` formula (CLI/library/daemon)** → `Brewfile.homeserver`.
+5. **`cask` GUI app** → `Brewfile.desktop` (or `Brewfile.work` if work-machine-only).
+6. **`mas` App Store app** → `Brewfile.desktop`.
+7. **`vscode` extensions** → `Brewfile.desktop` (cascade order ensures VS Code is installed first via `minimum`).
+8. **`go`/`uv`/`npm`/post-install entries** → master `Brewfile` only — these aren't `brew bundle`-installable; the post-install hooks live in `brew.sh`/`brew-cask.sh`.
+9. **Tombstoned/commented-out lines** → preserve them in whichever file the live entry would belong to.
 
 ## Known quirks
 

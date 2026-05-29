@@ -17,6 +17,7 @@
 #     brew bundle install --file=Brewfile.minimum
 #     brew bundle install --file=Brewfile.homeserver
 #     brew bundle install --file=Brewfile.desktop
+#     brew bundle install --file=Brewfile.ai           # optional overlay
 #     brew bundle install --file=Brewfile.games        # optional overlay
 #
 #   Work Mac:

@@ -46,10 +46,10 @@ cask "hookmark"  # Link and retrieve key information https://hookproductivity.co
 cask "claude"  # Anthropic's official Claude AI desktop app
 cask "coteditor"  # Plain-text editor for web pages, program source codes and more
 cask "markedit"  # Markdown editor
+cask "xykong/tap/flux-markdown"  # Markdown editor with live preview and Mermaid support
 cask "cyberduck"  # Server and cloud storage browser
 cask "mountain-duck"  # Mounts servers and cloud storages as a disk on the desktop
 cask "visualdiffer"  # Visually compare folders and files
-mas "Home Assistant", id: 1099568401
 mas "Juicy", id: 6752221257
 mas "OwlOCR", id: 6462355119  # OwlOCR - Screenshot to Text (6.0.6)
 

@@ -68,15 +68,10 @@ brew "switchaudio-osx"  # Change macOS audio source from the command-line
 # data science
 brew "nbdime"  # diffing and merging of Jupyter Notebooks
 
-# ai coding tools
-brew "claude-cmd"  # [kiliczsh/claude-cmd: Claude Code Commands Manager](https://github.com/kiliczsh/claude-cmd)
-brew "claude-hooks"  # [johnlindquist/claude-hooks](https://github.com/johnlindquist/claude-hooks)
+# python packaging tools
 brew "pipx"  # Execute binaries from Python packages in isolated environments https://pipx.pypa.io
 brew "poetry"  # Python dependency management and packaging made easy https://python-poetry.org/
-brew "tweakcc"  # Customize Claude Code UI (themes, etc.)
-
-# ai prompting and other Tools
-brew "fabric-ai"  # Command-line tool for managing and deploying AI prompts https://github.com/danielmiessler/Fabric
+# (CLI AI tools moved to Brewfile.ai)
 
 # cli resource usage tools
 brew "bandwhich"  # Terminal bandwidth utilization tool
@@ -134,16 +129,7 @@ brew "powershell", link: false  # Command-line shell and scripting language http
 brew "wp-cli"  # Command line interface for WordPress https://wp-cli.org/
 brew "wp-cli-completion"  # Bash completion for Wpcli https://github.com/wp-cli/wp-cli
 
-# AI model serving and interactions
-brew "hf"  # Hugging Face CLI tool https://huggingface.co/docs/huggingface_hub/quick-start
-brew "ollama"  # local LLM - Create, run, and share large language models (LLMs) https://ollama.com/
-
-# Local AI clients
-brew "gollama"  # Go manage your Ollama models https://smcleod.net
-brew "opencode"  # AI coding agent, built for the terminal # https://opencode.ai
-
-# AI image generation
-#brew "screenpipe"  # Library to build personalized AI from screen/audio context
+# (CLI AI / model-serving tools moved to Brewfile.ai)
 
 # cloudflare tools
 brew "cloudflare-cli4"  # Cloudflare CLI for managing Cloudflare services
