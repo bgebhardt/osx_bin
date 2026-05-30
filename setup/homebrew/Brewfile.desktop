@@ -343,6 +343,7 @@ mas "WiFi Speed Test", id: 1455463454
 mas "Windows App", id: 1295203466
 #mas "Xcode", id: 497799835
 mas "Yomu", id: 562211012
+mas "EML to PDF - Mail Converter", id: 6740640802 # good convertor for .eml files, which are common email export format
 
 # VS Code extensions (Brewfile.minimum installs vscode itself; cascade order matters)
 vscode "4ops.terraform"
