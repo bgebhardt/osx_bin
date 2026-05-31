@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Pull all configured Obsidian Remotely Save Backblaze B2 buckets to local read-only mirrors every hour. -->
+	<key>Label</key>
+	<string>com.bryan.pull-obsidian-remotely-save</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Users/bryan/bin/scripts/scheduled/pull-obsidian-remotely-save.sh</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>StartInterval</key>
+	<integer>3600</integer>
+	<key>StandardErrorPath</key>
+	<string>/tmp/pull-obsidian-remotely-save.err</string>
+	<key>StandardOutPath</key>
+	<string>/tmp/pull-obsidian-remotely-save.out</string>
+</dict>
+</plist>
