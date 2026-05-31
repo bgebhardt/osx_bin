@@ -29,6 +29,7 @@ cask "1password-cli"  # Command-line interface for 1Password
 brew "uv"  # Extremely fast Python package installer and resolver, written in Rust https://docs.astral.sh/uv/
 brew "pyenv"  # Python version management https://github.com/pyenv/pyenv great for installing multiple versions of python
 brew "hub"  # github command line wrapper
+brew "micro" # A modern and intuitive terminal-based text editor https://micro-editor.github.io/
 
 # Top Must Installs
 cask "1password"
