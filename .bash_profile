@@ -51,5 +51,5 @@ unset __conda_setup
 # Disable zoxide doctor warnings - the hook works fine with bash-preexec
 export _ZO_DOCTOR=0
 
-echo "zoxide init..."
+iecho "zoxide init..." # iecho defined in bash_profile_bin, only prints if its an interactive shell
 eval "$(zoxide init bash)"

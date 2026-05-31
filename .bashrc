@@ -3,7 +3,8 @@
 
 # *** NOTE: this file is no longer used. Edit .bash_profile instead. (I'm not sure why.) ***
 
-echo "sourcing .bashrc..."
+# only print in interactive shells.
+if [[ $- == *i* ]]; then echo "sourcing .bashrc..."; fi
 
 # Nothing to see here — Everything's in .bash_profile
 [ -n "$PS1" ] && source ~/.bash_profile
