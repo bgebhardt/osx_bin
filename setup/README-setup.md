@@ -654,6 +654,10 @@ TODO: add Google Drive
 
 Space Saver can help delete local Time Machine backups. No set up required.
 
+## Codexbar
+
+Start Codexbar and configure it to look at OpenAI/ChatGPT, Claude, Warp, Gemini, and any other AI tools you use.
+
 ## Java
 
 Install via homebrew and follow instructions here https://formulae.brew.sh/formula/openjdk@11#default

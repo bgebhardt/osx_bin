@@ -14,6 +14,8 @@
 #
 # Use:  brew bundle install --file=setup/homebrew/Brewfile.ai
 
+tap "steipete/tap"  # for codexbar
+
 # ai coding tools
 brew "claude-cmd"  # [kiliczsh/claude-cmd: Claude Code Commands Manager](https://github.com/kiliczsh/claude-cmd)
 brew "claude-hooks"  # [johnlindquist/claude-hooks](https://github.com/johnlindquist/claude-hooks)
@@ -38,3 +40,4 @@ cask "codex"  # OpenAI's coding agent that runs in your terminal
 cask "copilot-cli"  # Brings the power of Copilot coding agent directly to your terminal
 cask "context"  # MCP client and inspector
 cask "chatgpt"  # OpenAI's official ChatGPT desktop app # Note as of 05-30-2026 the brew install of chatgpt has been failing.
+cask "codexbar"  # Menu bar usage monitor for Codex and Claude

@@ -17,6 +17,7 @@ tap "davep/homebrew"
 tap "nailuogg/recoll"  # for recoll
 tap "steipete/tap"  # for codexbar
 tap "xykong/tap" # for flux-markdown
+tap "steipete/tap"  # for codexbar
 
 # Productivity / Office
 cask "busycal"  # Calendar software focusing on flexibility and reliability
@@ -114,6 +115,7 @@ cask "chatgpt"  # OpenAI's official ChatGPT desktop app
 cask "cisdem-document-reader"  # Document reader to open and view Windows-based files
 cask "cisdem-pdf-converter-ocr"  # PDF Converter with OCR capability
 cask "claudebar"  # Menu bar app for monitoring AI coding assistant usage quotas
+cask "codexbar"  # Menu bar usage monitor for Codex and Claude
 #cask "cloudmounter"  # Mounts cloud storages as local discs
 #cask "coconutbattery"  # Tool to show live information about the batteries in various devices
 cask "steipete/tap/codexbar"  # Menu bar usage monitor for Codex and Claude
