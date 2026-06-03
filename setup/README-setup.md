@@ -127,6 +127,63 @@ Not done via brew; use tailscale standalone app instead of the brew version as i
 /usr/sbin/softwareupdate --install-rosetta --agree-to-license
 ```
 
+## Create an SSH key for Mac
+
+I set SSH keys in 1Password. Here's the streamlined process for macOS:
+
+### 1. Generate an SSH key in 1Password
+1. Open 1Password → click **+ New Item** → **SSH Key**
+2. Click **Add Private Key** → **Generate a New Key**
+3. Choose **Ed25519** (recommended), click **Generate**, then **Save**
+
+### 2. Enable the 1Password SSH agent
+1. Open 1Password → **Settings** (⌘,) → **Developer**
+2. Check **Use the SSH Agent**
+
+### 3. Configure SSH to use the 1Password agent
+
+Create/edit `~/.ssh/config`:
+
+```bash
+Host *
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+```
+Make sure permissions are correct:
+
+```bash
+mkdir -p ~/.ssh
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/config
+```
+### 4. Add your public key where needed
+
+**GitHub:** Copy the public key from the 1Password item → GitHub Settings → SSH and GPG keys → New SSH key → paste and save.
+
+**Remote servers:** Copy the public key and append it to `~/.ssh/authorized_keys` on each server.
+
+### 5. Configure ssh commands to use 1Password agent
+
+At this point SSH_AUTH_SOCK is pointing to the default macOS agent, not 1Password's. Your ssh commands will still work (they use IdentityAgent from your config), but ssh-add -l won't show 1Password keys.
+
+For ssh commands to work with 1Password add the following.
+
+```bash
+# Add to ~/.bashrc or ~/.bash_profile
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+```
+Then reload: `source ~/.bashrc`
+
+### 5. Test it
+
+```bash
+# Verify the agent sees your key
+ssh-add -l
+
+# Test GitHub (if applicable)
+ssh -T git@github.com
+```
+1Password will prompt you via Touch ID (or password) to authorize the connection. That's the whole setup — your private key never touches disk and stays encrypted inside 1Password.
+
 # LEGACY - Install mas, npm, and python tools
 
 These are now done by Brewfile
@@ -235,6 +292,16 @@ brew bundle install -v --file=setup/homebrew/Brewfile
 # What's installed but NOT in the master? (drift report — does not modify)
 brew bundle cleanup -v --file=setup/homebrew/Brewfile
 ```
+
+Above is an example of the commands you can run. Brewfiles split as follows
+
+- Brewfile.minimum
+- Brewfile.homeserver
+- Brewfile.desktop - installs everything
+- Brewfile.ai - overlays ai tools
+- Brewfile.games - overlays
+- Brewfile.work - overlays
+
 
 ## Legacy way
 
