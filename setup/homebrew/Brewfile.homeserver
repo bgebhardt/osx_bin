@@ -286,7 +286,7 @@ brew "speedtest-cli"  # Command-line interface for https://speedtest.net bandwid
 brew "sqlmap"  # Penetration testing for SQL injection and database servers
 brew "tcpflow"  # TCP/IP packet demultiplexer
 brew "tcpreplay"  # Replay saved tcpdump files at arbitrary speeds
-brew "tcptrace"  # Analyze tcpdump output
+#brew "tcptrace"  # Analyze tcpdump output # Formula no longer exists.
 brew "testssl"  # Tool which checks for the support of TLS/SSL ciphers and flaws
 brew "ucspi-tcp"  # `tcpserver` etc.
 brew "vbindiff"  # Visual Binary Diff
