@@ -9,6 +9,9 @@
 #     "opencv-python-headless",
 #     "pypdfium2",
 #     "pillow",
+#     "pymupdf-fonts",
+#     "pymupdf4llm",
+#     "pymupdfpro",
 # ]
 # ///
 import argparse

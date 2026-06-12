@@ -455,8 +455,11 @@ vscode "yzhang.markdown-all-in-one"
 vscode "zignd.html-css-class-completion"
 
 brew "ghostscript" # PostScript/PDF interpreter; required by camelot's `lattice` flavor (pypdf-table-extraction)
+brew "tesseract" # OCR engine; PyMuPDF/PDF tools use it for scanned-PDF text extraction. (Linux equivalent: apt install tesseract-ocr)
 uv "pypdf-table-extraction" # Command-line tool to extract tables from PDF files using a combination of heuristics and machine learning techniques. https://pypi.org/project/pypdf-table-extraction/
-# pandas + openpyxl are libraries (no CLI), so `uv tool install` rejects them.
-# They are declared as PEP 723 inline deps in scripts/pdftables-to-excel.py instead.
-#uv "pandas" # Data manipulation and analysis library for Python, providing data structures and functions needed to work with structured data
-#uv "openpyxl" # Library to read/write Excel 2010 xlsx/xlsm files
+# The following are Python libraries (no CLI), so `uv tool install` rejects them.
+# They are declared as PEP 723 inline deps in scripts/pdftables-to-excel.py instead:
+#   pandas, openpyxl          — DataFrame + xlsx output
+#   pymupdf-fonts             — extra embeddable fonts for PyMuPDF
+#   pymupdf4llm               — LLM-ready Markdown extraction from PDFs
+#   pymupdfpro                — Office-doc (docx/xlsx/pptx) support; needs a license key to unlock (pymupdf.pro.unlock())
