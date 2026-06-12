@@ -37,7 +37,10 @@ brew "ripgrep-all"  # command is "rga" ripgrep-all is a wrapper around ripgrep t
 brew "hashicorp/tap/terraform"  # Terraform
 brew "thefuck"  # Corrects errors in previous console commands.
 brew "tmux"  # A terminal multiplexer that allows multiple terminal sessions to be accessed simultaneously.
-brew "xpdf"  # PDF viewer (CLI tools: pdftotext, pdfinfo, etc.)
+# brew "xpdf"  # PDF viewer (CLI tools: pdftotext, pdfinfo, etc.) # disabling as it conflicts with poppler
+brew "poppler" # PDF rendering library with command-line tools (pdftotext, pdfimages, etc.) https://poppler.freedesktop.org/ - alternative to xpdf, which conflicts with poppler
+brew "ghostscript" # Interpreter for the PostScript language and for PDF https://www.ghostscript.com/
+
 brew "yadm"  # A tool for managing dotfiles.
 
 # cloud tools

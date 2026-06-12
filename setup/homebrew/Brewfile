@@ -32,7 +32,6 @@
 # Taps
 tap "bramstein/webfonttools"  # for sfnt2woff, sfnt2woff-zopfli
 tap "homebrew/cask"  # for kdiff3
-tap "davep/homebrew"
 tap "ebullient/tap"  # for ttrpg-convert-cli
 tap "hashicorp/tap"  # for terraform
 tap "hyde46/hoard"  # for hoard
@@ -81,7 +80,8 @@ brew "hashicorp/tap/terraform"  # Terraform
 brew "thefuck"  # Corrects errors in previous console commands.
 brew "tmux"  # A terminal multiplexer that allows multiple terminal sessions to be accessed simultaneously.
 brew "uv"  # Extremely fast Python package installer and resolver, written in Rust https://docs.astral.sh/uv/
-brew "xpdf"  # PDF viewer
+# brew "xpdf"  # PDF viewer # disabling as it conflicts with poppler
+brew "poppler" # PDF rendering library with command-line tools (pdftotext, pdfimages, etc.) https://poppler.freedesktop.org/ - alternative to xpdf, which conflicts with poppler
 brew "yadm"  # A tool for managing dotfiles.
 
 # cloud tools
