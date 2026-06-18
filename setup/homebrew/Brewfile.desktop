@@ -261,13 +261,14 @@ cask "yacreader"  # Comic reader
 cask "yoink"  # Drag and drop utility
 cask "zoom"  # Video communication and virtual meeting platform
 cask "zotero"  # Collect, organise, cite, and share research sources
+cask "musicbrainz-picard"  # Music tagger and database; can fingerprint audio files to identify them and retrieve metadata
 
 # Mac App Store apps
 mas "Home Assistant", id: 1099568401
 mas "1Password for Safari", id: 1569813296
 mas "Actions", id: 1586435171
 mas "Amazing AI", id: 1660147028
-mas "Amperfy", id: 1530145038
+mas "Amperfy", id: 1530145038 # Music player with a focus on local files and privacy; use with navidrome for streaming music from a home server
 mas "Amphetamine", id: 937984704
 mas "AppLocker", id: 1132845904
 mas "AS Timer", id: 512464723
