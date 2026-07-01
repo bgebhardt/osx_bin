@@ -237,7 +237,6 @@ brew "docker-compose"  # tool for defining and running multi-container applicati
 brew "reattach-to-user-namespace"  # work around for tmux-related pasteboard problems https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
 
 # Work-machine additions (CLI build tooling — also generally useful)
-brew "docker-completion"  # Shell completion for Docker
 brew "dotnet"             # .NET SDK
 brew "llvm"               # LLVM toolchain
 brew "m4"                 # GNU macro processor (build tooling dep)
