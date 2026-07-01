@@ -4,6 +4,11 @@
 #
 # Use:  brew bundle install --file=setup/homebrew/Brewfile.minimum
 
+# Taps
+tap "hyde46/hoard", trusted: true  # for hoard
+tap "nao1215/tap", trusted: true  # for sqly
+tap "xykong/tap", trusted: true  # for flux-markdown
+
 # Apps
 brew "mas"  # Install App Store command line tools https://github.com/mas-cli/mas
 
