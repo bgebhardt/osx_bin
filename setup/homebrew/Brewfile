@@ -537,7 +537,7 @@ cask "lasso-app"  # Move and resize windows with mouse
 cask "latest"  # Utility that shows the latest app updates
 cask "launchcontrol"  # Create, manage and debug system and user services
 cask "libreoffice"  # Free cross-platform office suite, fresh version
-cask "lingon-x"  # Automator software to start apps, run scripts or commands and more
+#cask "lingon-x"  # Automator software to start apps, run scripts or commands and more # get Lingon Pro instead
 cask "lm-studio"  # Discover, download, and run local LLMs
 cask "local"  # WordPress local development tool by Flywheel
 cask "lunar"  # Adaptive brightness for external displays
