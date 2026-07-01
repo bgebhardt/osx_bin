@@ -6,6 +6,9 @@
 #
 # Use:  brew bundle install --file=setup/homebrew/Brewfile.games
 
+# Taps
+tap "sikarugir-app/sikarugir", trusted: true  # for sikarugir
+
 # Steam ecosystem
 cask "steam"      # Video game digital distribution service
 cask "steamcmd"   # Command-line client for Steam
