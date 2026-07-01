@@ -218,7 +218,7 @@ cask "photosweeper-x"  # Tool to eliminate similar or duplicate photos
 cask "plex-media-server"  # Home media server
 cask "plexamp"  # Music player focusing on visuals
 cask "powerphotos"  # Tool to organise photo libraries
-cask "powershell"  # Command-line shell and scripting language
+#cask "powershell"  # Command-line shell and scripting language # currently failng
 cask "qr-journal"  # Allows users with an iSight (or compatible) camera to read QR codes
 cask "quicken"  # Personal finance manager
 cask "quickwhisper"  # Audio transcription tool
@@ -290,7 +290,7 @@ mas "Enchanted", id: 6474268307
 mas "Expresso", id: 593913958
 mas "GarageBand", id: 682658836
 mas "Gifski", id: 1351639930
-mas "Grab2Text", id: 6475956137
+#mas "Grab2Text", id: 6475956137 # currently failing
 mas "Hand Mirror", id: 1502839586
 mas "Health Auto Export", id: 1115567069
 mas "HEIC Converter", id: 1294126402
