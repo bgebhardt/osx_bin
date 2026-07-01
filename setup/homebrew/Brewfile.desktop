@@ -13,11 +13,10 @@
 # Use:  brew bundle install --file=setup/homebrew/Brewfile.desktop
 
 # Taps providing GUI apps
-tap "davep/homebrew"
-tap "nailuogg/recoll"  # for recoll
-tap "steipete/tap"  # for codexbar
-tap "xykong/tap" # for flux-markdown
-tap "steipete/tap"  # for codexbar
+tap "davep/homebrew", trusted: true
+tap "nailuogg/recoll", trusted: true  # for recoll
+tap "steipete/tap", trusted: true  # for codexbar
+tap "xykong/tap", trusted: true  # for flux-markdown
 
 # Productivity / Office
 cask "busycal"  # Calendar software focusing on flexibility and reliability

@@ -118,7 +118,7 @@ cask "teamspeak-client"
 
 # Taps
 tap "homebrew/versions"
-tap "bramstein/webfonttools"
+tap "bramstein/webfonttools", trusted: true
 
 # Apps
 brew "coreutils"

@@ -394,6 +394,11 @@ def fmt_cask(full: str, comment: str | None, extra: str = "") -> str:
 
 def fmt_tap(name: str, consumers: list[str], user_comment: str | None) -> str:
     base = f'tap "{name}"'
+    # Non-official taps must be explicitly trusted under Homebrew's tap-trust
+    # policy (HOMEBREW_REQUIRE_TAP_TRUST). Official homebrew/* taps are always
+    # trusted and take no `trusted:` option.
+    if not name.lower().startswith("homebrew/"):
+        base += ", trusted: true"
     # Prefer user's explicit comment; else annotate with detected consumers.
     if user_comment:
         return base + "  # " + user_comment

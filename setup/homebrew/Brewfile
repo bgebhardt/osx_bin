@@ -30,18 +30,18 @@
 # the brew*.sh scripts — they are unchanged. This file is the manifest.
 
 # Taps
-tap "bramstein/webfonttools"  # for sfnt2woff, sfnt2woff-zopfli
+tap "bramstein/webfonttools", trusted: true  # for sfnt2woff, sfnt2woff-zopfli
 tap "homebrew/cask"  # for kdiff3
-tap "ebullient/tap"  # for ttrpg-convert-cli
-tap "hashicorp/tap"  # for terraform
-tap "hyde46/hoard"  # for hoard
-tap "ionos-cloud/ionos-cloud"  # for ionosctl
-tap "nailuogg/recoll"  # for recoll
-tap "nao1215/tap"  # for sqly
-tap "oven-sh/bun"  # for bun
-tap "sikarugir-app/sikarugir"  # for sikarugir
-tap "sontek/snowmachine"  # for snowmachine
-tap "steipete/tap"  # for codexbar
+tap "ebullient/tap", trusted: true  # for ttrpg-convert-cli
+tap "hashicorp/tap", trusted: true  # for terraform
+tap "hyde46/hoard", trusted: true  # for hoard
+tap "ionos-cloud/ionos-cloud", trusted: true  # for ionosctl
+tap "nailuogg/recoll", trusted: true  # for recoll
+tap "nao1215/tap", trusted: true  # for sqly
+tap "oven-sh/bun", trusted: true  # for bun
+tap "sikarugir-app/sikarugir", trusted: true  # for sikarugir
+tap "sontek/snowmachine", trusted: true  # for snowmachine
+tap "steipete/tap", trusted: true  # for codexbar
 
 # Favorites
 brew "bat"  # A cat clone with syntax highlighting and Git integration.

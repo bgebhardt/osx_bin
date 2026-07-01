@@ -10,12 +10,12 @@
 # Use:  brew bundle install --file=setup/homebrew/Brewfile.homeserver
 
 # Taps (CLI-providing)
-tap "bramstein/webfonttools"  # for sfnt2woff, sfnt2woff-zopfli
-tap "ebullient/tap"  # for ttrpg-convert-cli
-tap "hashicorp/tap"  # for terraform
-tap "ionos-cloud/ionos-cloud"  # for ionosctl
-tap "oven-sh/bun"  # for bun
-tap "sontek/snowmachine"  # for snowmachine
+tap "bramstein/webfonttools", trusted: true  # for sfnt2woff, sfnt2woff-zopfli
+tap "ebullient/tap", trusted: true  # for ttrpg-convert-cli
+tap "hashicorp/tap", trusted: true  # for terraform
+tap "ionos-cloud/ionos-cloud", trusted: true  # for ionosctl
+tap "oven-sh/bun", trusted: true  # for bun
+tap "sontek/snowmachine", trusted: true  # for snowmachine
 
 # Favorites (CLI extras beyond minimum)
 brew "fswatch"  # Monitor a directory for changes and run a shell command https://github.com/emcrisostomo/fswatch

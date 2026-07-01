@@ -14,7 +14,7 @@
 #
 # Use:  brew bundle install --file=setup/homebrew/Brewfile.ai
 
-tap "steipete/tap"  # for codexbar
+tap "steipete/tap", trusted: true  # for codexbar
 
 # ai coding tools
 brew "claude-cmd"  # [kiliczsh/claude-cmd: Claude Code Commands Manager](https://github.com/kiliczsh/claude-cmd)
