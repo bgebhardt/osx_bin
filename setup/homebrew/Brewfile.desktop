@@ -221,7 +221,7 @@ cask "powerphotos"  # Tool to organise photo libraries
 #cask "powershell"  # Command-line shell and scripting language # currently failng
 cask "qr-journal"  # Allows users with an iSight (or compatible) camera to read QR codes
 cask "quicken"  # Personal finance manager
-cask "quickwhisper"  # Audio transcription tool
+cask "meetmic" # Audio transcription tool, formerly quickwhisper
 cask "raindropio"  # All-in-one bookmark manager
 cask "nailuogg/recoll/recoll"  # Full-text search for your desktop.
 cask "reflector"  # Wireless screen-mirroring application
