@@ -366,7 +366,7 @@ It may look like there was an error but as long as it ends with Install of "Rose
 
 Enable iCloud messages in Messages app preferences
 
-Add Espson printer in Printers and Scanners
+Add Epson printer in Printers and Scanners
 
 Install [Epson Printer Drivers](https://epson.com/Support/wa00607d)
 * I skip this now as the software seems to cause issues.
