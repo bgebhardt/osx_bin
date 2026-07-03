@@ -70,24 +70,74 @@ install_app() {
     echo "$app_name installed successfully!"
 }
 
+# Function to check whether an app is already installed.
+# Only real install locations count as "installed": a leftover copy sitting in
+# ~/Downloads or the Trash (e.g. an unzipped .app from a previous run) does NOT.
+# Matching is case-insensitive and ignores spaces, so "JSONWizard" matches
+# "JSON Wizard.app" and "WisprFlow" matches "Wispr Flow.app".
+is_app_installed() {
+    local name="$1"
+    [[ -z "$name" ]] && return 1
+
+    local search_dirs=(
+        "/Applications"
+        "/Applications/Utilities"
+        "$HOME/Applications"
+        "/System/Applications"
+        "/System/Applications/Utilities"
+    )
+    local dir
+
+    # 1. Fast path: exact bundle name in a common location.
+    for dir in "${search_dirs[@]}"; do
+        [[ -d "$dir/$name.app" ]] && return 0
+    done
+
+    # 2. Normalized match (lowercase, spaces removed) against installed bundles.
+    local target
+    target="$(printf '%s' "$name" | tr '[:upper:]' '[:lower:]' | tr -d '[:space:]')"
+    local app base norm
+    for dir in "${search_dirs[@]}"; do
+        [[ -d "$dir" ]] || continue
+        for app in "$dir"/*.app; do
+            [[ -e "$app" ]] || continue
+            base="$(basename "$app" .app)"
+            norm="$(printf '%s' "$base" | tr '[:upper:]' '[:lower:]' | tr -d '[:space:]')"
+            [[ "$norm" == "$target" ]] && return 0
+            # Prefix match for longer names to catch suffixes like " Pro".
+            [[ ${#target} -ge 4 && "$norm" == "$target"* ]] && return 0
+        done
+    done
+
+    # 3. Spotlight fallback for apps in non-standard folders, but only trust hits
+    #    under a real Applications directory (ignore Downloads/Trash/backup copies).
+    if command -v mdfind >/dev/null 2>&1; then
+        local hit
+        while IFS= read -r hit; do
+            [[ -z "$hit" ]] && continue
+            case "$hit" in
+                "/Applications/"*|"$HOME/Applications/"*) return 0 ;;
+            esac
+        done <<< "$(mdfind "kMDItemContentType == 'com.apple.application-bundle' && kMDItemFSName == '$name.app'c" 2>/dev/null)"
+    fi
+
+    return 1
+}
+
 # List of apps to install
 apps=(
-        "https://github.com/alyssaxuu/later/raw/master/Later.dmg Later"
     "https://www.drbuho.com/download/buhocleaner.dmg BuhoCleaner"
     "https://wifiradar.app/download WiFiRadar"
     "https://jsonwizard.app/download JSONWizard"
     "https://seense.com/the_clock/updateapp/the_clock.zip TheClock"
-    "https://dl.devant.io/v1/3c53887f-427a-4af7-9144-ee16178c62f4/21049/RapidWeaver.zip RapidWeaver"
-    #"https://downloads.thelasso.app/Lasso.dmg Lasso" # no done via brew
 
     # https://skylum.com/account/my-software
-    "https://skylum.com/download/luminar-neo-m1-paid" LuminarNeo
+    "https://skylum.com/download/luminar-neo-m1-paid LuminarNeo"
     
     "https://www.peterborgapps.com/downloads/LingonPro10.zip Lingon Pro"
 
     "https://www.transcribex.io/download/TranscribeX.dmg TranscribeX"
 
-    "https://wisprflow.onelink.me/PguH/lw5h199m WisprFlow"
 
     "https://noteifyapp.com/download/Tab%20Finder.zip Tab Finder"
 
@@ -110,7 +160,8 @@ apps=(
     # APPS WITH VERSION NUMBERS HARDCODED
 
     # "https://freefilesync.org/download.php FreeFileSync" # go to this link for latest version; hardcoded version for now
-    "https://freefilesync.org/download/FreeFileSync_14.6_macOS.zip FreeFileSync"
+    #"https://freefilesync.org/download/FreeFileSync_14.6_macOS.zip FreeFileSync"
+    "https://freefilesync.org/thank-you.php?tx=9BR02664C0982742S FreeFileSync" # Donation edition
 
     # Drive Thru RPG site https://legacy.drivethrurpg.com/library_client.php
     # "https://dtrpg-library-app.s3.us-east-2.amazonaws.com/DriveThruRPG_3.4.6.dmg" DriveThruRPG # now done via brew
@@ -118,7 +169,7 @@ apps=(
     "https://bundlehunt-files.s3.us-west-2.amazonaws.com/2024-downloads/KeyKeeper-2.7.0.dmg.zip KeyKeeper"
     "https://ensili.co/download/colorhound/colorhound-1.5.zip Color Hound"
 
-    "https://www.mabasoft.net/downloads/files/World_Clock_Deluxe_4.19.3.dmg" World_Clock_Deluxe
+    "https://www.mabasoft.net/downloads/files/World_Clock_Deluxe_4.19.3.dmg World_Clock_Deluxe"
     
     "https://ensili.co/download/textilicious/textilicious-1.2.zip Textilicious"
 
@@ -156,6 +207,11 @@ apps=(
     #"https://github.com/TheMurusTeam/Snail/releases/download/v3.0/snail-3.0.zip Snail"
     #"https://macappware.com/software/mac-fonts/download MacFonts" not working
     #"https://macappware.com/software/mac-font-manager-deluxe/download MacFontManagerDeluxe" not working
+    #"https://github.com/alyssaxuu/later/raw/master/Later.dmg Later" # no longer use
+    #"https://dl.devant.io/v1/3c53887f-427a-4af7-9144-ee16178c62f4/21049/RapidWeaver.zip RapidWeaver" # no longer use
+    #"https://downloads.thelasso.app/Lasso.dmg Lasso" # no done via brew
+    # "https://wisprflow.onelink.me/PguH/lw5h199m WisprFlow" # now installed by brew
+
 )
 
 # two apps to test with
@@ -183,11 +239,26 @@ echo "- OwlOCR - [Near instant, high quality OCR for Mac with OwlOCR](https://ww
 
 # Install each app
 #for app in "${test_apps[@]}"; do
+installed_count=0
+downloaded_count=0
 for app in "${apps[@]}"; do
     IFS=' ' read -r url name <<< "$app"
-    download_app $url $name
+
+    # Skip blank lines or stray tokens that aren't real URL entries.
+    [[ "$url" == http* ]] || continue
+
+    # Skip apps that are already installed.
+    if is_app_installed "$name"; then
+        echo "$name is already installed - skipping."
+        installed_count=$((installed_count + 1))
+        continue
+    fi
+
+    download_app "$url" "$name"
+    downloaded_count=$((downloaded_count + 1))
     # TODO: Currently does not try installing. Just downloading.
-    #install_app $url $name
+    #install_app "$url" "$name"
 done
 
-echo "All apps installed successfully!"
+echo
+echo "Done: opened $downloaded_count app(s) for download; skipped $installed_count already installed."
