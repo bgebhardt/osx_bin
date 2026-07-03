@@ -185,6 +185,8 @@ apps=(
 
     "https://notes.granola.ai/download Granola"
 
+    "https://www.perplexity.ai/personal-computer Perplexity"
+
     # Autoswitch between function and special keys. [How FNable works, the FN key toggle to switch Function Keys | FNable](https://fnable.com/en/howItWorks.html)
     "https://fnable.com/files/FNable.dmg FNable"
 
