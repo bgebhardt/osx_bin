@@ -23,6 +23,7 @@ cask "busycal"  # Calendar software focusing on flexibility and reliability
 cask "busycontacts"  # Contact manager focusing on efficiency
 cask "elmedia-player"  # Video and audio player
 cask "firefox"  # Web browser
+cask "google-chrome" # Web browser
 cask "markdown-service-tools"  # Collection of services for Markdown-formatted text
 #cask "send-to-kindle"  # Tool for sending personal documents to Kindles from Macs
 cask "soulver"  # Notepad with a built-in calculator
