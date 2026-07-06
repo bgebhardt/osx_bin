@@ -52,9 +52,9 @@ on processFolder(sourcePosixIn)
 		return
 	end if
 
-	set AppleScript's text item delimiters to linefeed
-	set relativePaths to text items of fileListText
-	set AppleScript's text item delimiters to ""
+	-- `do shell script` returns multi-line output with CR (\r) separators,
+	-- not LF, so split on paragraphs (handles CR/LF/CRLF) rather than linefeed.
+	set relativePaths to paragraphs of fileListText
 
 	-- Only quit apps at the end if we're the ones who launched them.
 	set launchedWord to not (application "Microsoft Word" is running)
@@ -138,7 +138,8 @@ end toLower
 on exportWord(srcPosix, pdfPosix)
 	tell application "Microsoft Word"
 		with timeout of 600 seconds
-			set theDoc to open (POSIX file srcPosix) confirm conversions false
+			open (POSIX file srcPosix) confirm conversions false
+			set theDoc to active document
 			save as theDoc file name pdfPosix file format format PDF
 			close theDoc saving no
 		end timeout
@@ -158,7 +159,8 @@ end exportExcel
 on exportPowerPoint(srcPosix, pdfPosix)
 	tell application "Microsoft PowerPoint"
 		with timeout of 600 seconds
-			set theDeck to open (POSIX file srcPosix)
+			open (POSIX file srcPosix)
+			set theDeck to active presentation
 			save theDeck in (POSIX file pdfPosix) as save as PDF
 			close theDeck saving no
 		end timeout
