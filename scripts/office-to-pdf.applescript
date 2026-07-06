@@ -52,9 +52,9 @@ on processFolder(sourcePosixIn)
 		return
 	end if
 
-	set AppleScript's text item delimiters to linefeed
-	set relativePaths to text items of fileListText
-	set AppleScript's text item delimiters to ""
+	-- `do shell script` returns multi-line output with CR (\r) separators,
+	-- not LF, so split on paragraphs (handles CR/LF/CRLF) rather than linefeed.
+	set relativePaths to paragraphs of fileListText
 
 	-- Only quit apps at the end if we're the ones who launched them.
 	set launchedWord to not (application "Microsoft Word" is running)
@@ -63,6 +63,14 @@ on processFolder(sourcePosixIn)
 
 	set errorLog to {}
 	set successCount to 0
+
+	-- Track which Office apps we've already "primed" for file access (see the
+	-- primeSandbox handler below). We prime each app lazily -- the first time a
+	-- matching document is encountered -- so we never launch, say, PowerPoint
+	-- for a folder that only contains Word files.
+	set wordPrimed to false
+	set excelPrimed to false
+	set powerPointPrimed to false
 
 	repeat with relPathRef in relativePaths
 		set relPath to relPathRef as text
@@ -84,10 +92,23 @@ on processFolder(sourcePosixIn)
 
 		try
 			if lowerPath ends with ".doc" or lowerPath ends with ".docx" then
+				-- Clear Word's sandbox once so it won't prompt per file (see primeSandbox).
+				if not wordPrimed then
+					my primeSandbox("Microsoft Word")
+					set wordPrimed to true
+				end if
 				my exportWord(srcFile, pdfDest)
 			else if lowerPath ends with ".xls" or lowerPath ends with ".xlsx" then
+				if not excelPrimed then
+					my primeSandbox("Microsoft Excel")
+					set excelPrimed to true
+				end if
 				my exportExcel(srcFile, pdfDest)
 			else if lowerPath ends with ".ppt" or lowerPath ends with ".pptx" then
+				if not powerPointPrimed then
+					my primeSandbox("Microsoft PowerPoint")
+					set powerPointPrimed to true
+				end if
 				my exportPowerPoint(srcFile, pdfDest)
 			end if
 			set successCount to successCount + 1
@@ -120,6 +141,42 @@ on processFolder(sourcePosixIn)
 	display dialog summaryText buttons {"OK"} default button "OK"
 end processFolder
 
+-- Prime an Office app so the macOS App Sandbox grants it broad, session-only
+-- file access up front -- otherwise it pops a "Grant File Access" dialog for
+-- EVERY document we touch.
+--
+-- Why this is needed:
+--   Office for Mac apps (Word/Excel/PowerPoint) are sandboxed. By default they
+--   can only reach files inside their own container or files the user picks via
+--   an Open/Save dialog. When we drive them from AppleScript with plain file
+--   paths, every source document and every destination PDF is an "ungranted"
+--   path, so the app would prompt for permission on each one. Granting Full
+--   Disk Access in System Settings does NOT help -- the sandbox powerbox is a
+--   separate mechanism from macOS's TCC privacy permissions.
+--
+-- How this works:
+--   Referencing the entire startup disk through the app registers a broad
+--   sandbox access grant for that app's current run. The `close` command below
+--   is just a vehicle for touching the disk object; it always errors (you can't
+--   "close" a disk), so we swallow the error with a try block. The grant lasts
+--   until the app quits, and since processFolder quits any app it launched, this
+--   elevated access is temporary.
+--
+-- Caveats:
+--   This is an unofficial workaround (credit: Shane Stanley) and could stop
+--   working on a future Office/macOS combination. If it ever does, the manual
+--   fallback is to grant access to the parent folder once, the first time the
+--   dialog appears -- selecting the folder that contains both the source folder
+--   and the "-pdf" output folder covers every file in a single grant.
+on primeSandbox(appName)
+	set startupDisk to path to startup disk
+	tell application appName
+		try
+			close startupDisk -- always errors; referencing the disk is what clears the sandbox restriction
+		end try
+	end tell
+end primeSandbox
+
 on toLower(t)
 	set lowerChars to "abcdefghijklmnopqrstuvwxyz"
 	set upperChars to "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -138,7 +195,8 @@ end toLower
 on exportWord(srcPosix, pdfPosix)
 	tell application "Microsoft Word"
 		with timeout of 600 seconds
-			set theDoc to open (POSIX file srcPosix) confirm conversions false
+			open (POSIX file srcPosix) confirm conversions false
+			set theDoc to active document
 			save as theDoc file name pdfPosix file format format PDF
 			close theDoc saving no
 		end timeout
@@ -158,7 +216,8 @@ end exportExcel
 on exportPowerPoint(srcPosix, pdfPosix)
 	tell application "Microsoft PowerPoint"
 		with timeout of 600 seconds
-			set theDeck to open (POSIX file srcPosix)
+			open (POSIX file srcPosix)
+			set theDeck to active presentation
 			save theDeck in (POSIX file pdfPosix) as save as PDF
 			close theDeck saving no
 		end timeout
