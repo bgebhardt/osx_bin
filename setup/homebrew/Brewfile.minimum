@@ -58,7 +58,7 @@ cask "mountain-duck"  # Mounts servers and cloud storages as a disk on the deskt
 cask "visualdiffer"  # Visually compare folders and files
 mas "Juicy", id: 6752221257
 mas "OwlOCR", id: 6462355119  # OwlOCR - Screenshot to Text (6.0.6)
-
+cask "carbon-copy-cloner" # Hard disk backup and cloning utility
 
 # Login items
 #cask "bartender"
