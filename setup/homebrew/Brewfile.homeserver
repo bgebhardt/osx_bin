@@ -152,6 +152,9 @@ brew "dependency-check"  # OWASP dependency-check
 brew "diffutils"  # File comparison utilities
 #brew "docbook"  # Standard XML representation system for technical documents
 brew "docker"  # Pack, ship and run any application as a lightweight container
+cask "orbstack"  # Replacement for Docker Desktop
+brew "ctop" # top-like container dashboard
+brew "lazydocker" # top-like container dashboard
 brew "emacs"  # GNU Emacs text editor
 brew "erlang"  # Programming language for highly scalable real-time systems
 brew "fetchmail"  # Client for fetching mail from POP, IMAP, ETRN or ODMR-capable servers
