@@ -11,6 +11,9 @@
 #     preceded the Docker freezes on 7/7 and 7/9 (guest kernel VM_FAULT_OOM).
 #   * Also notify if Docker is UNREACHABLE or FROZEN (docker call times out),
 #     since a wedged OrbStack is the failure we care about most.
+#   * Check HOST-level macOS memory (free RAM, swap, memory pressure, llama-server
+#     RSS) -- the 7/11 incident showed OrbStack can be killed by host-level OOM
+#     even when container memory inside the VM is fine.
 #
 # Design notes (learned the hard way):
 #   * launchd PATH is /usr/bin:/bin:/usr/sbin:/sbin (no Homebrew) -> absolute paths.
@@ -18,6 +21,8 @@
 #     hang forever, so a hang is treated as an alertable condition, not a block.
 #   * Notifications use osascript wrapped in `timeout ... &` per the 2026-04-18
 #     incident where terminal-notifier hung for 15 days and blocked a script.
+#   * alert() accepts an optional state_file arg so docker/host/llama each have
+#     independent cooldowns and don't suppress each other.
 #   * Set CDM_NOTIFY=0 in the environment to suppress notifications (for testing).
 
 # ---------- config ----------
@@ -33,9 +38,19 @@ THRESHOLD_PCT=90          # alert when containers use >= this % of VM memory
 DOCKER_TIMEOUT=30         # seconds before a docker call is treated as "frozen"
 ALERT_COOLDOWN=7200       # min seconds between repeat notifications (2h)
 MAX_LOG_BYTES=1048576     # rotate the log at ~1 MB
+HOST_FREE_THRESHOLD_MB=150   # alert when macOS free RAM (free+speculative pages) < 150 MiB
+                             # Real signal is pressure != normal (checked separately below).
+                             # System routinely runs at 150-250 MiB free with OrbStack 6 GB +
+                             # llama Q3_K_M; 2026-07-11 OOM crashed at ~157 MiB with pressure=warn.
+LLAMA_MEM_THRESHOLD_MB=8500  # alert when llama-server RSS exceeds this (MiB)
+CONTAINER_CPU_THRESHOLD=90   # alert when any container uses >= this % CPU in a single check
+                             # hermes-gateway at 100%+ for 13h caused OrbStack Linux kernel RCU stall
 
 LOG="$HOME/Library/Logs/check-docker-mem.log"
 STATE="$HOME/Library/Logs/check-docker-mem.state"
+HOST_STATE="$HOME/Library/Logs/check-docker-mem-host.state"
+LLAMA_STATE="$HOME/Library/Logs/check-docker-mem-llama.state"
+CPU_STATE="$HOME/Library/Logs/check-docker-mem-cpu.state"
 LOCK="/tmp/check-docker-mem.lock"
 
 # ---------- helpers ----------
@@ -55,17 +70,18 @@ notify() {
 }
 
 # Cooldown-aware alert: only notify once per ALERT_COOLDOWN while the condition
-# persists. The cooldown state is cleared on a healthy run so a new breach
-# re-alerts immediately.
+# persists. Clear the state file on a healthy run so a new breach re-alerts
+# immediately. Pass a specific state_file as $2 for independent per-category
+# cooldowns (docker / host / llama); defaults to $STATE (docker).
 alert() {
-  local msg="$1" now last
+  local msg="$1" state_file="${2:-$STATE}" now last
   now=$(date +%s)
   last=0
-  [ -f "$STATE" ] && last=$(tr -dc '0-9' <"$STATE" 2>/dev/null)
+  [ -f "$state_file" ] && last=$(tr -dc '0-9' <"$state_file" 2>/dev/null)
   [ -z "$last" ] && last=0
   if [ $(( now - last )) -ge "$ALERT_COOLDOWN" ]; then
     notify "$msg"
-    echo "$now" >"$STATE"
+    echo "$now" >"$state_file"
     log "ALERT: $msg"
   else
     log "ALERT suppressed (cooldown ${ALERT_COOLDOWN}s): $msg"
@@ -171,7 +187,29 @@ topmb=$(printf '%s' "$summary" | cut -f4)
   printf '%s\n' "$report" | grep -v '^SUMMARY'
 } >>"$LOG"
 
-# ---------- decide + alert ----------
+# ---------- container CPU check ----------
+# Fires when any container pegs >= CONTAINER_CPU_THRESHOLD in a single snapshot.
+# hermes-gateway at 100%+ for hours caused Linux guest kernel RCU stall → OrbStack freeze.
+cpu_top=$(printf '%s\n' "$stats" | awk -F'|' -v thresh="$CONTAINER_CPU_THRESHOLD" '
+  $1!="" {
+    cpu=$4; gsub(/%/,"",cpu); cpu+=0
+    if (cpu > max) { max=cpu; maxname=$1 }
+    if (cpu >= thresh && cpu > badcpu) { badcpu=cpu; badname=$1 }
+  }
+  END { printf "%s\t%.1f\t%s\t%.1f\n", maxname, max, badname, badcpu }
+')
+cpu_top_name=$(printf '%s' "$cpu_top" | cut -f1)
+cpu_top_pct=$( printf '%s' "$cpu_top" | cut -f2)
+cpu_bad_name=$(printf '%s' "$cpu_top" | cut -f3)
+cpu_bad_pct=$( printf '%s' "$cpu_top" | cut -f4)
+
+if [ -n "$cpu_bad_name" ]; then
+  alert "Container CPU spike: ${cpu_bad_name} at ${cpu_bad_pct}% (>= ${CONTAINER_CPU_THRESHOLD}%). Guest kernel may be starved. See $LOG" "$CPU_STATE"
+else
+  rm -f "$CPU_STATE" 2>/dev/null
+fi
+
+# ---------- decide + alert (docker/VM) ----------
 over=$(awk -v p="$pct" -v t="$THRESHOLD_PCT" 'BEGIN{print (p+0>=t)?1:0}')
 if [ "$over" = "1" ]; then
   alert "OrbStack VM memory at ${pct}% (>= ${THRESHOLD_PCT}%). Top: ${top} (${topmb} MiB). See $LOG"
@@ -180,8 +218,60 @@ else
   log "OK: ${pct}% of VM memory used (top: ${top} ${topmb} MiB)"
 fi
 
+# ---------- host (macOS) memory check ----------
+# Measures free RAM, swap, macOS memory pressure, and llama-server RSS.
+# These are host-level signals invisible to docker stats, and were the actual
+# cause of the 7/11 OrbStack freeze (llama-server + OrbStack exhausted 16 GB).
+page_size=$(/usr/sbin/sysctl -n hw.pagesize 2>/dev/null || echo 16384)
+vm_stat_out=$(/usr/bin/vm_stat 2>/dev/null)
+free_pages=$(printf '%s\n' "$vm_stat_out" | /usr/bin/awk '/Pages free/{gsub(/\./,"",$NF); print $NF+0}')
+spec_pages=$(printf '%s\n' "$vm_stat_out" | /usr/bin/awk '/Pages speculative/{gsub(/\./,"",$NF); print $NF+0}')
+[ -z "$free_pages" ] && free_pages=0
+[ -z "$spec_pages" ] && spec_pages=0
+host_free_mb=$(( (free_pages + spec_pages) * page_size / 1048576 ))
+
+# sysctl output: "vm.swapusage: total = N.NM  used = N.NM  free = N.NM"
+swap_used_mb=$(/usr/sbin/sysctl vm.swapusage 2>/dev/null | /usr/bin/awk '{
+  for(i=1;i<=NF;i++){
+    if($i=="used"){ s=$(i+2); v=s+0; if(s~/G/)v=int(v*1024); printf "%d",v; break }
+  }
+}')
+[ -z "$swap_used_mb" ] && swap_used_mb=0
+
+# macOS memory pressure level: 1=normal 2=warn 4=critical
+pressure_level=$(/usr/sbin/sysctl -n kern.memorystatus_vm_pressure_level 2>/dev/null || echo 1)
+case "$pressure_level" in
+  1) pressure_str="normal"   ;;
+  2) pressure_str="warn"     ;;
+  4) pressure_str="critical" ;;
+  *) pressure_str="unknown"  ;;
+esac
+
+# Sum RSS of all llama-server processes (MiB)
+llama_rss_kb=$(/bin/ps -Ao rss,comm 2>/dev/null | /usr/bin/awk '/llama-server/{sum+=$1} END{printf "%d",sum+0}')
+llama_rss_mb=$(( ${llama_rss_kb:-0} / 1024 ))
+
+log "host: free=${host_free_mb}MiB swap_used=${swap_used_mb}MiB pressure=${pressure_str} llama=${llama_rss_mb}MiB"
+
+host_over=$(/usr/bin/awk -v f="$host_free_mb" -v t="$HOST_FREE_THRESHOLD_MB" 'BEGIN{print (f+0<t+0)?1:0}')
+llama_over=$(/usr/bin/awk -v r="$llama_rss_mb" -v t="$LLAMA_MEM_THRESHOLD_MB" 'BEGIN{print (r+0>t+0)?1:0}')
+
+if [ "$host_over" = "1" ]; then
+  alert "Host RAM low: ${host_free_mb}MiB free (< ${HOST_FREE_THRESHOLD_MB}MiB). swap=${swap_used_mb}MiB pressure=${pressure_str} llama=${llama_rss_mb}MiB" "$HOST_STATE"
+elif [ "$pressure_str" != "normal" ]; then
+  alert "macOS memory pressure=${pressure_str}. free=${host_free_mb}MiB swap=${swap_used_mb}MiB llama=${llama_rss_mb}MiB" "$HOST_STATE"
+else
+  rm -f "$HOST_STATE" 2>/dev/null
+fi
+
+if [ "$llama_over" = "1" ]; then
+  alert "llama-server RSS=${llama_rss_mb}MiB (>= ${LLAMA_MEM_THRESHOLD_MB}MiB). host_free=${host_free_mb}MiB" "$LLAMA_STATE"
+else
+  rm -f "$LLAMA_STATE" 2>/dev/null
+fi
+
 # Concise line for launchd's /tmp/check-docker-mem.out
-echo "$(ts) mem=${pct}% top=${top}(${topmb}MiB) threshold=${THRESHOLD_PCT}%"
+echo "$(ts) mem=${pct}% top=${top}(${topmb}MiB) threshold=${THRESHOLD_PCT}% cpu_top=${cpu_top_name}(${cpu_top_pct}%) | host_free=${host_free_mb}MiB swap=${swap_used_mb}MiB pressure=${pressure_str} llama=${llama_rss_mb}MiB"
 
 # ---------- optional email (disabled; user chose notifications) ----------
 # To also email alerts later without storing a password in plaintext:
