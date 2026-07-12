@@ -11,7 +11,9 @@
 # Logs:        /tmp/pull-obsidian-remotely-save.log
 #
 # Usage:
-#   pull-obsidian-remotely-save.sh [--dry-run] [--verbose] [--trash-mode keep|delete]
+#   pull-obsidian-remotely-save.sh [--vault NAME] [--dry-run] [--verbose] [--trash-mode keep|delete]
+#
+#   --vault NAME   Only pull this one vault instead of all configured vaults.
 #
 # Interactive terminal runs stream progress to stdout. Per-vault rclone stats
 # are also written to /tmp/pull-remotely-save-<vault>.log every 15 seconds.
@@ -34,6 +36,7 @@ WORKER="$SCRIPT_DIR/pull-remotely-save.sh"
 DRY_RUN=0
 TRASH_MODE="${TRASH_MODE:-keep}"
 VERBOSE="${VERBOSE:-0}"
+VAULT_FILTER=""
 
 usage() {
     awk 'NR >= 3 { if ($0 !~ /^#/) exit; sub(/^# ?/, ""); print }' "$0"
@@ -58,6 +61,7 @@ while [[ $# -gt 0 ]]; do
     case "$1" in
         --env-file)    ENV_FILE="$2"; shift 2 ;;
         --dest-root)   DEST_ROOT_ARG="$2"; shift 2 ;;
+        --vault)       VAULT_FILTER="$2"; shift 2 ;;
         --trash-mode)  TRASH_MODE="$2"; shift 2 ;;
         --dry-run)     DRY_RUN=1; shift ;;
         --verbose|-v)  VERBOSE=1; shift ;;
@@ -86,6 +90,15 @@ DEST_ROOT="${DEST_ROOT_ARG:-${OBSIDIAN_REMOTELY_SAVE_DEST_ROOT:-$DEFAULT_DEST_RO
 
 if [[ -z "${OBSIDIAN_REMOTELY_SAVE_VAULTS:-}" ]]; then
     die "Set OBSIDIAN_REMOTELY_SAVE_VAULTS in $ENV_FILE"
+fi
+
+if [[ -n "$VAULT_FILTER" ]]; then
+    MATCH=0
+    for VAULT in $OBSIDIAN_REMOTELY_SAVE_VAULTS; do
+        [[ "$VAULT" == "$VAULT_FILTER" ]] && MATCH=1
+    done
+    [[ "$MATCH" == "1" ]] || die "Vault '$VAULT_FILTER' not found in OBSIDIAN_REMOTELY_SAVE_VAULTS ($OBSIDIAN_REMOTELY_SAVE_VAULTS)"
+    OBSIDIAN_REMOTELY_SAVE_VAULTS="$VAULT_FILTER"
 fi
 
 if [[ "$DEST_ROOT" == *:* ]]; then
