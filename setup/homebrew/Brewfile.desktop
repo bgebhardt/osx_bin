@@ -56,6 +56,8 @@ cask "popclip"  # Used to access context-specific actions when text is selected
 cask "sloth"  # Mac app that shows all open files and sockets https://sveinbjorn.org/sloth
 cask "smartreporter-free"  # Drive failure monitoring tool - https://www.corecode.io/smartreporter/
 cask "superduper"  # Backup, recovery and cloning software
+cask "syncthing-app" # Real time file synchronisation software; mac app
+cask "carbon-copy-cloner" # Hard disk backup and cloning utility https://bombich.com/
 # Delisted from Homebrew — install manually or find replacements:
 # cask "cronnix"        # cron editor GUI — no formula/cask in Homebrew anymore
 # cask "obsbot-center"  # OBSBOT camera config — no formula/cask in Homebrew anymore
