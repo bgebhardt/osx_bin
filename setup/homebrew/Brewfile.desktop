@@ -178,6 +178,7 @@ cask "lingon-x"  # Automator software to start apps, run scripts or commands and
 cask "lm-studio"  # Discover, download, and run local LLMs
 cask "local"  # WordPress local development tool by Flywheel
 cask "lunar"  # Adaptive brightness for external displays
+cask "flux-app" # Screen colour temperature controller https://justgetflux.com/
 cask "maccy"  # Clipboard manager
 cask "macsvg"  # App for designing HTML5 Scalable Vector Graphics
 cask "mactex"  # Full TeX Live distribution with GUI applications
