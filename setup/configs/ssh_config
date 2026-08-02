@@ -1,0 +1,13 @@
+# Base ~/.ssh/config template — install with setup-ssh-config.sh (or manually
+# copy to ~/.ssh/config, chmod 600).
+#
+# Host-specific and personal entries (hostnames, per-host auth overrides, etc.)
+# do NOT belong in this file since it's versioned in a public repo. Put those
+# in ~/.ssh/config.local instead, which is Included below but untracked and
+# private — restore it from the "SSH Config Local" item in 1Password on a new
+# Mac. See setup/README-setup-quickstart.md.
+
+Include ~/.ssh/config.local
+
+Host *
+	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
