@@ -33,6 +33,7 @@ cask "microsoft-teams"
 cask "flux-markdown" # Markdown editor with live preview and support for Mermaid diagrams
 
 # Email
+cask "readdle-spark" # Email client https://sparkmailapp.com/
 cask "emclient"  # Email client for Windows and macOS https://www.emclient.com/
 cask "mailspring"  # Email client https://getmailspring.com/
 cask "superhuman"  # paid Email client https://superhuman.com/
