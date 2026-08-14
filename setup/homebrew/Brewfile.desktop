@@ -259,6 +259,7 @@ cask "vnc-viewer"  # Remote desktop application focusing on security
 #cask "wallpaper-wizard"  # Adjustable wallpaper application
 cask "whatsapp"  # Native desktop client for WhatsApp
 cask "wispr-flow"  # Voice-to-text dictation with AI-powered auto-editing
+cask "fluidvoice" # Offline voice-to-text dictation app with AI enhancement https://altic.dev/fluid
 #cask "xmind"  # Mind mapping and brainstorming tool
 cask "xrg"  # System monitor
 cask "yacreader"  # Comic reader
