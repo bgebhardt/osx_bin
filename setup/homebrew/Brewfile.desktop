@@ -33,6 +33,7 @@ cask "microsoft-teams"
 cask "flux-markdown" # Markdown editor with live preview and support for Mermaid diagrams
 
 # Email
+cask "readdle-spark" # Email client https://sparkmailapp.com/
 cask "emclient"  # Email client for Windows and macOS https://www.emclient.com/
 cask "mailspring"  # Email client https://getmailspring.com/
 cask "superhuman"  # paid Email client https://superhuman.com/
@@ -178,6 +179,7 @@ cask "lingon-x"  # Automator software to start apps, run scripts or commands and
 cask "lm-studio"  # Discover, download, and run local LLMs
 cask "local"  # WordPress local development tool by Flywheel
 cask "lunar"  # Adaptive brightness for external displays
+cask "flux-app" # Screen colour temperature controller https://justgetflux.com/
 cask "maccy"  # Clipboard manager
 cask "macsvg"  # App for designing HTML5 Scalable Vector Graphics
 cask "mactex"  # Full TeX Live distribution with GUI applications
@@ -257,6 +259,7 @@ cask "vnc-viewer"  # Remote desktop application focusing on security
 #cask "wallpaper-wizard"  # Adjustable wallpaper application
 cask "whatsapp"  # Native desktop client for WhatsApp
 cask "wispr-flow"  # Voice-to-text dictation with AI-powered auto-editing
+cask "fluidvoice" # Offline voice-to-text dictation app with AI enhancement https://altic.dev/fluid
 #cask "xmind"  # Mind mapping and brainstorming tool
 cask "xrg"  # System monitor
 cask "yacreader"  # Comic reader

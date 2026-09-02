@@ -13,36 +13,37 @@ This is currently a scratch space for my mac setup.
 7. ~/bin/setup/macOS/mac-defaults.sh
 8. set up 1Password
 9. set up ssh key for mac in 1password
-10. set up Warp - login and sync configs
-11. install Tailscale
-12. install Rosetta - /usr/sbin/softwareupdate --install-rosetta --agree-to-license
-13. install Brewfile.homeserver
-14. install Brewfile.desktop
-15. install Brewfile.ai
-16. install Brewfile.games
-17. clone scripts to ~/Library/Scripts
-18. setup FastScripts
-19. setup Thaw - menubar manager
-20. Install and setup Microsoft Office
-21. setup OneDrive
-22. setup Outlook
-23. setup eM Client (email client)
-24. setup iDrive
-25. setup RayCast, cloud sync while I have pro
-26. setup Maccy
-27. setup Velja, import rules
-28. setup Rectangle Pro, icloud settings sync
-29. set up Hookmark, icloud settings sync
-30. set up Karabiner, import config
-31. ~/bin/setup/custom-shortcuts/my_shortcuts.sh
-32. defaults write com.apple.Dock appswitcher-all-displays -bool true; killall Dock
-33. set up Obsidian and sync down vaults; setup remotely save;  setup backups
-34. set up Lingon Pro
-35. Shottr
-36. OwlOCR Pro
-37. Better Display
-38. Lunar
-39. Codex bar
+10. restore ~/.ssh/config: ~/bin/setup/configs/setup-ssh-config.sh (pulls host-specific config.local from the "SSH Config Local" item in 1Password)
+11. set up Warp - login and sync configs
+12. install Tailscale
+13. install Rosetta - /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+14. install Brewfile.homeserver
+15. install Brewfile.desktop
+16. install Brewfile.ai
+17. install Brewfile.games
+18. clone scripts to ~/Library/Scripts
+19. setup FastScripts
+20. setup Thaw - menubar manager
+21. Install and setup Microsoft Office
+22. setup OneDrive
+23. setup Outlook
+24. setup eM Client (email client)
+25. setup iDrive
+26. setup RayCast, cloud sync while I have pro
+27. setup Maccy
+28. setup Velja, import rules
+29. setup Rectangle Pro, icloud settings sync
+30. set up Hookmark, icloud settings sync
+31. set up Karabiner, import config
+32. ~/bin/setup/custom-shortcuts/my_shortcuts.sh
+33. defaults write com.apple.Dock appswitcher-all-displays -bool true; killall Dock
+34. set up Obsidian and sync down vaults; setup remotely save;  setup backups
+35. set up Lingon Pro
+36. Shottr
+37. OwlOCR Pro
+38. Better Display
+39. Lunar
+40. Codex bar
 
 
 
