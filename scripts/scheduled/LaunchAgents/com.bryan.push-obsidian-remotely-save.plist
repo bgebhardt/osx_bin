@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Push all configured Obsidian Remotely Save outbox folders to their Backblaze B2 buckets. Upload-only, additive-only (rclone copy) counterpart to com.bryan.pull-obsidian-remotely-save. WatchPaths fires near-instantly on any write into the outbox root(s) below; StartInterval is a 5-minute fallback in case a watch event is missed or coalesced. Add a path here for each vault outbox folder that gets writes. -->
+	<key>Label</key>
+	<string>com.bryan.push-obsidian-remotely-save</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Users/bryan/bin/scripts/scheduled/push-obsidian-remotely-save.sh</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>StartInterval</key>
+	<integer>300</integer>
+	<key>WatchPaths</key>
+	<array>
+		<string>/Users/bryan/Obsidian Remotely Save Outbox/personal-bg/KermitDesk</string>
+	</array>
+	<key>ThrottleInterval</key>
+	<integer>10</integer>
+	<key>StandardErrorPath</key>
+	<string>/tmp/push-obsidian-remotely-save.err</string>
+	<key>StandardOutPath</key>
+	<string>/tmp/push-obsidian-remotely-save.out</string>
+</dict>
+</plist>
