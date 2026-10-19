@@ -17,6 +17,7 @@ tap "davep/homebrew", trusted: true
 tap "nailuogg/recoll", trusted: true  # for recoll
 tap "steipete/tap", trusted: true  # for codexbar
 tap "xykong/tap", trusted: true  # for flux-markdown
+tap "hnykda/tap", trusted: true # for wifi-heatmapper
 
 # Productivity / Office
 cask "busycal"  # Calendar software focusing on flexibility and reliability
@@ -62,6 +63,7 @@ cask "carbon-copy-cloner" # Hard disk backup and cloning utility https://bombich
 # Delisted from Homebrew — install manually or find replacements:
 # cask "cronnix"        # cron editor GUI — no formula/cask in Homebrew anymore
 # cask "obsbot-center"  # OBSBOT camera config — no formula/cask in Homebrew anymore
+cask wifi-heatmapper # [hnykda/wifi-heatmapper: Tool to measure 📏 and generate a WiFi 🛜 connection quality heatmap over a floorplan📍](https://github.com/hnykda/wifi-heatmapper/tree/main)
 
 # Remote access / file sharing
 cask "rustdesk"  # Remote desktop software https://rustdesk.com/
