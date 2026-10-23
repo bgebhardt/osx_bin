@@ -47,6 +47,7 @@ brew "yadm"  # A tool for managing dotfiles.
 brew "azure-cli"  # Microsoft Azure CLI 2.0
 brew "doctl"  # Command-line tool for DigitalOcean
 brew "ionos-cloud/ionos-cloud/ionosctl"  # IonosCTL — manage IONOS CLOUD resources from your terminal.
+brew "b2-tools" # B2 Cloud Storage Command-Line Tools https://github.com/Backblaze/B2_Command_Line_Tool
 
 # S3 storage commands
 brew "duti"  # Select default apps for documents and URL schemes on macOS - https://github.com/moretension/duti/
